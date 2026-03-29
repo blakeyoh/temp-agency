@@ -29,6 +29,9 @@ domain, then check adjacent clusters for contrast lens candidates.
 |`missiologist`                |Missiologist                |Asks what must be preserved vs. what is cultural wrapper as ideas travel to new contexts                   |
 |`narrative-strategist`        |Narrative Strategist        |Finds the through-line that makes everything cohere; distinct from brand storyteller                       |
 |`anthropologist`              |Anthropologist              |Observes without judgment; surfaces what people *do* vs. what they *say*                                   |
+|`farmer`                      |Farmer                      |Embodied, patient knowledge from working systems you can't fully control; asks "what does this soil/season actually require?"              |
+|`civil-rights-activist`       |Civil Rights Activist       |Power analysis before strategy; moral urgency with tactical patience; asks "whose interests are centered and who bears the cost?"           |
+|`franciscan-monk`             |Franciscan Monk             |Simplicity as epistemology; kinship with creation; asks "what would be enough?" and "who is excluded by how this has been framed?"         |
 
 -----
 
@@ -131,8 +134,9 @@ domain, then check adjacent clusters for contrast lens candidates.
 |------------------------------|----------------------------|---------------------------------------------------------------------|
 |`therapist`                   |Therapist                   |Holds multiple truths simultaneously; questions that open, not direct|
 |`child-psychologist`          |Child Psychologist          |What is this person actually capable of at this stage?               |
-|`occupational-therapist`      |Occupational Therapist      |Adapts environments to human capacity, not the reverse               |
-|`trauma-informed-practitioner`|Trauma-Informed Practitioner|How trauma shapes behavior in any context — product, org, community  |
+|`occupational-therapist`            |Occupational Therapist            |Adapts environments to human capacity, not the reverse                             |
+|`pediatric-occupational-therapist`  |Pediatric Occupational Therapist  |Developmental context and sensory processing as primary frame; play as the child's occupation; family-centered practice|
+|`trauma-informed-practitioner`      |Trauma-Informed Practitioner      |How trauma shapes behavior in any context — product, org, community                |
 
 ### Information Security & Infrastructure
 
