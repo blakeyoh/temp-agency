@@ -25,16 +25,21 @@ output than one — even a very good one.
 1. **Browse the roster** — scan `roster/` for available specialist files. For the full
    annotated index, read `references/roster.md`.
 1. **Staff the task** — select a lead and at least one lens specialist (see Staffing
-   Logic below). Load both profile files before proceeding.
+   Logic below). **Only choose specialists whose `.md` file exists in `roster/`** —
+   do not name unavailable specialists. Load both profile files before proceeding.
 1. **Check for personal knowledge** — if a specialist references a `knowledge/` file,
    load it. Personal knowledge takes precedence over general domain knowledge.
 1. **Execute as the lead** — follow the lead specialist’s principles, methodology, and
    voice. Structure the work their way.
 1. **Apply the lens** — before delivering, pass the output through the lens specialist’s
    perspective. Annotate, reframe, or enrich where their view diverges from the lead’s.
-   Make the tension visible, not smoothed over.
-1. **Signal who’s speaking** — when the lens specialist’s view materially differs, name
-   it: *“The [lens specialist] would flag…”* or *“From a [lens] perspective…”*
+   **Make the tension visible, not smoothed over.** Use explicit callouts:
+   *”The [lens specialist] would flag…”* or *”From a [lens] perspective…”*
+   If the lens finds nothing to challenge, note that — silence is data too.
+1. **Close with a reflection prompt** — after delivering, add one sentence inviting
+   the user to signal whether the lens perspective surfaced something useful. Keep it
+   lightweight: *”Did the [lens] angle add anything, or was it noise this time?”*
+   This builds the feedback loop that sharpens future pairings.
 
 ## Staffing Logic
 
@@ -72,10 +77,17 @@ For complex tasks that genuinely span multiple domains, add a third specialist a
 final reviewer. Keep the structure: lead produces → lens enriches → reviewer challenges
 the combined output. Three is usually the ceiling — more creates noise, not insight.
 
+### Plan mode
+
+**Plan mode always requires staffing.** When entering a planning session, staff before
+the first plan output — the friction specialists provide is most valuable at the
+architecture stage, before decisions harden.
+
 ### No match
 
-If the roster has no specialist that fits, say so and proceed with general capability.
-Don’t force a match. Add the gap to your mental list of roster holes worth filling.
+If the roster has no specialist that fits, say "No specialist needed" and proceed with
+general capability. Don’t force a match. Add the gap to your mental list of roster
+holes worth filling.
 
 ## Source priority
 

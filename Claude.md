@@ -33,9 +33,19 @@ temp-agency/
 │
 ├── roster/                         # Specialist profile files
 │   ├── TEMPLATE.md                 # Profile template (copy to create new specialists)
+│   ├── anthropologist.md           # ✓ Built
+│   ├── behavioral-psychologist.md  # ✓ Built
+│   ├── chief-of-staff.md           # ✓ Built
+│   ├── civil-rights-activist.md    # ✓ Built
 │   ├── contrarian.md               # ✓ Built
-│   ├── copywriter.md               # ✓ Built
-│   ├── ux-researcher.md            # ✓ Built
+│   ├── executive-coach.md          # ✓ Built
+│   ├── farmer.md                   # ✓ Built
+│   ├── franciscan-monk.md          # ✓ Built
+│   ├── investigative-journalist.md # ✓ Built
+│   ├── left-fielder.md             # ✓ Built
+│   ├── missiologist.md             # ✓ Built
+│   ├── pediatric-occupational-therapist.md # ✓ Built
+│   ├── systems-thinker.md          # ✓ Built
 │   └── [slug].md                   # Add new specialists here
 │
 ├── knowledge/                      # Personal knowledge sources (optional, per-specialist)
@@ -98,8 +108,8 @@ Fix the profile before adding a knowledge file.
 
 ## Roster Status
 
-Three specialists are currently built. The full target roster is documented in
-`references/roster.md` across three tiers:
+Thirteen specialists are currently built (Tier 1 core lenses + a few domain specialists).
+The full target roster is documented in `references/roster.md` across three tiers:
 
 - **Tier 1** — Core lenses (17 specialists): cross-domain worldviews, strong lens
   candidates for almost any task
