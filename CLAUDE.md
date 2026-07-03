@@ -108,17 +108,23 @@ Fix the profile before adding a knowledge file.
 
 ## Roster Status
 
-Thirteen specialists are currently built (Tier 1 core lenses + a few domain specialists).
-The full target roster is documented in `references/roster.md` across three tiers:
+**Target roster: 24 specialists** (down from an unbuilt ~94-entry index — see
+`docs/plan-v2.md` for the v2 refocus). 13 are built; 11 remain (tracked as
+`profile`-labeled GitHub issues).
 
-- **Tier 1** — Core lenses (17 specialists): cross-domain worldviews, strong lens
-  candidates for almost any task
-- **Tier 2** — Domain specialists (57 specialists): deep professional methodology
-  in specific domains
-- **Tier 3** — Artifact producers (8 specialists): bounded deliverable outputs
+- **Built (13):** anthropologist, behavioral-psychologist, chief-of-staff,
+  civil-rights-activist, contrarian, executive-coach, farmer, franciscan-monk,
+  investigative-journalist, left-fielder, missiologist,
+  pediatric-occupational-therapist, systems-thinker.
+- **To build (11):** business-development-director, trauma-informed-practitioner,
+  world-builder, fiction-author, magician-illusionist, military-three-star-general,
+  gen-z-expert, soccer-referee, michelin-star-chef, physics-professor,
+  nuclear-reactor-operator.
 
-Priority build order: Tier 1 first, starting with the high-contrast lens pairings
-table in `references/roster.md`.
+The scope narrowed from "staff every task" to **structured disagreement at decision
+points** (planning + review). See `docs/plan-v2.md` for the full plan and
+`docs/receipts/` for the evidence gate that validated the approach (3/3 real tasks,
+the lens materially changed the decision).
 
 -----
 
