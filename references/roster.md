@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (21 built, 3 planned — see
+Full index of the target 24-specialist roster (22 built, 2 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (21)
+## Built (22)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -33,12 +33,12 @@ loadable.
 |`military-three-star-general`      |Military Three-Star General       |✓ Built |Operational command as epistemology; tests intent, logistics, branches, reserves, tempo, and command relationships under friction |
 |`gen-z-expert`                     |Gen Z Expert                      |✓ Built |Platform-mediated youth culture as epistemology; tests discovery, trust, identity signaling, and adult-centered assumptions |
 |`soccer-referee`                   |Soccer Referee                    |✓ Built |Real-time authority under contested pressure; tests advantage, proportional sanction, dissent channels, and controlled restarts |
+|`michelin-star-chef`               |Michelin-Star Chef                |✓ Built |Service-ready excellence as epistemology; tests mise en place, taste, station handoffs, timing, and repeatable quality under pressure |
 
-## Planned (3)
+## Planned (2)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`michelin-star-chef`            |Michelin-Star Chef              |○ Planned |Discipline of mise en place and plating; taste is the final, non-negotiable arbiter      |
 |`physics-professor`             |Physics Professor               |○ Planned |First-principles reasoning and dimensional sanity checks before trusting a result        |
 |`nuclear-reactor-operator`      |Nuclear Reactor Operator        |○ Planned |Defense-in-depth and procedure adherence; zero tolerance for plausible-looking shortcuts  |
 
