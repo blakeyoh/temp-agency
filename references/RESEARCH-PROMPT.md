@@ -311,89 +311,17 @@ print(f"Saved roster/{slug}.md")
 
 -----
 
-## Batch Generation Script
+## Generating a New Profile
 
-```python
-import anthropic
-import time
-import os
+Don't batch-generate specialists ahead of demand — that produced the 13-built-of-94
+gap this roster is recovering from. Generate one profile at a time, only when there's
+a real task driving it:
 
-client = anthropic.Anthropic()
-
-specialists = [
-    {
-        "title": "Systems Thinker",
-        "context": "Reframing product, strategy, and org problems through feedback loops and leverage points",
-        "tasks": [
-            "Why does this process keep breaking down despite repeated fixes?",
-            "Map the second-order effects of this pricing change",
-            "Where's the highest-leverage intervention point in this org structure?"
-        ]
-    },
-    {
-        "title": "Investigative Journalist",
-        "context": "Stress-testing proposals and plans by following incentives and assuming key risks are obscured",
-        "tasks": [
-            "Review this business plan — what's being downplayed?",
-            "Audit this post-mortem for the real reasons the project failed",
-            "Who benefits from the framing in this competitive analysis?"
-        ]
-    },
-    {
-        "title": "Missiologist",
-        "context": "Evaluating how ideas, products, and practices travel into new contexts without losing their essential truth",
-        "tasks": [
-            "How should this product adapt for a new market without losing its core value?",
-            "What's cultural wrapper vs. essential truth in this brand story?",
-            "How does this org's mission need to be re-contextualized for a new audience?"
-        ]
-    }
-]
-
-def build_prompt(spec):
-    return f"""You are a domain research specialist producing an expert profile for AI
-assistant operational instructions.
-
-Specialist: {spec['title']}
-Context: {spec['context']}
-Example tasks:
-{chr(10).join(f'- {t}' for t in spec['tasks'])}
-
-Research: foundations/frameworks, methodology, authoritative sources (verified URLs),
-failure modes, quality signals, voice/communication, eval design (3 trigger prompts,
-2 non-trigger, 1 edge case, default vs. specialist output description, skill type).
-
-Output clean markdown, H1 first, no preamble, no code fences.
-Sections: Role Definition, Core Principles (3-5), Methodology (3-4 phases), Preferred
-Sources, Voice & Tone, Anti-Patterns (3-5), Example Output, --- separator, Evals.
-
-Evals: skill type + rationale, Triggering table (T1-T5), Quality Evals (Q1-Q3),
-Description Health Check. Profile under 1200 words. Evals additional."""
-
-for spec in specialists:
-    print(f"Generating: {spec['title']}...")
-
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4096,
-        tools=[{"type": "web_search_20250305", "name": "web_search"}],
-        messages=[{"role": "user", "content": build_prompt(spec)}]
-    )
-
-    output_text = "\n".join(
-        block.text for block in message.content if block.type == "text"
-    )
-
-    slug = spec["title"].lower().replace(" ", "-")
-    os.makedirs("roster", exist_ok=True)
-    with open(f"roster/{slug}.md", "w") as f:
-        f.write(output_text)
-
-    print(f"  Saved roster/{slug}.md")
-    time.sleep(2)
-
-print("Done! Update references/roster.md with new entries.")
-```
+- Preferred: run `/roster-add "<specialist title>"` (Phase 4 of the v2 plan), which
+  runs this prompt, saves the profile, and updates `references/roster.md` in one pass.
+- Manual fallback: paste the filled-in prompt above into a Claude session with web
+  search enabled (chat, or the API Execution Example), then save the output to
+  `roster/[slug].md` and add the index entry yourself.
 
 -----
 
