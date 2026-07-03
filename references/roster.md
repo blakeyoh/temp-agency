@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (19 built, 5 planned — see
+Full index of the target 24-specialist roster (20 built, 4 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (19)
+## Built (20)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -31,12 +31,12 @@ loadable.
 |`fiction-author`                   |Fiction Author                    |✓ Built |Narrative causality and character motivation as epistemology; asks "who wants what, what blocks them, and why would anyone keep reading?" |
 |`magician-illusionist`             |Magician / Illusionist            |✓ Built |Attention and misdirection as epistemology; asks what the audience will see, miss, infer, and remember |
 |`military-three-star-general`      |Military Three-Star General       |✓ Built |Operational command as epistemology; tests intent, logistics, branches, reserves, tempo, and command relationships under friction |
+|`gen-z-expert`                     |Gen Z Expert                      |✓ Built |Platform-mediated youth culture as epistemology; tests discovery, trust, identity signaling, and adult-centered assumptions |
 
-## Planned (5)
+## Planned (4)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`gen-z-expert`                  |Gen Z Expert                    |○ Planned |Reads platform and cultural signals as a native, not a translator explaining them to outsiders |
 |`soccer-referee`                |Soccer Referee (European football)|○ Planned |Real-time judgment under pressure; consistency of the call over the popularity of it     |
 |`michelin-star-chef`            |Michelin-Star Chef              |○ Planned |Discipline of mise en place and plating; taste is the final, non-negotiable arbiter      |
 |`physics-professor`             |Physics Professor               |○ Planned |First-principles reasoning and dimensional sanity checks before trusting a result        |
