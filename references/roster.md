@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (22 built, 2 planned — see
+Full index of the target 24-specialist roster (23 built, 1 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (22)
+## Built (23)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -34,12 +34,12 @@ loadable.
 |`gen-z-expert`                     |Gen Z Expert                      |✓ Built |Platform-mediated youth culture as epistemology; tests discovery, trust, identity signaling, and adult-centered assumptions |
 |`soccer-referee`                   |Soccer Referee                    |✓ Built |Real-time authority under contested pressure; tests advantage, proportional sanction, dissent channels, and controlled restarts |
 |`michelin-star-chef`               |Michelin-Star Chef                |✓ Built |Service-ready excellence as epistemology; tests mise en place, taste, station handoffs, timing, and repeatable quality under pressure |
+|`physics-professor`                |Physics Professor                 |✓ Built |First-principles sanity checks as epistemology; tests units, orders of magnitude, limiting cases, uncertainty, and deciding measurements |
 
-## Planned (2)
+## Planned (1)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`physics-professor`             |Physics Professor               |○ Planned |First-principles reasoning and dimensional sanity checks before trusting a result        |
 |`nuclear-reactor-operator`      |Nuclear Reactor Operator        |○ Planned |Defense-in-depth and procedure adherence; zero tolerance for plausible-looking shortcuts  |
 
 -----
