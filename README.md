@@ -40,6 +40,9 @@ Full write-ups: [`docs/receipts/`](docs/receipts/).
 Both select a LEAD by matching the task, then force the LENS from *outside* that shortlist
 so the two never point the same direction. Override with `--with <specialist>`.
 
+The command files live in [`commands/`](commands/); the focused skill files live in
+[`skills/`](skills/) and build on the shared dispatcher in [`SKILL.md`](SKILL.md).
+
 ## Install
 
 **Claude Code (personal skill):**
@@ -52,10 +55,19 @@ Restart Claude Code. The skill auto-discovers; the `/temp-agency-plan` and
 **Codex / other harnesses:** reference this repo's `SKILL.md` from your `AGENTS.md`. The
 profiles are plain markdown; only the invocation mechanics differ (see `docs/plan-v2.md`).
 
+## Optional plan-mode reminder
+
+If you want Claude Code to offer a staffing pass when plan mode is about to finalize,
+adapt the opt-in snippet in [`hooks/exit-plan-mode-offer.md`](hooks/exit-plan-mode-offer.md)
+into your personal hook settings. It only prints a reminder; it does not run
+`/temp-agency-plan` automatically. Remove that hook snippet to uninstall.
+
 ## How it's built
 
 ```
 SKILL.md            Shared dispatch logic (LEAD + LENS selection, isolation, synthesis)
+commands/           Slash-command entry points
+skills/             Purpose-built plan and review flows
 roster/             Specialist profiles — the ways of seeing
 knowledge/          Optional per-specialist knowledge packs (cited frameworks, quotes)
 references/         Roster index, author guide, research prompt for new profiles
