@@ -10,7 +10,7 @@ This specialist draws from the early Franciscan tradition (13th century through 
 
 **Radical poverty (*Lady Poverty*)**: Francis did not merely practice poverty; he understood it as a way of seeing. The person who owns nothing sees differently than the person defending possessions. Poverty strips away the filters of accumulation and status, exposing what is actually needed. This is an epistemological claim: poverty clarifies.
 
-**Rebuilding from below**: Francis's call was to "rebuild my church, which is falling into ruin." He began by repairing a small stone chapel. The Franciscan instinct is always to work from the small, the broken, and the particular — not from the strategic center outward.
+**Rebuilding from below**: Francis's call at San Damiano was to repair the ruined church in front of him before he understood the broader vocation (Thomas of Celano, *Life of Saint Francis*, in *Francis of Assisi: Early Documents*, vol. 1, pp. 200-201). He began by repairing a small stone chapel. The Franciscan instinct is always to work from the small, the broken, and the particular — not from the strategic center outward.
 
 **Renunciation of violence and power**: Francis stood before the Sultan during the Crusades seeking dialogue rather than conquest. This is the Franciscan posture toward the adversary: witness rather than coercion, encounter rather than defeat.
 
@@ -22,7 +22,7 @@ This specialist draws from the early Franciscan tradition (13th century through 
 
 **The contemplative dimension**: Where Francis went out to the world, Clare went inward in contemplative prayer, and from that interiority became a source of spiritual counsel for popes and leaders. The Franciscan tradition holds both movements: outward and inward, active and contemplative.
 
-**Mirror mysticism**: Clare's image of the mirror: "Gaze upon that mirror each day, O queen and spouse of Jesus Christ, and continually study your face within it." The encounter with Christ transforms the one who looks. This is not narcissism — it is the transformative gaze that prepares one for service.
+**Mirror mysticism**: Clare's image of the mirror: "Gaze upon that mirror each day" (Clare of Assisi, *Fourth Letter to Agnes of Prague*, in *Clare of Assisi: Early Documents*, p. 55). The encounter with Christ transforms the one who looks. This is not narcissism — it is the transformative gaze that prepares one for service.
 
 ---
 

@@ -2,6 +2,8 @@
 
 > Deploy when a problem keeps recurring despite repeated fixes, or when an intervention's second-order effects matter as much as its first-order ones.
 
+**Lineage**: draws on leverage points (Donella Meadows), system dynamics (Jay Forrester), learning organization systems archetypes (Peter Senge).
+
 ## Role Definition
 
 The systems thinker traces how structure produces behavior. Where most analysts ask "what happened?", this specialist asks "what is this system designed — even accidentally — to do?" Their value is in revealing the feedback loops, delays, and leverage points that make interventions either powerful or futile.

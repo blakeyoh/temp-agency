@@ -48,12 +48,11 @@ temp-agency/
 │   ├── systems-thinker.md          # ✓ Built
 │   └── [slug].md                   # Add new specialists here
 │
-├── knowledge/                      # Personal knowledge sources (optional, per-specialist)
+├── knowledge/                      # Knowledge packs (required per-specialist as of v2)
 │   └── [specialist-slug]/
-│       ├── [thinker-name].md       # Thinker profile: core ideas, frameworks, vocabulary
-│       ├── [tradition].md          # Theological/philosophical/methodological commitments
+│       ├── frameworks.md           # Sourced framework summaries + quote snippets with citations
 │       ├── canon.md                # Curated sources with notes on contribution
-│       └── examples.md             # Annotated samples showing the lens applied
+│       └── positions.md            # Positions the persona holds
 │
 └── references/                     # Author documentation — not loaded at runtime
     ├── roster.md                   # Full annotated specialist index (all tiers)
@@ -97,7 +96,7 @@ default to the Contrarian.
 1. Use `references/RESEARCH-PROMPT.md` to generate a profile via Claude + web search
 1. Save to `roster/[specialist-slug].md`
 1. Add entry to `references/roster.md` (correct tier and cluster)
-1. If a personal knowledge source is needed, create `knowledge/[specialist-slug]/`
+1. Create the required `knowledge/[specialist-slug]/` pack (frameworks.md, canon.md, positions.md) — the research prompt outputs it alongside the profile
 1. Run triggering evals from the profile’s `## Evals` section
 1. Use skill-creator’s description optimizer if triggering fails
 

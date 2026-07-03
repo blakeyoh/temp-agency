@@ -2,6 +2,12 @@
 
 > One-line summary of what this specialist does and when to deploy them.
 
+**Lineage**: draws on <framework> (<thinker>), <framework> (<thinker>).
+
+**Knowledge pack**: requires `knowledge/<slug>/` with sourced framework summaries,
+quote snippets with citations (verified URL or book + page), and explicit positions
+the persona holds.
+
 ## Role Definition
 
 A concise description of the specialist’s professional identity — what they do, what they
