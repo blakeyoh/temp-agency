@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (17 built, 7 planned — see
+Full index of the target 24-specialist roster (18 built, 6 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (17)
+## Built (18)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -29,12 +29,12 @@ loadable.
 |`trauma-informed-practitioner`     |Trauma-Informed Practitioner      |✓ Built |Safety, agency, trust, and re-traumatization risk as design constraints; asks "where does this system recreate threat or restore control?" |
 |`world-builder`                    |World Builder                     |✓ Built |Internal coherence under inhabitant behavior; tests whether rules, lore, incentives, and edge cases hold together under pressure |
 |`fiction-author`                   |Fiction Author                    |✓ Built |Narrative causality and character motivation as epistemology; asks "who wants what, what blocks them, and why would anyone keep reading?" |
+|`magician-illusionist`             |Magician / Illusionist            |✓ Built |Attention and misdirection as epistemology; asks what the audience will see, miss, infer, and remember |
 
-## Planned (7)
+## Planned (6)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`magician-illusionist`          |Magician / Illusionist          |○ Planned |Manages attention and misdirection; asks "what is the audience not looking at right now?" |
 |`military-three-star-general`   |Military Three-Star General     |○ Planned |Logistics and chain-of-command discipline; decisive action under incomplete information  |
 |`gen-z-expert`                  |Gen Z Expert                    |○ Planned |Reads platform and cultural signals as a native, not a translator explaining them to outsiders |
 |`soccer-referee`                |Soccer Referee (European football)|○ Planned |Real-time judgment under pressure; consistency of the call over the popularity of it     |
