@@ -15,11 +15,13 @@ thinkers. A systems thinker traces feedback loops; an investigative journalist t
 every claim as a tip to verify; a Franciscan monk asks whether the feature should exist
 at all.
 
-## Does it actually help?
+## Proof
 
 Yes — measured, not asserted. Before building anything we ran an evidence gate: three
 real tasks from live projects, each done twice (unstaffed baseline vs. staffed LEAD+LENS),
 outputs compared side by side. The lens materially changed the decision in **all three**:
+
+> Result: GATE PASSED — 3 of 3 tasks showed the lens materially changing the decision.
 
 - A security fix that would have made cheating *harder to see* rather than harder to do —
   and would have destroyed the game's free social auditing. *(systems-thinker + behavioral-psychologist)*
@@ -27,6 +29,10 @@ outputs compared side by side. The lens materially changed the decision in **all
   because the fix was importing retention mechanics into a contemplative game. *(behavioral-psychologist + franciscan-monk)*
 - A review that caught the ticket's acceptance criteria citing a function that **doesn't
   exist**, plus a fix that patched the 4th symptom of a 4-site pattern. *(investigative-journalist + farmer)*
+
+One concrete example from the receipts:
+
+> The planned fix would make cheating harder to *see*, not *do*.
 
 Full write-ups: [`docs/receipts/`](docs/receipts/).
 
@@ -45,6 +51,12 @@ The command files live in [`commands/`](commands/); the focused skill files live
 
 ## Install
 
+**Claude Code plugin:**
+Install this repo as the `temp-agency` plugin when using Claude Code's
+marketplace-style plugin flow. The minimal manifest is
+[`.claude-plugin/plugin.json`](.claude-plugin/plugin.json); Claude Code discovers
+the root [`commands/`](commands/) and [`skills/`](skills/) entries from the repo.
+
 **Claude Code (personal skill):**
 ```bash
 git clone https://github.com/blakeyoh/temp-agency ~/.claude/skills/temp-agency
@@ -52,8 +64,10 @@ git clone https://github.com/blakeyoh/temp-agency ~/.claude/skills/temp-agency
 Restart Claude Code. The skill auto-discovers; the `/temp-agency-plan` and
 `/temp-agency-review` commands become available.
 
-**Codex / other harnesses:** reference this repo's `SKILL.md` from your `AGENTS.md`. The
-profiles are plain markdown; only the invocation mechanics differ (see `docs/plan-v2.md`).
+**Codex / other harnesses:**
+Clone this repo somewhere stable, then reference its `SKILL.md` from your project's
+`AGENTS.md`. The profiles are plain markdown; only the invocation mechanics differ.
+Use [`AGENTS.md`](AGENTS.md) for the adapter snippet and inline fallback flow.
 
 ## Optional plan-mode reminder
 
