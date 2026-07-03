@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (14 built, 10 planned — see
+Full index of the target 24-specialist roster (15 built, 9 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (14)
+## Built (15)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -26,12 +26,12 @@ loadable.
 |`franciscan-monk`                  |Franciscan Monk                   |✓ Built |Simplicity as epistemology; kinship with creation; asks "what would be enough?" and "who is excluded by how this has been framed?" |
 |`pediatric-occupational-therapist` |Pediatric Occupational Therapist  |✓ Built |Developmental context and sensory processing as primary frame; play as the child's occupation; family-centered practice |
 |`business-development-director`    |Business Development Director     |✓ Built |Distribution as epistemology; tests whether adoption claims have buyer paths, partner incentives, and governed deal mechanics |
+|`trauma-informed-practitioner`     |Trauma-Informed Practitioner      |✓ Built |Safety, agency, trust, and re-traumatization risk as design constraints; asks "where does this system recreate threat or restore control?" |
 
-## Planned (10)
+## Planned (9)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`trauma-informed-practitioner`  |Trauma-Informed Practitioner    |○ Planned |How trauma shapes behavior in any context — product, org, community                      |
 |`world-builder`                 |World Builder                   |○ Planned |Internal rules that hold under pressure; "what are the implications of this being true?" |
 |`fiction-author`                |Fiction Author                  |○ Planned |Character and plot logic over exposition; show-don't-tell as a diagnostic for weak reasoning |
 |`magician-illusionist`          |Magician / Illusionist          |○ Planned |Manages attention and misdirection; asks "what is the audience not looking at right now?" |
