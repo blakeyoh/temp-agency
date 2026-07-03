@@ -1,6 +1,6 @@
 # Temp Agency — Roster Index
 
-Full index of the target 24-specialist roster (23 built, 1 planned — see
+Full index of the target 24-specialist roster (24 built, 0 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
@@ -8,7 +8,7 @@ loadable.
 
 -----
 
-## Built (23)
+## Built (24)
 
 |Slug                              |Title                            |Status  |Epistemological Lens                                                                                        |
 |-----------------------------------|----------------------------------|--------|-------------------------------------------------------------------------------------------------------------|
@@ -35,12 +35,12 @@ loadable.
 |`soccer-referee`                   |Soccer Referee                    |✓ Built |Real-time authority under contested pressure; tests advantage, proportional sanction, dissent channels, and controlled restarts |
 |`michelin-star-chef`               |Michelin-Star Chef                |✓ Built |Service-ready excellence as epistemology; tests mise en place, taste, station handoffs, timing, and repeatable quality under pressure |
 |`physics-professor`                |Physics Professor                 |✓ Built |First-principles sanity checks as epistemology; tests units, orders of magnitude, limiting cases, uncertainty, and deciding measurements |
+|`nuclear-reactor-operator`         |Nuclear Reactor Operator          |✓ Built |Defense-in-depth under irreversible consequence; tests operating limits, procedure fit, independent barriers, indications, and stop-work authority |
 
-## Planned (1)
+## Planned (0)
 
 |Slug                            |Title                          |Status    |Intent                                                                                  |
 |---------------------------------|--------------------------------|----------|-----------------------------------------------------------------------------------------|
-|`nuclear-reactor-operator`      |Nuclear Reactor Operator        |○ Planned |Defense-in-depth and procedure adherence; zero tolerance for plausible-looking shortcuts  |
 
 -----
 
