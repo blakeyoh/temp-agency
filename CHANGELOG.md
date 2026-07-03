@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to semantic versioning.
 
+## [2.1.0] - 2026-07-03
+
+### Added
+
+- Completed the 24-profile roster (Phase 6, issues #8-#19): 11 new specialists
+  built via the `/roster-add` pipeline, each passing a citation/conformance QA
+  review gate before commit — business-development-director,
+  trauma-informed-practitioner, world-builder, fiction-author,
+  magician-illusionist, military-three-star-general, gen-z-expert,
+  soccer-referee, michelin-star-chef, physics-professor,
+  nuclear-reactor-operator.
+
 ## [2.0.0] - 2026-07-03
 
 ### Added

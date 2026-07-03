@@ -107,18 +107,17 @@ Fix the profile before adding a knowledge file.
 
 ## Roster Status
 
-**Target roster: 24 specialists** (down from an unbuilt ~94-entry index — see
-`docs/plan-v2.md` for the v2 refocus). 13 are built; 11 remain (tracked as
-`profile`-labeled GitHub issues).
-
-- **Built (13):** anthropologist, behavioral-psychologist, chief-of-staff,
-  civil-rights-activist, contrarian, executive-coach, farmer, franciscan-monk,
-  investigative-journalist, left-fielder, missiologist,
-  pediatric-occupational-therapist, systems-thinker.
-- **To build (11):** business-development-director, trauma-informed-practitioner,
-  world-builder, fiction-author, magician-illusionist, military-three-star-general,
-  gen-z-expert, soccer-referee, michelin-star-chef, physics-professor,
-  nuclear-reactor-operator.
+**Roster complete: 24/24 built** (down from an unbuilt ~94-entry index — see
+`docs/plan-v2.md` for the v2 refocus). The final 11 were built via the
+`/roster-add` pipeline (Phase 6, 2026-07-03), each passing a citation/conformance
+QA review gate before commit: anthropologist, behavioral-psychologist,
+business-development-director, chief-of-staff, civil-rights-activist, contrarian,
+executive-coach, farmer, fiction-author, franciscan-monk, gen-z-expert,
+investigative-journalist, left-fielder, magician-illusionist,
+michelin-star-chef, military-three-star-general, missiologist,
+nuclear-reactor-operator, pediatric-occupational-therapist, physics-professor,
+soccer-referee, systems-thinker, trauma-informed-practitioner, world-builder.
+Grow further with `/roster-add` (demand-driven, one pass, all four artifacts).
 
 The scope narrowed from "staff every task" to **structured disagreement at decision
 points** (planning + review). See `docs/plan-v2.md` for the full plan and
