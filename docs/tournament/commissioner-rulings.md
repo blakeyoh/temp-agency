@@ -277,6 +277,52 @@ anyway, 30–2, but its stated mechanism is broader than its real one.
 
 ---
 
+## Two claims verified against the repo
+
+The panels made claims about this repo rather than about entrants. Both were checked
+directly rather than taken on the panel's word.
+
+### VERIFIED — the roster resolves all internal tension
+
+The Skeptic checked one profile (`roster/franciscan-monk.md`) and found no tension named
+between its own principles. Checked across the whole roster: **0 of 24 built profiles name
+any internal tension, conflict, or trade-off within their Core Principles.** Six files use
+words like "tension" elsewhere — in methodology or voice, describing tension the specialist
+observes *in others* — but none names a fault line inside its own commitments.
+
+This is a repo problem independent of the tournament, and a significant one. A profile
+whose principles never conflict is not a person; it is a checklist. Real practitioners are
+constituted by their unresolved tensions — the farmer's patience against the season's
+deadline, the journalist's duty to publish against the duty to protect a source. The
+current profiles have had exactly that removed, which is plausibly a direct cause of the
+smoothness this whole tournament exists to fight.
+
+**Recommended, not ruled:** add a required `## Internal Tensions` section to
+`roster/TEMPLATE.md` naming at least two of the profile's own principles that pull against
+each other, and backfill the 24. This is worth doing whatever wins the bracket.
+
+### CHECKED — the Skeptic's charge against the format is not holding up
+
+The charge: *"32 entrants with a refusal-by-default absorption rule means 24 of them
+contribute nothing at all."* At 12 of 16 R32 games judged, with 13 entrants eliminated:
+
+| Contribution | Count | Which |
+|---|---|---|
+| Mechanism absorbed into a winner | 3 | Persona Grammar, Constraint Compiler, Failure Archaeology |
+| Held on the wildcard bench as a live option | 5 | Committee of Strangers, Collaboration Contract, Constraint Compiler, Anti-Roster, Telegram Constraint |
+| Panel flagged a component as "worth building separately" | 2 | Committee of Strangers (priced defection), Persona Fracture (disagreement from differing evidence) |
+| **Contributed nothing recorded** | **4** | Novelty Gate, Idea Bankruptcy, The Ratchet, Bracket as a Primitive |
+
+**Four of thirteen eliminated entrants have contributed nothing — not twenty-four of
+thirty-two.** The charge assumed absorption was the only contribution channel. It is not:
+the bench, the orthogonal list, and the "build separately" flag are three more, and they
+have carried nine entrants between them.
+
+The charge is **not dismissed** — a 4/13 waste rate is real, the cost per matchup is real,
+and the Ecologist's separate prediction that judge attention does not scale was confirmed
+by this session pausing twice. But the specific quantitative claim is now measured and
+wrong by a factor of five.
+
 ## Standing procedural decisions
 
 ### Precedence: deliberately unset
@@ -299,6 +345,7 @@ Eliminated ideas the commissioner is not ready to discard. Revivable into any la
 | The Constraint Compiler | R32 · G5 | Commissioner not ready to discard; its checker already partly absorbed |
 | The Anti-Roster | R32 · G6 | Took Distance +9 unanimous; lost on mechanism, not on ambition |
 | The Committee of Strangers | R32 · G10 | Lost 30–2 as specified (5–7 bodies). Held for the **committee-of-3** variant — see note below |
+| The Telegram Constraint | R32 · G12 | Won the aggregate 18–11 and lost to a commissioner overrule. Its failure mode is the most valuable object in its packet: an all-hedges telegram is a diagnostic on the **roster**, not on the pass |
 | ~~The Understudy~~ | *revived* | Took the G8 Sweet 16 slot |
 
 **Note on the Committee of Strangers (commissioner):** the entrant lost as written — five
