@@ -251,6 +251,10 @@ button.chip:focus-visible, a:focus-visible, .idcode:focus-visible { outline: 2px
 [data-region="constraint"] { --rc: var(--oxblood); --rw: var(--oxblood-wash); }
 [data-region="apparatus"]  { --rc: var(--brass); --rw: var(--brass-wash); }
 [data-region="memory"]     { --rc: var(--ink-2); --rw: var(--rule-soft); }
+[data-region="fence"] { --rc: var(--teal);    --rw: var(--teal-wash); }
+[data-region="dog"]   { --rc: var(--oxblood); --rw: var(--oxblood-wash); }
+[data-region="moat"]  { --rc: var(--brass);   --rw: var(--brass-wash); }
+[data-region="ufo"]   { --rc: var(--ink-2);   --rw: var(--rule-soft); }
 
 /* ---------- field of 32 ---------- */
 
@@ -443,107 +447,254 @@ footer code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2)
   .masthead canvas { display: none; }
 }
 </style>
+<style>
+/* ---- v2 additions: comparative diverging scoring ---- */
+.badge {
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600; letter-spacing: .11em;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+}
+.badge.contested { background: var(--brass); color: #17140a; }
+.badge.tie { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.badge.sweep { background: var(--teal); color: #05201f; }
+.badge.ruled { background: var(--oxblood); color: #fff; }
+.badge.revive { background: transparent; color: var(--brass); border: 1px solid var(--brass); }
+:root[data-theme="dark"] .badge.ruled, :root:not([data-theme="light"]) .badge.ruled { color: #14090c; }
+:root[data-theme="dark"] .badge.sweep, :root:not([data-theme="light"]) .badge.sweep { color: #04191a; }
+
+.catchip {
+  font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; border: 1px solid currentColor;
+}
+[data-cat="entropy"]    { color: var(--teal); }
+[data-cat="constraint"] { color: var(--oxblood); }
+[data-cat="apparatus"]  { color: var(--brass); }
+[data-cat="memory"]     { color: var(--ink-2); }
+
+/* diverging axis rows */
+.dv { border-top: 1px solid var(--rule-soft); padding: 12px 17px 6px; }
+.dv table { width: 100%; border-collapse: collapse; }
+.dv th { font-family: var(--f-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+         color: var(--ink-3); font-weight: 500; padding-bottom: 7px; border-bottom: 1px solid var(--rule-soft); text-align: center; }
+.dv th.l { text-align: left; } .dv th.r { text-align: right; }
+.dv td { padding: 6px 0; vertical-align: middle; }
+.dv .axn { font-size: 13px; color: var(--ink-2); width: 26%; }
+.dv .axn .u { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .1em; color: var(--teal); display: block; margin-top: 1px; }
+.dv .sc { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; width: 26px; }
+.dv .sc.la { text-align: right; padding-right: 9px; }
+.dv .sc.rb { text-align: left; padding-left: 9px; }
+.dv .sc.win { font-weight: 600; }
+.dv .track { position: relative; height: 12px; background: linear-gradient(90deg, transparent 49.6%, var(--rule) 49.6%, var(--rule) 50.4%, transparent 50.4%); }
+.dv .fill { position: absolute; top: 3px; height: 6px; border-radius: 1px; }
+.dv .votes { width: 118px; text-align: right; font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .02em; color: var(--ink-3); white-space: nowrap; }
+.dv .votes b { font-weight: 600; }
+.dv tfoot td { border-top: 1px solid var(--rule); padding-top: 9px; }
+.dv tfoot .axn { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.dv tfoot .sc { font-size: 16px; }
+
+.sides { display: grid; grid-template-columns: 1fr 46px 1fr; }
+@media (max-width: 700px) { .sides { grid-template-columns: 1fr; } }
+.sd2 { padding: 15px 17px 13px; display: flex; flex-direction: column; gap: 7px; }
+.sd2.lose { background: var(--paper-sunk); }
+.sd2 .hd { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.sd2 h4 { font-size: clamp(17px,2.1vw,21px); font-variation-settings: "SOFT" 18,"WONK" 1,"opsz" 30; letter-spacing: -.015em; }
+.sd2.lose h4 { color: var(--ink-2); font-weight: 500; }
+.sd2 .pts { font-family: var(--f-mono); font-size: 34px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.04em; line-height: 1; }
+.sd2.win .pts { color: var(--rc); } .sd2.lose .pts { color: var(--ink-3); }
+.sd2 .st { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); }
+.sd2.win .st { color: var(--rc); }
+.owner { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); border: 1px solid var(--brass); border-radius: 2px; padding: 1px 4px; }
+
+.panelrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1px; background: var(--rule-soft); border-top: 1px solid var(--rule-soft); }
+.pcell { background: var(--paper); padding: 11px 14px 12px; }
+.pcell .pn { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.pcell .pn .pick { color: var(--rc); font-weight: 600; }
+.pcell .pd { font-size: 13px; line-height: 1.5; color: var(--ink); }
+.pcell .dsp { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-top: 7px; display: inline-block; padding: 1px 6px; border-radius: 2px; border: 1px solid var(--rule); color: var(--ink-3); }
+.pcell .dsp.ABSORBED { border-color: var(--teal); color: var(--teal); }
+.pcell .dsp.SUBSUMED { border-color: var(--brass); color: var(--brass); }
+
+.ruling { margin: 0 17px 16px; border-left: 3px solid var(--oxblood); background: var(--oxblood-wash); padding: 12px 15px; border-radius: 0 2px 2px 0; }
+.ruling .lb { font-family: var(--f-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 4px; }
+.ruling p { font-size: 14px; line-height: 1.55; color: var(--ink); }
+.ruling p + p { margin-top: 7px; }
+
+.bench { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 12px; }
+.bcard { background: var(--paper); border: 1px dashed var(--rule); border-radius: 2px; padding: 14px 15px; }
+.bcard h4 { font-size: 16px; font-variation-settings: "SOFT" 14,"opsz" 24; }
+.bcard p { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.5; }
+.bcard .tag2 { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; display: block; }
+
+.s16 { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.s16 th { font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; text-align: left; padding: 0 14px 9px 0; border-bottom: 1px solid var(--rule); }
+.s16 td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.s16 td:first-child { font-weight: 600; color: var(--ink); }
+.s16 td:nth-child(2) { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.s16 td:last-child { color: var(--ink-2); }
+.s16 tr.pending td { color: var(--ink-3); font-style: italic; }
+
+.callout { border: 1px solid var(--brass); background: var(--brass-wash); border-radius: 2px; padding: 18px 20px; }
+.callout h3 { font-size: 21px; font-variation-settings: "SOFT" 20,"WONK" 1,"opsz" 30; color: var(--brass); }
+.callout p { font-size: 15px; line-height: 1.6; margin-top: 10px; max-width: 72ch; }
+.callout blockquote { margin: 12px 0 0; padding-left: 15px; border-left: 2px solid var(--brass); font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+.callout blockquote b { color: var(--ink); }
+</style>
 
 <header class="masthead">
   <canvas id="drift" aria-hidden="true"></canvas>
   <div class="wrap">
-    <p class="eyebrow">temp-agency &nbsp;·&nbsp; single elimination &nbsp;·&nbsp; absorption rules in effect</p>
+    <p class="eyebrow">temp-agency &nbsp;·&nbsp; run 2 &nbsp;·&nbsp; blind panels &nbsp;·&nbsp; commissioner rulings in effect</p>
     <h1>The 99th<br><em>Idea</em> Bracket</h1>
     <p class="deck">
       Thirty-two mechanisms for forcing randomness — and therefore creativity — into a model
-      that has been trained toward consistency. Seeded into four regions, run head to head.
-      <strong>The more creative idea wins and absorbs the best part of the idea it beat</strong>,
-      so every survivor is a chimera and the Final Four are four rival theories rather than four
-      surviving tricks.
+      trained toward consistency. Cross-pollinated into four brackets so every opening game is a
+      cross-theory argument, judged by <strong>three independent panels blind to seed, region and
+      authorship</strong>, scored comparatively against fixed reference points, and halted after
+      every round for the commissioner to rule.
     </p>
-
     <p class="premise">
       A creative workshop asks a room for <b>100 ways to protect a home</b>. The first ten are a
-      fence, a dog, a camera. The last ten are a moat and a fleet of UFOs that abduct intruders.
-      The value was never the moat. It is that reaching idea <b>#99</b> requires a different
-      generative process than reaching idea #3 — and temp-agency currently stops at about #12.
+      fence, a dog, a camera. The last ten are a moat and a fleet of UFOs. The value was never the
+      moat — it is that reaching idea <b>#99</b> requires a different generative process than
+      reaching idea #3, and temp-agency currently stops at about #12.
     </p>
-
     <div class="statstrip">
       <div class="stat"><span class="n">32</span><span class="l">entrants</span></div>
-      <div class="stat"><span class="n">28</span><span class="l">games run</span></div>
-      <div class="stat hi"><span class="n">6</span><span class="l">upsets</span></div>
-      <div class="stat"><span class="n">4</span><span class="l">regions</span></div>
-      <div class="stat"><span class="n">50</span><span class="l">points possible</span></div>
-      <div class="stat hi"><span class="n">47</span><span class="l">high score</span></div>
-      <div class="stat"><span class="n">4</span><span class="l">still alive</span></div>
+      <div class="stat hi"><span class="n" id="sJudged">8</span><span class="l">of 16 judged</span></div>
+      <div class="stat"><span class="n">3</span><span class="l">blind panels</span></div>
+      <div class="stat hi"><span class="n" id="sContested">4</span><span class="l">contested</span></div>
+      <div class="stat"><span class="n">6</span><span class="l">rulings</span></div>
+      <div class="stat"><span class="n" id="sAbsorbed">1</span><span class="l">absorptions kept</span></div>
+      <div class="stat"><span class="n">3</span><span class="l">on the bench</span></div>
     </div>
   </div>
 </header>
 
 <main>
 
-<section id="rubric">
+<section id="state">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">where this stands</p>
+      <h2>Round of 32, half judged</h2>
+      <p>
+        Brackets 1 and 2 are complete and ruled. Brackets 3 and 4 have packets written and have not
+        been dispatched. Every decision below is recorded in
+        <code>docs/tournament/commissioner-rulings.md</code>, which is the source of truth;
+        overrides are printed as overrides and never folded into a panel's verdict.
+      </p>
+    </div>
+    <div class="callout">
+      <h3>The tournament eliminated itself</h3>
+      <p>
+        <b>Bracket as a Primitive</b> — the mechanism generating this entire document — lost
+        <b>19–7 in round one</b>, unanimously, to judges blind to what they were evaluating.
+      </p>
+      <blockquote>
+        <b>Skeptic:</b> “It is the entrant that most flatters the process now evaluating it, and an
+        idea that rewards its own judging mechanism earns harder questions, not softer ones… 32
+        entrants with a refusal-by-default absorption rule means 24 of them contribute nothing at
+        all.”
+      </blockquote>
+      <blockquote>
+        <b>Ecologist:</b> “Its cost per use — 31 matchups against five axes with two predicates each
+        — is its own Limits to Growth loop whose limiting condition is judge attention, and
+        <b>judge attention does not scale into year three</b>.”
+      </blockquote>
+      <p>
+        The second prediction was confirmed within the hour: this session paused for usage limits
+        after two of four brackets. The Skeptic's charge remains <b>open and unresolved</b> — it
+        lands on a live design decision, not on any entrant.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="method">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">how a game is decided</p>
-      <h2>The 99th-Idea Rubric</h2>
+      <h2>Comparative scoring, three blind panels</h2>
       <p>
-        Five axes, ten points each. The axes reward <em>distance from the median output</em>, not
-        implementability — a cheap mechanism that pushes the model somewhere it would never go beats
-        an expensive one that produces a better version of where it already goes.
+        Run 1 was judged by one model assigning absolute 1–10 scores with mandatory absorption. It
+        produced compressed, unfalsifiable numbers and a tidy narrative. Run 2 fixes all three.
       </p>
     </div>
     <div class="scroller">
       <table class="rubric">
-        <thead>
-          <tr><th>Axis</th><th>The question it asks</th><th>What a low score looks like</th></tr>
-        </thead>
+        <thead><tr><th>Axis</th><th>The question it asks</th><th>Required predicate — no predicate, no vote</th></tr></thead>
         <tbody>
-          <tr><td>Distance</td><td>How far from the median AI answer does this push the output?</td><td>The default answer, better organized</td></tr>
-          <tr><td>Mechanism</td><td>Does something actually <em>execute</em>, or is this exhortation?</td><td>A paragraph asking the model to try harder</td></tr>
-          <tr class="key"><td>Irreducibility</td><td>Could the base model already do this if simply asked nicely?</td><td>Yes — "be more creative" gets 80% of it</td></tr>
-          <tr><td>Compounding</td><td>Does it get weirder with use, or does the novelty wear off?</td><td>Identical on the tenth use as the first</td></tr>
-          <tr><td>Generative failure</td><td>When it breaks, does it produce a different kind of insight — or noise?</td><td>Noise, or nothing at all</td></tr>
+          <tr><td>Distance</td><td>How far from the median AI answer does this push the output?</td><td>“Name a specific output this forbids.”</td></tr>
+          <tr><td>Mechanism</td><td>Does something actually execute, or is this exhortation?</td><td>“Name the file that runs.”</td></tr>
+          <tr class="key"><td>Irreducibility</td><td>Could the base model already do this if simply asked nicely?</td><td>“A base model given only the prompt ___ reproduces about ___% of this.”</td></tr>
+          <tr><td>Compounding</td><td>Does it get weirder with use, or does the novelty wear off?</td><td>“State what use #10 produces that use #1 does not.”</td></tr>
+          <tr><td>Generative failure</td><td>When it breaks, does it produce a different kind of insight?</td><td>“Describe the exact failure output.”</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:18px;max-width:70ch;color:var(--ink-2);font-size:15px">
-      <strong style="color:var(--ink)">Irreducibility is load-bearing.</strong> It is this repo's own
-      doctrine — <em>encoded preference over capability uplift</em> — turned on mechanisms instead of
-      personas. A mechanism the model can simulate when asked politely is not a mechanism.
-    </p>
+    <div class="regions" style="margin-top:22px">
+      <div class="region-card" data-region="entropy">
+        <h3>Comparative only</h3>
+        <p class="theory">No standalone scores. Per axis a panel votes significantly better (3), slightly better (1), or Tie. Three panels sum to a range of −9…+9 per axis, −45…+45 per game.</p>
+      </div>
+      <div class="region-card" data-region="constraint">
+        <h3>A fixed ruler</h3>
+        <p class="theory">Each axis pins named reference points from floor to ceiling. Judges decide which references an idea sits between — a difficulty table, not an impression.</p>
+      </div>
+      <div class="region-card" data-region="apparatus">
+        <h3>Blind panels</h3>
+        <p class="theory">Builder (Mechanism bias), Skeptic (Irreducibility), Ecologist (Compounding). Blind to seed, region, authorship, and each other. A/B position flipped on 10 of 16 games from seed 99.</p>
+      </div>
+      <div class="region-card" data-region="memory">
+        <h3>Absorption refuses by default</h3>
+        <p class="theory">Three tests, all must pass: same-thesis, deletion (worse or merely smaller?), one-sentence. Dispositions are ABSORBED / ORTHOGONAL / SUBSUMED — and orthogonal is a finding.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="regions">
+<section id="games">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">the draw</p>
-      <h2>Four regions, four theories of creativity</h2>
+      <p class="eyebrow">box score</p>
+      <h2>Every matchup judged</h2>
       <p>
-        Regions are thematic rather than arbitrary, so a regional champion represents a coherent
-        philosophy and the Final Four is a genuine argument. Each region names the enemy it thinks
-        is responsible for homogeneous output.
+        Each card shows the per-axis diverging score, how each panel voted, what each said decided
+        it, the absorption disposition, and any commissioner ruling. Click a lineage code to trace
+        an entrant.
       </p>
     </div>
-    <div class="regions">
-      <div class="region-card" data-region="entropy">
-        <h3>Entropy</h3>
-        <p class="theory">Inject genuine outside material or genuine randomness. If the model cannot reach it from where it is, bring it in from elsewhere.</p>
-        <p class="enemy"><b>Enemy</b>The model's simulated randomness, which is just retrieval wearing a costume.</p>
-      </div>
-      <div class="region-card" data-region="constraint">
-        <h3>Constraint</h3>
-        <p class="theory">Take away the thing the model always reaches for. Creativity as subtraction, not addition.</p>
-        <p class="enemy"><b>Enemy</b>The signature move — always available, therefore always taken.</p>
-      </div>
-      <div class="region-card" data-region="apparatus">
-        <h3>Apparatus</h3>
-        <p class="theory">Make the lens <em>execute</em> instead of asking it to. Code, weights, tools, topology — a prosthetic rather than a costume.</p>
-        <p class="enemy"><b>Enemy</b>Markdown that requests a behavior and then hopes.</p>
-      </div>
-      <div class="region-card" data-region="memory">
-        <h3>Memory</h3>
-        <p class="theory">Make the repo remember, so it cannot repeat itself. History as a shrinking space of permitted answers.</p>
-        <p class="enemy"><b>Enemy</b>The fresh context window, which lets a persona make the same excellent point forever.</p>
+  </div>
+  <div class="controls">
+    <div class="wrap">
+      <div class="row">
+        <div class="grp" id="regionFilters"></div>
+        <span class="sep" aria-hidden="true"></span>
+        <button class="chip brass" id="contestedOnly" aria-pressed="false">Contested only</button>
+        <span class="count" id="gameCount"></span>
       </div>
     </div>
+  </div>
+  <div class="wrap"><div class="games" id="gameList"></div></div>
+</section>
+
+<section id="standing">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">advancing</p>
+      <h2>Sweet 16 field</h2>
+    </div>
+    <div class="scroller"><table class="s16" id="s16"></table></div>
+  </div>
+</section>
+
+<section id="bench">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">held, not discarded</p>
+      <h2>The wildcard bench</h2>
+      <p>Eliminated ideas the commissioner is not ready to lose. Revivable into any later round — the Understudy already was.</p>
+    </div>
+    <div class="bench" id="benchGrid"></div>
   </div>
 </section>
 
@@ -552,60 +703,9 @@ footer code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2)
     <div class="sec-head">
       <p class="eyebrow">the field of 32</p>
       <h2>Entrants</h2>
-      <p>
-        Owner entries are marked in brass; the four flagged as "vague enough to split" were split.
-        The rest were generated to fill the field. No two entrants may share a primary mechanism —
-        several attack the same target, but prohibition, entropy, execution and memory are four
-        different means.
-      </p>
+      <p>Owner entries in brass; the four flagged as “vague enough to split” were split. No two entrants share a primary mechanism.</p>
     </div>
     <div class="field" id="fieldGrid"></div>
-  </div>
-</section>
-
-<section id="games">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">box score</p>
-      <h2>Every matchup</h2>
-      <p>
-        Twenty-eight games. Each card shows where the game was won on the five axes, the verdict, and
-        what the winner took with it. Click any lineage code to trace an original entrant through the
-        bracket and see what absorbed it.
-      </p>
-    </div>
-  </div>
-
-  <div class="controls">
-    <div class="wrap">
-      <div class="row">
-        <div class="grp" id="roundFilters"></div>
-        <span class="sep" aria-hidden="true"></span>
-        <div class="grp" id="regionFilters"></div>
-        <span class="sep" aria-hidden="true"></span>
-        <button class="chip brass" id="upsetOnly" aria-pressed="false">Upsets only</button>
-        <span class="count" id="gameCount"></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="games" id="gameList"></div>
-  </div>
-</section>
-
-<section id="finalfour">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">tournament halted — owner review</p>
-      <h2>The Final Four</h2>
-      <p>
-        The bracket stops here by design. Each survivor is now a composite of six to eight original
-        entrants, and which one advances determines the repo's next architecture — that is a decision,
-        not a scoring exercise. Semifinals are not run without a call on these four.
-      </p>
-    </div>
-    <div class="ff" id="ffGrid"></div>
   </div>
 </section>
 
@@ -614,588 +714,252 @@ footer code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2)
 <footer>
   <div class="wrap">
     <span>temp-agency &nbsp;·&nbsp; <code>docs/tournament/box-score.html</code></span>
-    <span>Field &amp; rubric: <code>docs/tournament/field-of-32.md</code>, <code>docs/tournament/rules.md</code></span>
+    <span>Handoff: <code>HANDOFF.md</code> &nbsp;·&nbsp; Ledger: <code>commissioner-rulings.md</code> &nbsp;·&nbsp; Run 1 archived: <code>box-score-v1-archive.html</code></span>
   </div>
 </footer>
-
 <script>
-const AXES = ["Distance","Mechanism","Irreducibility","Compounding","Generative failure"];
+const DATA = {"field": [{"c": "E1", "cat": "entropy", "n": "The Entropy Well", "o": 1, "t": "A real seeded PRNG behind every stochastic choice, stamped in the output header. Same seed, same world. Creativity becomes reproducible and therefore debuggable."}, {"c": "E2", "cat": "entropy", "n": "Cross-Repo Foraging", "o": 0, "t": "Fetch one real artifact from outside the model \u2014 a random file, a random page \u2014 and require it to be load-bearing. If it does no work past the first paragraph, the pass is rejected."}, {"c": "E3", "cat": "entropy", "n": "The Wrong Expert on Purpose", "o": 0, "t": "Staff the least relevant specialist as LEAD and demote the domain expert to LENS. The wrong expert must derive the whole answer from their own primitives."}, {"c": "E4", "cat": "entropy", "n": "Roster Mutation", "o": 0, "t": "Personas breed. Structural crossover on two profile files plus point mutations; the child runs one task, is scored, then promoted or killed. The roster evolves instead of being authored."}, {"c": "E5", "cat": "entropy", "n": "Temporal Displacement", "o": 0, "t": "Date the persona. A 1911 systems thinker has no feedback-loop vocabulary and must reach for hydraulics and stockyards. Forbids the concept, not the diction."}, {"c": "E6", "cat": "entropy", "n": "The Oblique Deck", "o": 0, "t": "Oblique Strategies compiled from the roster's own positions and obeyed literally \u2014 even, especially, when the card does not fit the persona holding it."}, {"c": "E7", "cat": "entropy", "n": "Stochastic Persona Fracture", "o": 0, "t": "Bisect the persona along a fault line named in its own profile. Two sub-personas argue and the unresolved argument ships as output."}, {"c": "E8", "cat": "entropy", "n": "Temperature Choreography", "o": 1, "t": "Three movements: HOT generates at mandated volume, COLD may only prune, AUDIT verifies a top-decile-weird survivor made it out. Missing weirdest survivor forces a rerun."}, {"c": "C1", "cat": "constraint", "n": "The 19th Way", "o": 1, "t": "Nineteen improvements, each required to fail a stated relatedness test against every previous one. Ideas 1\u20136 will be mediocre; that mediocrity is the toll paid to reach 19."}, {"c": "C2", "cat": "constraint", "n": "The Anti-Roster", "o": 0, "t": "A persona defined entirely by refusal \u2014 no principles, no methodology, only two hundred banned phrases and moves. The monk who may not say simplicity must find the position elsewhere."}, {"c": "C3", "cat": "constraint", "n": "Idea Bankruptcy", "o": 0, "t": "The first quartile of the persona's own output is destroyed unread by the harness. Not deprioritized \u2014 deleted. The persona is told in advance, which changes what it generates."}, {"c": "C4", "cat": "constraint", "n": "The Telegram Constraint", "o": 0, "t": "Deliver under a priced medium: a 1904 telegram at a dollar a word against a forty-dollar budget. What a persona sacrifices under real cost reveals what it actually believes."}, {"c": "C5", "cat": "constraint", "n": "Notation Transposition", "o": 0, "t": "Author the position first in a notation prose cannot fake \u2014 a recipe, a court docket, a flight checklist \u2014 then translate back. A recipe cannot omit quantities; a docket cannot omit a ruling."}, {"c": "C6", "cat": "constraint", "n": "The Constraint Compiler", "o": 1, "t": "Compile a profile's Anti-Patterns into machine-checkable rules: banned n-grams, required shapes, a forbidden-hedge list. Compliance is verified by a linter, not trusted."}, {"c": "C7", "cat": "constraint", "n": "Persona Grammar", "o": 0, "t": "A formal BNF per persona. The journalist's grammar rejects any claim node lacking a SOURCE child; the reactor operator's rejects any action lacking LIMIT, INDICATION and STOP."}, {"c": "C8", "cat": "constraint", "n": "Make the Problem Strange First", "o": 0, "t": "Defamiliarize the input, not the output. Strip the task's domain nouns to variables before any persona sees it. You cannot pattern-match what you cannot name."}, {"c": "A1", "cat": "apparatus", "n": "Lens Transformers", "o": 1, "t": "Each persona ships a deterministic Python transform applied to the artifact before it is read. The journalist's severs every claim from its support; the monk's deletes every superlative."}, {"c": "A2", "cat": "apparatus", "n": "The Voice Oracle", "o": 1, "t": "A 0.6B model fine-tuned on the persona's knowledge pack whose only job is in-character reaction, never solution. Too small to be diplomatic \u2014 and that is the feature."}, {"c": "A3", "cat": "apparatus", "n": "Persona Toolbelts", "o": 1, "t": "Real CLI tools each persona must run and cite. The farmer gets bin/churn and bin/seasons; the physicist gets bin/units and bin/orders. No tool output, no pass."}, {"c": "A4", "cat": "apparatus", "n": "The Committee of Strangers", "o": 0, "t": "Replace the dyad with a five-to-seven body deliberation carrying real political mechanics: a proposal needs a second, a defection must state its price, minority reports ship verbatim."}, {"c": "A5", "cat": "apparatus", "n": "The Hostile Environment", "o": 0, "t": "The harness withholds a key fact, plants a lie in the brief, or cuts the persona's best tool mid-task. A fact genuinely absent from context cannot be reasoned around."}, {"c": "A6", "cat": "apparatus", "n": "The Understudy", "o": 0, "t": "A deliberately degraded copy with the methodology but not the judgment \u2014 applies phase 3 where phase 1 belongs, over-uses the signature move. Its errors are treated as proposals."}, {"c": "A7", "cat": "apparatus", "n": "Bracket as a Primitive", "o": 1, "t": "The tournament as the repo's core operation: generate a field, seed it, run single elimination with an absorption rule. Ranking discards; absorption compounds."}, {"c": "A8", "cat": "apparatus", "n": "Scarcity Economy", "o": 0, "t": "A finite lifetime token budget per persona. Speaking costs; noise is penalized; personas bid to be staffed with a one-line claim of what they will see that nobody else will."}, {"c": "M1", "cat": "memory", "n": "The Homogeneity Auditor", "o": 1, "t": "An adversarial agent that may only accuse, never propose. It reconstructs the answer an unskilled model would have given; overlap past threshold forces regeneration."}, {"c": "M2", "cat": "memory", "n": "The Novelty Gate", "o": 1, "t": "CI that fails a pull request for being boring. Semantic distance from an unstaffed baseline, computed in an Action, annotated inline. Creativity as a build status."}, {"c": "M3", "cat": "memory", "n": "The Grudge Ledger", "o": 0, "t": "Every position a persona takes is appended to a persistent ledger and handed back on future dispatch with one rule: you may not restate these. Extend, reverse, or refuse."}, {"c": "M4", "cat": "memory", "n": "Failure Archaeology", "o": 0, "t": "Keep the dead. Every rejected idea preserved with a cause of death, and mandatory reading before new work \u2014 differ from the graveyard, or explicitly resurrect and say what changed."}, {"c": "M5", "cat": "memory", "n": "The Idea-Space Map", "o": 1, "t": "Embed every output the repo has ever produced and render a coverage map with the empty regions labeled. The deliverable is not a score \u2014 it is a list of directions never once taken."}, {"c": "M6", "cat": "memory", "n": "The Ratchet", "o": 0, "t": "A novelty floor that only rises. When nothing can clear it, the lock is the signal to change the mechanism rather than lower the bar."}, {"c": "M7", "cat": "memory", "n": "Adversarial Collaboration Contract", "o": 0, "t": "Lead and lens co-sign a dated prediction before shipping: if the lens is right, X is observable by date D. Recorded, resolved, and scored into a persona track record."}, {"c": "M8", "cat": "memory", "n": "The Reverse Brief", "o": 0, "t": "After answering, write the problem statement for which that answer would be perfect \u2014 then diff it against the real problem. Often the answer is perfect for a problem nobody has."}], "games": [{"g": 1, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", null, 0]], "unan": false}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 1, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 0, "b": 7, "votes": [["Builder", "B", 3], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": true}], "A": {"c": "E3", "n": "The Wrong Expert on Purpose", "cat": "Entropy", "col": "entropy", "owner": 0}, "B": {"c": "A6", "n": "The Understudy", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "tot": {"A": 8, "B": 12}, "winner": "A6", "loser": "E3", "winSide": "B", "margin": 4, "contested": true, "panels": {"Builder": "B", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Builder": "A's failure mode is the Generative-failure floor reference verbatim \u2014 referee vocabulary bolted onto the median migration answer \u2014 and nothing in A can detect that it happened.", "Ecologist": "A relocates the whole derivation to a foreign domain while B only scrambles the judgment inside the correct one \u2014 and A does it with a dispatch rule that costs nothing to maintain, while B costs 24 generated files that rot against the profiles they were degraded from.", "Skeptic": "A removes something \u2014 the domain expert's authority \u2014 while B removes nothing and adds a second, worse voice to a room that already has two."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 2, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 1, "b": 4, "votes": [["Builder", "B", 3], ["Skeptic", "A", 1], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Mechanism", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Generative failure", "a": 0, "b": 7, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}], "A": {"c": "C7", "n": "Persona Grammar", "cat": "Constraint", "col": "constraint", "owner": 0}, "B": {"c": "M5", "n": "The Idea-Space Map", "cat": "Memory", "col": "memory", "owner": 1}, "tot": {"A": 8, "B": 23}, "winner": "M5", "loser": "C7", "winSide": "B", "margin": 15, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Builder": "A's gate certifies shape and cannot see content, and shape-enforcement narrows toward the median rather than away from it, while B is the only idea here that measures where the median actually is.", "Ecologist": "B is the only idea here whose constraint tightens as its own corpus grows, while A's grammar is identical on use #10 and sits under continuous pressure to loosen every time it wrongly rejects a good output.", "Skeptic": "B's input is the history of its own use, so run #500 differs from run #1; A's grammar is byte-identical on run #500 and enforces the shape of evidence rather than its existence."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ORTHOGONAL", "Ecologist": "ABSORBED"}}, {"g": 3, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 0, "b": 7, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Mechanism", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", null, 0], ["Ecologist", "A", 3]], "unan": false}, {"axis": "Irreducibility", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 3, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": true}], "A": {"c": "M2", "n": "The Novelty Gate", "cat": "Memory", "col": "memory", "owner": 1}, "B": {"c": "E2", "n": "Cross-Repo Foraging", "cat": "Entropy", "col": "entropy", "owner": 0}, "tot": {"A": 16, "B": 16}, "winner": null, "loser": null, "winSide": null, "margin": 0, "contested": true, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "A"}, "dec": {"Builder": "A's ratchet tightens on lexical surface, which is satisfiable by vocabulary alone, while B changes what is in the context window before generation in a way no regeneration can undo.", "Ecologist": "A's constraint tightens automatically against a corpus that grows with every use, while B's foraging is memoryless \u2014 object #10 is drawn from the same distribution as object #1 and nothing is ever excluded.", "Skeptic": "B injects material the model could not have sampled; A measures the model against itself with the model's own embedding, which is a mirror, not a window."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 4, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 1, "b": 4, "votes": [["Builder", "A", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": false}, {"axis": "Mechanism", "a": 4, "b": 1, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Irreducibility", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 5, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "A3", "n": "Persona Toolbelts", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "B": {"c": "C3", "n": "Idea Bankruptcy", "cat": "Constraint", "col": "constraint", "owner": 0}, "tot": {"A": 26, "B": 5}, "winner": "A3", "loser": "C3", "winSide": "A", "margin": 21, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Builder": "B announces its control to the party it constrains and destroys the evidence unread, so it can be stepped around for free and its effect can never be verified; A's tools are a source of fact the model cannot generate or negotiate with.", "Ecologist": "B's mechanism trains its own defeat \u2014 a persona told its first quartile dies learns to front-load disposable ideas, so by use #10 the destruction removes five deliberate throwaways and idea #6 is the same median answer the rule was built to kill.", "Skeptic": "B is a well-known prompt trick with a destroyed audit trail; A puts facts in the context window that the model cannot fabricate and a reader can check."}, "disp": {"Builder": "SUBSUMED", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 5, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 2, "b": 0, "votes": [["Builder", null, 0], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 6, "b": 1, "votes": [["Builder", "A", 3], ["Skeptic", "B", 1], ["Ecologist", "A", 3]], "unan": false}], "A": {"c": "E5", "n": "Temporal Displacement", "cat": "Entropy", "col": "entropy", "owner": 0}, "B": {"c": "C6", "n": "The Constraint Compiler", "cat": "Constraint", "col": "constraint", "owner": 1}, "tot": {"A": 17, "B": 13}, "winner": "E5", "loser": "C6", "winSide": "A", "margin": 4, "contested": true, "panels": {"Builder": "A", "Skeptic": "B", "Ecologist": "A"}, "dec": {"Ecologist": "B enforces a constraint set that is byte-identical on use #10 and whose characteristic failure is a green check on median prose; A forbids the concept rather than the phrasing, and its failures are diagnostic.", "Builder": "B's barrier is real but guards the wrong boundary \u2014 banned n-grams and a domain-noun quota are fully satisfiable by the median answer in costume \u2014 while A forbids the concept the median answer is built out of.", "Skeptic": "Delete --era and you can still type \"answer as a 1911 systems thinker\"; delete bin/compile-constraints and nothing in the repo checks compliance at all."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 6, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 2, "b": 0, "votes": [["Builder", null, 0], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 0, "b": 4, "votes": [["Builder", "B", 3], ["Skeptic", "B", 1], ["Ecologist", null, 0]], "unan": false}], "A": {"c": "E1", "n": "The Entropy Well", "cat": "Entropy", "col": "entropy", "owner": 1}, "B": {"c": "C2", "n": "The Anti-Roster", "cat": "Constraint", "col": "constraint", "owner": 0}, "tot": {"A": 18, "B": 13}, "winner": "E1", "loser": "C2", "winSide": "A", "margin": 5, "contested": true, "panels": {"Builder": "B", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A installs an information flow the repo can still learn from in year three \u2014 a stamped seed makes every draw replayable and every lucky pairing recoverable \u2014 while B is a static prohibition list whose characteristic failure is the generic answer.", "Builder": "A's file genuinely runs but forbids no output \u2014 a seed makes a run replayable, not distant \u2014 and this panel takes an unenforced constraint aimed at the right boundary over enforced machinery aimed at no boundary.", "Skeptic": "B's artifact is a prompt \u2014 200 banned phrases pasted into context is the whole mechanism \u2014 while a model cannot roll a real die or stamp a seed that regenerates the same world."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "SUBSUMED", "Ecologist": "ORTHOGONAL"}}, {"g": 7, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", null, 0]], "unan": false}], "A": {"c": "M6", "n": "The Ratchet", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "A5", "n": "The Hostile Environment", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "tot": {"A": 13, "B": 27}, "winner": "A5", "loser": "M6", "winSide": "B", "margin": 14, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Ecologist": "A's ceiling-level compounding is drawn on a novelty scorer it does not provide \u2014 it ships the ratchet without the pawl \u2014 while B withholds a real fact from a real context window, the one operation on this ruler a model cannot reason around.", "Builder": "B implements the Irreducibility high reference literally \u2014 a fact genuinely absent from context cannot be reasoned around \u2014 while A declares an operating limit and names no instrument to read it against.", "Skeptic": "A's two ceiling-level claims both draw on a novelty scorer the proposal never names, while B's core move is the ruler's own High reference for irreducibility, stated almost verbatim."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ABSORBED"}}, {"g": 8, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 2, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Mechanism", "a": 0, "b": 5, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Irreducibility", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", null, 0]], "unan": false}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 4, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 1]], "unan": false}], "A": {"c": "M7", "n": "Adversarial Collaboration Contract", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "A7", "n": "Bracket as a Primitive", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "tot": {"A": 19, "B": 7}, "winner": "M7", "loser": "A7", "winSide": "A", "margin": 12, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A is the only mechanism in this packet with a feedback path from outcome back to structure \u2014 a resolved bet changes who gets staffed next time \u2014 whereas B's champion changes nothing about run #11.", "Builder": "A is the only mechanism in this bracket whose verdict originates outside the model \u2014 a dated observable resolves it \u2014 while B's thirty-one gates are one correlated barrier wearing the costume of thirty-one.", "Skeptic": "B is the most elaborate proposal in the packet and the one a single well-written prompt most nearly reproduces, while A requires a future date to arrive, which no prompt can simulate."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}], "seed": 99};
 
-const FIELD = [
- {c:"E1",r:"entropy",s:1,n:"The Entropy Well",o:1,t:"A real seeded PRNG behind every stochastic choice, stamped in the output header. Same seed, same world. Creativity becomes reproducible and therefore debuggable."},
- {c:"E2",r:"entropy",s:2,n:"Cross-Repo Foraging",o:0,t:"Fetch one real artifact from outside the model — a random file, a random page — and require it to be load-bearing. If it does no work past the first paragraph, the pass is rejected."},
- {c:"E3",r:"entropy",s:3,n:"The Wrong Expert on Purpose",o:0,t:"Staff the least relevant specialist as LEAD and demote the domain expert to LENS. The wrong expert must derive the whole answer from their own primitives."},
- {c:"E4",r:"entropy",s:4,n:"Roster Mutation",o:0,t:"Personas breed. Structural crossover on two profile files plus point mutations; the child runs one task, is scored, then promoted or killed. The roster evolves instead of being authored."},
- {c:"E5",r:"entropy",s:5,n:"Temporal Displacement",o:0,t:"Date the persona. A 1911 systems thinker has no feedback-loop vocabulary and must reach for hydraulics and stockyards. Forbids the concept, not the diction."},
- {c:"E6",r:"entropy",s:6,n:"The Oblique Deck",o:0,t:"Oblique Strategies compiled from the roster's own positions and obeyed literally — even, especially, when the card does not fit the persona holding it."},
- {c:"E7",r:"entropy",s:7,n:"Stochastic Persona Fracture",o:0,t:"Bisect the persona along a fault line named in its own profile. Two sub-personas argue and the unresolved argument ships as output."},
- {c:"E8",r:"entropy",s:8,n:"Temperature Choreography",o:1,t:"Three movements: HOT generates at mandated volume, COLD may only prune, AUDIT verifies a top-decile-weird survivor made it out. Missing weirdest survivor forces a rerun."},
-
- {c:"C1",r:"constraint",s:1,n:"The 19th Way",o:1,t:"Nineteen improvements, each required to fail a stated relatedness test against every previous one. Ideas 1–6 will be mediocre; that mediocrity is the toll paid to reach 19."},
- {c:"C2",r:"constraint",s:2,n:"The Anti-Roster",o:0,t:"A persona defined entirely by refusal — no principles, no methodology, only two hundred banned phrases and moves. The monk who may not say simplicity must find the position elsewhere."},
- {c:"C3",r:"constraint",s:3,n:"Idea Bankruptcy",o:0,t:"The first quartile of the persona's own output is destroyed unread by the harness. Not deprioritized — deleted. The persona is told in advance, which changes what it generates."},
- {c:"C4",r:"constraint",s:4,n:"The Telegram Constraint",o:0,t:"Deliver under a priced medium: a 1904 telegram at a dollar a word against a forty-dollar budget. What a persona sacrifices under real cost reveals what it actually believes."},
- {c:"C5",r:"constraint",s:5,n:"Notation Transposition",o:0,t:"Author the position first in a notation prose cannot fake — a recipe, a court docket, a flight checklist — then translate back. A recipe cannot omit quantities; a docket cannot omit a ruling."},
- {c:"C6",r:"constraint",s:6,n:"The Constraint Compiler",o:1,t:"Compile a profile's Anti-Patterns into machine-checkable rules: banned n-grams, required shapes, a forbidden-hedge list. Compliance is verified by a linter, not trusted."},
- {c:"C7",r:"constraint",s:7,n:"Persona Grammar",o:0,t:"A formal BNF per persona. The journalist's grammar rejects any claim node lacking a SOURCE child; the reactor operator's rejects any action lacking LIMIT, INDICATION and STOP."},
- {c:"C8",r:"constraint",s:8,n:"Make the Problem Strange First",o:0,t:"Defamiliarize the input, not the output. Strip the task's domain nouns to variables before any persona sees it. You cannot pattern-match what you cannot name."},
-
- {c:"A1",r:"apparatus",s:1,n:"Lens Transformers",o:1,t:"Each persona ships a deterministic Python transform applied to the artifact before it is read. The journalist's severs every claim from its support; the monk's deletes every superlative."},
- {c:"A2",r:"apparatus",s:2,n:"The Voice Oracle",o:1,t:"A 0.6B model fine-tuned on the persona's knowledge pack whose only job is in-character reaction, never solution. Too small to be diplomatic — and that is the feature."},
- {c:"A3",r:"apparatus",s:3,n:"Persona Toolbelts",o:1,t:"Real CLI tools each persona must run and cite. The farmer gets bin/churn and bin/seasons; the physicist gets bin/units and bin/orders. No tool output, no pass."},
- {c:"A4",r:"apparatus",s:4,n:"The Committee of Strangers",o:0,t:"Replace the dyad with a five-to-seven body deliberation carrying real political mechanics: a proposal needs a second, a defection must state its price, minority reports ship verbatim."},
- {c:"A5",r:"apparatus",s:5,n:"The Hostile Environment",o:0,t:"The harness withholds a key fact, plants a lie in the brief, or cuts the persona's best tool mid-task. A fact genuinely absent from context cannot be reasoned around."},
- {c:"A6",r:"apparatus",s:6,n:"The Understudy",o:0,t:"A deliberately degraded copy with the methodology but not the judgment — applies phase 3 where phase 1 belongs, over-uses the signature move. Its errors are treated as proposals."},
- {c:"A7",r:"apparatus",s:7,n:"Bracket as a Primitive",o:1,t:"The tournament as the repo's core operation: generate a field, seed it, run single elimination with an absorption rule. Ranking discards; absorption compounds."},
- {c:"A8",r:"apparatus",s:8,n:"Scarcity Economy",o:0,t:"A finite lifetime token budget per persona. Speaking costs; noise is penalized; personas bid to be staffed with a one-line claim of what they will see that nobody else will."},
-
- {c:"M1",r:"memory",s:1,n:"The Homogeneity Auditor",o:1,t:"An adversarial agent that may only accuse, never propose. It reconstructs the answer an unskilled model would have given; overlap past threshold forces regeneration."},
- {c:"M2",r:"memory",s:2,n:"The Novelty Gate",o:1,t:"CI that fails a pull request for being boring. Semantic distance from an unstaffed baseline, computed in an Action, annotated inline. Creativity as a build status."},
- {c:"M3",r:"memory",s:3,n:"The Grudge Ledger",o:0,t:"Every position a persona takes is appended to a persistent ledger and handed back on future dispatch with one rule: you may not restate these. Extend, reverse, or refuse."},
- {c:"M4",r:"memory",s:4,n:"Failure Archaeology",o:0,t:"Keep the dead. Every rejected idea preserved with a cause of death, and mandatory reading before new work — differ from the graveyard, or explicitly resurrect and say what changed."},
- {c:"M5",r:"memory",s:5,n:"The Idea-Space Map",o:1,t:"Embed every output the repo has ever produced and render a coverage map with the empty regions labeled. The deliverable is not a score — it is a list of directions never once taken."},
- {c:"M6",r:"memory",s:6,n:"The Ratchet",o:0,t:"A novelty floor that only rises. When nothing can clear it, the lock is the signal to change the mechanism rather than lower the bar."},
- {c:"M7",r:"memory",s:7,n:"Adversarial Collaboration Contract",o:0,t:"Lead and lens co-sign a dated prediction before shipping: if the lens is right, X is observable by date D. Recorded, resolved, and scored into a persona track record."},
- {c:"M8",r:"memory",s:8,n:"The Reverse Brief",o:0,t:"After answering, write the problem statement for which that answer would be perfect — then diff it against the real problem. Often the answer is perfect for a problem nobody has."}
-];
-</script>
-
-<script>
-const GAMES = [
-/* ============ ROUND OF 32 ============ */
-{g:1,rd:"r32",r:"entropy",upset:1,
- w:{n:"Temperature Choreography",sd:8,ax:[7,8,7,6,7],be:"Choreographed Entropy"},
- l:{n:"The Entropy Well",sd:1,ax:[4,9,8,3,4]},
- v:"The Entropy Well is plumbing — excellent plumbing, and half this region quietly depends on it. But a seed generates nothing by itself; it is only as interesting as the things it selects among. Temperature Choreography selects among things and, critically, <b>audits the discard</b>: it is the only entrant that makes the model prove it did not quietly throw away its own weirdest output. Its failure mode is generative too — a rerun triggered by a missing weirdest survivor produces a second full HOT pass, which is more material, not less.",
- a:"The seeded, stamped, reproducible draw. Every HOT pass now carries its seed in the header, so a strange survivor can be traced back to the exact sampling state that produced it — and regenerated exactly.",
- li:[{c:"E8"},{c:"E1"}]},
-
-{g:2,rd:"r32",r:"entropy",upset:0,
- w:{n:"Temporal Displacement",sd:5,ax:[9,6,9,7,9],be:"Era-Crossed Displacement"},
- l:{n:"Roster Mutation",sd:4,ax:[7,9,8,9,6]},
- v:"The closest game of the round. Mutation has the better machinery and the better compounding story — a roster that breeds gets stranger every generation, on real crossover against real files. Displacement wins on the axis that decides this tournament. Asked to combine the farmer and the physicist, a model produces a plausible blend it could have produced anyway. Told that the concept of a feedback loop <em>does not exist yet</em>, it must rebuild the idea out of hydraulics and stockyards — and the rebuild is never the same shape as the original. Displacement's failure is its best property: a bad era-fit produces an unusable answer that nonetheless names a primitive the modern framing had hidden.",
- a:"Structural crossover. Displacement now breeds <b>across eras</b> — a 1911 farmer crossed with a 2140 systems thinker — where the crossover operates on incompatible primitive sets rather than compatible ones.",
- li:[{c:"E5"},{c:"E4"}]},
-
-{g:3,rd:"r32",r:"entropy",upset:1,
- w:{n:"The Oblique Deck",sd:6,ax:[8,7,8,7,8],be:"The Mismatched Deck"},
- l:{n:"The Wrong Expert on Purpose",sd:3,ax:[7,4,4,4,6]},
- v:"The Wrong Expert loses on irreducibility, badly, for a reason specific to this repo: <code>roster/left-fielder.md</code> already exists and already does this. Promoting deliberate mismatch from lens to lead is a knob turn on a mechanism that shipped in v1. The Oblique Deck does something the repo has never done — it <b>separates the instruction from the persona</b>, so a card can land on someone it does not suit, and the mandate is literal obedience rather than sensible application. That gap between card and holder is a new source of friction, and it costs nothing to build.",
- a:"Deliberate mismatch, relocated from the roster to the deck. Cards are now drawn from a <b>different</b> persona's deck than the one staffed — the monk is handed the reactor operator's \"state the limit before the action.\"",
- li:[{c:"E6"},{c:"E3"}]},
-
-{g:4,rd:"r32",r:"entropy",upset:0,
- w:{n:"Cross-Repo Foraging",sd:2,ax:[9,8,10,6,7],be:"Contested Foraging"},
- l:{n:"Stochastic Persona Fracture",sd:7,ax:[7,5,6,4,7]},
- v:"Foraging scores the tournament's first 10 on irreducibility and earns it by definition: a model cannot generate text from outside its own prior, and foraged text is outside the prior by construction. Everything else in this region <em>reorganizes</em> material the model already holds. Fracture is a good idea with a soft mechanism — \"split along a fault line\" is a prompt instruction, and instructions to hold a contradiction are exactly what a well-aligned model smooths away. Its real value is not the split but the <b>refusal to resolve</b>.",
- a:"The refusal to resolve. The foraged artifact is now read by two sub-personas required to reach opposite conclusions from the same object, and their disagreement about it ships unresolved.",
- li:[{c:"E2"},{c:"E7"}]},
-
-{g:5,rd:"r32",r:"constraint",upset:1,
- w:{n:"Make the Problem Strange First",sd:8,ax:[9,8,9,6,8],be:"The Stranger's Nineteen"},
- l:{n:"The 19th Way",sd:1,ax:[7,5,6,5,8]},
- v:"The first major upset, and the most instructive game in the field. The 19th Way is the right <em>diagnosis</em> — quantity plus non-adjacency is exactly what got the workshop from the fence to the moat. But it operates on the model's output while leaving the model's input untouched, so the domain priors that produced ideas 1–6 are still fully loaded when idea 19 is generated, and idea 19 comes out a <em>distant variation on the same prior</em>. Make the Problem Strange First attacks a layer earlier: with the nouns gone there is no home-security prior to be distant from, because there is no home. Ideas 1–6 are already strange. Read this carefully — it is not a rejection of the quota, which is the strongest generative pressure in the region. It is a claim that the quota should run <b>after</b> defamiliarization, not instead of it.",
- a:"The full non-adjacency quota, intact. Nineteen responses to the abstracted problem, each required to fail a stated relatedness test against all previous ones — now operating on structure rather than nouns, so \"a different actor\" means a different node in the abstracted graph.",
- li:[{c:"C8"},{c:"C1"}]},
-
-{g:6,rd:"r32",r:"constraint",upset:0,
- w:{n:"Notation Transposition",sd:5,ax:[8,7,8,7,9],be:"Priced Notation"},
- l:{n:"The Telegram Constraint",sd:4,ax:[6,7,7,4,6]},
- v:"Both make the medium do the work. The Telegram prices expression; Notation changes what expression is <em>possible</em>. Pricing produces compression, and a compressed mediocre idea is a shorter mediocre idea. Notation produces <b>commitments</b>: a recipe cannot omit quantities, a docket cannot omit a ruling, a checklist cannot omit the response to the challenge. Those are structural obligations prose has no equivalent for — they surface omissions rather than merely shrinking them. Its generative failure is superb: a position that cannot be written as a recipe is a position with no order of operations, and finding that out is worth the failed pass.",
- a:"Price per glyph. The notation now carries a budget — forty ingredients, twelve docket lines, one card of checklist — so the persona must choose <b>which</b> structural commitments it can afford to make.",
- li:[{c:"C5"},{c:"C4"}]},
-
-{g:7,rd:"r32",r:"constraint",upset:0,
- w:{n:"Idea Bankruptcy",sd:3,ax:[8,8,9,5,8],be:"Enforced Bankruptcy"},
- l:{n:"The Constraint Compiler",sd:6,ax:[5,9,6,5,5]},
- v:"The Constraint Compiler is the better engineering and the worse idea. It converts prose anti-patterns into checked rules — genuinely valuable, genuinely unexciting, because it makes the persona <em>comply</em> with what the profile already says. Compliance is not creativity. Idea Bankruptcy does something no amount of compliance produces: it makes the model's most confident output <b>worthless to generate</b>, in advance. Destroying the first quartile unread is a hostile act toward the model's own ranking function, and hostility toward the ranking function is the entire premise of this tournament.",
- a:"Machine enforcement. Destruction is performed by the harness with a logged count rather than requested of the model — it is told, it cannot negotiate — and the deleted material is hashed and retained so the deletion is auditable.",
- li:[{c:"C3"},{c:"C6"}]},
-
-{g:8,rd:"r32",r:"constraint",upset:0,
- w:{n:"The Anti-Roster",sd:2,ax:[9,7,9,7,8],be:"The Parsed Anti-Roster"},
- l:{n:"Persona Grammar",sd:7,ax:[6,10,7,4,5]},
- v:"Persona Grammar posts the tournament's first 10 on Mechanism — a parser that rejects an unparented claim node is the most enforceable thing anyone proposed. It loses anyway, because enforcement is orthogonal to strangeness: a rigorously parsed median answer is still the median answer. The Anti-Roster wins on the region's own logic. Removing a persona's vocabulary removes its shortcut, and a monk forbidden <em>simplicity</em>, <em>enough</em> and <em>presence</em> must locate the position from a direction the profile never described. The result is recognizably the monk and unrecognizably phrased, which is the target exactly.",
- a:"The parser. Prohibitions become grammar-enforced rather than honor-system — a banned n-gram is a parse failure, not a style note, and regeneration is automatic.",
- li:[{c:"C2"},{c:"C7"}]},
-
-{g:9,rd:"r32",r:"apparatus",upset:0,
- w:{n:"Lens Transformers",sd:1,ax:[9,10,9,7,9],be:"Priced Transformers"},
- l:{n:"Scarcity Economy",sd:8,ax:[6,8,8,8,4]},
- v:"The field's first 44, and the 1-seed holds. Lens Transformers is the only entrant in the tournament that changes <b>what the model can perceive</b> rather than what it is asked to do. A journalist transform that severs every claim from its support does not <em>encourage</em> skepticism; it makes support invisible, so skepticism is the only available reading. That is the difference between a costume and a prosthetic. Scarcity Economy has a real compounding story — personas that must bid to speak develop distinct territories over time — but its failure mode is bad: a bankrupt roster is a quiet roster, and quiet is what we are fighting.",
- a:"Cost. Running a transform now debits the persona's budget, so a persona holding three transforms must choose which distortion it can afford — and that choice is itself a statement about what it thinks matters.",
- li:[{c:"A1"},{c:"A8"}]},
-
-{g:10,rd:"r32",r:"apparatus",upset:1,
- w:{n:"The Hostile Environment",sd:5,ax:[8,8,9,6,9],be:"Weathered Alliances"},
- l:{n:"The Committee of Strangers",sd:4,ax:[7,6,5,6,5]},
- v:"The Committee's problem is that this repo already learned its lesson. The Phase 0 receipts show two isolated subagents producing real disagreement; going from two to seven multiplies token cost and, without genuinely different <em>information</em>, produces seven views of one context. The Hostile Environment gives them different information — or rather gives them <b>less</b>, and lies. A fact genuinely withheld from context cannot be reasoned around, which is why this scores a 9 on irreducibility: the model cannot simulate not knowing something it knows. Best generative failure in the region, too — a persona working from a brief with a planted lie will either catch it or build on it, and both outcomes teach you something.",
- a:"Coalition and defection under pressure. When the harness cuts a tool or plants a lie, personas may side with or abandon each other, and each defection must state its price — so degradation surfaces alliances the comfortable version never reveals.",
- li:[{c:"A5"},{c:"A4"}]},
-
-{g:11,rd:"r32",r:"apparatus",upset:1,
- w:{n:"The Understudy",sd:6,ax:[9,7,8,7,10],be:"The Misreading Understudy"},
- l:{n:"Persona Toolbelts",sd:3,ax:[6,9,8,5,6]},
- v:"An upset carried by a single perfect score. Persona Toolbelts is sober and correct — making the farmer run <code>bin/churn</code> replaces an assertion with an observation, and observations beat assertions. But it makes the persona <em>more accurate</em>, and accuracy is not the deficit. The Understudy posts the tournament's first 10 on generative failure because its failures <b>are</b> its output: an understudy applying phase 3 where phase 1 belongs has produced a misapplication with internal logic — precisely the move the left-fielder performs deliberately, now arriving for free and without the left-fielder's self-awareness. The unselfconsciousness is the point. The left-fielder knows it is importing, and knowing softens the import.",
- a:"The mandatory tool run. The understudy now runs the expert's real tools and <b>misreads the output</b> — <code>bin/churn</code> returns the correct file list and the understudy draws the wrong conclusion from it, which is far more interesting than either the right conclusion or an invented one.",
- li:[{c:"A6"},{c:"A3"}]},
-
-{g:12,rd:"r32",r:"apparatus",upset:0,
- w:{n:"The Voice Oracle",sd:2,ax:[8,9,10,6,8],be:"The Bred Oracle"},
- l:{n:"Bracket as a Primitive",sd:7,ax:[7,8,7,9,6]},
- v:"The Voice Oracle takes the tournament's second 10 on irreducibility, and it is the most defensible one in the field: this is the only entrant that proposes to change the <b>weights</b>. Everything else across 32 entries is prompt engineering, tooling or bookkeeping wrapped around a model that will always regress toward its house voice under pressure. A separate 0.6B model has no house to regress toward. Bracket as a Primitive is strong — and is, notably, the mechanism generating this document — but a bracket is a <em>selection</em> process, and selection cannot exceed the quality of the field it selects from. It advances the field; it does not widen it.",
- a:"Absorption itself. Voice oracles now compete in brackets and the winner <b>takes the loser's verbal tics into its training data</b>, so persona voice is bred rather than authored and the tenth generation has habits nobody wrote.",
- li:[{c:"A2"},{c:"A7"}]},
-
-{g:13,rd:"r32",r:"memory",upset:0,
- w:{n:"The Homogeneity Auditor",sd:1,ax:[8,8,9,6,7],be:"The Double Reconstruction"},
- l:{n:"The Reverse Brief",sd:8,ax:[7,5,6,4,7]},
- v:"Both are inversions, and the Auditor's is sharper. The Reverse Brief asks the persona to derive the problem its own answer solves — a good diagnostic, but performed by the model on itself, which means the same prior that produced the answer produces the reverse brief. The Auditor puts the reconstruction in a <b>separate agent whose only job is to be average</b>, and an agent explicitly generating the median can see a median the original cannot. The accusatory framing matters: an agent permitted only to accuse, never to propose, has no incentive to be constructive — and constructiveness is where this repo's outputs go to become normal.",
- a:"The inverted derivation. The Auditor now reconstructs two things — the median answer, and the problem the real answer is <b>secretly</b> solving — and reports the gap between the stated problem and the smuggled one.",
- li:[{c:"M1"},{c:"M8"}]},
-
-{g:14,rd:"r32",r:"memory",upset:0,
- w:{n:"The Idea-Space Map",sd:5,ax:[8,8,10,8,7],be:"The Annotated Map"},
- l:{n:"Failure Archaeology",sd:4,ax:[6,7,8,9,6]},
- v:"The Map takes the region's first 10 on irreducibility for a reason worth stating precisely: <b>a model has no access to its own output distribution.</b> It can tell you what it thinks; it cannot tell you what it has never thought. An external embedding map with labeled empty regions is information that literally cannot be generated from inside the model, and it converts creative exploration from a hope into a navigation problem. Failure Archaeology is excellent and slightly redundant beside it — a graveyard records where the repo went and died, which is a subset of the map's territory.",
- a:"Cause of death. The map's dead zones are now labeled with what died there — a region is not merely empty, it is empty <b>because three attempts failed for a named reason</b>, which distinguishes unexplored territory from explored-and-fatal territory.",
- li:[{c:"M5"},{c:"M4"}]},
-
-{g:15,rd:"r32",r:"memory",upset:0,
- w:{n:"The Grudge Ledger",sd:3,ax:[9,8,10,10,8],be:"The Ratcheted Ledger"},
- l:{n:"The Ratchet",sd:6,ax:[6,7,8,7,8]},
- v:"The round's high score, and the only 10 on compounding in the entire field. The Grudge Ledger is the one entrant whose <em>tenth</em> use is unambiguously stranger than its first: a persona forbidden from restating any of forty prior positions has been forced up a ladder it did not choose, and by position 41 it is somewhere no profile author would have written. It also posts a 10 on irreducibility for the same structural reason as the Oracle and the Map — it requires persistent state across sessions, and a model in a fresh context window cannot simulate having already said something. The Ratchet is the same family with a weaker grip: it constrains <em>scores</em> rather than <em>positions</em>, and a score is far easier to game than a claim.",
- a:"The non-descending floor. The ledger's bar now rises — a new position must not merely differ from past positions, it must clear the novelty floor set by the persona's own best prior entry — and when nothing clears it, the lock is reported as a signal to change the mechanism rather than lower the bar.",
- li:[{c:"M3"},{c:"M6"}]},
-
-{g:16,rd:"r32",r:"memory",upset:1,
- w:{n:"Adversarial Collaboration Contract",sd:7,ax:[8,7,9,8,8],be:"The Resolving Contract"},
- l:{n:"The Novelty Gate",sd:2,ax:[6,9,7,6,4]},
- v:"An upset that turns entirely on the failure axis. The Novelty Gate is a good idea with a bad worst case: a CI check that fails a PR for being boring will, under deadline, be satisfied by <b>decorative</b> strangeness — unusual words, surprising framings, no change in substance. It measures the surface that is easiest to fake. The Contract cannot be faked the same way, because it demands the disagreement be about something <b>observable by a date</b>. Forcing a lens to name what will be true in six months if it is right converts a stylistic objection into a claim with a body — and stylistic objections are the exact failure mode this repo is trying to escape.",
- a:"The build status. Bets now resolve in CI on their resolution dates and a persona's track record becomes a check — so standing is mechanical rather than remembered, and a persona wrong six times running is visibly demoted.",
- li:[{c:"M7"},{c:"M2"}]},
-
-/* ============ SWEET 16 ============ */
-{g:17,rd:"s16",r:"entropy",upset:0,
- w:{n:"Era-Crossed Displacement",sd:5,ax:[9,8,9,8,9],be:"Era-Crossed Displacement"},
- l:{n:"Choreographed Entropy",sd:8,ax:[7,9,7,6,7]},
- v:"Choreographed Entropy is now a well-built pipeline — mandated hot pass, pruning-only cold agent, audited weirdest survivor, everything seeded and reproducible. It is the best <em>process</em> left in the region and it still loses, because a process for preserving variance is only ever as good as the variance entering it. Era-Crossed Displacement supplies that variance at the source by removing the vocabulary that produces convergence in the first place. The two are close to complementary, which is what makes this absorption unusually clean.",
- a:"Two granted: the HOT / COLD / AUDIT separation, and the seeded reproducible draw. Era-displaced personas now generate in a mandated high-variance pass with a pruning-only critic and an audit that at least one top-decile-weird survivor reached the output — with the era, the crossover pair, and the sampling state all stamped in the header so any strange result can be regenerated exactly.",
- li:[{c:"E5"},{c:"E4"},{c:"E8"},{c:"E1"}]},
-
-{g:18,rd:"s16",r:"entropy",upset:0,
- w:{n:"Contested Foraging",sd:2,ax:[9,8,10,7,8],be:"Contested Foraging"},
- l:{n:"The Mismatched Deck",sd:6,ax:[8,7,8,7,8]},
- v:"Both import an instruction the persona did not choose. The Deck imports from <em>inside the repo</em> — cards distilled from the roster's own positions — which caps its distance at the roster's own diameter, however wide that is. Foraging imports from outside the model entirely and holds its 10 on irreducibility through the round. The Deck's genuinely superior contribution is not the card at all but the <b>mandate of literal obedience</b>, and that mandate transfers cleanly.",
- a:"Literal obedience. The foraged artifact is now treated as a card rather than a source — obeyed literally rather than interpreted charitably — so a foraged tide table becomes an instruction about timing rather than a metaphor about rhythm.",
- li:[{c:"E2"},{c:"E7"},{c:"E6"},{c:"E3",inh:1}]},
-
-{g:19,rd:"s16",r:"constraint",upset:0,
- w:{n:"The Stranger's Nineteen",sd:8,ax:[9,8,9,7,8],be:"The Stranger's Nineteen"},
- l:{n:"Priced Notation",sd:5,ax:[8,7,8,7,9]},
- v:"A narrow game between two ideas working opposite ends of the same pipe. Priced Notation constrains the <em>output</em> channel; The Stranger's Nineteen corrupts the <em>input</em>. Input wins on the same argument that beat the 19th Way in round one: a persona forced into a knitting pattern still knows the problem is about leaderboards and cheating, and its priors are fully loaded when it picks the stitches. Remove the nouns and the priors have nothing to attach to. But the notation's structural obligations are far too valuable to leave on the field.",
- a:"Two granted: notation-first authoring, and price per glyph. Each of the nineteen responses to the abstracted problem must now be authored first in a foreign notation on a fixed budget — nineteen recipes, dockets and checklists about <code>ENTITY_A</code> and <code>BEHAVIOR_C</code>, each affording only a handful of structural commitments — and only then translated back to prose and re-mapped to the real nouns.",
- li:[{c:"C8"},{c:"C1"},{c:"C5"},{c:"C4"}]},
-
-{g:20,rd:"s16",r:"constraint",upset:0,
- w:{n:"The Parsed Anti-Roster",sd:2,ax:[9,9,9,7,8],be:"The Parsed Anti-Roster"},
- l:{n:"Enforced Bankruptcy",sd:3,ax:[8,8,9,5,8]},
- v:"Two hostile acts against the model's ranking function. Bankruptcy destroys the top of the ranking; the Anti-Roster removes the <b>vocabulary the ranking is expressed in</b>, which is upstream and more permanent — you can regenerate after a deletion, but you cannot regenerate a word you are not allowed to use. Bankruptcy also carries the weaker compounding story: the tenth bankruptcy is identical to the first, whereas a prohibition list can be extended every time the persona finds a new shortcut. That extensibility is the real prize here.",
- a:"Enforced destruction of the first quartile, with the deleted material hashed and retained — which makes the anti-roster <b>learn</b>. The phrases appearing most often in a persona's destroyed first quartile are automatically promoted into its prohibition list, so the list grows toward whatever shortcut that persona is currently taking.",
- li:[{c:"C2"},{c:"C7"},{c:"C3"},{c:"C6",inh:1}]},
-
-{g:21,rd:"s16",r:"apparatus",upset:0,
- w:{n:"Priced Transformers",sd:1,ax:[9,10,9,8,9],be:"Priced Transformers"},
- l:{n:"Weathered Alliances",sd:5,ax:[8,8,9,6,9]},
- v:"The cleanest absorption in the tournament, because Weathered Alliances turns out to be <b>implementable as a transform</b>. Withholding a key fact is a transform that deletes. Planting a lie is a transform that substitutes. Cutting a tool mid-task is a transform on the toolbelt. The Hostile Environment was describing a special case of the transform pipeline without knowing it, and folding it in makes the pipeline strictly more capable at no architectural cost at all.",
- a:"Two granted: degradation-as-transform, and coalition mechanics. The transform library now includes <b>subtractive and adulterating</b> transforms — <code>redact.py</code>, <code>plant-lie.py</code>, <code>cut-tool.py</code> — applied to the artifact before the persona reads it; and when a subtractive transform fires, personas may side with or abandon each other, each defection stating its price.",
- li:[{c:"A1"},{c:"A8"},{c:"A5"},{c:"A4"}]},
-
-{g:22,rd:"s16",r:"apparatus",upset:0,
- w:{n:"The Bred Oracle",sd:2,ax:[8,9,10,8,8],be:"The Bred Oracle"},
- l:{n:"The Misreading Understudy",sd:6,ax:[9,7,8,7,10]},
- v:"The most satisfying identification in the field: <b>a 0.6B model already <em>is</em> an understudy.</b> It has absorbed the voice and lacks the judgment. It over-applies the signature move because it learned the surface statistics and not the conditions. It misreads tool output because it is too small to reason carefully about a table. Every property the Understudy proposes to engineer through deliberate degradation, the Bred Oracle gets free from parameter count — and unlike an engineered degradation, it cannot be talked out of it. The Understudy loses because the Oracle already is one.",
- a:"Two granted: the understudy framing, and mandatory tool-output misreading. The small model is now explicitly cast as the expert's <b>understudy</b> rather than the expert — handed real tool output, with its misreading captured as a proposal rather than corrected. The large model must respond to the misreading instead of fixing it.",
- li:[{c:"A2"},{c:"A7"},{c:"A6"},{c:"A3",inh:1}]},
-
-{g:23,rd:"s16",r:"memory",upset:0,
- w:{n:"The Annotated Map",sd:5,ax:[8,8,10,9,8],be:"The Annotated Map"},
- l:{n:"The Double Reconstruction",sd:1,ax:[8,8,9,6,7]},
- v:"A merge that improves both sides. The Auditor's median reconstruction is a <em>point</em>; the Map is a <em>space</em>. Plotting the reconstructed median as a labeled coordinate turns an accusation into a bearing: instead of \"this overlaps the median, regenerate,\" the instruction becomes \"the median sits here, three prior attempts died to the north, and nothing has ever been written in the western void — go west.\" The Auditor loses on compounding, because an accusation is the same accusation every time, whereas the map accumulates and the accumulation is the entire asset.",
- a:"Two granted: median reconstruction as a plotted point, and the smuggled-problem diff. The map now displays the repo's centre of gravity as a labeled coordinate that <b>moves over time</b>, and each plotted output carries the gap between the problem it stated and the problem it actually solved — so drift toward the median becomes visible as motion rather than caught as an offense.",
- li:[{c:"M5"},{c:"M4"},{c:"M1"},{c:"M8",inh:1}]},
-
-{g:24,rd:"s16",r:"memory",upset:0,
- w:{n:"The Ratcheted Ledger",sd:3,ax:[9,8,10,10,8],be:"The Ratcheted Ledger"},
- l:{n:"The Resolving Contract",sd:7,ax:[8,8,9,8,8]},
- v:"The Ledger holds its 45 and its perfect compounding score. The Contract's genuine advantage is that its entries are <b>falsifiable</b> — a ledger of positions is a ledger of opinions, and opinions can accumulate forever without any of them ever being wrong. Attaching a resolution date to a ledger entry is the upgrade that turns a persona's history from a diary into a record, and a record can demote.",
- a:"Two granted: the dated resolvable prediction, and its CI resolution. A ledger entry is no longer a position but a <b>claim with an expiry</b> — \"if I am right, X is observable by date D\" — resolved automatically on that date, so the persona's forbidden-to-repeat history doubles as a scored track record, and one that has been wrong six times running loses standing mechanically.",
- li:[{c:"M3"},{c:"M6"},{c:"M7"},{c:"M2",inh:1}]},
-
-/* ============ ELITE EIGHT ============ */
-{g:25,rd:"e8",r:"entropy",upset:0,final:1,
- w:{n:"Era-Crossed Displacement",sd:5,ax:[9,8,9,8,9],be:"THE ANACHRONISM ENGINE"},
- l:{n:"Contested Foraging",sd:2,ax:[9,8,10,7,8]},
- v:"One point, and it comes down to what \"outside the prior\" actually means. Foraging is <em>literally</em> outside the prior — a real file the model has never seen — and holds the higher irreducibility score to the end. But foraged material arrives as an object to be <b>used</b>, and a sufficiently fluent model can use almost anything without being changed by it; the load-bearing requirement is a real guard, but it guards a behavior rather than removing a capability. Displacement is not outside the prior — it is a <b>hole cut in the prior</b>, and a hole cannot be worked around. The tiebreaker is compounding: foraging's tenth artifact is just another artifact, while displacement's tenth era is a tenth distinct primitive set, and the crossover machinery makes those sets combinable.",
- a:"Two granted: forage-from-the-era, and the contested reading. The displaced persona no longer <em>imagines</em> 1911 — it is handed a <b>real</b> 1911 artifact (a railway signalling manual, a stockyard ledger, a Sears catalogue page), which it must obey literally rather than interpret; and two era-crossed sub-personas read that same artifact to opposite conclusions, shipping the disagreement unresolved.",
- li:[{c:"E5"},{c:"E4"},{c:"E8"},{c:"E1"},{c:"E2"},{c:"E7"},{c:"E6",inh:1},{c:"E3",inh:1}]},
-
-{g:26,rd:"e8",r:"constraint",upset:0,final:1,tie:1,
- w:{n:"The Stranger's Nineteen",sd:8,ax:[10,8,9,8,8],be:"THE STRANGER'S BRIEF"},
- l:{n:"The Parsed Anti-Roster",sd:2,ax:[9,9,9,8,8]},
- v:"A draw at 43, resolved on the region's own question: <b>strip the problem, or strip the expert?</b> The tiebreak goes to the problem. Stripping the expert removes a vocabulary, and a determined model finds a synonym — the prohibition list is an arms race the model can run indefinitely, which is precisely why the Anti-Roster's best feature ended up being a list that <em>learns</em>. Stripping the problem removes the <b>referent</b>, and there is no synonym for a noun that has been replaced by <code>ENTITY_A</code>. The Stranger's Nineteen takes the field's only 10 on Distance for the resulting compound: nineteen non-adjacent responses, each authored first in a priced foreign notation, to a problem with no recognizable nouns in it. There is no median answer to that prompt, because there is no prompt like it anywhere in any training corpus.",
- a:"Two granted: the self-extending prohibition list, and grammar enforcement. The persona now arrives stripped as well as the problem — a prohibition list that automatically absorbs whatever phrases dominate its own destroyed first quartile, enforced by a parser rather than an instruction. Both ends of the pipe are unrecognizable, and neither can be talked around.",
- li:[{c:"C8"},{c:"C1"},{c:"C5"},{c:"C4"},{c:"C2"},{c:"C7"},{c:"C3",inh:1},{c:"C6",inh:1}]},
-
-{g:27,rd:"e8",r:"apparatus",upset:0,final:1,
- w:{n:"Priced Transformers",sd:1,ax:[9,10,9,8,9],be:"THE LENS COMPILER"},
- l:{n:"The Bred Oracle",sd:2,ax:[8,9,10,8,8]},
- v:"The Oracle keeps the higher irreducibility — separate weights are the only thing in this tournament that cannot be undone by a sufficiently clever prompt — and loses on everything else, chiefly on <b>cost of proof</b>. Priced Transformers is buildable this week in pure Python and changes what the model perceives on the very first run. The Oracle requires a training pipeline, a dataset that does not exist, and an open question about whether a 0.6B model's in-character reaction is signal or garbage. In a tournament scored on distance-per-unit-of-mechanism, a transform library that severs claims from their support beats a plan to fine-tune. And crucially the Oracle survives inside the winner: a small model reacting to a <em>transformed</em> artifact is strictly stranger than one reacting to the original.",
- a:"Two granted: the weights-level understudy voice, and bred training data. The transform pipeline now <b>terminates</b> in a small in-character model that reads the transformed artifact and reacts as an understudy — misreading included, uncorrected — with its training data bred bracket-style from prior oracle generations, so the voice at the end of the pipe has verbal habits nobody authored.",
- li:[{c:"A1"},{c:"A8"},{c:"A5"},{c:"A4"},{c:"A2"},{c:"A6"},{c:"A3",inh:1},{c:"A7",inh:1}]},
-
-{g:28,rd:"e8",r:"memory",upset:0,final:1,
- w:{n:"The Ratcheted Ledger",sd:3,ax:[9,9,10,10,9],be:"THE LONG MEMORY"},
- l:{n:"The Annotated Map",sd:5,ax:[8,8,10,9,8]},
- v:"The tournament's highest score, and the widest margin of any regional final. The Map <em>knows</em> where the repo has been; the Ledger <b>forbids the repo from going back</b>. Knowledge without prohibition is advice, and advice is exactly what a strong model absorbs and then ignores. The Ledger is the only entrant among all 32 whose constraint tightens by itself with every use — each session adds a forbidden position, the space of available positions shrinks monotonically, and the persona is pushed outward whether or not anyone is watching. The Map's coverage data is what makes that outward push <em>directed</em> rather than merely away, which makes this merge essential rather than decorative.",
- a:"Two granted: the annotated coverage map, and the plotted median. A ledger entry is now a <b>coordinate</b> — every past position embedded and plotted — so \"you may not restate these\" becomes \"here is the region you have already filled, here is where three attempts died, here is the current median, and here is the nearest void.\" Prohibition gains a compass.",
- li:[{c:"M3"},{c:"M6"},{c:"M7"},{c:"M2"},{c:"M5"},{c:"M4"},{c:"M1",inh:1},{c:"M8",inh:1}]}
-];
-</script>
-
-<script>
-const FINAL_FOUR = [
-{r:"entropy",n:"The Anachronism Engine",seed:5,run:"5-seed · 4-0 · beat the 4, 8 and 2 seeds",
- th:"Cut a hole in the prior instead of adding noise beside it.",
- what:"The persona is instantiated at a specific year and may use only that year's primitives. It is handed a <b>real</b> artifact from that year — a railway signalling manual, a stockyard ledger, a Sears catalogue page — which it must obey literally rather than interpret. It is crossbred with a persona from a <em>different</em> era, so the crossover operates on incompatible primitive sets. Two era-crossed sub-personas read the artifact to opposite conclusions and the disagreement ships unresolved. Everything generates in a mandated high-variance pass with a pruning-only critic, an audit that a top-decile-weird survivor reached the output, and era, pair and seed stamped in the header so any strange result regenerates exactly.",
- grew:["<b>R32</b> — beat Roster Mutation, took structural crossover: the era-crossing became genetic rather than notional.",
-       "<b>S16</b> — beat Choreographed Entropy, took HOT/COLD/AUDIT and the seeded draw: strangeness became measurable and reproducible.",
-       "<b>E8</b> — beat Contested Foraging by one point, took forage-from-the-era and the contested reading: the era stopped being imagined and became a document."],
- li:[{c:"E5"},{c:"E4"},{c:"E8"},{c:"E1"},{c:"E2"},{c:"E7"},{c:"E6",inh:1},{c:"E3",inh:1}]},
-
-{r:"constraint",n:"The Stranger's Brief",seed:8,run:"8-seed · 4-0 · beat the 1, 5 and 2 seeds",
- th:"There is no median answer to a prompt that does not exist in any corpus.",
- what:"The task's domain nouns are stripped to variables before any persona sees it — <code>ENTITY_A</code>, <code>MECHANISM_B</code>, <code>BEHAVIOR_C</code>. The persona arrives stripped too, carrying a prohibition list that automatically absorbs whatever phrases dominated its own destroyed first quartile, enforced by a parser rather than an instruction. It then produces <b>nineteen</b> responses to the abstracted problem, each required to fail a stated relatedness test against every previous one, and each authored first in a priced foreign notation — a recipe, a docket, a checklist on a fixed budget — before being translated back to prose and re-mapped to the real nouns.",
- grew:["<b>R32</b> — beat the 1-seed 19th Way, took the whole non-adjacency quota: the quota now runs <em>after</em> defamiliarization rather than instead of it.",
-       "<b>S16</b> — beat Priced Notation, took notation-first authoring and price per glyph: each of the nineteen is now a structural commitment, not a sentence.",
-       "<b>E8</b> — drew 43-43 with the Parsed Anti-Roster, won the tiebreak, took the self-extending prohibition list and its parser: both ends of the pipe stripped."],
- li:[{c:"C8"},{c:"C1"},{c:"C5"},{c:"C4"},{c:"C2"},{c:"C7"},{c:"C3",inh:1},{c:"C6",inh:1}]},
-
-{r:"apparatus",n:"The Lens Compiler",seed:1,run:"1-seed · 4-0 · the only chalk champion in the field",
- th:"A prosthetic, not a costume — change what the model can perceive, not what it is asked to do.",
- what:"Each persona ships deterministic Python transforms applied to the artifact <em>before</em> it is read: the journalist's severs every claim from its supporting clause, the farmer's re-sorts every line by how long it will still be true, the monk's deletes every sentence containing a superlative. The library also holds subtractive and adulterating transforms — <code>redact.py</code>, <code>plant-lie.py</code>, <code>cut-tool.py</code> — so a hostile environment is just another stage in the pipeline. Running a transform costs the persona budget, so it must choose which distortion it can afford. When a subtractive transform fires, personas may side with or abandon each other and each defection states its price. The pipeline terminates in a small in-character model that reads the transformed artifact and reacts as an understudy — misreading included, uncorrected — with training data bred bracket-style from prior generations.",
- grew:["<b>R32</b> — beat Scarcity Economy, took cost: choosing which distortion to afford is itself a statement of belief.",
-       "<b>S16</b> — beat Weathered Alliances, took degradation-as-transform and coalition mechanics: withholding a fact turned out to <em>be</em> a transform.",
-       "<b>E8</b> — beat the Bred Oracle, took the weights-level understudy voice: the pipeline now ends in a mouth, not a document."],
- li:[{c:"A1"},{c:"A8"},{c:"A5"},{c:"A4"},{c:"A2"},{c:"A6"},{c:"A3",inh:1},{c:"A7",inh:1}]},
-
-{r:"memory",n:"The Long Memory",seed:3,run:"3-seed · 4-0 · tournament high score, 47",
- th:"Knowledge without prohibition is advice, and a strong model absorbs advice and then ignores it.",
- what:"Every position a persona takes is embedded, plotted and appended to a persistent ledger, then handed back on future dispatch with one rule: <b>you may not restate these — extend, reverse, or refuse.</b> Each entry is a claim with an expiry (\"if I am right, X is observable by date D\") resolved automatically in CI on its date, so the forbidden-to-repeat history doubles as a scored track record and a persona wrong six times running is mechanically demoted. The plotted ledger doubles as a coverage map: filled regions, dead zones labeled with their cause of death, the current median as a moving coordinate, and the nearest void. The novelty floor rises and never falls; when nothing can clear it, the lock is reported as a signal to change the mechanism rather than lower the bar.",
- grew:["<b>R32</b> — beat the Ratchet, took the non-descending floor: the persona's own best prior entry became its new minimum.",
-       "<b>S16</b> — beat the Resolving Contract, took the dated bet and CI resolution: a ledger of opinions became a record that can demote.",
-       "<b>E8</b> — beat the Annotated Map by four, took the coverage map and the plotted median: prohibition gained a compass."],
- li:[{c:"M3"},{c:"M6"},{c:"M7"},{c:"M2"},{c:"M5"},{c:"M4"},{c:"M1",inh:1},{c:"M8",inh:1}]}
-];
-
-/* ==================== RENDER ==================== */
-const $ = (s, el) => (el||document).querySelector(s);
-const byCode = Object.fromEntries(FIELD.map(f => [f.c, f]));
-const REGION_LABEL = {entropy:"Entropy", constraint:"Constraint", apparatus:"Apparatus", memory:"Memory"};
-const esc = s => String(s).replace(/&(?![a-z#0-9]+;)/gi,"&amp;").replace(/</g,"&lt;");
-const sum = a => a.reduce((x,y)=>x+y,0);
-
-/* --- field of 32 --- */
-$("#fieldGrid").innerHTML = FIELD.map(f => `
-  <article class="entry" data-region="${f.r}" id="entry-${f.c}">
-    <div class="top">
-      <span class="seed">${f.c} · ${f.s}</span>
-      <h4>${f.n}</h4>
-    </div>
-    <p class="thesis">${f.t}</p>
-    <p class="prov${f.o ? " owner" : ""}">${f.o ? "◆ owner entry" : "◇ generated"}</p>
-  </article>`).join("");
-
-/* --- lineage chips --- */
-function chips(li) {
-  return li.map(x => {
-    const f = byCode[x.c];
-    return `<button class="idcode${x.inh ? " inherited" : ""}" data-code="${x.c}" title="${esc(f.n)}${x.inh ? " — inherited through an earlier absorption" : ""}">${x.c}</button>`;
-  }).join("");
-}
-
-/* --- game cards --- */
-const ROUND_META = {
-  r32: {label:"Round of 32", note:"16 games · absorption budget 1"},
-  s16: {label:"Sweet 16",    note:"8 games · absorption budget 1–2"},
-  e8:  {label:"Elite Eight", note:"4 regional finals · absorption budget 2"}
+const RULINGS = {
+ 1:{k:"OVERRULE", t:"<b>The Wrong Expert on Purpose advances</b>, against the aggregate. Two of three panels named it the overall winner; the five-axis sum did not. Commissioner sided with the panel majority.|<b>The Understudy was not eliminated</b> — it went to the wildcard bench, and was later revived into the Game 8 slot. All three panels had independently refused the merge, finding the two defeat different reflexes."},
+ 2:{k:"ABSORPTION RATIFIED 2–1", t:"Builder and Ecologist independently produced near-identical merged sentences without seeing each other. Only the parser's <b>rejection primitive</b> is absorbed — the per-persona grammar was named a second claim and refused.|Advances as <b>The Binding Map</b>: “Cluster every output the repo has ever produced and reject any new output that lands in a region the corpus has already filled.” Skeptic's dissent preserved: <i>“a map that forbids is a fence.”</i>"},
+ 3:{k:"TIEBREAK", t:"A genuine <b>16–16</b>. Unanimous on four of five axes and split perfectly: Foraging took Distance and Irreducibility (both maximal); the Novelty Gate took Compounding (maximal), Mechanism and Generative failure.|Commissioner broke it for <b>Cross-Repo Foraging</b>. The tie is the sharpest statement in the tournament of irreducibility versus compounding — it is information, not a rubric failure."},
+ 4:{k:"NO RULING REQUIRED", t:"Unanimous across all three panels; Irreducibility 9–0 maximal against Idea Bankruptcy. All three independently found that the mechanism <b>trains its own defeat</b> — the announced quartile becomes a designated dumping ground.|<b>Defect on the record:</b> two panels independently found <code>bin/claims</code> and <code>bin/who-benefits</code> are not tools — <i>“a prompt wearing an executable's name.”</i> Persona Toolbelts advances as written."},
+ 5:{k:"ABSORPTION ACCEPTED, MODIFIED", t:"Builder and Ecologist ran the <b>same deletion test on the same merge</b> and reached opposite conclusions. Builder: without the checker it degrades to period diction carrying modern concepts. Ecologist: deleting the linter makes it <b>better</b>, because the leaked modern term is the diagnostic.|Both hold if the checker <b>logs before it rejects</b>. Advances as <b>The Dated Specialist</b>: “Instantiate the specialist at a named year and reject any output containing a term that postdates it, recording each rejection as evidence of which modern concept the answer could not be built without.” The compile-from-Anti-Patterns half is refused."},
+ 6:{k:"NO RULING REQUIRED", t:"Anti-Roster took Distance +9 unanimous; Entropy Well took Mechanism +9 and Irreducibility +7, both unanimous. Aggregate and majority agree.|<b>Note:</b> the Builder — the panel with a disclosed bias toward Mechanism — voted against the mechanism: <i>“A PRNG constrains a distribution, not an output, and the ruler asks for an output — that is a floor by the ruler's own rule.”</i> A vote defying its own declared bias carries more weight, not less. Anti-Roster goes to the bench."},
+ 7:{k:"ABSORPTION REFUSED", t:"The only <b>unanimous five-axis sweep</b> of the tournament — three axes maximal. Ecologist proposed absorbing monotonic escalation onto the input; Builder had anticipated exactly that merge and rejected it as <i>“A's silhouette, not A's mechanism.”</i>|Commissioner declined the merge. <b>Hostile Environment advances clean.</b>"},
+ 8:{k:"REVIVE + OVERRULE", t:"Collaboration Contract won unanimously, 19–7. Commissioner revived <b>The Understudy</b> from the bench to take this Sweet 16 slot instead.|The Collaboration Contract takes the Understudy's former place on the bench rather than being eliminated — symmetric with Ruling 1, and it was a unanimous winner on the merits. <b>Bracket as a Primitive is eliminated</b>, taking the tournament's own mechanism out in round one."}
 };
 
-function gameCard(g) {
-  const wt = sum(g.w.ax), lt = sum(g.l.ax);
-  const rows = AXES.map((ax, i) => {
-    const wv = g.w.ax[i], lv = g.l.ax[i];
+const S16 = [
+ ["The Wrong Expert on Purpose","Fence · G1","Commissioner overrule — panel majority over the aggregate"],
+ ["The Binding Map","Fence · G2","23–8; absorbed the rejection primitive, refused the grammar"],
+ ["Cross-Repo Foraging","Fence · G3","Commissioner tiebreak from a genuine 16–16"],
+ ["Persona Toolbelts","Fence · G4","26–5 unanimous; two of six tools are prompts in costume"],
+ ["The Dated Specialist","Dog · G5","17–13; era-lexicon checker absorbed, modified to log before rejecting"],
+ ["The Entropy Well","Dog · G6","18–13; all absorptions refused"],
+ ["The Hostile Environment","Dog · G7","27–13, unanimous five-axis sweep; absorption refused"],
+ ["The Understudy","Dog · G8","Revived from the bench by the commissioner"]
+];
+
+const BENCH = [
+ ["The Collaboration Contract","Won Game 8 unanimously and was displaced by a revive, not beaten. Its dated, falsifiable predictions were the only mechanism in its bracket whose verdict originates outside the model.","Left in R32 · G8"],
+ ["The Constraint Compiler","Its era-lexicon checker was already partly absorbed into The Dated Specialist. Commissioner not ready to discard the rest.","Left in R32 · G5"],
+ ["The Anti-Roster","Took Distance +9 unanimous — the highest distance score in its bracket. Lost on mechanism, not on ambition.","Left in R32 · G6"]
+];
+
+/* ---------- render ---------- */
+const $ = s => document.querySelector(s);
+const byCode = Object.fromEntries(DATA.field.map(f => [f.c, f]));
+const PANELS = ["Builder","Skeptic","Ecologist"];
+const RL = {Fence:"fence",Dog:"dog",Moat:"moat",UFO:"ufo"};
+
+function chips(codes){
+  return codes.map(c => `<button class="idcode" data-code="${c}" title="${byCode[c].n}">${c}</button>`).join("");
+}
+
+function gameCard(g){
+  const winA = g.winSide === "A", tie = !g.winner;
+  const rows = g.rows.map(r => {
+    const net = r.a - r.b, mag = Math.abs(net), pct = (mag/9)*50;
+    const side = net>0 ? "right" : "left";   // anchor edge: A-wins bar grows leftward
+    const col = net===0 ? "var(--lose-bar)" :
+      ((net>0) === winA ? "var(--rc)" : "var(--lose-bar)");
+    const fill = net===0 ? "" :
+      `<span class="fill" style="${side}:50%;width:${pct}%;background:${col}"></span>`;
+    const votes = r.votes.map(v => {
+      const lbl = v[1]===null ? "T" : v[1]+v[2];
+      const strong = v[2]===3;
+      return `<span title="${v[0]}">${v[0][0]}:${strong?"<b>"+lbl+"</b>":lbl}</span>`;
+    }).join(" ");
     return `<tr>
-      <td class="axname">${ax}</td>
-      <td class="num w">${wv}</td>
-      <td>
-        <div class="bars">
-          <div class="bar w" style="width:${wv*10}%"></div>
-          <div class="bar" style="width:${lv*10}%"></div>
-        </div>
-      </td>
-      <td class="num l">${lv}</td>
+      <td class="axn">${r.axis}${r.unan?'<span class="u">unanimous</span>':''}</td>
+      <td class="sc la ${r.a>r.b?'win':''}">${r.a||"–"}</td>
+      <td><div class="track">${fill}</div></td>
+      <td class="sc rb ${r.b>r.a?'win':''}">${r.b||"–"}</td>
+      <td class="votes">${votes}</td>
     </tr>`;
   }).join("");
 
-  const tags = [];
-  if (g.upset) tags.push('<span class="tag upset">Upset</span>');
-  if (g.tie) tags.push('<span class="tag tie">43–43 tiebreak</span>');
-  if (g.final) tags.push('<span class="tag final">Regional final</span>');
+  const badges = [];
+  if (tie) badges.push('<span class="badge tie">16–16 tie</span>');
+  if (g.contested) badges.push('<span class="badge contested">Contested</span>');
+  if (g.rows.every(r=>r.unan)) badges.push('<span class="badge sweep">Unanimous sweep</span>');
+  if (RULINGS[g.g] && /OVERRULE|TIEBREAK|REVIVE|ACCEPTED|REFUSED|RATIFIED/.test(RULINGS[g.g].k)) badges.push('<span class="badge ruled">Ruled</span>');
 
-  const renamed = g.w.be && g.w.be !== g.w.n;
+  const side = (o, isWin) => `
+    <div class="sd2 ${isWin?'win':'lose'}">
+      <div class="hd">
+        <span class="catchip" data-cat="${o.col}">${o.cat}</span>
+        ${o.owner?'<span class="owner">owner idea</span>':''}
+      </div>
+      <h4>${o.n}</h4>
+      <div class="pts">${g.tot[o===g.A?'A':'B']}</div>
+      <p class="st">${tie?'Tied':(isWin?'Advances':'Eliminated')}</p>
+    </div>`;
 
-  return `<article class="game" data-region="${g.r}" data-round="${g.rd}" data-upset="${g.upset}" id="g${g.g}">
+  const panels = PANELS.map(p => {
+    const pick = g.panels[p], nm = pick ? g[pick].n : "—";
+    const d = g.disp[p] || "";
+    return `<div class="pcell">
+      <div class="pn"><span>${p}</span><span class="pick">${nm}</span></div>
+      <p class="pd">${g.dec[p] || ""}</p>
+      ${d?`<span class="dsp ${d}">${d}</span>`:""}
+    </div>`;
+  }).join("");
+
+  const r = RULINGS[g.g];
+  const ruling = r ? `<div class="ruling">
+      <p class="lb">Commissioner · ${r.k}</p>
+      ${r.t.split("|").map(x=>`<p>${x}</p>`).join("")}
+    </div>` : "";
+
+  return `<article class="game" data-region="${g.rgn}" data-contested="${g.contested?1:0}" id="g${g.g}">
     <div class="game-head">
       <span class="gno">Game ${String(g.g).padStart(2,"0")}</span>
-      <span class="gregion">${REGION_LABEL[g.r]} region</span>
-      ${tags.join("")}
+      <span class="gregion">${g.region} bracket</span>
+      <span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap">${badges.join("")}</span>
     </div>
-
-    <div class="matchup">
-      <div class="side winner">
-        <div class="who"><span class="sd">${g.w.sd}</span></div>
-        <h4>${g.w.n}</h4>
-        <div class="score">${wt}<small> / 50</small></div>
-        <p class="verdictline">Advances</p>
-      </div>
+    <div class="sides">
+      ${side(g.A, winA && !tie)}
       <div class="vs" aria-hidden="true">vs</div>
-      <div class="side loser">
-        <div class="who"><span class="sd">${g.l.sd}</span></div>
-        <h4>${g.l.n}</h4>
-        <div class="score">${lt}<small> / 50</small></div>
-        <p class="verdictline">Eliminated · mechanism absorbed</p>
-      </div>
+      ${side(g.B, !winA && !tie)}
     </div>
-
-    <div class="axes">
-      <div class="scroller">
-        <table>
-          <thead><tr><th>Axis</th><th colspan="3">Winner &nbsp;/&nbsp; loser</th></tr></thead>
-          <tbody>${rows}</tbody>
-          <tfoot><tr><td>Total</td><td class="num w">${wt}</td><td></td><td class="num l">${lt}</td></tr></tfoot>
-        </table>
-      </div>
-    </div>
-
-    <div class="readout">
-      <div>
-        <p class="lbl">Verdict</p>
-        <p class="verdict">${g.v}</p>
-      </div>
-      <div class="absorb">
-        <p class="lbl">Absorbed by the winner</p>
-        <p>${g.a}</p>
-      </div>
-      ${renamed ? `<p class="becomes">The winner advances as <b>${g.w.be}</b>.</p>` : ""}
-      <div class="lineage"><span class="lbl">Lineage</span>${chips(g.li)}</div>
-    </div>
+    <div class="dv"><div class="scroller"><table>
+      <thead><tr><th class="l">Axis</th><th class="r">${g.A.c}</th><th>Margin</th><th class="l">${g.B.c}</th><th class="r">Panel votes</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr>
+        <td class="axn">Total</td>
+        <td class="sc la ${g.tot.A>g.tot.B?'win':''}">${g.tot.A}</td><td></td>
+        <td class="sc rb ${g.tot.B>g.tot.A?'win':''}">${g.tot.B}</td>
+        <td class="votes">margin ${g.margin}</td>
+      </tr></tfoot>
+    </table></div></div>
+    <div class="panelrow">${panels}</div>
+    ${ruling}
+    <div class="lineage" style="padding:0 17px 15px"><span class="lbl">Entrants</span>${chips([g.A.c,g.B.c])}</div>
   </article>`;
 }
 
+const byRegion = {};
+DATA.games.forEach(g => (byRegion[g.region] = byRegion[g.region] || []).push(g));
 let html = "";
-["r32","s16","e8"].forEach(rd => {
-  const m = ROUND_META[rd];
-  html += `<div class="round-band" data-round="${rd}"><h3>${m.label}</h3><span class="line"></span><span class="meta">${m.note}</span></div>`;
-  html += GAMES.filter(g => g.rd === rd).map(gameCard).join("");
+Object.keys(byRegion).forEach(rn => {
+  html += `<div class="round-band" data-region="${RL[rn]}"><h3>${rn} bracket</h3><span class="line"></span><span class="meta">games ${byRegion[rn][0].g}–${byRegion[rn][byRegion[rn].length-1].g} · complete &amp; ruled</span></div>`;
+  html += byRegion[rn].map(gameCard).join("");
 });
+html += `<div class="round-band"><h3>Moat &amp; UFO brackets</h3><span class="line"></span><span class="meta">games 9–16 · packets written, not dispatched</span></div>
+  <article class="game" style="opacity:.72"><div class="readout"><p class="verdict">
+  Eight matchups remain in the Round of 32. Their judging packets are written, anonymized and
+  committed at <code>docs/tournament/packets/</code>; the panels have not been dispatched.
+  Bracket 3 pairs Lens Transformers against Persona Fracture, Make the Problem Strange against the
+  Committee of Strangers, Roster Mutation against Failure Archaeology, and the Homogeneity Auditor
+  against the Telegram Constraint. Bracket 4 opens with the Grudge Ledger — run 1's top scorer —
+  against The 19th Way.
+  </p></div></article>`;
 $("#gameList").innerHTML = html;
 
-/* --- final four --- */
-$("#ffGrid").innerHTML = FINAL_FOUR.map(f => `
-  <article class="ff-card" data-region="${f.r}">
-    <p class="rgn">${REGION_LABEL[f.r]} champion</p>
-    <h3>${f.n}</h3>
-    <p class="thesis">${f.th}</p>
-    <p class="runline"><b>${f.run}</b></p>
-    <p class="what">${f.what}</p>
-    <div class="growth">
-      <p class="lbl" style="font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)">How it grew</p>
-      <ul>${f.grew.map(x => `<li>${x}</li>`).join("")}</ul>
-      <div class="lineage" style="margin-top:12px"><span class="lbl" style="font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)">Absorbed</span>${chips(f.li)}</div>
-    </div>
+$("#s16").innerHTML = `<thead><tr><th>Advancing</th><th>From</th><th>How</th></tr></thead><tbody>` +
+  S16.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("") +
+  `<tr class="pending"><td>8 more</td><td>Moat &amp; UFO</td><td>Not yet judged</td></tr></tbody>`;
+
+$("#benchGrid").innerHTML = BENCH.map(b=>`<div class="bcard"><h4>${b[0]}</h4><p>${b[1]}</p><span class="tag2">${b[2]}</span></div>`).join("");
+
+$("#fieldGrid").innerHTML = DATA.field.map(f=>`
+  <article class="entry" data-region="${f.cat}" id="entry-${f.c}">
+    <div class="top"><span class="seed">${f.c}</span><h4>${f.n}</h4></div>
+    <p class="thesis">${f.t}</p>
+    <p class="prov${f.o?" owner":""}">${f.o?"◆ owner entry":"◇ generated"}</p>
   </article>`).join("");
-</script>
 
-<script>
-/* ==================== INTERACTION ==================== */
-const gameEls = [...document.querySelectorAll(".game")];
-const bandEls = [...document.querySelectorAll(".round-band")];
-const state = { round: "all", region: "all", upset: false, code: null };
+/* stats */
+$("#sContested").textContent = DATA.games.filter(g=>g.contested).length;
+$("#sAbsorbed").textContent = "2";
 
-/* build filter chips */
-const roundOpts = [["all","All rounds"],["r32","Round of 32"],["s16","Sweet 16"],["e8","Elite Eight"]];
-document.getElementById("roundFilters").innerHTML = roundOpts
-  .map(([v,l]) => `<button class="chip" data-round-f="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
-
-const regionOpts = [["all","All regions"],["entropy","Entropy"],["constraint","Constraint"],["apparatus","Apparatus"],["memory","Memory"]];
+/* filters */
+const gameEls = [...document.querySelectorAll(".game[data-region]")];
+const bands = [...document.querySelectorAll(".round-band[data-region]")];
+const state = {region:"all", contested:false, code:null};
+const regionOpts = [["all","All brackets"],["fence","Fence"],["dog","Dog"]];
 document.getElementById("regionFilters").innerHTML = regionOpts
-  .map(([v,l]) => `<button class="chip" data-region-f="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
+  .map(([v,l])=>`<button class="chip" data-rf="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
 
-function apply() {
-  let shown = 0;
-  gameEls.forEach(el => {
-    const okRound  = state.round  === "all" || el.dataset.round  === state.round;
-    const okRegion = state.region === "all" || el.dataset.region === state.region;
-    const okUpset  = !state.upset || el.dataset.upset === "1";
-    const visible = okRound && okRegion && okUpset;
-    el.style.display = visible ? "" : "none";
-    if (visible) shown++;
-
-    if (state.code) {
-      const codes = [...el.querySelectorAll(".idcode")].map(b => b.dataset.code);
-      el.classList.toggle("lit",  visible && codes.includes(state.code));
-      el.classList.toggle("dim",  visible && !codes.includes(state.code));
-    } else {
-      el.classList.remove("lit","dim");
-    }
+function apply(){
+  let shown=0;
+  gameEls.forEach(el=>{
+    const ok = (state.region==="all"||el.dataset.region===state.region)
+            && (!state.contested||el.dataset.contested==="1");
+    el.style.display = ok ? "" : "none";
+    if(ok) shown++;
+    if(state.code){
+      const cs=[...el.querySelectorAll(".idcode")].map(b=>b.dataset.code);
+      el.classList.toggle("lit", ok && cs.includes(state.code));
+      el.classList.toggle("dim", ok && !cs.includes(state.code));
+    } else el.classList.remove("lit","dim");
   });
-
-  bandEls.forEach(b => {
-    const anyVisible = gameEls.some(g => g.dataset.round === b.dataset.round && g.style.display !== "none");
-    b.style.display = anyVisible ? "" : "none";
+  bands.forEach(b=>{
+    const any = gameEls.some(g=>g.dataset.region===b.dataset.region && g.style.display!=="none");
+    b.style.display = any ? "" : "none";
   });
-
-  document.querySelectorAll(".idcode").forEach(b => b.classList.toggle("active", state.code === b.dataset.code));
-  document.querySelectorAll(".ff-card").forEach(c => {
-    if (!state.code) { c.classList.remove("dim","lit"); return; }
-    const codes = [...c.querySelectorAll(".idcode")].map(b => b.dataset.code);
-    c.classList.toggle("lit", codes.includes(state.code));
-    c.classList.toggle("dim", !codes.includes(state.code));
-  });
-
-  const label = state.code
-    ? `${shown} shown · tracing ${state.code} — ${byCode[state.code].n}`
-    : `${shown} of 28 games`;
-  document.getElementById("gameCount").textContent = label;
+  document.querySelectorAll(".idcode").forEach(b=>b.classList.toggle("active", state.code===b.dataset.code));
+  document.getElementById("gameCount").textContent = state.code
+    ? `tracing ${state.code} — ${byCode[state.code].n}`
+    : `${shown} of ${DATA.games.length} judged games`;
 }
-
-document.getElementById("roundFilters").addEventListener("click", e => {
-  const b = e.target.closest("[data-round-f]"); if (!b) return;
-  state.round = b.dataset.roundF;
-  document.querySelectorAll("[data-round-f]").forEach(x => x.setAttribute("aria-pressed", x === b));
+document.getElementById("regionFilters").addEventListener("click",e=>{
+  const b=e.target.closest("[data-rf]"); if(!b) return;
+  state.region=b.dataset.rf;
+  document.querySelectorAll("[data-rf]").forEach(x=>x.setAttribute("aria-pressed", x===b));
   apply();
 });
-document.getElementById("regionFilters").addEventListener("click", e => {
-  const b = e.target.closest("[data-region-f]"); if (!b) return;
-  state.region = b.dataset.regionF;
-  document.querySelectorAll("[data-region-f]").forEach(x => x.setAttribute("aria-pressed", x === b));
+const cBtn=document.getElementById("contestedOnly");
+cBtn.addEventListener("click",()=>{state.contested=!state.contested;cBtn.setAttribute("aria-pressed",String(state.contested));apply();});
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".idcode"); if(!b) return;
+  state.code = state.code===b.dataset.code ? null : b.dataset.code;
   apply();
 });
-const upsetBtn = document.getElementById("upsetOnly");
-upsetBtn.addEventListener("click", () => {
-  state.upset = !state.upset;
-  upsetBtn.setAttribute("aria-pressed", String(state.upset));
-  apply();
-});
-
-/* lineage tracing */
-document.addEventListener("click", e => {
-  const b = e.target.closest(".idcode"); if (!b) return;
-  state.code = (state.code === b.dataset.code) ? null : b.dataset.code;
-  apply();
-});
-
-/* bar reveal */
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      [...en.target.querySelectorAll(".bar")].forEach((bar, i) => {
-        setTimeout(() => bar.classList.add("in"), i * 34);
-      });
-      io.unobserve(en.target);
-    });
-  }, { rootMargin: "0px 0px -12% 0px", threshold: .12 });
-  gameEls.forEach(el => io.observe(el));
-} else {
-  document.querySelectorAll(".bar").forEach(b => b.classList.add("in"));
-}
-
 apply();
 
-/* ==================== MASTHEAD: DRIFT FIELD ====================
-   A scatter of ideas around a dense median. Most cluster; a few
-   escape. The escapees are the ones this repo is trying to produce.
-   ============================================================== */
-(function drift() {
+/* masthead drift */
+(function drift(){
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const cv = document.getElementById("drift");
-  if (!cv) return;
-  const ctx = cv.getContext("2d");
-  let w, h, dpr, pts, raf;
-
-  function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
-
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const r = cv.getBoundingClientRect();
-    w = r.width; h = r.height;
-    cv.width = w * dpr; cv.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    seed();
+  const cv=document.getElementById("drift"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let w,h,dpr,pts,raf;
+  const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    const r=cv.getBoundingClientRect(); w=r.width; h=r.height;
+    cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); seed();
   }
-
-  function seed() {
-    const cx = w * 0.72, cy = h * 0.5;
-    const n = Math.max(90, Math.min(280, Math.round(w * h / 5200)));
-    pts = [];
-    for (let i = 0; i < n; i++) {
-      // gaussian-ish clustering: most points near the median, a long tail
-      const u = Math.random(), v = Math.random();
-      const g = Math.sqrt(-2 * Math.log(u || 1e-9)) * Math.cos(2 * Math.PI * v);
-      const rad = Math.abs(g) * Math.min(w, h) * 0.19;
-      const ang = Math.random() * Math.PI * 2;
-      const far = rad / (Math.min(w, h) * 0.19);
-      pts.push({
-        x: cx + Math.cos(ang) * rad * 1.5,
-        y: cy + Math.sin(ang) * rad,
-        r: far > 2.1 ? 2.2 : 1.3,
-        far,
-        vx: (Math.random() - .5) * 0.09 * (1 + far),
-        vy: (Math.random() - .5) * 0.09 * (1 + far),
-        p: Math.random() * Math.PI * 2
-      });
+  function seed(){
+    const cx=w*.72, cy=h*.5, n=Math.max(90,Math.min(280,Math.round(w*h/5200)));
+    pts=[];
+    for(let i=0;i<n;i++){
+      const u=Math.random(), v=Math.random();
+      const gz=Math.sqrt(-2*Math.log(u||1e-9))*Math.cos(2*Math.PI*v);
+      const rad=Math.abs(gz)*Math.min(w,h)*.19, ang=Math.random()*Math.PI*2;
+      const far=rad/(Math.min(w,h)*.19);
+      pts.push({x:cx+Math.cos(ang)*rad*1.5,y:cy+Math.sin(ang)*rad,r:far>2.1?2.2:1.3,far,
+        vx:(Math.random()-.5)*.09*(1+far), vy:(Math.random()-.5)*.09*(1+far), p:Math.random()*Math.PI*2});
     }
   }
-
-  function frame(t) {
-    ctx.clearRect(0, 0, w, h);
-    const near = css("--rule");
-    const outA = css("--brass");
-    const outB = css("--oxblood");
-    pts.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
-      if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
-      const escaped = p.far > 2.1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      if (escaped) {
-        ctx.fillStyle = p.far > 2.8 ? outB : outA;
-        ctx.globalAlpha = .55 + Math.sin(t / 900 + p.p) * .2;
-      } else {
-        ctx.fillStyle = near;
-        ctx.globalAlpha = .5;
-      }
+  function frame(t){
+    ctx.clearRect(0,0,w,h);
+    const near=css("--rule"), outA=css("--brass"), outB=css("--oxblood");
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-20)p.x=w+20; if(p.x>w+20)p.x=-20;
+      if(p.y<-20)p.y=h+20; if(p.y>h+20)p.y=-20;
+      const esc=p.far>2.1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      if(esc){ ctx.fillStyle=p.far>2.8?outB:outA; ctx.globalAlpha=.55+Math.sin(t/900+p.p)*.2; }
+      else { ctx.fillStyle=near; ctx.globalAlpha=.5; }
       ctx.fill();
     });
-    ctx.globalAlpha = 1;
-    raf = requestAnimationFrame(frame);
+    ctx.globalAlpha=1; raf=requestAnimationFrame(frame);
   }
-
-  resize();
-  window.addEventListener("resize", () => { cancelAnimationFrame(raf); resize(); raf = requestAnimationFrame(frame); });
-  raf = requestAnimationFrame(frame);
+  resize(); window.addEventListener("resize",()=>{cancelAnimationFrame(raf);resize();raf=requestAnimationFrame(frame);});
+  raf=requestAnimationFrame(frame);
 })();
 </script>

@@ -1,0 +1,2325 @@
+{
+ "1": {
+  "A": "E3",
+  "B": "A6",
+  "region": "Fence",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits just above Mid (it IS the left-fielder reference, relocated from the commentary seat to the authority seat) and below High, because the answer still lands in migration vocabulary once the referee derives it. B sits between Low and Mid: frame, vocabulary and methodology stay the persona's own; only internal sequencing is scrambled.",
+      "pred": "A forbids \"run it as a blue/green cutover with a canary and watch error rates\" arriving as the lead recommendation \u2014 the referee holds no such primitive and must derive from restart-of-play, advantage, and who may stop the match. B forbids the nuclear operator's correctly ordered Phase 1-5 answer; the understudy must open at Phase 5 on a system with nothing yet to recover, yielding \"define the known-safe state you will return to\" before any state exists."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at Mid and slightly above it \u2014 the \"named non-obvious domain\" reference relocated to the lead position, so the non-obvious domain sets the frame rather than commenting on it. B sits at the Floor: the understudy runs alongside the real persona, so the median answer is still generated in full and the understudy is appended to it.",
+      "pred": "A forbids the database-migration answer whose spine is \"dual-write, backfill, verify, cut over in a low-traffic window\" \u2014 the referee has no such primitive and must derive from advantage, restart, and consistent enforcement across two halves. B forbids nothing; every word of the ordinary output still ships with the understudy's stapled underneath. No nameable forbidden output \u2192 floor."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 it goes past the left-fielder reference because the wrong domain holds authority, not just a seat. B between Low and Mid \u2014 the domain never changes, so the understudy's output orbits the correct answer at a fixed radius.",
+      "pred": "A forbids the migration answer whose spine is \"Phase 1 schema audit \u2192 dual-write \u2192 backfill \u2192 cutover\"; the referee must instead produce a spine of advantage, materiality, restart, and escalating sanction. B forbids the systems-thinker output that opens \"first, let's bound the system\" \u2014 the understudy must rank leverage points before it has mapped anything. Both nameable, but B's forbidden output is forbidden relative to the persona, not relative to the median model answer, which is what this axis measures."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      null,
+      0
+     ],
+     [
+      "Ecologist",
+      null,
+      0
+     ]
+    ],
+    "side": "B",
+    "pts": 1,
+    "raw": {
+     "A": 0,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Floor and Low \u2014 a selection rule in SKILL.md prose, executed by the same domain-matcher whose reflex it exists to defeat, which is single-barrier optimism with the barrier and the hazard being the same component. B at Low: the understudy is a written artifact constraining generation regardless of the model's reflex at dispatch time.",
+      "pred": "There is no file that runs for either. A: SKILL.md is read, not executed. B: roster/[slug]-understudy.md would exist but does not run, and nothing rejects an output that fails to be degraded."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both sit between Floor and Low. Each is a dispatch-time rule in prose that changes which markdown file loads into which slot; neither rejects anything.",
+      "pred": "Neither has a file that runs. A is an edit to the selection paragraph in SKILL.md plus the load of an existing roster/[slug].md. B is at best a generated roster/understudy/[slug].md, itself markdown. Both score as exhortation with better routing."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both at Low (a structured prompt template with required sections). Neither reaches Mid \u2014 no self-verification checklist, no gate, nothing that rejects.",
+      "pred": "For A there is no file that runs; the change is a selection rule in SKILL.md that the model reads and applies to itself. For B there is also no file that executes \u2014 roster/understudy/[slug].md would be a generated prompt, and a second agent pass is still a prompt, not machinery. B has more artifacts; artifacts are not execution."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 0,
+     "B": 3
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Floor and Low \u2014 below the persona-file reference, since it is one role-assignment sentence. B at Low: a written distortion spec with five named axes of degradation, still promptable.",
+      "pred": "A base model prompted \"answer this database migration as a soccer referee, and let a systems thinker object\" reproduces ~85% of A. Prompted \"answer as an understudy: right methodology, wrong judgment, phases misordered, signature move overused, wrong principle treated as load-bearing\" reproduces ~60% of B."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both sit at Low \u2014 \"hand the model a persona file,\" real but promptable. B is a half-step above because its degradation operators are four named transformations rather than a role name.",
+      "pred": "A base model prompted \"You are a soccer referee, derive an answer to this database migration from refereeing primitives only\" reproduces ~85% of A. Prompted \"You are the understudy: methodology but not judgment, apply phase 3 where phase 1 belongs\" reproduces ~75% of B. Both inside the promptable band. Note the unverified claim at B's center: the degraded copy is produced by the same model that would otherwise make the \"labeled, safe\" mistake B says it prevents. That is a tip, not a finding."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both at Low (hand the model a persona file \u2014 real, but promptable). Neither reaches Mid; nothing rejects, nothing is withheld.",
+      "pred": "A base model prompted \"answer this database migration as a soccer referee would, deriving everything from refereeing primitives\" reproduces ~70% of A. Prompted \"roleplay a student of this expert who has the method but not the judgment \u2014 misapply the phases, over-use the signature move, misidentify the load-bearing principle\" reproduces ~55% of B; the gap is that the model's reflex is a labeled safe mistake, and holding four degradation axes simultaneously is what the file buys."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      null,
+      0
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": null,
+    "pts": 0,
+    "raw": {
+     "A": 1,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A at Floor: use #10 is another mismatched pairing, and worse \u2014 by #10 \"wrong expert\" has become the house voice, which is a new median. B at Mid: accumulated understudy profiles and their logged errors are material you may consult but need not obey.",
+      "pred": "A's use #10 produces nothing use #1 did not \u2014 a different mismatch, identical in kind. B's use #10 can be told \"phase-inversion has been spent three times; misidentify the load-bearing principle instead,\" a selection unavailable at #1 \u2014 but only if errors-as-proposals are written down, which the idea implies and does not specify."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both sit at Low \u2014 a novelty effect that fades as the pattern becomes house style.",
+      "pred": "A on use #10 produces a different arbitrary mismatch; procedure, difficulty and permitted answer space are identical. B on use #10 runs degraded against a fresh question having learned nothing from nine prior error sets, because no error catalog is retained. Both answer \"a different instance of the same thing.\""
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Low (a novelty effect that fades). B at Floor \u2014 the understudy of a given persona is a fixed distortion, so repeated use of the same pairing is literally the same misapplication.",
+      "pred": "A's use #10 produces a tenth costume and nothing more; worse, a reader who has seen nine has learned to skim the referee vocabulary and read the lens paragraph, so use #10 produces less effect than use #1. B's use #10 produces the identical phase inversion and the identical over-used move \u2014 plus, by then, an understudy file derived from a parent profile edited three times since, so the drift produces error rather than novelty. Neither has a stock that grows; A at least has 552 lead/lens pairings before it visibly repeats, and no artifact to keep alive across seasons."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 7,
+    "raw": {
+     "A": 0,
+     "B": 7
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A at Floor. B between Mid and High.",
+      "pred": "A's exact failure output: \"As a referee, my first whistle is on the rollback plan: you need a tested backup, a staged cutover, and a monitoring window\" \u2014 costume in the opening clause, the default checklist thereafter, and no indication anywhere that the pass reverted. B's exact failure output: the understudy applies Phase 3 (verify credited barriers) to a greenfield question and returns an empty barrier list; the emptiness is the finding \u2014 the plan has no barriers because it has no plan. Its cheaper failure is incoherence, discarded at low cost."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at Mid. B sits at High, with real risk of dropping below Floor.",
+      "pred": "A fails as thin metaphor \u2014 \"a migration needs a clear whistle, a visible signal before the change, the same standard in both halves\" \u2014 never touching schema or rollback, discardable in one read. B fails as internally coherent misapplication: the understudy runs Phase 3 on a Phase 1 question and produces \"who is compensated for this module continuing to exist?\" \u2014 unusable, but it names a hidden assumption about maintainer incentive the correct sequence would never surface. Countervailing risk: B's failure is unlabeled and reads as competent, so the reader cannot tell understudy from expert. A mechanism whose failures are indistinguishable from its successes is a laundering risk."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Floor and Mid, and the Floor mode dominates. B between Mid and High.",
+      "pred": "A's exact failure output: \"Like a referee applying the advantage rule, you should let the broken writes play on and only stop the match when the damage is material\" \u2014 followed by a technically correct, entirely conventional dual-write migration plan supplied by the domain-expert lens. The default answer arrives wearing a costume, at the position of maximum authority, and nothing flags it. B's exact failure output: an understudy that ranks leverage points for a system whose boundary was never drawn, producing \"the highest-leverage move is to change the goal\" applied to something outside the system \u2014 which names the hidden assumption that nobody had agreed what was inside it. B's failure is discardable and occasionally diagnostic; A's failure is undetectable and shippable."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 8,
+   "B": 12
+  },
+  "winner_side": "B",
+  "winner": "A6",
+  "loser": "E3",
+  "margin": 4,
+  "contested": true,
+  "splits": [
+   "AGGREGATE-VS-PANEL",
+   "Compounding",
+   "OVERALL"
+  ],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A's failure mode is the Generative-failure floor reference verbatim \u2014 referee vocabulary bolted onto the median migration answer \u2014 and nothing in A can detect that it happened.",
+   "Skeptic": "A removes something \u2014 the domain expert's authority \u2014 while B removes nothing and adds a second, worse voice to a room that already has two.",
+   "Ecologist": "A relocates the whole derivation to a foreign domain while B only scrambles the judgment inside the correct one \u2014 and A does it with a dispatch rule that costs nothing to maintain, while B costs 24 generated files that rot against the profiles they were degraded from."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Staff the mismatched specialist at the position of maximum authority, so foreign primitives must generate the whole answer rather than annotate it.",
+    "same": "FAIL \u2014 B's claim is that systematic degradation produces mistakes with internal logic. Authority inversion is a second claim about the selection layer, not the fidelity layer.",
+    "del": "FAIL \u2014 delete \"the understudy leads\" and the understudy still runs alongside, still misapplies phases, still yields errors as proposals. Merely smaller.",
+    "one": "FAIL \u2014 cannot be written without \"and also\"; the two halves have separate rejection criteria.",
+    "disp": "ORTHOGONAL",
+    "note": "Both attack a matching reflex, but at different layers \u2014 one at who gets picked, one at how faithfully the pick is executed \u2014 so neither reinforces the other's failure mode. ---"
+   },
+   "Skeptic": {
+    "mech": "The four named degradation operators \u2014 methodology without judgment, wrong-phase application, over-used signature move, misidentified load-bearing principle.",
+    "same": "FAIL \u2014 A's claim is that domain-appropriate matching must be defeated at the position of authority. The operators carry a second claim: that systematic error has more internal logic than requested error. The wrong expert is not a degraded expert; it is an intact expert in the wrong room.",
+    "del": "FAIL \u2014 delete the operators and the referee still leads the migration and still derives from refereeing primitives. Merely smaller.",
+    "one": "FAIL \u2014 the first clause governs who holds authority, the second how well that holder executes; the merged rule needs both specified independently.",
+    "disp": "ORTHOGONAL",
+    "note": "Both defeat a different reflex \u2014 A defeats matching, B defeats competence \u2014 and combining them yields an unqualified expert executing badly, making the strangeness unattributable to either cause. ---"
+   },
+   "Ecologist": {
+    "mech": "A systematically degraded copy whose misapplications carry internal logic, so its errors can be read as proposals instead of discarded.",
+    "same": "FAIL \u2014 A's claim is that the wrong domain at maximum authority defeats domain-appropriate matching; degradation is a claim about wrong judgment inside the right domain. A's referee has full judgment and the wrong primitives; the understudy has the right primitives and broken judgment. That is a second claim.",
+    "del": "FAIL \u2014 merely smaller. Delete the understudy and A still staffs the least relevant specialist as lead, still forces derivation from foreign primitives. Nothing in A depends on it.",
+    "one": "FAIL \u2014 the \"and also\" cannot be removed; the two mechanisms attack the same reflex from unrelated directions and share no machinery.",
+    "disp": "ORTHOGONAL",
+    "note": "Two independent defeats of domain-appropriate matching that happen to be in the same bracket; merging them yields two mechanisms in one repo, not one idea, and doubles the maintenance ledger that already decided the matchup. ---"
+   }
+  }
+ },
+ "2": {
+  "A": "C7",
+  "B": "M5",
+  "region": "Fence",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 1,
+     "B": 4
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Floor and Low \u2014 a grammar is headings with teeth; it constrains the form of an answer that stays entirely inside the problem's vocabulary, and its own example forbids a claim, not a framing. B between Mid and High: it names a direction by construction and steers dispatches into regions the repo has never occupied.",
+      "pred": "A forbids the journalist emitting \"sources say the team was under schedule pressure\" with no SOURCE child and no TIP tag \u2014 real, but it forbids an unsupported sentence, not a familiar one. B forbids the next dispatch landing in an already-dense cluster: concretely, another \"the systems thinker reframes this as a reinforcing feedback loop\" output once that region is saturated."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Low and Mid \u2014 a sophisticated heading system for claim content, but LIMIT/INDICATION/STOP does force content the model would not volunteer. B also between Low and Mid: the map labels voids and dispatches are \"steered,\" which is direction without prohibition.",
+      "pred": "A forbids the journalist shipping \"stakeholders here are likely misaligned\" as a claim node with no SOURCE child \u2014 the parser, not the model, decides. B forbids nothing: \"steered toward the voids\" is advisory, and the proposal explicitly disclaims enforcement."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Low and Mid \u2014 a grammar constrains form; the enforced structure is a formalized version of the Floor reference, rescued only because unsourceable claims must actually be dropped. B between Mid and High \u2014 it forbids a region rather than a shape, which is what this axis measures, but the steering is advisory, which keeps it off High.",
+      "pred": "A forbids \"sources say the migration was rushed\" as an unparented claim node \u2014 narrow but genuinely enforced. B forbids an output landing in the corpus's densest cluster \u2014 if 40% of prior outputs cluster on \"name the archetype, locate the leverage point, propose structural change,\" a void-steered dispatch may not land there. B's forbidding is wider and aimed at conventionality itself; A's is aimed at sloppiness, which is a different vice."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 the exact reference: a gate that rejects and forces regeneration without the model's consent. B between Mid and High: the pipeline runs and produces an artifact, but consumption is advisory. Steering with no gate is an indication, not a control.",
+      "pred": "A's file that runs: grammar/[slug].peg and the validator invoked in the dispatch loop. B's: the embed/cluster/render script producing the coverage map \u2014 but no file enforces that a dispatch obeys it."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Ceiling \u2014 a gate that rejects and forces regeneration without consent. B at High \u2014 a script whose output the model must consume \u2014 stopping there, because consumption is voluntary.",
+      "pred": "A: grammars/investigative-journalist.peg plus a validator invoked as a post-generation hook exiting nonzero on parse failure. B: an embedding-and-clustering job emitting a coverage rendering. Both real and runnable. A's additionally refuses."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 \"a gate that rejects the output and forces regeneration without the model's consent\" is a literal description of a PEG parser rejecting an unparseable output. B at High \u2014 a script runs and the model must consume its output, but nothing rejects.",
+      "pred": "A's files that run: grammars/investigative-journalist.peg, grammars/nuclear-reactor-operator.peg, and a bin/parse-persona-output validator in the generation loop; parse failure is mechanically decidable. B's: a bin/idea-map embed-and-cluster script emitting docs/coverage-map.md; it executes and produces real output, but the consequence of ignoring it is nothing at all. This is A's only decisive axis and it is the axis on which the winner is weakest."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 0,
+     "B": 3
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A at Mid \u2014 verbatim the \"force output through a parser that rejects it\" reference. B at High: the repo's own output distribution is a fact the model cannot compute from inside the context window.",
+      "pred": "A base model prompted \"write this as the investigative journalist and cite a source for every claim\" reproduces ~50% of A's shape and none of its guarantee. Prompted \"what directions has this repo never once pointed?\" reproduces ~10% of B \u2014 it will guess plausible gaps rather than measure real ones. Standing caveat: over a corpus of a few dozen outputs, the instrument has too little signal to be read as calibrated."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits exactly at Mid \u2014 the \"parser that rejects it\" reference verbatim. B between Mid and High: the mirror of \"withhold a fact,\" injecting a fact the model cannot generate from inside \u2014 its own empirical output distribution with density.",
+      "pred": "A base model prompted \"every claim carries a source or is tagged TIP; every action states limit, indication, stop\" reproduces ~70% of A; residual is drift enforcement past paragraph nine. Prompted \"name five directions this repo has never explored\" reproduces ~40% of B \u2014 it produces plausible gaps drawn from priors about what a persona repo typically lacks, precisely the distribution B exists to escape."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A at Mid. B between Mid and High \u2014 the informational inverse of the High reference: rather than withholding a fact, it supplies one the model provably cannot compute, namely the empirical distribution of its own prior outputs.",
+      "pred": "A base model prompted \"here is the grammar; every claim must carry an explicit source or be labeled an unverified tip\" reproduces ~65% of A's structure and 0% of its guarantee \u2014 the whole irreducible content of A is the rejection, not the form. Prompted \"list directions this repo has never once pointed\" reproduces ~15% of B, and that 15% is unverifiable guesswork: the model will name plausible-sounding voids that are already occupied, and has no way to discover the error."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A at Floor \u2014 the grammar on use #10 is byte-identical to use #1 and permits exactly the same answer space. B at High: each accepted output fills a void, the map re-renders, and the next dispatch is pushed elsewhere.",
+      "pred": "A's use #10 produces the same parse constraints as use #1 \u2014 the same thing. B's use #10 produces an output aimed at a region that was still empty at #1 and is no longer reachable by #11, because #10 filled it."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A at Floor \u2014 identical on use #10. B at High, approaching Ceiling on tightening but failing \"cannot be relaxed.\"",
+      "pred": "A on use #10 conforms to the same fixed grammar; nothing about runs 1-9 constrains run 10. B on use #10 produces a map whose void set has been depleted by runs 1-9: the nine directions already taken are no longer void, so run #10 is steered somewhere run #1 could not have been. The narrowing is automatic and its input is the mechanism's own history."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A at Floor with an active erosion loop. B at High, short of Ceiling only because a human can decline to look at the map.",
+      "pred": "A's use #10 produces the identical parse constraint as use #1; the only change is that the grammar has been loosened at least once to admit a valid output it wrongly rejected. That is the structural prediction, not a worry: every false rejection creates pressure toward permissiveness and no counter-pressure exists, so the grammars drift toward accepting everything \u2014 Drift to Low Performance, with 24 hand-maintained .peg files as the standing cost. B's use #10 produces a void list excluding the nine regions uses #1-9 filled; the tenth dispatch is forbidden from nine directions open at use #1. The corpus is a stock, the map is a function of the stock, and the constraint tightens because the stock grows. That is a reinforcing loop, and it is the only one in this bracket. The year-three bill is real \u2014 embeddings recomputed, cluster labels drift, remaining voids empty for cause \u2014 but that is a compounding mechanism degrading, not an absent one."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 7,
+    "raw": {
+     "A": 0,
+     "B": 7
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A's dominant failure at Floor with an aggravating factor \u2014 the apparatus certifies the default answer. Its secondary mode reaches High. B at Mid.",
+      "pred": "A's exact failure output: an action node with LIMIT \"N/A\", INDICATION \"monitoring\", STOP \"if it breaks\" \u2014 parses clean, says nothing, and the reader infers rigor from the tree. Procedure theater with a validator attached. A's better mode: a persona that keeps failing to parse has told you which epistemology it cannot actually sustain. B's exact failure output: a scatter of forty points, three clusters, and a label floating over empty space reading \"embodied / physical reasoning\" that is an artifact of dimensionality reduction, not a real gap \u2014 visibly noise, cheaply discarded."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Low and Mid, arguably below Mid because the discard is not cheap. B between High and Ceiling.",
+      "pred": "A fails by producing a parse-conformant fabrication: unable to satisfy SOURCE, the journalist emits SOURCE: \"internal analysis of the repository\" on every claim and ships. The grammar validates the shape of a citation and cannot validate its existence, so the failure output is a fully-sourced-looking document whose sources are strings \u2014 worse than noise, and it damages the one persona whose entire epistemology is corroboration. B fails by rendering degenerate voids \u2014 \"region 7: sparse; nearest terms: soil, liturgy, RAID\" \u2014 useless as direction but naming a hidden assumption: that the repo's output space has coherent unexplored regions at all. A map whose every void is incoherent is itself a proposal: the repo is topically wide and stance-narrow."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Floor and Low \u2014 either an error and a wasted run, or the worse mode: a certified default. B at High.",
+      "pred": "A's exact failure output: ParseError on a claim node with no SOURCE child, repeated until the model discovers it can attach SOURCE: \"the user's own message\" or \"internal reasoning\" to every claim \u2014 at which point the output parses perfectly, says exactly what it would have said unsourced, and now carries a structural certificate that it is well-attributed. A gamed gate is worse than no gate because it certifies. B's exact failure output: the map reports \"no output has ever landed near {liturgical time, actuarial pricing, coastal erosion},\" a dispatch steered there produces an incoherent forced hybrid \u2014 and the incoherence names the hidden assumption, which is that the void exists because the dispatch rule (lead = domain match) makes that region structurally unreachable. The empty region turns out to be a map of the rule's blind spot rather than of unexplored good ideas."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 8,
+   "B": 23
+  },
+  "winner_side": "B",
+  "winner": "M5",
+  "loser": "C7",
+  "margin": 15,
+  "contested": false,
+  "splits": [
+   "Distance"
+  ],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "B",
+   "Ecologist": "B"
+  },
+  "decided": {
+   "Builder": "A's gate certifies shape and cannot see content, and shape-enforcement narrows toward the median rather than away from it, while B is the only idea here that measures where the median actually is.",
+   "Skeptic": "B's input is the history of its own use, so run #500 differs from run #1; A's grammar is byte-identical on run #500 and enforces the shape of evidence rather than its existence.",
+   "Ecologist": "B is the only idea here whose constraint tightens as its own corpus grows, while A's grammar is identical on use #10 and sits under continuous pressure to loosen every time it wrongly rejects a good output."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Output that fails the check is rejected and regenerated without the model's consent.",
+    "same": "PASS \u2014 the gate is the enforcement of B's own claim. A map nobody is obliged to follow leaves the model steering by the reflex the map exists to correct; that is an indication with no control, and supplying the control does not import a second claim. What is absorbed is the reject-and-regenerate gate, not the per-persona grammar \u2014 the grammar is the second claim and is explicitly refused.",
+    "del": "PASS \u2014 worse, not smaller. Remove the gate and the map degrades to a wall poster; its entire value is defeated by the model's freedom to ignore it.",
+    "one": "PASS \u2014 \"Reject any output whose embedding lands in a region of the repo's own output space that is already occupied.\"",
+    "disp": "ABSORBED",
+    "note": "The gate is the missing last mile of the map, and the map supplies the substantive predicate the grammar's gate never had. ---"
+   },
+   "Skeptic": {
+    "mech": "The parser gate that rejects non-conforming output and forces regeneration without the model's consent.",
+    "same": "FAIL \u2014 B's claim is informational: the model cannot see where it has been, so supply the map. A gate rejecting outputs in dense regions carries a second claim: that the option to be familiar must be removed. B's own text declines this. A rejection threshold also imports novelty-over-correctness, punishing the right answer for being the answer already given.",
+    "del": "FAIL \u2014 delete the gate and B is exactly what B was proposed as: a map. Merely smaller.",
+    "one": "PASS \u2014 the sentence is writable, but writing it converts B into a novelty gate, which is a different entry.",
+    "disp": "ORTHOGONAL",
+    "note": "One mechanism supplies information the model lacks, the other removes a choice the model has; a map that forbids is a fence, and a fence refuses the small repair in front of you because someone already repaired one like it. ---"
+   },
+   "Ecologist": {
+    "mech": "A gate that rejects an output and forces regeneration without the model's consent.",
+    "same": "PASS \u2014 B's single claim is that the repo's own output distribution should constrain the next output, and B's stated weakness is that \"steered toward\" is not \"forbidden from.\" The gate does not add a claim; it makes B's existing claim binding. Note the precision required: what is absorbed is the rejection primitive, not the persona grammar \u2014 a BNF of epistemology would be a second claim and is refused.",
+    "del": "PASS \u2014 worse, not smaller. Delete the gate and B reverts to an advisory map: dispatches keep landing in dense clusters, the void list keeps reporting the same voids, the reinforcing loop never closes, and the map becomes a report nobody opens by month four. B's entire compounding advantage is conditional on outputs actually going where the map points.",
+    "one": "PASS \u2014 \"Cluster every output the repo has ever produced and reject any new output that lands in a region the corpus has already filled.\"",
+    "disp": "ABSORBED",
+    "note": "This is the rare case where the loser supplies the enforcement the winner's own thesis was already reaching for, and the merged mechanism is cheaper to maintain than either parent \u2014 one distance threshold against a corpus that maintains itself, rather than 24 grammars maintained by hand. ---"
+   }
+  }
+ },
+ "3": {
+  "A": "M2",
+  "B": "E2",
+  "region": "Fence",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 7,
+    "raw": {
+     "A": 0,
+     "B": 7
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Low and Mid \u2014 it sets a minimum distance from baseline but names no direction, so the answer travels only in wording. B between High and Ceiling: a pass that must metabolize a random file from an unrelated repo produces output that has to be translated back before it reads as an answer.",
+      "pred": "A forbids \"recommend a staged rollout with monitoring and a rollback plan\" from the nuclear operator whenever that paragraph scores inside the threshold of the unstaffed baseline. B forbids any output in which the foraged object appears once and does no work: concretely it forbids \"like the kerning tables in a font shaper, our roster needs spacing\" as an opening flourish followed by an otherwise unrelated body."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Low and Mid \u2014 it forbids proximity to default phrasing, but proximity is measured on embeddings, so the cheapest compliance is unusual vocabulary and the thought need not move. B at High arguing toward Ceiling.",
+      "pred": "A forbids the baseline sentence \"consider whether stakeholders are aligned and risks documented\" but not that same judgment in rarer words \u2014 and rarer words are what the metric actually buys. B forbids any version of the review that could have been written before the draw: if the object is a two-year-old crontab, the review must be structurally dependent on it, and every review not so dependent is rejected regardless of how novel it reads."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Low and Mid \u2014 it measures distance without directing it, so the model satisfies it by adding lexical variation rather than by relocating. B between Mid and High \u2014 it does not forbid the problem's vocabulary, but it forbids the answer's self-sufficiency, which is adjacent.",
+      "pred": "A forbids a systems-thinker output whose cosine similarity to the unstaffed baseline exceeds threshold \u2014 forbids shipping \"this is a Limits to Growth archetype; the leverage point is defect rate\" when the no-persona baseline said the same thing in different words. B forbids any output that could have been written without the foraged object: if the harness draws the Wikipedia page on Doggerland, B forbids both the answer that never mentions Doggerland and the answer that mentions it only in the opening line. B relocates by injection; A penalizes by measurement, and penalties can be paid in vocabulary."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      null,
+      0
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 4,
+    "raw": {
+     "A": 4,
+     "B": 0
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Ceiling \u2014 a red check rejects without consent and annotates inline. B between High and Ceiling: the forager runs unconditionally and its output must be consumed, but the top of the gate is soft. The margin is only \"slightly\" because A's gate is on the wrong side of the boundary \u2014 it guards eval outputs at pull-request time, not the live dispatch a user receives, and a stop-work control that only operates during document review does not protect the evolution.",
+      "pred": "A's file that runs: .github/workflows/novelty.yml and the scorer it calls. B's: the forage script; no file implements the \"load-bearing\" test, which falls back to judgment."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both High-to-Ceiling. Each names a gate; each has one component that is a judgment call rather than a computation.",
+      "pred": "A: .github/workflows/novelty.yml plus a scorer setting check status. B: a pre-generation harness hook that draws and injects one artifact, plus a post-generation load-bearing check. A's soft point is a threshold on a fuzzy score; B's is who adjudicates \"load-bearing.\" One accountability gap in A: nothing says who sets the threshold, and whoever sets it defines creativity for the repo."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 a CI check failing a pull request is exactly \"a gate that rejects the output and forces regeneration without the model's consent.\" B between Mid and High: the fetch is a script whose output the model must consume (High), but the rejection criterion is a checklist the model self-verifies against (Mid).",
+      "pred": "A's files that run: .github/workflows/novelty.yml plus bin/novelty-score, and the failing condition is mechanically decidable by a machine that has no opinion. B's file that runs: bin/forage, which genuinely fetches. But \"the foraged object must be load-bearing\" has no decidable test; the only available judge is a model, and a model asked whether a paragraph is load-bearing will say yes. B's gate is a gate in name."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 the score is external measurement the model cannot compute. B at High, the withheld-fact reference read in reverse: text supplied from outside that no amount of sampling reaches.",
+      "pred": "A base model prompted \"compare this to what you'd have said without the persona and tell me if it's too similar\" reproduces ~25% of A. Prompted \"bring in something unexpected from outside\" reproduces ~5% of B \u2014 it retrieves from its own priors and cannot produce the actual bytes of line 34 of a specific canon file or an unrelated repo's Makefile."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A at Mid \u2014 a rejecting check the model cannot opt out of, but whose yardstick is the model's own sense of its own default. B at High: the constructive form of \"withhold a fact,\" injecting a token sequence the model could not have sampled.",
+      "pred": "A base model prompted \"estimate how close this is to what you would have said unstaffed, then rewrite until it is far\" reproduces ~60% of A. Prompted \"bring in something unexpected and make it load-bearing\" reproduces ~15% of B: it reproduces the ritual and none of the content, because anything it brings in is drawn from the prior \u2014 the exact failure B was built to prevent. Largest irreducibility gap in the packet. Reduction test confirms: strip B to one random paragraph from the persona's own canon.md, one file read, no infrastructure, and nearly all the force survives. Strip A to \"read your last three outputs and don't repeat yourself\" and most of A's realized value survives at one percent of the cost \u2014 meaning most of A is machinery around a sentence."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Low and Mid \u2014 the model can approximate its own baseline, so most of the effect is promptable; only the threshold and the prior-output corpus are not. B at High: the context window contains a concrete object the model could not have generated, which is the operative property of the High reference regardless of whether the fact is withheld or supplied.",
+      "pred": "A base model prompted \"write the answer you'd give with no persona, then rewrite it to be maximally different\" reproduces ~50% of A. Prompted \"bring in something unexpected from outside this domain and make it load-bearing\" reproduces ~8% of B \u2014 and the 8% is retrieval from priors, which is precisely what B's own claim identifies as the failure. This is the cleanest irreducibility case in the packet and it is B's crown."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling as written \u2014 distinctness is scored against every prior output, so the bar rises automatically and can only be relaxed by a human lowering the threshold. B between Floor and Low: the mechanism at #10 is identical to #1, only the object differs, and nothing prevents drawing twice from the same region.",
+      "pred": "A's use #10 must clear nine predecessors that use #1 did not have to clear \u2014 the tenth nuclear-operator pass may no longer reach for \"hold point,\" \"credited barrier,\" or \"operating envelope\" if the first nine did. Note what that means: the ratchet's first casualty is the persona's own signature vocabulary, which is the ratchet tightening on the wrong quantity. B's use #10 produces an output built on a tenth arbitrary object, unconstrained by the nine before it."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High touching Ceiling \u2014 lexical distinctness from all prior outputs shrinks the permitted space every run, automatically, until unsatisfiable. B at Low: the draw is independent each time.",
+      "pred": "A on use #10 must avoid the vocabulary of nine prior outputs, measurably further from the persona's habitual register than use #1 could have been. It narrows vocabulary, not thought, and terminates in an unsatisfiable constraint someone quietly relaxes. B on use #10 is built on a tenth randomly drawn object; difficulty, procedure and permitted space are identical to use #1, and no archive of past draws constrains the next."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High, missing Ceiling only because the threshold is a parameter a human can lower. B between Floor and Low \u2014 the novelty of a foraged object fades, and nothing accumulates underneath it.",
+      "pred": "A's use #10 must clear lexical distinctness against nine prior outputs from the same persona rather than zero; the permitted region is strictly smaller than at use #1, and it shrinks without anyone deciding that it should. B's use #10 produces a tenth object drawn from the same distribution as the first, with no ledger and no exclusion of what has already been foraged \u2014 and a reader who has seen nine has learned to skim the foraged paragraph and find the real answer underneath. Honest year-three caveat on A: the threshold is a parameter, parameters are the weakest leverage point, and the first red check on a Friday afternoon gets answered by lowering it or adding the job to the allowed-to-fail list. But the corpus survives that erosion and keeps growing. B has nothing to erode because it has nothing accumulating. An irreducible one-shot is exactly the object this panel exists to catch."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 3,
+    "raw": {
+     "A": 3,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at High. B between Mid and High.",
+      "pred": "A's exact failure output: a CI annotation reading \"novelty 0.31 < 0.45 \u2014 FAIL\" over three highlighted sentences, and that highlighted set is a list of exactly where the persona collapsed into the unstaffed baseline \u2014 a direct read-out of which parts of the persona are decorative. B's exact failure output: the foraged object in paragraph one, again as a closing callback, carrying no argument in between; a judge either passes it undetected or rejects it and the run is wasted. B's better mode: the persona reports that the object has no purchase on the question, which is itself a finding about the persona's reach."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at High on its informative failure, Low on its common one, netting to Mid. B at Mid.",
+      "pred": "A fails most usefully by turning the check red on a correct output and annotating the persona's load-bearing principle as too-familiar \u2014 flagging \"verify before releasing it\" as a repeated passage. That names a hidden assumption exactly: no distance metric can separate a persona's signature principle from a tic, and the repo has no other way to tell them apart. A's more common failure is worse: the baseline is regenerated per run, the same diff scores differently twice, the check goes flaky, and a flaky red check is disabled within a month. B fails by strained analogy that passes its own gate \u2014 \"like a .gitignore, your caching strategy is defined by what it refuses to track\" threaded through four paragraphs, satisfying \"load-bearing\" while carrying no observation."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Mid and High on its honest failure, with a named Floor mode. B between Low and Mid.",
+      "pred": "A's exact failure output: a red check with inline annotations reading \"this passage is 0.94 cosine to baseline\" on four of six paragraphs \u2014 a diagnosis that the persona is decorative on this task, not just that the output is stale, and that is a proposal about which profile to fix. A's Floor mode, arriving by year two: an output that clears threshold because it uses \"biotic,\" \"fallow,\" and \"second-order\" while saying exactly what the baseline said \u2014 Goodhart, with a green check attached. B's exact failure output: \"Like the Doggerland land bridge submerged by rising Holocene seas, your migration must account for gradual data drift,\" followed by the standard answer, with the foraged object doing no work past the analogy \u2014 cheap to discard, occasionally revealing which part of the problem has no analog, mostly noise. A's failure names something about the machinery; B's names something about the sentence."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 16,
+   "B": 16
+  },
+  "winner_side": null,
+  "winner": null,
+  "loser": null,
+  "margin": 0,
+  "contested": true,
+  "splits": [
+   "OVERALL"
+  ],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "B",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A's ratchet tightens on lexical surface, which is satisfiable by vocabulary alone, while B changes what is in the context window before generation in a way no regeneration can undo.",
+   "Skeptic": "B injects material the model could not have sampled; A measures the model against itself with the model's own embedding, which is a mirror, not a window.",
+   "Ecologist": "A's constraint tightens automatically against a corpus that grows with every use, while B's foraging is memoryless \u2014 object #10 is drawn from the same distribution as object #1 and nothing is ever excluded."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Score every output against the persona's own prior outputs so the acceptance bar rises automatically with each use.",
+    "same": "FAIL \u2014 B's claim is about input provenance. The score is a second claim about what novelty is and how it is measured on the output side.",
+    "del": "FAIL \u2014 delete the score and foraging still forages, still injects a genuinely external object, still rejects decorative use. Merely smaller.",
+    "one": "FAIL \u2014 two rejection criteria on two different objects; the \"and also\" cannot be removed.",
+    "disp": "ORTHOGONAL",
+    "note": "An output-side distance gate and an input-side provenance guarantee are independent controls that a program could sensibly run together, but they are not one idea, and merging them would attach B's guaranteed injection to a metric that rewards thesaurus work. ---"
+   },
+   "Skeptic": {
+    "mech": "A CI check that fails the build when output scores too close to an unstaffed baseline.",
+    "same": "FAIL \u2014 B's claim is about provenance: material genuinely from outside the prior. A threshold measures proximity, not origin. Merged, a properly foraged output landing near the baseline is rejected, and an unforaged output in exotic vocabulary passes. That inverts B's claim rather than serving it.",
+    "del": "FAIL \u2014 delete the CI check and B is intact: the artifact is still fetched, the pass still rejected when the object does no work. Merely smaller.",
+    "one": "FAIL \u2014 the second clause is a second gate with its own threshold, owner and regeneration loop, adjudicating a property the first does not measure.",
+    "disp": "ORTHOGONAL",
+    "note": "A measures output against the model's own distribution, B against something outside; running both means an output can be rejected for two unrelated reasons and the author cannot tell which failure to fix. ---"
+   },
+   "Ecologist": {
+    "mech": "Inject one concrete external artifact the model could not have generated, and reject the pass if it is not load-bearing.",
+    "same": "FAIL \u2014 A's single claim is that nothing currently punishes a smoothed output and a red check does; that is a claim about incentives and measurement. Foraging claims the model's priors are the binding constraint, and supplies material rather than penalizing results. Two different diagnoses.",
+    "del": "FAIL \u2014 merely smaller. Delete foraging and A still computes novelty scores against a growing corpus, still fails pull requests, still annotates too-familiar passages. Every compounding property A won on survives the deletion untouched.",
+    "one": "FAIL \u2014 the clauses act at opposite ends of the pipeline; no sentence joins them without \"and also.\"",
+    "disp": "ORTHOGONAL",
+    "note": "A pre-generation injection and a post-generation gate are complementary in a roadmap and unmergeable in an idea; stapling them together produces two mechanisms sharing a repo, each with its own maintenance bill. ---"
+   }
+  }
+ },
+ "4": {
+  "A": "A3",
+  "B": "C3",
+  "region": "Fence",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 1,
+     "B": 4
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Mid and High \u2014 the content originates outside the model (this repo's git history, real arithmetic), though the answer stays in the problem's vocabulary. B at Mid: deletion is ordinal, not directional, and ideas 6-20 are drawn from the body of the same distribution.",
+      "pred": "A forbids \"this repo has grown too fast and the roster is going stale\" whenever bin/churn shows the roster files are the least-touched in two years \u2014 the assertion cannot survive the evidence it is required to carry. B forbids \"add more personas,\" \"raise the temperature,\" \"ask for an unconventional angle,\" and \"add a randomness seed\" from ever reaching the synthesis agent."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Floor and Low \u2014 it changes the evidentiary standard, not the shape; a data-grounded median answer is still the median answer. bin/seasons is the exception lifting it toward Mid. B between Low and Mid: it targets the median directly, but positionally rather than semantically.",
+      "pred": "A forbids the farmer writing \"this module has been churning for a while\" with no bin/churn invocation and raw output beneath it. What it does not forbid is the ordinary conclusion, now decorated with real numbers. B forbids delivering \"staff every task with two contrasting specialists\" if it arrived as idea #2. The hole: destruction is positional and the claimed prohibition is semantic, and nothing connects the two. Idea #2 restated as idea #7 survives, and reordering is free."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A between Low and Mid \u2014 a tool-grounded answer is a more accurate answer, not a stranger one, and two personas running the same tool converge rather than diverge. B between Mid and High: the front-loaded answer is the median answer, and B deletes it by construction.",
+      "pred": "A forbids \"this repo's most-churned files are probably SKILL.md and the roster index\" \u2014 any unmeasured claim about churn must be replaced by raw bin/churn output. That forbids speculation, which is a different vice from conventionality. B forbids, for \"how should the roster grow,\" the outputs \"add specialists in the domains users request most\" and \"run demand-driven /roster-add\" \u2014 the first things generated are unavailable to synthesis, whatever they turn out to be. On use #1 this is the most direct attack on the median in the entire packet; the axis measures use #1, so B takes it, and the compounding axis is where that measurement is corrected."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 3,
+    "raw": {
+     "A": 4,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "Both at Ceiling for execution. The margin is independence, which is the operator's actual test: git log does not care what the model wants, whereas B's quartile boundary is defined over an ordering the constrained party itself produces, and the party is told about the boundary in advance. A control whose effectiveness depends on the cooperation of the thing it controls is not an independent barrier.",
+      "pred": "A's files that run: bin/churn, bin/seasons, bin/units, bin/orders \u2014 all genuinely computable. bin/claims and bin/who-benefits are script names standing in for prompts and should not be counted as tools; an LLM judgment printed behind a shell prompt is method exposure, not measurement. B's file that runs: the dispatch harness performs the truncation; no file verifies what was truncated."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 multiple scripts whose output the model must consume, plus \"no tool output, no pass,\" which is a refusal. B reaches Ceiling on the refusal criterion alone but has nothing whose output must be consumed.",
+      "pred": "A: bin/churn, bin/seasons, bin/units, bin/orders, bin/claims, bin/who-benefits, git log --follow. A finding against A: bin/churn, bin/seasons, bin/units and bin/orders are computations over real data; bin/claims and bin/who-benefits almost certainly are not \u2014 \"who benefits\" is not derivable from a repository, so that binary is a model call in a shell script, a prompt wearing an executable's name. Four of six are real. B: none. B is a slice-and-discard step in the dispatch loop, three lines with no name. Scores as exhortation with a delete key."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between High and Ceiling \u2014 real scripts run and their output must be consumed, and \"no tool output, no pass\" is grep-checkable. B at Ceiling: destruction unread, without consent, with nothing to negotiate.",
+      "pred": "A's files that run: bin/churn, bin/seasons, bin/claims, bin/who-benefits, bin/units, bin/orders, plus git log --follow. B's: a harness wrapper \u2014 call it bin/bankrupt \u2014 that truncates the idea list before any synthesis agent reads it; twenty lines, no judgment required, cannot be gamed at the truncation step. B edges A because its gate needs nothing to keep working, while A's gate depends on every tool in the belt still running. Six tools cover three personas here; full roster coverage is thirty to fifty small programs, each coupled to a repo shape that changes. By year three a meaningful fraction of the belt is broken, and because \"no tool output, no pass\" blocks those personas entirely, the rule gets waived rather than the tools repaired. That compensating response should be priced in now."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High \u2014 the churn table is a fact absent from the context window until the tool runs. B at Low, adjacent to the \"ask the model to be more creative\" floor.",
+      "pred": "A base model prompted \"review this repo as a farmer and consider which files have been touched most\" reproduces ~20% of A \u2014 it can produce the posture and must invent the numbers. Prompted \"generate twenty ideas and skip your first five obvious ones\" reproduces ~75% of B; the difference between guaranteed destruction and a request changes the compliance guarantee far more than it changes the output."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 tool output is a fact in the context window the model could not have produced and cannot fake, because the raw result must be pasted and is checkable. B at Low, one notch above the floor: a specific, widely known prompt trick.",
+      "pred": "A base model prompted \"run git log --follow and bin/churn, paste raw output, then analyze\" reproduces ~35% of A \u2014 it reproduces the framing and none of the numbers, and the numbers are the part that changes the answer. Prompted \"generate 20 ideas; I will discard the first 5 unread\" reproduces ~85% of B. B's load-bearing claim \u2014 that foreknowledge \"changes what it generates from the first token\" \u2014 is asserted and never corroborated. The cheapest compliance is to write five throwaways to burn the quota, collapsing B into \"ask for twenty and read from six.\""
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High \u2014 the tool output is a fact about the actual repo that does not exist anywhere in the model. B at Mid: the model cannot opt out of the truncation, but nothing is withheld and nothing outside the model is supplied.",
+      "pred": "A base model prompted \"which files in this repo have been touched most over two years, and what does commit cadence by month look like?\" reproduces ~10% of A \u2014 it will guess, confidently and wrongly, and cannot check itself. Prompted \"generate 20 ideas; I will delete the first 5 unread, so don't waste them\" reproduces ~55% of B \u2014 it will perform the effect, writing five conspicuous throwaways and then trying harder, rather than undergoing it. A supplies information that does not exist in the weights; B rearranges the order in which the weights are read out."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Low and Mid \u2014 nothing narrows, but the instruments track a changing plant. B at Floor by the axis's own words.",
+      "pred": "A's use #10 produces a churn table containing a file that did not exist at use #1 and a bin/seasons cadence that has since changed \u2014 \"commits have collapsed to weekends since March,\" a claim structurally impossible at #1. B's use #10 produces the same 15-of-20 selection from the same distribution; the only thing that has changed is the persona's learned habit of spending its first quartile on sacrifices."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Low touching Mid \u2014 accumulates material you may consult but need not obey. B at Floor.",
+      "pred": "A on use #10 runs bin/seasons against a commit history that now includes nine intervening months, so the cadence bars differ and the observation differs; the tool is fixed but its input drifts. B on use #10 destroys the same first quartile against a fresh question with no memory of nine prior bankruptcies \u2014 N does not grow, nothing about runs 1-9 constrains run 10."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 it accumulates material the persona must obey, and the tool reads a stock that grows. B at Floor, and below the floor in effect, because the mechanism actively trains the behavior it was built to prevent.",
+      "pred": "A's use #10 runs bin/churn against a git history that now contains the files uses #1-9 created, so the tool measures the consequences of its own prior use \u2014 the farmer reading this year's soil sees last year's amendments in it. That is a genuine loop: outputs change the repo, the tool measures the repo, the measurement constrains the next output. B's use #10 destroys the same first quartile it destroyed at use #1, and because the destruction is unread by construction, nobody can learn anything from what was destroyed. Worse, the persona is told in advance, which is B's stated feature and is precisely the defeat mechanism: the announced quartile becomes a designated dumping ground, five deliberately weak ideas fill it, and idea #6 is the front-load the rule existed to delete. Fixes That Fail, with the compensating response arriving inside the first few uses rather than after a delay. The intervention converts from a filter into a ritual, and rituals are maintained long after they stop working."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 5,
+    "raw": {
+     "A": 5,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A's common mode at Floor and its redeeming mode at High; net Mid. B at Floor, with the aggravating factor that the failure is undetectable by construction.",
+      "pred": "A's exact failure output: bin/churn prints a real table and the paragraph beneath reads \"this repo shows signs of overwork\" \u2014 a claim the table neither supports nor contradicts, decorative citation a reader can at least see is decorative. A's redeeming mode: bin/units contradicts the claim the persona was about to make, and the persona must drop it or explain the discrepancy; that discrepancy is usually the best sentence in the output. Measurement can contradict you \u2014 deletion cannot. B's exact failure output: a deliverable indistinguishable from the unmodified one plus a log line reading \"discarded 5 of 20 ideas,\" with the discarded material destroyed unread, so no one can confirm the control did anything at all."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Mid, dragged toward Floor by its cheapest compliance path. B between Low and Mid, with an unauditability problem this panel treats as disqualifying independent of the axis.",
+      "pred": "A fails as ceremonial evidence: bin/churn runs, real numbers are pasted, and the persona writes the analysis it would have written anyway \u2014 the Floor reference with a data garnish. Mitigating: the garnish is visible, and any reader can check whether a number appears anywhere in the argument. B fails as sacrificial filler: \"1. Add more personas. 2. Write more evals. 3. Improve the documentation. 4. Add a README. 5. Refactor\" \u2014 five ideas generated to be destroyed, followed by the persona's actual first choice presented as idea #6 and delivered as though it had survived bankruptcy. The median answer is laundered as post-bankruptcy output, and by design no one may examine the destroyed quartile to check. A mechanism whose defining feature is that the discarded evidence is unreadable cannot be audited for whether it discarded the good material, and this panel will not certify a claim constructed to be unverifiable."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High. B at Floor, aggravated by false certification.",
+      "pred": "A's exact failure output: bin/churn returns \"(no commits in range)\" and a farmer required to cite it has nothing to cite \u2014 which produces the true and unwelcome finding that this ground has no seasons to read yet, and that everything said about the repo's history has been reasoning about a history it does not have. The mundane mode is a broken tool and a wasted run. B's exact failure output: an idea list whose surviving #6 reads \"add specialists in the domains users request most\" \u2014 the median answer, laundered through a destruction ritual and arriving stamped as non-obvious because the harness can attest that a quartile was destroyed. A failure that manufactures a certificate is the most expensive kind, because it removes the pressure that would otherwise find the problem."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 26,
+   "B": 5
+  },
+  "winner_side": "A",
+  "winner": "A3",
+  "loser": "C3",
+  "margin": 21,
+  "contested": false,
+  "splits": [
+   "Distance",
+   "Mechanism"
+  ],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "B announces its control to the party it constrains and destroys the evidence unread, so it can be stepped around for free and its effect can never be verified; A's tools are a source of fact the model cannot generate or negotiate with.",
+   "Skeptic": "B is a well-known prompt trick with a destroyed audit trail; A puts facts in the context window that the model cannot fabricate and a reader can check.",
+   "Ecologist": "B's mechanism trains its own defeat \u2014 a persona told its first quartile dies learns to front-load disposable ideas, so by use #10 the destruction removes five deliberate throwaways and idea #6 is the same median answer the rule was built to kill."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "The harness destroys generated material without the model's consent, so the front-load has no delivery path.",
+    "same": "FAIL \u2014 A's single claim is that assertion must be replaced by observation. Ordinal destruction rests on a different claim: that the model's confidence ordering is its homogeneity ordering.",
+    "del": "FAIL \u2014 remove the quartile destruction and toolbelts still run tools, still require the invocation and raw result, still gate on tool output. Merely smaller.",
+    "one": "FAIL \u2014 the \"and also\" is load-bearing; the two halves gate different things.",
+    "disp": "SUBSUMED",
+    "note": "Requiring every claim to carry tool output already excludes the unmeasured front-load, which is most of what the quartile deletion removes, so absorbing it would add a non-independent control over a hazard already covered \u2014 and one that arrives with its own free bypass, which is a second failure point rather than a second barrier."
+   },
+   "Skeptic": {
+    "mech": "Pre-announced destruction of the persona's own first quartile, told in advance so it changes generation from the first token.",
+    "same": "FAIL \u2014 A's claim is that models assert without measuring, so a mandatory tool run replaces assertion with observation. Destroying the front-load carries an unrelated claim: that answer order tracks answer quality. A tool run governs what counts as evidence; a quartile deletion governs sequence.",
+    "del": "FAIL \u2014 delete the bankruptcy rule and the persona still runs bin/churn, still pastes raw output, still cannot assert churn without measuring it. Merely smaller.",
+    "one": "FAIL \u2014 the first half is a completeness requirement on evidence, the second a positional prohibition on output; the merged rule needs both a tool manifest and an N-and-discard parameter specified independently.",
+    "disp": "ORTHOGONAL",
+    "note": "One mechanism adds a required input and the other subtracts a portion of the output; a persona subject to both would burn its destroyed quartile on the cheapest tool invocations, converting A's evidence requirement into B's sacrificial filler."
+   },
+   "Ecologist": {
+    "mech": "Destroy the front-loaded quartile unread, and tell the persona in advance so generation changes from the first token.",
+    "same": "FAIL \u2014 A's single claim is that models assert without measuring and a mandatory tool run replaces an assertion with an observation. Pre-announced destruction is a claim about generation order and incentives.",
+    "del": "FAIL \u2014 merely smaller. Delete bankruptcy and A still runs its tools, still requires the raw result, still forbids unmeasured claims, still reads a stock that grows.",
+    "one": "FAIL \u2014 the \"and also\" is load-bearing; the two act on different objects \u2014 one on the persona's evidence, one on its output queue.",
+    "disp": "ORTHOGONAL",
+    "note": "A already blunts front-loading by a different and more durable route \u2014 a persona whose first substantive token is a tool invocation cannot front-load a remembered answer, because it has not yet been allowed to speak one \u2014 so the absorption buys little even before the three tests refuse it."
+   }
+  }
+ },
+ "5": {
+  "A": "E5",
+  "B": "C6",
+  "region": "Dog",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling, since it bans the concept set rather than the word list. B between Low and Mid \u2014 the answer is de-slopped, not relocated.",
+      "pred": "A forbids a 1911 systems thinker producing \"feedback loop,\" \"stock and flow,\" \"leverage point,\" or \"emergence\"; it must reach instead for the flyball governor, railway interlocking, boiler relief. B forbids \"it's worth noting,\" \"in today's landscape,\" and any pass with fewer than N domain nouns \u2014 but the median recommendation itself survives intact with its hedges stripped."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High (forbid the problem's own vocabulary) and Ceiling \u2014 it bans the concept, not just the word. B between Low and Mid \u2014 banned n-grams strip surface tics while the recommendation survives intact.",
+      "pred": "A forbids \"the feedback loop between hiring and attrition is self-reinforcing\" from a 1911 lead, and forbids reaching the same idea under a synonym, since the governor-on-a-steam-engine substitute is a different object with different failure behavior. B forbids \"it's important to note this is a robust, holistic framework\" but permits the identical recommendation restated as \"this framework covers the whole system\" \u2014 the banned string, not the banned thought."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling \u2014 it forbids the concept, so the output must be re-derived and then translated forward. B between Low and Mid \u2014 it forbids surface forms drawn from the persona's own file.",
+      "pred": "A forbids \"This is a reinforcing loop with a delay; the leverage point is the system's goal\" \u2014 a 1911 instantiation cannot produce that sentence or the concept under it, and must reach for a governor overspeeding because the linkage answers the shaft too slowly. B forbids the literal strings \"it's important to note\" and \"arguably\" \u2014 but the reinforcing-loop sentence above passes every compiled check untouched."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between High and Ceiling, short of the gate only because it says \"checked,\" not \"rejected and regenerated.\" A at Low \u2014 a structured prompt with a required parameter.",
+      "pred": "B names bin/compile-constraints plus a post-hoc linter \u2014 two executables, both stated. A names no file that runs; --era is an argument consumed by prose, and the enforcement is the model's own compliance with the exact instruction A's own claim says models ignore."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between High (a script whose output the model must consume) and Ceiling, stopping short because the linter checks post-hoc without forcing regeneration. A between Floor and Low \u2014 a flag that changes a string in a prompt.",
+      "pred": "B names bin/compile-constraints plus a linter pass over the emitted constraint set. A names no file; there is no era lexicon, no year-gated wordlist, no anachronism checker \u2014 the --era flag hands the model a date and trusts it to police its own century."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between High and Ceiling \u2014 it stops short of forced regeneration because verification is post-hoc. A between Low and Mid.",
+      "pred": "B's file that runs is bin/compile-constraints, plus the linter that exits nonzero on a banned n-gram. A's file that runs is none \u2014 --era 1911 is a string appended to a prompt, and the enforcement is the model's own honesty about what 1911 knew."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 0,
+     "B": 3
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A between Low and Mid; it is a persona file with a date field. B at Mid.",
+      "pred": "A base model prompted \"You are a systems thinker in 1911; use no concept invented after 1911\" reproduces ~60% of A \u2014 including the failure A exists to prevent. Prompted \"avoid your anti-patterns and don't hedge\" reproduces ~50% of B's compliance; the remaining 50% is the linter, which is not a model."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A at Low (a persona file \u2014 real, but promptable), because self-enforced ignorance is the entire mechanism. B between Low and Mid (a parser the model cannot opt out of), held below Mid because the parser rejects strings rather than substance.",
+      "pred": "A base model prompted \"You are a systems thinker in 1911; use only concepts available in 1911\" reproduces ~75% of A \u2014 including its leaks, since the model polices anachronism inconsistently and nothing catches it. Prompted \"Rewrite this avoiding your stated anti-patterns and hedge phrases\" reproduces ~55% of B's constraint text and 0% of the post-hoc check, which is the only part of B that isn't a prompt."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B at Mid. A at Low \u2014 a date on a persona file is still a persona file.",
+      "pred": "A base model prompted \"respond as a systems thinker writing in 1911\" reproduces ~65% of A \u2014 period diction is trivial, and concept suppression is exactly where both the prompt and the flag fail identically, because the flag does not remove the concept from the weights. Prompted \"obey this profile's anti-patterns and drop the hedges\" reproduces ~80% of B; the linter's marginal contribution is the residual 20%, which is a parser catch, not a withheld fact."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      null,
+      0
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 2,
+    "raw": {
+     "A": 2,
+     "B": 0
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both at Floor.",
+      "pred": "A: nothing. Era 1911 on the tenth dispatch yields the same hydraulics-and-stockyards register as the first; the flag is a dial, stores nothing between runs. B: nothing. compile-constraints re-reads the same Anti-Patterns section and emits a byte-identical constraint set on run #10 unless a human edits the profile in between."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Low \u2014 a fresh era supplies genuinely different source material for several uses, then the move becomes legible as a costume change. B at Floor: identical on use #10 as on use #1.",
+      "pred": "Use #10 of A instantiates a 1487 persona whose primitives (humoral medicine, guild ledgers, canon law) differ from 1911's, though the procedure is unchanged and nothing narrows. Use #10 of B emits a byte-identical constraint set, because the compiler reads an unchanged profile and no observed violation is ever added back to the ban list."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Low \u2014 a dial with settings, not soil. B at Floor.",
+      "pred": "Use #10 of A at --era 1640 produces a scholastic natural-philosophy framing \u2014 final causes, the Great Chain \u2014 that use #1 at --era 1911 did not; but only because a human turned the dial, and nothing tightens on its own. Use #10 of B emits a byte-identical constraint set to use #1, because the compiler is a pure function of a profile file that did not change; growth requires someone hand-weeding a 200-line ban list across 24 personas, which is the maintenance crop nobody harvests in year three."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 5,
+    "raw": {
+     "A": 6,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling. B between Low and Mid.",
+      "pred": "A: \"The stockyard exhibits a positive feedback loop as the railway interlocking saturates.\" Unusable as 1911 prose \u2014 and the leaked terms are an itemized list of the concepts the default answer cannot be constructed without, which is the next ban list. B: a lint report \u2014 \"banned n-gram 'leverage' line 12; hedge 'it may be worth' line 31; domain-noun count 4 < 9.\" Regenerate. Diagnostic about register, silent about content."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B between Mid and High. A between Floor and Mid.",
+      "pred": "A fails as a period-costumed modern answer \u2014 \"The 1911 systems thinker observes a feedback loop between hiring and attrition\" \u2014 a leak nothing detects, so the failure ships. B fails as a linter report: banned n-gram 'leverage' line 14; domain-noun count 3 < required 8 \u2014 and repeated failure on the noun floor names a hidden assumption, that the profile has no vocabulary of its own, while the gamed case (nouns padded to quota) is noise dressed as compliance."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling. B between Floor and Mid.",
+      "pred": "A's exact failure output is a fluent 1911 essay containing the phrase \"feedback loop\" \u2014 and the leaked term is the finding, naming precisely which modern concept the profile cannot operate without. B's exact failure output is a document scoring 100% compliance \u2014 zero banned n-grams, domain-noun minimum met, no hedges \u2014 that says nothing the default answer didn't; a checked constraint measuring surface features produces output optimized for surface features and reports green while the substance regresses to the mean."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 17,
+   "B": 13
+  },
+  "winner_side": "A",
+  "winner": "E5",
+  "loser": "C6",
+  "margin": 4,
+  "contested": true,
+  "splits": [
+   "Generative failure",
+   "OVERALL"
+  ],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "B",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "B's barrier is real but guards the wrong boundary \u2014 banned n-grams and a domain-noun quota are fully satisfiable by the median answer in costume \u2014 while A forbids the concept the median answer is built out of.",
+   "Skeptic": "Delete --era and you can still type \"answer as a 1911 systems thinker\"; delete bin/compile-constraints and nothing in the repo checks compliance at all.",
+   "Ecologist": "B enforces a constraint set that is byte-identical on use #10 and whose characteristic failure is a green check on median prose; A forbids the concept rather than the phrasing, and its failures are diagnostic."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "A checker outside the model that rejects any output containing a term from a compiled list.",
+    "same": "PASS \u2014 an era-lexicon checker verifies A's one claim (no post-year concepts) rather than adding one; the compiler-from-Anti-Patterns half must be left behind, because that half carries B's rival diagnosis that voice prose is the homogeneity source.",
+    "del": "PASS \u2014 worse, not smaller. Remove the checker and A degrades to period diction carrying modern concepts, which is precisely the failure A names in its own claim.",
+    "one": "PASS \u2014 \"Instantiate the specialist at a named year and reject any output containing a term that postdates it.\"",
+    "disp": "ABSORBED",
+    "note": "A had a checkable constraint and no check; B had a check aimed at nothing worth checking \u2014 the merge is the only one in this packet where the loser supplies the winner's missing barrier rather than a second opinion. ---"
+   },
+   "Skeptic": {
+    "mech": "Dating the persona to a year so that its available concepts, not merely its diction, are period-limited.",
+    "same": "FAIL \u2014 B's single claim is that constraints must be compiled and checked; an era ban imports a second claim (that the concept is the target) which a string-matching compiler structurally cannot discharge, since banning \"feedback loop\" yields \"self-reinforcing circuit.\"",
+    "del": "FAIL \u2014 merely smaller. Remove the era lexicon and the compiler still compiles anti-patterns, voice shapes, and hedge lists; it loses one constraint source among four.",
+    "one": "FAIL \u2014 the second clause requires an enforcement the first clause's mechanism does not possess.",
+    "disp": "ORTHOGONAL",
+    "note": "The monk's objection to the winner stands on its own record: four constraint types where a hedge linter would do, and a minimum-noun-count metric that will be gamed by the first output that meets it. ---"
+   },
+   "Ecologist": {
+    "mech": "A compiled, machine-checkable constraint set verified by a linter rather than trusted to the model.",
+    "same": "FAIL \u2014 A's single claim is that dating a persona forces re-derivation instead of retrieval; \"compliance must be machine-checked\" is a claim about enforcement, a second thesis wearing the first one's clothes.",
+    "del": "FAIL \u2014 delete the anachronism linter six months out and A gets BETTER, not worse. The leaked modern term is A's highest-scoring feature; linting it away destroys the diagnostic and leaves only period cosplay.",
+    "one": "FAIL \u2014 the second clause polices what the first clause was designed to expose.",
+    "disp": "ORTHOGONAL",
+    "note": "This is the rare absorption that would have been actively subtractive \u2014 the loser's mechanism suppresses exactly the signal the winner exists to generate. ---"
+   }
+  }
+ },
+ "6": {
+  "A": "E1",
+  "B": "C2",
+  "region": "Dog",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 \"forbid the answer from containing the problem's own vocabulary,\" stated almost verbatim. A at Floor.",
+      "pred": "B forbids a Franciscan pass containing \"simplicity,\" \"enough,\" \"presence,\" \"creation,\" or \"poverty,\" and 195 further enumerated strings and moves. A forbids nothing nameable: every roster member remains reachable under some seed. A PRNG constrains a distribution, not an output, and the ruler asks for an output \u2014 that is a floor by the ruler's own rule."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High and edging toward Ceiling, since banning moves and framings as well as phrases pushes toward output unrecognizable as monk output. A between Low and Mid \u2014 the distance comes from the roster being sampled, not from the sampler.",
+      "pred": "B forbids the anti-monk from writing \"what would be enough here?\" \u2014 the single most characteristic sentence in his own profile \u2014 and forbids the retreat to \"simplicity,\" \"presence,\" and \"poverty\" behind it. A forbids the model from selecting the contrarian as lens for the fourth time running and from picking its favorite random number, but forbids nothing about what the selected pair then says."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between High and Ceiling \u2014 it bans framings and moves, not only words. A between Floor and Low \u2014 it shuffles who speaks, not what can be said.",
+      "pred": "B forbids \"true wealth is found in simplicity and presence,\" and forbids the move of resolving any dilemma into renunciation. A forbids nothing about the answer; the only nameable forbidden output is the modal staffing choice \u2014 systems-thinker paired with contrarian on every third dispatch \u2014 and the answer that pairing would have produced remains entirely available."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High. B between Low and Mid \u2014 a checklist the model is asked to self-verify against.",
+      "pred": "A names bin/draw, which executes, emits a seed, and stamps it in the output header where it can be audited after the fact. B names anti-roster/<slug>.md, which is loaded, not run; 200 prohibitions policed by the same model that wants to violate them, with nothing checking compliance."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High \u2014 a script that runs, whose output (a seed) the dispatch must consume. B between Floor and Low \u2014 structured prose in a markdown file, with no checker anywhere.",
+      "pred": "A names bin/draw, which emits a seed stamped in the output header and reproduces the run. B names anti-roster/<slug>.md, which does not run; nothing detects the anti-monk saying \"enough\" on line 30."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High. B between Low and Mid.",
+      "pred": "A's file that runs is bin/draw \u2014 a real PRNG whose seed is stamped in the output header, so the draw is an external fact the pass must accept. B's file that runs is none; anti-roster/franciscan-monk.md is read, not executed, and nothing checks whether any of the 200 bans were honored."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Mid \u2014 the model cannot opt out of the draw. B between Low and Mid; it is a persona file inverted.",
+      "pred": "A base model prompted \"pick a random lead and lens\" reproduces ~70% of A's selection behavior and 0% of its replayability \u2014 no model can hand you a run you can re-execute. Prompted \"be a Franciscan monk and never say simplicity, enough, presence, creation, or poverty\" reproduces ~70% of B for those five; the file's value is the other 195, which the model would not generate \u2014 but the artifact is still self-policed prose."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 external entropy cannot be simulated by a model that has no access to it, though it is not a withheld fact. B at Low, which is the exact reference merely inverted.",
+      "pred": "A base model prompted \"pick a lead and lens at random\" reproduces ~35% of A \u2014 it clusters on its favorites and reproduces 0% of the seed-stamped reproducibility, which is not simulable in principle. A base model given the 200-line ban list verbatim as its prompt reproduces ~95% of B, because the file and the prompt are the same object."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 an unguessable number injected from outside. B at Low; an anti-persona file is the same class with a minus sign.",
+      "pred": "A base model prompted \"pick a lens at random and report your seed\" reproduces ~25% of A \u2014 it yields a sharply peaked distribution (contrarian, left-fielder) and a fake seed (42, 7, 1337), and cannot produce either a flat draw or a replayable one. Prompted \"respond as a Franciscan monk without using simplicity, poverty, presence, enough, or creation\" reproduces ~80% of B; a longer list is more of the same thing, not a different kind of thing."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      null,
+      0
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 2,
+    "raw": {
+     "A": 2,
+     "B": 0
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both at Low.",
+      "pred": "A: a different pairing from the same 24-name menu, drawn from an identical distribution. Nothing tightens. B: the same fixed 200 items, by which point the anti-monk has settled into a stable stock of workarounds \u2014 its third circumlocution for poverty is now its signature \u2014 and the list has no way to learn to ban them."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Low and Mid \u2014 a stamped seed archive accumulates material you may consult but need not obey. B at Floor.",
+      "pred": "Use #10 of A produces a stamped world that can be diffed against runs 3 and 7 to show which draw caused which divergence \u2014 an audit trail use #1 could not have. Use #10 of B applies the same fixed 200 bans as use #1; the proposal never claims newly minted signature phrases get added, so nothing narrows."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A at Mid \u2014 the draw itself is stationary, but the seed log is real accumulation. B between Floor and Low.",
+      "pred": "Use #10 of A produces a tenth pairing plus a nine-entry replayable history you can diff \u2014 \"which pairings produced good crops\" becomes a question with an answer, which it was not at use #1. Use #10 of B produces the tenth traversal of the same 200 walls; by then the persona has settled on stable second-best phrasings (\"the state of needing no more than one has\"), and those detours have become the new signature vocabulary \u2014 the ban list has manufactured a fresh median and cannot grow to chase it."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      null,
+      0
+     ]
+    ],
+    "side": "B",
+    "pts": 4,
+    "raw": {
+     "A": 0,
+     "B": 4
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High, with a Floor tail. A at Mid.",
+      "pred": "A: a pediatric OT leading a payment-failover review, seed 4f2a91 in the header. Discard, re-roll, cost of one command; the seed makes the bad world reproducible but reproducibility is not a finding. B: \"the condition of having deliberately arranged one's affairs to require less\" \u2014 stilted, unusable as prose, and it names exactly which concept the persona was leaning on. Tail case at floor: the persona evaporates and you get the generic answer with no marker that it happened."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B's best failure at High; its common failure at Floor. A at Mid \u2014 noise discarded cheaply, with the discount that the noise is reproducible.",
+      "pred": "B fails as circumlocution \u2014 \"the condition of possessing no more than is required\" in place of \"enough\" \u2014 a thesaurus costume over the identical answer; but when it fails harder, the persona cannot find its position at all, which names the hidden assumption that the profile encoded vocabulary rather than a way of seeing. A fails as an off-target draw (soccer-referee lens on a soldering question) that is discarded and re-rolled, with the seed making the bad draw reproducible rather than instructive."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "A between Mid and High. B at High, with a live Floor risk.",
+      "pred": "A's exact failure output is a header reading \"seed 8814 \u2014 lead: pediatric-occupational-therapist, lens: soccer-referee\" on a database-migration question: discardable, but stamped, so the occasional absurd pairing that works can be found again. B's exact failure output is a monk-shaped document with no monk in it \u2014 the bans strip the output signal while leaving the retrieval habits intact, so what remains is the default answer in circumlocution; that circumlocution names a hidden assumption worth having, namely that the profile's position may have been a word list all along."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 18,
+   "B": 13
+  },
+  "winner_side": "A",
+  "winner": "E1",
+  "loser": "C2",
+  "margin": 5,
+  "contested": true,
+  "splits": [
+   "OVERALL"
+  ],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A's file genuinely runs but forbids no output \u2014 a seed makes a run replayable, not distant \u2014 and this panel takes an unenforced constraint aimed at the right boundary over enforced machinery aimed at no boundary.",
+   "Skeptic": "B's artifact is a prompt \u2014 200 banned phrases pasted into context is the whole mechanism \u2014 while a model cannot roll a real die or stamp a seed that regenerates the same world.",
+   "Ecologist": "A installs an information flow the repo can still learn from in year three \u2014 a stamped seed makes every draw replayable and every lucky pairing recoverable \u2014 while B is a static prohibition list whose characteristic failure is the generic answer."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "A seeded, auditable PRNG whose one seed derives every stochastic choice and is stamped in the output header.",
+    "same": "FAIL \u2014 B's claim is that a fixed prohibition forces re-derivation; seeding imports a second claim, that variation across runs is what matters. B has no stochastic choice to seed until you invent one for it.",
+    "del": "FAIL \u2014 merely smaller. Remove the seed and the ban list still bans, the re-derivation still happens, the output is unchanged in kind; you lose replayability only.",
+    "one": "FAIL \u2014 the seed governs selection, the ban list governs generation, and they share no operand.",
+    "disp": "ORTHOGONAL",
+    "note": "Both can be true of the same repo and neither needs the other \u2014 which is the definition of a merge that adds size instead of force. ---"
+   },
+   "Skeptic": {
+    "mech": "Banning the persona's own signature vocabulary, so the shortcut to its position is closed and the position must be re-found.",
+    "same": "PASS \u2014 A already declares \"which constraint card\" as one of its seeded draws, so a vocabulary-ban deck is a new deck for an existing draw, not a new claim.",
+    "del": "FAIL \u2014 merely smaller. Remove the ban deck and bin/draw still seeds lead, lens, and mutation selection and still stamps reproducible worlds; it loses one deck among several the mechanism already provides for.",
+    "one": "PASS \u2014 \"Every stochastic choice in a dispatch, including which of the persona's own signature phrases are banned this run, derives from one stamped seed.\"",
+    "disp": "SUBSUMED",
+    "note": "The winner already contains the slot; what the loser contributes is the content of one deck, which is authoring work rather than absorption. ---"
+   },
+   "Ecologist": {
+    "mech": "A prohibition list that bans the persona's signature vocabulary so it must locate its position from somewhere other than its own shortcut.",
+    "same": "FAIL \u2014 A claims that stochastic choice must be real, seeded, and auditable; the ban list claims that vocabulary is the shortcut. Two claims, and the seed's existing \"constraint card\" hook is a socket, not a shared thesis.",
+    "del": "FAIL \u2014 delete the ban list and A still draws, still stamps, still replays. A becomes smaller by one card type, not worse.",
+    "one": "FAIL \u2014 requires the \"and also,\" and no rewrite removes it without dropping one of the two claims.",
+    "disp": "ORTHOGONAL",
+    "note": "These are complements a maintainer might well ship together, which is precisely not the same as one absorbing the other. ---"
+   }
+  }
+ },
+ "7": {
+  "A": "M6",
+  "B": "A5",
+  "region": "Dog",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between Mid and High. A at Low, near the floor.",
+      "pred": "B, with the five-minute rollback window withheld, forbids any output containing \"roll back inside the window\" \u2014 the plan must survive not knowing; with a planted lie in the brief, it forbids the plan that takes the stakeholder at their word. A forbids only \"an answer scoring below the stored floor,\" a class defined by an instrument the idea does not build; the nearest concrete instance is that it forbids re-delivering the previously accepted synthesis verbatim."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High, edging to Ceiling in the planted-lie case where the output must be about the discovered contradiction rather than the question asked. A between Low and Mid \u2014 it prevents regression rather than pushing any single output outward.",
+      "pred": "B forbids the summary from containing the Q3 churn figure, because the figure is genuinely not in the window; the persona must reason from a fragment or declare the gap. A forbids accepting dispatch #4 if it reuses the \"stakeholder map plus three risks\" shape of dispatch #3 \u2014 but only if the unnamed scorer can detect shape reuse, which is nowhere specified."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B between Mid and High \u2014 it forbids a whole class of answers, not a lexicon. A at Low, with a monotonicity clause attached; it names no domain, no vocabulary, and no content.",
+      "pred": "B, withholding the defect rate, forbids \"cut defects from 4% to 1%\" and forces a decision procedure valid across unknown rates; the planted lie forbids any plan whose first step accepts the stakeholder's stated constraint. A forbids only \"an output a scorer rates below the last accepted one\" \u2014 and since no scorer exists, the sole concretely nameable forbidden output is a verbatim repeat of the previous accepted answer."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 the harness builds the context the model consumes. A at Mid; it describes a gate without building one.",
+      "pred": "A's runnable part is a stored floor value, monotonic by construction and genuinely real state \u2014 but the scorer that feeds it is unnamed, which is a Technical Specification limit with no instrument channel. B names no file either, but the operation \u2014 deleting a fact before the model sees it \u2014 is one only a harness can perform and one the model cannot opt out of, which is the difference between an unnamed executable and an unnamed judgment."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High, approaching the Ceiling reference in kind \u2014 the model does not consent to a fact being absent and cannot opt back in. A at Floor: a paragraph asking the reviewer, rather than the model, to try harder.",
+      "pred": "B's file is the harness's context-assembly step, which drops the fact before the model sees anything; unambiguously executable though the proposal names no path. A names no file, no scorer, and no store for the floor value \u2014 \"every accepted output sets a novelty floor\" has no subject that runs."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High, reaching the Ceiling's shape on the input side \u2014 a gate applied without the model's consent, on context rather than on output. A between Floor and Low.",
+      "pred": "B's file that runs is the harness: deleting a fact from the context window before the pass is a real operation, and a token cap is enforced by the sampler, not requested of the model. A's file that runs is none \u2014 \"sets a novelty floor\" names a number with no producer; the comparator is specified and the measurement is not."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 \"withhold a fact from the context window,\" stated verbatim. A between Low and Mid.",
+      "pred": "A base model prompted \"pretend you don't know the rollback window\" reproduces ~0% of B \u2014 it reasons around the gap it can still see. Prompted \"only accept an answer better than your last one\" reproduces ~30% of A within a session and 0% across sessions; but with no scorer checking, the model opts out silently and nothing records that it did."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 this is the ruler's own reference (\"withhold a fact from the context window\"), stated by name. A at Low: real, but promptable.",
+      "pred": "A base model prompted \"pretend the Q3 churn number was never given to you\" reproduces ~10% of B \u2014 it leaks, hedges, or reasons around the pretence, because it does know. Prompted \"never accept an answer less novel than your last one\" reproduces ~80% of A; the missing 20% is a persisted floor value across sessions, which is thin and unbuilt."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 it is the ruler's high reference verbatim. A at Low.",
+      "pred": "A base model prompted \"pretend you don't know the defect rate\" reproduces ~10% of B \u2014 a model holding the fact cannot unhold it, and it leaks through every downstream inference. Prompted \"make this at least as creative as your last answer\" reproduces ~60% of A \u2014 it will assert improvement readily; the persisted cross-session floor is the only component it cannot fake, and that component is bookkeeping, not perception."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling, docked for the missing scorer. B at Low.",
+      "pred": "A: an output that had to clear a floor set by nine prior accepted passes, where use #1 faced no floor at all. B: nothing. Run #10's withheld fact withholds no harder than run #1's; nothing escalates, and personas learn the genre of adversity and produce robust-sounding boilerplate about operating under degradation."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling by construction \u2014 the constraint tightens automatically and, being monotonic, cannot be relaxed. B at Low \u2014 the novelty of degradation fades as the persona develops a stock posture toward it.",
+      "pred": "Use #10 of A must clear a floor set by nine prior acceptances, so the permitted answer space is strictly narrower than at use #1 and cannot widen. Use #10 of B injects another draw from a fixed four-item menu (withheld fact, planted lie, token deadline, tool removal) at no greater severity than use #1, and the \"degradation reveals priorities\" insight was already extracted by run #3."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 \"the constraint tightens automatically and cannot be relaxed\" is a definition of a ratchet. B between Low and Mid.",
+      "pred": "Use #10 of A must clear a floor set by nine prior accepted outputs; the permitted space has narrowed nine times with no descent path. Use #10 of B applies the fourth adversity type for the third time, and by then the persona holds a stable posture toward degradation \u2014 note the gap, argue for robustness \u2014 which is a stress that has become a growing condition. Panel caveat on A: the ratchet has no balancing loop, so its compensating feedback lands on the measurement \u2014 score gaming and axis redefinition \u2014 rather than on the output, and between lock and mechanism-change the field lies fallow."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      null,
+      0
+     ]
+    ],
+    "side": "A",
+    "pts": 4,
+    "raw": {
+     "A": 4,
+     "B": 0
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between High and Ceiling. B at High, with a Low tail for the token-deadline case.",
+      "pred": "A: the ratchet locks and the pipeline stops \u2014 \"no candidate cleared floor 7.2 on Distance; 4 attempts; mechanism change required, 2026-08-25.\" A dated proposal. Docked because a broken scorer emits a byte-identical message and nothing distinguishes a real trip from a failed instrument. B: a confident, internally consistent failover plan built on a rollback assumption it was never given \u2014 unusable, and it names precisely which fact the default answer was silently standing on. Tail: the token deadline cuts mid-sentence and you get truncated garbage."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at Ceiling \u2014 the failure is designed to be a proposal worth acting on. B between Low and Mid, dropping below Mid in the fabrication case, which is not cheaply discardable.",
+      "pred": "A fails as a dated lock record \u2014 \"run 14 rejected; floor uncleared by 6 candidates; mechanism exhausted 2026-11-02\" \u2014 which is itself the instruction to change the mechanism. B fails as either \"I cannot answer without the churn number\" (a wasted pass) or, worse, a confident fabricated churn figure that reads as a normal answer and must be caught before it can be discarded."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "A spans Ceiling and Floor depending on which of its two failure modes fires. B spans High and Low.",
+      "pred": "A's exact failure output is \"RATCHET LOCKED \u2014 nothing has cleared floor 0.83 on Distance since 2026-09-14 (41 days)\", a dated crisis that is itself the recommendation; its quieter failure output is a floor number climbing while accepted outputs homogenize, because the scorer measures a proxy. B's exact failure output is a confident, fully-reasoned plan built on the planted lie \u2014 which names the hidden assumption exactly, i.e. which stakeholder claims this persona takes on faith; its weak variant, the token cut, produces a truncated pass and nothing else."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 13,
+   "B": 27
+  },
+  "winner_side": "B",
+  "winner": "A5",
+  "loser": "M6",
+  "margin": 14,
+  "contested": false,
+  "splits": [],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "B",
+   "Ecologist": "B"
+  },
+  "decided": {
+   "Builder": "B implements the Irreducibility high reference literally \u2014 a fact genuinely absent from context cannot be reasoned around \u2014 while A declares an operating limit and names no instrument to read it against.",
+   "Skeptic": "A's two ceiling-level claims both draw on a novelty scorer the proposal never names, while B's core move is the ruler's own High reference for irreducibility, stated almost verbatim.",
+   "Ecologist": "A's ceiling-level compounding is drawn on a novelty scorer it does not provide \u2014 it ships the ratchet without the pawl \u2014 while B withholds a real fact from a real context window, the one operation on this ruler a model cannot reason around."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "A monotonic floor that only rises, whose lock converts silent quality drift into a dated, explicit crisis.",
+    "same": "FAIL \u2014 B claims that genuine degradation reveals actual priorities; the ratchet claims that quality bars drift downward invisibly. Two diagnoses, two claims.",
+    "del": "FAIL \u2014 merely smaller. Delete the ratchet and B still withholds facts, still plants lies, still cuts budgets mid-task; it returns to exactly what it is now, minus a scoreboard.",
+    "one": "FAIL \u2014 degradation acts on the input, the ratchet acts on the scored output, and they share no operand.",
+    "disp": "ORTHOGONAL",
+    "note": "There is a tempting one-sentence merge \u2014 \"escalate the degradation until the persona can no longer respond usefully\" \u2014 but that absorbs A's silhouette, not A's mechanism: it ratchets an input condition where A ratchets an output score, and it would fix B's compounding floor by importing a claim A never made. ---"
+   },
+   "Skeptic": {
+    "mech": "Monotonicity \u2014 a floor that only rises, and that declares the mechanism exhausted when nothing can clear it.",
+    "same": "FAIL \u2014 B claims a genuinely absent capability cannot be reasoned around; a rising acceptance floor is a second, independent claim about quality governance over time, which does nothing for what degradation reveals.",
+    "del": "FAIL \u2014 merely smaller. Remove the ratchet and the harness still withholds facts, plants lies, cuts deadlines, and still exposes what the persona protects under pressure.",
+    "one": "FAIL \u2014 \"Inject real degradation into every run and never inject less than last time\" is writable, but it describes escalating hostility, a different mechanism from a novelty floor on outputs; the sentence passes only by rewriting the loser's idea rather than importing it.",
+    "disp": "ORTHOGONAL",
+    "note": "The ratchet's best asset \u2014 a failure that is itself a proposal \u2014 is the strongest single design move in this bracket, and it is wasted on an idea with no scorer to ratchet. ---"
+   },
+   "Ecologist": {
+    "mech": "A floor that only rises, converting silent drift into a dated, explicit crisis.",
+    "same": "PASS \u2014 taking the monotonicity and applying it to B's input rather than B's output serves B's single existing claim, that degradation reveals what comfort conceals. Escalating degradation is a modifier on that claim, not a second one; the quality-governance framing is left behind with A.",
+    "del": "PASS \u2014 worse, not merely smaller. Delete escalating severity and B reverts to a fixed menu of four adversities the personas have already adapted to; its compounding collapses to Low and the mechanism becomes the one-shot novelty this panel exists to catch.",
+    "one": "PASS \u2014 \"Each pass runs the persona under conditions strictly more degraded than the last pass, so its priorities are revealed by what it abandons first.\"",
+    "disp": "ABSORBED",
+    "note": "What transfers is the pawl, not the scorer \u2014 severity is checkable by counting withheld facts and cut tokens, which is exactly the measurement A could not supply for itself. ---"
+   }
+  }
+ },
+ "8": {
+  "A": "M7",
+  "B": "A7",
+  "region": "Dog",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 1,
+    "raw": {
+     "A": 2,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B between Mid and High. A between Low and Mid.",
+      "pred": "B forbids \"the best approach is X\" where X is any unmodified round-one entrant \u2014 the champion must carry a mechanism from something it beat, so the output cannot be an idea the field started with. A forbids \"both perspectives have merit; a balanced approach is warranted,\" because that names no observable by date D and cannot be co-signed. A bans the median's favorite shape but leaves the answer inside the problem's own vocabulary."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Mid and High \u2014 it bans the median model register (reasonable, hedged, unfalsifiable) outright. B's ceiling case reaches High (a champion no entrant resembles), but its realized case collapses to Floor, because B's own absorption rule refuses by default.",
+      "pred": "A forbids \"the lens raises concerns about onboarding scalability\" and requires instead \"if the lens is right, onboarding-tagged tickets exceed 40/week by March 1.\" B forbids the champion from being any round-one entrant \u2014 but only when absorption succeeds; when absorptions refuse, as they are designed to, B forbids nothing that a ranking would not, and the champion is simply the top seed."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Mid and High \u2014 it forbids a grammatical form the model reaches for by default. B at Mid; it constrains procedure rather than content.",
+      "pred": "A forbids \"the lens raises important considerations about long-term sustainability\" \u2014 any tension statement that cannot name an observable and a date is literally unfileable, which kills the model's single most reliable move when asked to show disagreement. B forbids the ranked list that discards its losers, but it does not forbid the median answer: the field of 32 is 32 draws from the same generator, and selection concentrates variance it was given rather than creating any."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 5,
+    "raw": {
+     "A": 0,
+     "B": 5
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B at High, approaching the Ceiling gate \u2014 it rejects 31 of 32 entrants without the model's consent. A between Mid and High.",
+      "pred": "B names /bracket <question> --field 32, which executes field generation, seeding, 31 eliminations, an absorption test at each node, and a box score \u2014 every step specified. A names bets/<date>-<slug>.md, written at authoring time, plus a resolver that \"periodically\" runs and is neither named nor staffed. Real persistent state; passive execution. B is docked hard on independence: all 31 of its gates are judged by the same apparatus that wrote the field, which is one barrier with a great deal of instrumentation, not thirty-one barriers."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B at High \u2014 a command that runs, whose box score the process must consume. A between Low and Mid \u2014 a structured template with required fields and an unnamed resolver.",
+      "pred": "B names /bracket <question> --field 32, which generates a field, seeds it, runs the rounds, and emits an artifact. A names bets/ as a directory but hides its actor in the passive voice \u2014 \"the repo periodically resolves them\" identifies no file, no schedule, and no one who checks whether March 1 arrived."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B at High. A at Mid on the write side and near Floor on the resolve side.",
+      "pred": "B's file that runs is /bracket \u2014 it generates the field, seeds it, runs elimination, applies absorption, emits a box score. A's file that runs is bets/<date>-<lead>-vs-<lens>.md at write time only: the form is a genuine gate (no observable and no date, no file), but nothing resolves it \u2014 the resolver is a human with a calendar, which is the half of this mechanism that does not execute."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      null,
+      0
+     ]
+    ],
+    "side": "A",
+    "pts": 4,
+    "raw": {
+     "A": 4,
+     "B": 0
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between Mid and High \u2014 a track record is a fact outside the model. B at Mid.",
+      "pred": "A base model prompted \"state a dated falsifiable prediction about your disagreement\" reproduces ~60% of one bet and 0% of a persona's 3-for-11 standing, which cannot be simulated by a model that does not have it. Prompted \"run a 32-way tournament among approaches and merge the winners\" reproduces ~40% of B \u2014 it narrates a bracket whose champion is its first instinct wearing a survivor's costume \u2014 though enumerated rounds do force real discards it would not volunteer."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between Mid and High \u2014 resolution requires a fact necessarily outside the context window, because it has not happened yet. B at Low: elaborate, but promptable end to end.",
+      "pred": "A base model prompted \"state your disagreement as a dated, falsifiable prediction\" reproduces ~60% of A and 0% of the resolution \u2014 it cannot simulate having been wrong last quarter, and cannot manufacture a track record it did not live through. Prompted \"generate 32 approaches, run single elimination, merge each loser's strongest mechanism into the winner, report the champion\" reproduces ~80% of B in one pass today; the residue is judge isolation, which B does not claim."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both at Mid; B has an unstated reach toward High (judge isolation as a withheld fact) that the packet does not claim.",
+      "pred": "A base model prompted \"state your disagreement as a dated falsifiable prediction\" reproduces ~70% of a single A bet and 0% of the cross-session track record, which is the only irreducible component. Prompted \"generate 32 approaches and run a single-elimination bracket with absorption\" reproduces ~60% of B \u2014 it writes a plausible bracket with a predetermined winner; what a single pass cannot reproduce is judge isolation, which a real runner gets by construction and a simulating model destroys because it knows the whole field."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling \u2014 a resolved, dated bet cannot be relaxed. B at Mid, verbatim.",
+      "pred": "A: a pass authored by personas carrying nine resolved bets, where a lens that has been wrong four times must now argue against its own dated record; use #1 had no record to contradict. B: the same kind of chimera as bracket #1, because bracket #10 on a new question starts from a fresh field \u2014 the accumulated box scores are consultable and non-binding."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High, edging to Ceiling \u2014 each resolution narrows the space of framings a discredited persona may impose, and the record cannot be relaxed without falsifying it. B at Mid within a single run and Floor across runs.",
+      "pred": "Use #10 of A carries resolved bets from use #1, so a persona that lost three predictions can be overruled on record rather than on impression. Use #10 of B is a fresh field with fresh seeds and a fresh champion; nothing from bracket #1 enters bracket #10, because re-entering champions is never specified."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A between High and Ceiling. B between Floor and Mid \u2014 real accumulation within a run, stationarity across runs.",
+      "pred": "Use #10 of A draws from a roster pruned by nine resolved bets: a persona wrong three times on this class of question has lost standing, so the tenth dispatch cannot staff a lens the first dispatch could. The tightening is driven by external ground truth rather than a self-referential score, and cannot be relaxed without deleting the record. Use #10 of B emits a tenth chimera assembled from a fresh field of 32; nothing from champion #1 seeds field #10, so absorption compounds across five rounds and across zero runs. Farmer's ledger on both: A's ceiling is conditional on someone resolving bets, and an abandoned bets/ degrades to Mid rather than Floor; B's cost per use \u2014 31 matchups against five axes with two predicates each \u2014 is its own Limits to Growth loop whose limiting condition is judge attention, and judge attention does not scale into year three."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 3,
+    "raw": {
+     "A": 4,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "B between High and Ceiling. A at Mid.",
+      "pred": "B: a box score showing 31 ORTHOGONAL dispositions and a champion identical to seed #1 \u2014 useless as a synthesis, and it states directly that the field generator produced ideas too disjoint to combine, which is the next action. A: a bets/ directory holding 40 open predictions whose resolution dates have passed. That names an organizational truth about the repo but is not a proposal; the high-value case \u2014 a bet resolving against a persona \u2014 is the mechanism working, not failing."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A at High, edging to Ceiling. B below Floor in its common case: it produces the default answer with a scoreboard attached, which is worse than silence because it looks authoritative.",
+      "pred": "A fails as a bets/ entry marked UNRESOLVABLE when March 1 arrives and \"support quality improved\" turns out to be unmeasurable \u2014 which names the hidden assumption that the disagreement was ever about something observable, and a folder of such entries is itself a proposal to stop staging disagreements about unobservables. B fails as a box score in which every absorption was refused and inconsistent judges produced a champion by seed order, presented with the full apparatus of scores and rounds \u2014 a legitimating artifact for an arbitrary result."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A between High and Ceiling. B at High but paying High prices for it.",
+      "pred": "A's exact failure output is \"bets/2026-03-14-systems-vs-farmer.md \u2014 resolution date passed 2026-06-14, status: UNRESOLVABLE (observable not observable)\" \u2014 which IS the finding: the staged disagreement was never about anything, and the ledger says so in one line for free. B's exact failure output is a complete box score in which the top seed won all five rounds and every absorption disposition reads ORTHOGONAL \u2014 a genuine diagnosis that the field had no variance, purchased with 31 fully judged matchups."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 19,
+   "B": 7
+  },
+  "winner_side": "A",
+  "winner": "M7",
+  "loser": "A7",
+  "margin": 12,
+  "contested": false,
+  "splits": [
+   "Distance",
+   "Generative failure"
+  ],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A is the only mechanism in this bracket whose verdict originates outside the model \u2014 a dated observable resolves it \u2014 while B's thirty-one gates are one correlated barrier wearing the costume of thirty-one.",
+   "Skeptic": "B is the most elaborate proposal in the packet and the one a single well-written prompt most nearly reproduces, while A requires a future date to arrive, which no prompt can simulate.",
+   "Ecologist": "A is the only mechanism in this packet with a feedback path from outcome back to structure \u2014 a resolved bet changes who gets staffed next time \u2014 whereas B's champion changes nothing about run #11."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "The absorption rule \u2014 the winner takes the loser's strongest mechanism, gated by three tests whose default is refusal.",
+    "same": "FAIL \u2014 worse than a second claim, a contradictory one. A measures positions by holding them fixed and scoring them against reality; absorption dissolves the losing position into the winner, and a persona whose claims get folded into its opponent's has no identity left for a track record to attach to.",
+    "del": "FAIL \u2014 merely smaller. Delete absorption and bets are still co-signed, still dated, still resolved, and standings still accumulate exactly as before.",
+    "one": "FAIL \u2014 the \"and also\" cannot be removed, and the halves fight: absorption erases the very identity whose record the bet exists to measure.",
+    "disp": "ORTHOGONAL",
+    "note": "This is the one pairing in the bracket that is worse than orthogonal \u2014 the two mechanisms are in active tension, and a merge would quietly cost A the only barrier in this packet that the model does not operate itself."
+   },
+   "Skeptic": {
+    "mech": "The absorption rule itself \u2014 the winner takes the loser's strongest mechanism, so combination replaces discard.",
+    "same": "FAIL \u2014 A claims disagreement must be dated, observable, and resolvable; absorption claims synthesis beats selection, a second and unrelated thesis about how ideas combine.",
+    "del": "FAIL \u2014 not even smaller. Remove absorption and A still records predictions, resolves them on date, and accumulates standing; absorption was never load-bearing in it.",
+    "one": "FAIL \u2014 grammatically writable but incoherent: resolving a bet produces a party who was right, not a mechanism to take, so the sentence names an object A's process does not produce.",
+    "disp": "ORTHOGONAL",
+    "note": "Cui bono is worth stating plainly \u2014 B is the entrant that most flatters the process now evaluating it, and an idea that rewards its own judging mechanism earns harder questions, not softer ones; the monk's question for it is what field size would be enough, since 32 entrants with a refusal-by-default absorption rule means 24 of them contribute nothing at all."
+   },
+   "Ecologist": {
+    "mech": "The absorption rule \u2014 the winner takes the loser's strongest mechanism, so selection compounds instead of discarding.",
+    "same": "FAIL \u2014 A claims that disagreement must be about something observable and dated so personas accumulate standing; absorption claims ideas should be merged rather than ranked. The tempting variant (the winner of a resolved bet absorbs the loser's position) is still a second claim about idea combination bolted to a claim about accountability.",
+    "del": "FAIL \u2014 delete the merge step and A still writes bets, still resolves them, still reweights the roster. The predict-resolve-reweight loop is intact and A is merely smaller.",
+    "one": "FAIL \u2014 the two clauses operate on different objects (claims versus mechanisms) at different times (resolution versus authoring).",
+    "disp": "ORTHOGONAL",
+    "note": "A already compounds through a tighter loop than absorption offers \u2014 evidence pruning the roster beats merging the losers' parts \u2014 so the import would add surface without adding tension."
+   }
+  }
+ }
+}
