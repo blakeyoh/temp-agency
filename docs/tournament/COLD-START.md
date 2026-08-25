@@ -1,96 +1,96 @@
-# Cold Start Prompt
+# Cold-Start Prompt
 
-Paste the block below into a fresh session to resume the tournament. It bootstraps;
-`HANDOFF.md` carries the depth.
+Paste the block below into a fresh session on this repo. It is the ignition; the detail
+lives in `HANDOFF.md`, which it tells the agent to read first.
 
 ---
 
 ```
-We are resuming a multi-phase project in the temp-agency repo. Work on branch
-claude/ai-creativity-randomness-tournament-e609ek — it is current and pushed.
+We are mid-tournament on the temp-agency repo, branch
+claude/ai-creativity-randomness-tournament-e609ek. I am clearing context, so you are
+picking this up cold from a previous session. Everything you need is committed.
 
-READ FIRST, IN THIS ORDER:
-  1. docs/tournament/HANDOFF.md          — state of play, how to run a bracket, what went wrong
-  2. docs/tournament/commissioner-rulings.md — SOURCE OF TRUTH for every decision made so far
-  3. docs/tournament/rules-v2.md          — absorption standard, scoring, panel design, the draw
-  4. docs/tournament/reference-sets.md    — the ruler: five axes, fixed reference points, predicates
+READ THESE FIRST, IN THIS ORDER, BEFORE DOING ANYTHING:
+  1. docs/tournament/HANDOFF.md          — state of play, procedure, what went wrong
+  2. docs/tournament/rules-v2.md         — absorption standard, scoring, panels, my powers
+  3. docs/tournament/commissioner-rulings.md — THE SOURCE OF TRUTH for every decision
+  4. docs/tournament/reference-sets.md   — the ruler the panels judge against
 
 Do not re-derive results from the raw verdicts. Read the ledger.
 
 WHAT THIS IS
 I believe models are getting harder to steer as they're trained toward consistency —
 reliability up, diversity of thought down. This repo staffs tasks with a LEAD and a
-contrasting LENS persona; it produces rigor but not strangeness. The tournament is a
-structured search for mechanisms that would fix that.
+contrasting LENS persona, and it produces rigor but not strangeness. The tournament is a
+structured search for mechanisms that would push it further: 32 mechanisms, cross-
+pollinated into four brackets, judged head to head by three independent blind panels,
+with me as commissioner ruling between rounds.
 
 The framing that governs every judgment call: a creative workshop asks for 100 ways to
 protect a home. The first ten are a fence, a dog, a camera. The last ten are a moat and a
 fleet of UFOs. Reaching idea #99 requires a different generative process than reaching
-idea #3. This repo currently stops around #12. Efficiency is explicitly not the goal;
-exploration is.
+idea #3, and this repo currently stops around #12.
 
 WHERE WE ARE
 Round of 32, 8 of 16 games judged. Brackets 1 (Fence) and 2 (Dog) are complete and ruled.
-Eight entrants are in the Sweet 16; three are on the wildcard bench. Brackets 3 (Moat,
-games 9-12) and 4 (UFO, games 13-16) have anonymized packets written and committed at
-docs/tournament/packets/ and have NOT been dispatched.
+Brackets 3 (Moat, games 9-12) and 4 (UFO, games 13-16) have anonymized packets written
+and committed at docs/tournament/packets/ and have NOT been dispatched.
 
-YOUR IMMEDIATE TASK
-Run bracket 3 (Moat, games 9-12), then STOP and bring me the results to rule on.
-Do not run bracket 4 in the same turn.
+YOUR NEXT ACTION
+Confirm you've read the four documents and tell me the current Sweet 16 field and the
+wildcard bench back to me in a short table, so I know the handoff landed. Then ask whether
+to dispatch bracket 3, bracket 4, or both. Do not dispatch until I say so — I watch usage
+limits and I want to rule between rounds.
 
-HOW TO RUN IT — the procedure is in HANDOFF.md; the parts that bite:
-  - Dispatch THREE panels in parallel, isolated: Builder (nuclear-reactor-operator +
-    magician-illusionist, Mechanism bias), Skeptic (investigative-journalist +
-    franciscan-monk, Irreducibility bias), Ecologist (systems-thinker + farmer,
-    Compounding bias). Each reads its two roster profiles plus knowledge/<slug>/, then
-    reference-sets.md, then docs/tournament/packets/r32-moat.md.
-  - Have panels RETURN VERDICTS INLINE. Do not have them write files — that variant
-    produced nothing last time.
-  - Do NOT regenerate the packets. They are blinded (no codes, seeds, regions, or
-    authorship marks) and A/B position was flipped from a logged seed. The blinding is
-    part of the evidence.
-  - Save each verdict to docs/tournament/verdicts/r32-moat-<panel>.md in the exact
-    format of the existing files — the parser depends on it. Then run
-    python3 docs/tournament/tally.py.
-  - Check the filesystem and TaskList before reporting on agent status. Background agents
-    have died silently before and elapsed time tells you nothing.
+HOW TO RUN A BRACKET (full detail in HANDOFF.md)
+Three panels, isolated, in parallel, each reading its two persona profiles plus
+knowledge/<slug>/, then reference-sets.md, then its packet:
+  Builder    = nuclear-reactor-operator + magician-illusionist   (bias: Mechanism)
+  Skeptic    = investigative-journalist + franciscan-monk        (bias: Irreducibility)
+  Ecologist  = systems-thinker + farmer                          (bias: Compounding)
+Have them RETURN RESULTS INLINE — do not have them write files, that variant failed.
+Save each verdict to docs/tournament/verdicts/r32-<bracket>-<panel>.md in the exact
+existing format, then run python3 docs/tournament/tally.py. Then STOP and bring me the
+bracket.
 
-HOW I WANT TO WORK
-  - I am the commissioner. The tournament halts after every round and I rule: OVERRULE,
-    FORCE/BLOCK ABSORPTION, REVIVE from the bench, RESEED. I enjoy this; it is not an
-    interruption of the process, it is the process.
-  - Bring me contested games in one screen — rows, contested flagged — so I can ratify
-    most and dig into a few.
-  - Print every override AS an override, with my reason, never folded into a panel's
-    verdict. Visible rigging is honest.
-  - Do not resolve genuine panel disagreements on my behalf to keep things moving. Bring
-    them to me. If a ruling of mine requires a judgment call you have to make, say so
-    explicitly and show your reasoning.
-  - Commit and push the reasoning, not just the results. Verdicts, packets, ledger,
-    box score. If a session dies, the reasoning must survive it.
+HOW I WANT YOU TO WORK
+- I am the commissioner and I enjoy it. Bring me contested games with enough context to
+  rule in one screen. Do not resolve genuine panel disagreements on my behalf to keep
+  things moving.
+- Print overrides as overrides, with my reason attached, never folded into a panel's
+  verdict. Visible rigging is honest.
+- Absorption defaults to REFUSAL. Three tests, all must pass. ORTHOGONAL is a finding,
+  not a failure — I do not want Frankenstein ideas, I want the best version of each
+  superior concept.
+- Never tell me a background agent is "probably still running." Check the filesystem and
+  TaskList before reporting agent status. The last session got this wrong.
+- Efficiency is not the goal; exploration is. But usage limits are real, so make every
+  round a clean stopping point.
+- Commit and push the reasoning, not just the results. If a session dies, the reasoning
+  must survive.
 
-TWO OPEN FINDINGS — do not lose these
-  1. The tournament eliminated its own mechanism. "Bracket as a Primitive" lost 19-7 in
-     round one to blind judges. The Skeptic's charge is unresolved: with refusal-by-default
-     absorption, 24 of 32 entrants may contribute nothing. The counter is that the
-     ORTHOGONAL list is itself a deliverable. Do not paper over this.
-  2. Two panels independently found bin/claims and bin/who-benefits in Persona Toolbelts
-     are not tools — "a prompt wearing an executable's name." It advanced with the defect
-     noted. Whether entrants may be amended mid-tournament is still an open call of mine.
-
-The box score is published as an Artifact at
-https://claude.ai/code/artifact/77543d3d-2a50-40d6-9288-f2bc4f04c4ef
-Republish docs/tournament/box-score.html to the same path to update it in place.
-
-Start by reading the four documents, then tell me what you understand the state to be
-before you dispatch anything.
+TWO OPEN FINDINGS I DO NOT WANT LOST
+1. The tournament eliminated its own mechanism. "Bracket as a Primitive" lost 19-7 in
+   round one to blind judges. The Skeptic's charge is unresolved: with refusal-by-default
+   absorption, 24 of 32 entrants may contribute nothing. The counter is that the
+   ORTHOGONAL list is itself a deliverable.
+2. Run 1 was badly mis-scored by a single model using absolute 1-10 scores. It put "The
+   Wrong Expert on Purpose" dead last at 25/50; three blind panels then ranked it top of
+   its bracket on Distance. Do not trust solo absolute scoring.
 ```
 
 ---
 
-## Why the last line matters
+## Why the prompt is shaped this way
 
-The read-back is a cheap check that the handoff landed. If the incoming agent's summary of
-the state is wrong, that is far better discovered before three panels are dispatched than
-after.
+**It asks for a read-back before any work.** The first action is not "run bracket 3" —
+it is "tell me the Sweet 16 and the bench." A wrong read-back is cheap to catch; a
+bracket judged from a misremembered state is not.
+
+**It names the failure modes rather than the successes.** A cold agent will infer the
+successes from the ledger. It will not infer that background agents die silently on
+interrupt, that the file-write variant failed, or that solo absolute scoring produced a
+tidy narrative and a wrong answer.
+
+**It withholds permission to dispatch.** The single most expensive mistake available to a
+fresh agent here is firing twelve subagents before the commissioner has ruled.
