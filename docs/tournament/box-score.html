@@ -863,7 +863,8 @@ $("#gameList").innerHTML = html;
 
 $("#s16").innerHTML = `<thead><tr><th>Advancing</th><th>From</th><th>How</th></tr></thead><tbody>` +
   S16.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("") +
-  `<tr class="pending"><td>8 more</td><td>Moat &amp; UFO</td><td>Not yet judged</td></tr></tbody>`;
+  `<tr class="pending"><td>4 more</td><td>Moat</td><td>Judged — awaiting commissioner rulings</td></tr>` +
+  `<tr class="pending"><td>4 more</td><td>UFO</td><td>Not yet judged</td></tr></tbody>`;
 
 $("#benchGrid").innerHTML = BENCH.map(b=>`<div class="bcard"><h4>${b[0]}</h4><p>${b[1]}</p><span class="tag2">${b[2]}</span></div>`).join("");
 
@@ -882,7 +883,7 @@ $("#sAbsorbed").textContent = "2";
 const gameEls = [...document.querySelectorAll(".game[data-region]")];
 const bands = [...document.querySelectorAll(".round-band[data-region]")];
 const state = {region:"all", contested:false, code:null};
-const regionOpts = [["all","All brackets"],["fence","Fence"],["dog","Dog"]];
+const regionOpts = [["all","All brackets"],["fence","Fence"],["dog","Dog"],["moat","Moat"]];
 document.getElementById("regionFilters").innerHTML = regionOpts
   .map(([v,l])=>`<button class="chip" data-rf="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
 

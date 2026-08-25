@@ -24,9 +24,16 @@ reaching idea #3**, and this repo currently stops around #12.
 
 ## Current state
 
-**Round of 32 · 8 of 16 games judged.** Brackets 1 (Fence) and 2 (Dog) are complete and
-ruled. Brackets 3 (Moat, games 9–12) and 4 (UFO, games 13–16) have packets written and
-have **not** been dispatched.
+**Round of 32 · 12 of 16 games judged.** Brackets 1 (Fence) and 2 (Dog) are complete and
+ruled. Bracket 3 (Moat, games 9–12) has been judged by all three panels — verdicts are in
+`verdicts/r32-moat-*.md` and tallied into `r32-results.json` — and is **awaiting
+commissioner rulings**; nothing in it is final. Bracket 4 (UFO, games 13–16) has a packet
+written and has **not** been dispatched.
+
+Two rulings are outstanding on Moat: **G12** is CONTESTED (aggregate says Telegram
+Constraint, panel majority says Homogeneity Auditor — the Game 1 situation, where
+precedence is deliberately unset), and **G11** carries a 2–1 ABSORBED that needs
+ratifying or blocking.
 
 Sweet 16 field so far, plus the wildcard bench, is in `commissioner-rulings.md`. That file
 is the source of truth for every decision. Do not re-derive results from the verdicts —
@@ -166,7 +173,8 @@ ties, routs, and reversals. The second is more useful and less flattering.
 | `r32-draw-map.json` | The draw, A/B assignment, and the seed (99) that produced the flips. |
 | `r32-results.json` | Machine-readable tally output. |
 | `tally.py` | Verdict parser and aggregator. |
-| `box-score.html` | Rendered box score, published as an Artifact. |
+| `box-score.html` | Rendered box score, published as an Artifact. Favicon 🛸 — keep it stable across redeploys. |
+| `build_box_score.py` | Regenerates the box score's DATA blob from `r32-results.json`. |
 
 ---
 
