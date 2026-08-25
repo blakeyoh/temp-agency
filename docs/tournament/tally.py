@@ -88,10 +88,10 @@ def tally(panels, gmap):
     return res
 
 if __name__=="__main__":
-    gmap={g['g']:g for g in json.load(open(f"{SP}/r32-map.json"))['games']}
+    gmap={g['g']:g for g in json.load(open(f"{SP}/r32-draw-map.json"))['games']}
     panels={}
     for p in PANELS:
-        fs=sorted(glob.glob(f"{SP}/verdict-{p.lower()}-*.md"))
+        fs=sorted(glob.glob(f"{SP}/verdicts/r32-*-{p.lower()}.md"))
         merged={}
         for f in fs: merged.update(parse_panel(open(f).read()))
         panels[p]=merged
