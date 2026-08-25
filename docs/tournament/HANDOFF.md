@@ -146,7 +146,26 @@ ties, routs, and reversals. The second is more useful and less flattering.
 
 ---
 
-## Two defects on the record
+## Defects on the record
+
+Four now. Three are authoring defects in entrants — recorded because a future session will
+otherwise re-inherit them silently — and one is about the repo itself.
+
+- **Persona Toolbelts** names two things that are not tools (`bin/claims`,
+  `bin/who-benefits`). A model judgment dressed as an executable launders a judgment into
+  apparent measurement, which is worse than stating it plainly. Four of six are real.
+- **Stochastic Persona Fracture** cites a fault line that does not exist: the Skeptic
+  checked `roster/franciscan-monk.md` and found no such tension named. The panel escalated
+  this to a finding about the **repo** — every roster file resolves its principles into
+  mutual non-conflict, which real practitioners do not do. Worth acting on independently
+  of the tournament.
+- **Make the Problem Strange First** overstates its mechanism: verbs and adjectives carry
+  priors too, so stripping nouns does not strip the prior. Advanced 30–2 anyway.
+- **The Blind Auditor** carries an unresolved objection the amendment does not fix: its
+  gate cannot tell "median because unimaginative" from "median because correct," so it
+  systematically punishes right answers for being reachable. Resolve before it advances.
+
+## Two older defects
 
 - **`bin/claims` and `bin/who-benefits`** in Persona Toolbelts are not tools — *"a prompt
   wearing an executable's name."* Found independently by two panels. Persona Toolbelts

@@ -32,14 +32,15 @@ fleet of UFOs. Reaching idea #99 requires a different generative process than re
 idea #3, and this repo currently stops around #12.
 
 WHERE WE ARE
-Round of 32, 8 of 16 games judged. Brackets 1 (Fence) and 2 (Dog) are complete and ruled.
-Brackets 3 (Moat, games 9-12) and 4 (UFO, games 13-16) have anonymized packets written
-and committed at docs/tournament/packets/ and have NOT been dispatched.
+Round of 32, 12 of 16 games judged. Brackets 1 (Fence), 2 (Dog) and 3 (Moat) are complete
+and ruled. Bracket 4 (UFO, games 13-16) has an anonymized packet committed at
+docs/tournament/packets/r32-ufo.md and has NOT been dispatched. It opens with the Grudge
+Ledger - run 1's top scorer at 45/50 - against The 19th Way, which is my own entry.
 
 YOUR NEXT ACTION
 Confirm you've read the four documents and tell me the current Sweet 16 field and the
 wildcard bench back to me in a short table, so I know the handoff landed. Then ask whether
-to dispatch bracket 3, bracket 4, or both. Do not dispatch until I say so — I watch usage
+to dispatch bracket 4. Do not dispatch until I say so — I watch usage
 limits and I want to rule between rounds.
 
 HOW TO RUN A BRACKET (full detail in HANDOFF.md)
@@ -68,6 +69,12 @@ HOW I WANT YOU TO WORK
   round a clean stopping point.
 - Commit and push the reasoning, not just the results. If a session dies, the reasoning
   must survive.
+
+FOUR DEFECTS THE PANELS FOUND IN THE FIELD - see HANDOFF.md
+Two entrants cite things that do not exist (fake tools in Persona Toolbelts; a fault line
+in Stochastic Persona Fracture that is not in the monk's profile). One overstates its
+mechanism. The Blind Auditor carries an unresolved objection: it cannot tell "median
+because unimaginative" from "median because correct." Do not let these get lost.
 
 TWO OPEN FINDINGS I DO NOT WANT LOST
 1. The tournament eliminated its own mechanism. "Bracket as a Primitive" lost 19-7 in

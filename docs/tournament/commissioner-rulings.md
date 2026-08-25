@@ -163,6 +163,120 @@ identified as independent axes worth building side by side. Unresolved.
 
 ---
 
+## Round of 32 · Bracket 3 (Moat)
+
+### Games 9 and 10 — no ruling required
+Both were routs, unanimous across all three panels, all absorptions refused.
+
+| Game | Result | Margin |
+|---|---|---|
+| G9 | **Lens Transformers** 37, Stochastic Persona Fracture 2 | 35 — the widest of the tournament |
+| G10 | **Make the Problem Strange First** 30, Committee of Strangers 2 | 28 |
+
+Lens Transformers took four of five axes at **+9 unanimous and maximal**. The losing side
+scored on Compounding alone in both games.
+
+### Ruling 7 — Game 11: ABSORPTION RATIFIED 2–1
+**Panel result:** Roster Mutation 17, Failure Archaeology 14. All three panels named
+Roster Mutation the winner. Absorption 2–1 for ABSORBED (Builder, Ecologist; Skeptic
+dissenting).
+
+Archaeology won **Irreducibility +9 unanimous** and **Compounding +5 unanimous** — its two
+strongest axes, both maximal or near — and still lost, because Mutation won Mechanism +9
+unanimous and every panel reached the same structural conclusion independently:
+
+> **Skeptic:** *"A is a filter on the existing generative process that reliably moves you
+> from #12 to #13 and structurally never further, while B is a **different generative
+> process**, which is what the frame says reaching #99 requires; A wins my own bias axis
+> and I still vote against it on this ground."*
+
+That is the second bias-defying vote of the tournament, and on the axis the Skeptic exists
+to defend.
+
+**What is absorbed — narrowly scoped:** killed hybrids with a recorded cause of death.
+**Not** Failure Archaeology's full claim over every rejected idea in the repo.
+
+> **Ecologist:** *"A breeding program with no record of what died is not performing
+> selection; it is performing memoryless random search over a finite seed space it will
+> re-draw forever."*
+>
+> **Builder:** *"B already contains a kill step whose corpses currently vanish… evolution
+> without differential survival memory is drift, not selection."*
+
+**Dissent preserved (Skeptic):** under the governing frame, efficiency is explicitly not
+the goal. Re-rolling a combination that died is *waste*, not a defect — *"B gets slower,
+not worse."* The deletion test, honestly applied, turns on whether wasted draws count as
+harm in a project that has disclaimed efficiency. Reasonable people differ.
+
+**Advances as THE BREEDING PROGRAM.**
+
+### Ruling 8 — Game 12: OVERRULE + ENTRANT AMENDED
+**Panel result:** Telegram Constraint 18, Homogeneity Auditor 11 on the five-axis
+aggregate. Panels split **1–2 the other way**: Builder for the Telegram, Skeptic and
+Ecologist for the Auditor. CONTESTED on aggregate-versus-majority.
+
+**Ruling:** **The Homogeneity Auditor advances**, with the commissioner siding with the
+panel majority over the aggregate — the same call as Ruling 1, and again a ruling rather
+than a precedent.
+
+**Entrant amended, per the Ecologist's identified edit:**
+
+> *"The residual is the process boundary; it would be nearer 15% if the auditor were
+> denied sight of the real output, **which is the single edit that would most improve this
+> entry**."*
+
+The auditor currently receives the near-final output *before* reconstructing the median it
+will be compared against — so the instrument is coupled to the thing it measures. Blinding
+it also answers the Builder's dissent directly, which was that the gate is *"applied by
+the same model that wrote the text, reading text it has already seen."*
+
+**Advances as THE BLIND AUDITOR:** *"A separate agent that has never seen the real output
+reconstructs the answer an unskilled model would give; any section of the real output that
+overlaps it is rejected and regenerated."*
+
+**This ruling settles the open question about amending entrants mid-tournament.** An
+entrant may be amended when a panel identifies a specific improving edit, the edit serves
+the entrant's existing thesis, and the amendment is recorded here with its source.
+
+**Defect carried forward, unaddressed by the amendment (Skeptic):**
+
+> *"The Auditor's gate cannot distinguish 'median because unimaginative' from 'median
+> because correct.' It rejects overlap, and correct-and-obvious answers overlap by
+> definition, so it systematically punishes right answers for being reachable."*
+
+Blinding the auditor does not fix this. It is the sharpest open objection to the Sweet 16's
+newest entrant and should be resolved before it advances further.
+
+---
+
+## Three defects the panels found in the field itself
+
+These are authoring defects in how entrants were written, not findings against the ideas.
+Recorded because a future session will otherwise re-inherit them silently.
+
+**1. Persona Toolbelts names two tools that are not tools.** `bin/claims` and
+`bin/who-benefits` are model judgments dressed as executables — *"a prompt wearing an
+executable's name."* The entrant's whole claim is that a mandatory tool run replaces an
+assertion with an observation; that holds only when the tool is a genuine outside source of
+fact. Four of six are. The other two launder a model judgment into apparent measurement,
+which is worse than stating the judgment plainly.
+
+**2. Stochastic Persona Fracture cites a fault line that does not exist.** The Skeptic
+checked `roster/franciscan-monk.md` and found no "simplicity against obligation to the
+poor" tension named anywhere in it — the profile states five Core Principles and four
+Anti-Patterns and no conflict between them. The entrant's *"named in its own profile"* is a
+sourcing claim that fails on inspection. The panel added that this is a finding about the
+**repo**, not just the entrant: every roster file resolves its principles into mutual
+non-conflict, which real practitioners do not do.
+
+**3. Make the Problem Strange First overstates its own claim.** *"Removing the nouns
+removes the priors"* is false as stated, because verbs and adjectives carry priors too:
+*"Users **game** the leaderboard to gain **unearned** status"* becomes *"ENTITY_A **games**
+MECHANISM_B to gain **unearned** status"* — and the prior survives. The entrant advanced
+anyway, 30–2, but its stated mechanism is broader than its real one.
+
+---
+
 ## Standing procedural decisions
 
 ### Precedence: deliberately unset
@@ -184,7 +298,25 @@ Eliminated ideas the commissioner is not ready to discard. Revivable into any la
 | The Collaboration Contract | R32 · G8 | Unanimous winner on the merits; displaced by a revive, not beaten |
 | The Constraint Compiler | R32 · G5 | Commissioner not ready to discard; its checker already partly absorbed |
 | The Anti-Roster | R32 · G6 | Took Distance +9 unanimous; lost on mechanism, not on ambition |
+| The Committee of Strangers | R32 · G10 | Lost 30–2 as specified (5–7 bodies). Held for the **committee-of-3** variant — see note below |
 | ~~The Understudy~~ | *revived* | Took the G8 Sweet 16 slot |
+
+**Note on the Committee of Strangers (commissioner):** the entrant lost as written — five
+to seven bodies with coalitions, defection and minority reports — and lost badly. The
+commissioner holds it for a narrower variant at **three** bodies, on evidence generated by
+this tournament itself: the three-panel structure judging these games *is* a committee of
+strangers, and it has worked. Independent convergence between isolated panels has been the
+single most reliable signal in the run. The 5–7 body version was blown out; the 3-body
+version is running the tournament.
+
+Two mechanisms the panels explicitly flagged as **worth building separately** rather than
+merging, which belong with this note:
+- **Priced defection** (Ecologist, G10): *"a price is a falsifiable commitment a persona
+  can be held to later, which is the only thing in this matchup that could ever become a
+  stock."*
+- **Disagreement sourced from differing evidence** (Ecologist, G9): two transforms, two
+  halves, two documents — *"a different and better object than disagreement sourced from
+  instructed tension, and only the first is un-simulatable."*
 
 ---
 
@@ -203,7 +335,7 @@ mid-tournament remains an open commissioner decision.
 
 ---
 
-## Sweet 16 field so far (8 of 16 R32 games judged)
+## Sweet 16 field so far (12 of 16 R32 games judged)
 
 | Advancing | From | How |
 |---|---|---|
@@ -216,4 +348,5 @@ mid-tournament remains an open commissioner decision.
 | **The Hostile Environment** | Dog G7 | 27–13 unanimous sweep, absorption refused |
 | **The Understudy** | Dog G8 | Revived from bench by commissioner |
 
-**Not yet run:** Bracket 3 (Moat, games 9–12) and Bracket 4 (UFO, games 13–16).
+**Not yet run:** Bracket 4 (UFO, games 13–16). Packet committed at
+`docs/tournament/packets/r32-ufo.md`; panels not dispatched.
