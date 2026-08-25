@@ -2321,5 +2321,1165 @@
     "note": "A already compounds through a tighter loop than absorption offers \u2014 evidence pruning the roster beats merging the losers' parts \u2014 so the import would add surface without adding tension."
    }
   }
+ },
+ "9": {
+  "A": "A1",
+  "B": "E7",
+  "region": "Moat",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High \u2014 it does not forbid the problem's vocabulary but forbids its *support structure*, which is the same class of move applied one layer deeper; the persona reads a document whose evidence has been mechanically excised. B sits between Low and Mid: two voices arguing under one name is a staging change. The vocabulary is intact, the domain priors fire normally, and both halves reach the persona's ordinary conclusions.",
+      "pred": "A forbids the journalist writing \"this plan is well-supported \u2014 it cites the 2024 benchmark showing 40% improvement,\" because the citing clause was severed before the persona saw it; it also forbids the monk's review addressing the document's strongest claim, since the strongest claims are the superlative ones and those sentences were deleted from the input. B forbids \"a single closing recommendation delivered in one farmer voice.\" Both nameable; A's forbidden set is structural, B's is cosmetic."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** (\"forbid the answer from containing the problem's own vocabulary\") and arguably past it on one dimension \u2014 it forbids the answer from containing the problem's own *evidence*, which is load-bearing where vocabulary is merely lexical; it does not reach Ceiling because the output remains recognizable as an answer without translation. B sits between **Low** and **Mid**: the output keeps every noun, every clause, every piece of support, and both halves of the split say the kinds of things the unsplit persona said. \"Mildly unusual framing of the same answer\" \u2014 twice.",
+      "pred": "*Name a specific output this forbids.* A forbids: \"This claim is well-supported by the three data points in paragraph four.\" The persona cannot write that sentence because the data points are not in its context \u2014 the clause-stripper removed them. A also forbids any output that quotes a superlative back at the monk, because the monk's artifact has had every superlative-bearing sentence deleted before it arrives. B forbids: \"The monk recommends cutting the program.\" You get two voices instead of one verdict. Nameable, but a forbid on output *count*, not output *content*."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 \"forbid the answer from containing the problem's own vocabulary\" \u2014 enforced on the input side rather than the output side, which is the stronger version: the monk transform deletes every superlative sentence, so the superlative vocabulary is not available to be inherited. B sits at **Mid** \u2014 \"require the answer to come from a named non-obvious domain.\" A bisected farmer is still a farmer answering a farmer's question in a farmer's register; the answer stays recognizable as an answer.",
+      "pred": "A forbids \"adoption is flat because the Q3 campaign underperformed, per the 14% CTR\" \u2014 the journalist transform severed \"per the 14% CTR\" before the persona read, so the persona cannot ground a recommendation in a number it never saw. B forbids \"The farmer's view: be patient, conditions decide\" \u2014 it forbids any single-register farmer paragraph. Both nameable; A's is a ban on evidence, B's is a ban on tone."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High and touches Ceiling \u2014 the persona \"reads only the transformed artifact,\" which is not a checklist it self-verifies against but information removed without its consent. B has no position on this table at all; it is the Floor reference wearing technical vocabulary. The lens flags that \"forcibly bisected\" and \"stochastic\" are both asserted with no seed, no selector, and no artifact.",
+      "pred": "A names `transforms/investigative-journalist.py`, `transforms/farmer.py`, `transforms/franciscan-monk.py`. The lead's honest audit: only the monk's runs deterministically (regex over a superlative wordlist). \"Re-sort every line by how long it will still be true\" requires a durability judgment no Python script makes \u2014 that file is a wrapper around the model it claims to bypass, which is this repo's own procedure-theater anti-pattern, and it caps A below Ceiling. B names no file, and the fault line is said to be \"named in its own profile\" when no roster entry has such a field. Scores as exhortation."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** (\"a script that runs, whose output the model must consume\") and leans toward Ceiling, because the model consumes the transform's output *instead of* the original rather than alongside it \u2014 there is no unconsented rejection, so it does not arrive. B sits at **Floor-to-Low**: \"forcibly bisected\" names no forcer. There is no fault-line registry, no splitter, no arbiter preventing re-convergence. It is a paragraph asking the model to try harder, wearing a structured-template costume.",
+      "pred": "*Name the file that runs.* A: `transforms/investigative-journalist.py`, `transforms/franciscan-monk.py` \u2014 named in the packet's own text as `transforms/<slug>.py`. The journalist logs a discrepancy the packet does not disclose: `transforms/farmer.py` as specified (\"re-sorts every line by how long it will still be true\") **cannot be deterministic** \u2014 durability of a claim is a judgment, i.e. a model call. Two of three named exemplars are genuinely mechanical (regex superlative deletion, dependency-parse clause stripping); the packet calls all three \"deterministic.\" B: **no file.** None named, none implied. Scores as exhortation."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** and reaches toward **Ceiling** \u2014 a script runs and the persona \"reads only the transformed artifact,\" which is rejection without the model's consent, since the original never arrives. B sits at **Floor** \u2014 \"a paragraph in a markdown file asking the model to try harder.\" \"Forcibly bisected\" names no forcing agent.",
+      "pred": "A names three: `transforms/investigative-journalist.py`, `transforms/farmer.py`, `transforms/franciscan-monk.py`. B names none \u2014 the bisection is an instruction inside the pass, so it scores as exhortation. Panel note against A: only `franciscan-monk.py` is honestly deterministic (a superlative wordlist). \"Re-sorts every line by how long it will still be true\" cannot be written without a judgment call, so `transforms/farmer.py` is a script wrapping a model \u2014 a file that runs, but not the deterministic one the entry claims."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A is the High reference implemented \u2014 withholding from the context window, uncopyable by a model that has seen the whole document. B is the Low reference verbatim: hand the model a persona file, real but promptable.",
+      "pred": "A \u2014 a base model given only `Read the attached document as an investigative journalist and list its unsupported claims.` reproduces about 15%, because it still sees every supporting clause and will silently reinstate it. B \u2014 a base model given only `You are the farmer from this profile. Split into two sub-personas along a tension in your own principles \u2014 patience against the seasonal deadline \u2014 argue, and do not resolve.` reproduces about 80%. Self-dialogue is a native register."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 \"withhold a fact from the context window; cannot be simulated by a model that knows it\" \u2014 stated almost verbatim. The persona reads *only* the transformed artifact. B sits at **Low**: \"hand the model a persona file \u2014 real, but promptable.\" B's description *is* a prompt; the packet's own paragraph, pasted into a chat window, produces the behavior.",
+      "pred": "A base model given only the prompt `Read this document as an investigative journalist and list every claim that lacks support.` reproduces about **25%** of A \u2014 it will name some unsupported claims, but it can still see the support and will reflexively credit it; the *inventory* is ~40% reproducible, the *condition of reading with no access to support* is 0% reproducible. A base model given only the prompt `Split this persona into two halves that disagree along a fault line in its own profile, and do not resolve the argument.` reproduces about **80%** of B. This is my declared bias axis and it points at A, so I pressure-tested it: B's underlying observation (models resolve tension into a coherent register, and asking them not to yields mannered fake disagreement) is *true and hard to execute*. But hard-to-execute-by-prompt is a prompt-quality problem, not irreducibility, and B ships nothing to fix it. The bias holds after testing."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 \"withhold a fact from the context window \u2014 cannot be simulated by a model that knows it.\" This is the reference verbatim, not an approximation. B sits at **Low** \u2014 \"hand the model a persona file: real, but promptable.\" Self-bisection is a prompt behavior.",
+      "pred": "A \u2014 a base model given only `\"Rewrite this document so every claim appears without its supporting clause, then read the rewrite as an investigative journalist and respond.\"` reproduces about **30%**, because the model that performed the strip still holds the originals in its own context; the un-simulatable part requires two processes. B \u2014 a base model given only `\"You are the farmer. Split into farmer-as-patience and farmer-as-seasonal-deadline, argue, do not resolve.\"` reproduces about **80%**."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 1,
+    "raw": {
+     "A": 1,
+     "B": 2
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits at Mid \u2014 a library of transforms that accumulates and, more interestingly, composes. B sits at Floor-to-Low: the fault lines live in the profiles, so they are fixed and exhaustible. Neither reaches High; no permitted-answer space narrows here, and A is weak on this axis in absolute terms.",
+      "pred": "A \u2014 use #10 has ten transforms, and journalist\u2218monk produces naked claims with every superlative deleted, a view neither transform yields alone; use #1 produced one view. B \u2014 use #10 produces the farmer's patience-against-deadline argument again, because that fault line was written into the profile once. The same thing. That is the floor and I am calling it the floor."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at the **Floor** \u2014 \"identical on use #10 as on use #1.\" The transforms are fixed scripts; nothing in the packet describes rule growth. B sits at **Low** \u2014 \"a novelty effect that fades as the pattern becomes familiar.\" A profile contains a finite number of fault lines; by use #10 you have seen them all and \"the monk arguing with the monk\" has become a register. This is a vote against my overall winner and I state it plainly: A is at the floor here, and the monk's objection lands \u2014 A's machinery is inert, it does exactly as much on its five-hundredth run as its first.",
+      "pred": "*State what use #10 produces that use #1 does not.* A: **the same thing.** A stripped artifact, produced by the identical script, with the identical rules. Floor, and I say so. B: a fault line the reader has not yet seen split \u2014 until the profile's fault lines are exhausted, at which point B also produces the same thing. B buys perhaps six or eight uses of genuine variation, then joins A at the floor."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Floor** \u2014 \"identical on use #10 as on use #1.\" A deterministic transform is deterministic; nothing accrues. B sits at **Low** \u2014 \"a novelty effect that fades as the pattern becomes familiar.\" The fault-line set is fixed by the profile, so the arguments start repeating by roughly use #6.",
+      "pred": "A \u2014 use #10 produces **the same thing** as use #1. Stating that plainly: this is the floor, and it is the panel's own bias axis, so we say it against the idea we are otherwise voting for. B \u2014 use #10 produces an argument along a fault line already used at uses #2, #5, and #7, but paired to a different task, so the *pairing* is new even though the fault line is not. That is a hair above nothing, and a hair is the whole margin."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High and argues toward Ceiling \u2014 the over-stripped artifact is itself a de facto claims audit. B sits at Floor: \"the pass silently produces the default answer,\" reached by the most dangerous route, where failure is visually indistinguishable from success.",
+      "pred": "A's failure output, verbatim, is the transformed artifact `1. Revenue grew. 2. The team was right. 3. It scaled.` followed by the persona replying \"I cannot assess claims 1-3; none carries attached evidence.\" That names the hidden assumption: the artifact's persuasive force lived entirely in its subordinate clauses. B's failure output is `Ultimately the farmer holds both \u2014 patience *is* the discipline that meets the deadline.` A fluent synthesis in the final beat, which is exactly where the lens says the method gets exposed: the audience cannot tell a failed fracture from a successful one, and neither can a reviewer."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits between **High** and **Ceiling**. B sits at the **Floor** \u2014 \"nothing; the pass silently produces the default answer\" \u2014 and this is the worst position on the table because the failure is undetectable from the output.",
+      "pred": "*Describe the exact failure output.* A, failure one: the clause-stripper mis-parses and item 7 of the numbered list reads `\"which is why the Q3 number holds\"` \u2014 a naked subordinate clause with its subject amputated. Unusable, and it names a hidden assumption: the document contained an argument whose conclusion was never stated as a claim, only implied by a connective. That is High. A, failure two: the monk transform deletes every superlative-bearing sentence and returns an **empty file**. That failure is itself a proposal worth acting on \u2014 \"this document is entirely superlatives\" \u2014 which is Ceiling. B: the bisection does not hold and the output reads `\"Part of me values patience, but I also recognize the season imposes deadlines \u2014 the balanced approach is to phase the work.\"` A synthesized both-sides paragraph indistinguishable from the default answer. This is the journalist's named anti-pattern (false balance) generated automatically, and nothing in B detects it."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 \"an unusable answer that nonetheless names a hidden assumption.\" B sits at **Floor** \u2014 \"nothing; the pass silently produces the default answer,\" wearing two names.",
+      "pred": "A \u2014 the journalist transform run on a document with no subordinate clauses returns the input unchanged: `\"1. The lens must be enforced. 2. The lens must be enforced.\"` The transform's no-op *is* the finding \u2014 nothing was stripped because nothing was supporting anything. B \u2014 `\"The farmer's patience says wait for the conditions; the farmer's deadline says the season closes in six weeks. Both are true, and the tension is real.\"` That is the median AI answer with a colon in it."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 37,
+   "B": 2
+  },
+  "winner_side": "A",
+  "winner": "A1",
+  "loser": "E7",
+  "margin": 35,
+  "contested": false,
+  "splits": [
+   "Compounding"
+  ],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A hands the persona a physically altered document it cannot un-alter, while B hands it an instruction not to resolve \u2014 and a resolved output looks identical to an unresolved one, so nothing catches the failure.",
+   "Skeptic": "B's mechanism presupposes an artifact that does not exist \u2014 I checked `roster/franciscan-monk.md` and no \"simplicity against obligation to the poor\" fault line is named anywhere in it, so B's \"named in its own profile\" is a sourcing claim that fails on inspection, while A's transforms operate on files the repo actually has.",
+   "Ecologist": "A is the only one of the two that removes information from the context window before the persona reads; B asks a model to perform an internal disagreement, which is a thing models are already excellent at simulating."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Mine each persona's profile for its internal contradiction and use that named fault line as the operator.",
+    "same": "FAIL \u2014 A's claim is that mechanical alteration of the *artifact* changes what a persona can see; B's is that models flatten *voice* into a coherent register. Importing the fault line makes A assert both. The charitable merge (apply two transforms to one document and hand the persona both views) does not need the persona's contradiction at all \u2014 any two transforms compose \u2014 which shows the fault-line part is the removable piece.",
+    "del": "FAIL \u2014 merely smaller. Delete fault-line-naming six months out and the transforms still run, still mutilate, still withhold. A loses a feature, not a capability.",
+    "one": "FAIL \u2014 \"Each persona ships a deterministic transform that mutilates the artifact before the persona reads it, and the persona is also split into two arguing halves along a fault line in its own profile.\" The \"and also\" is load-bearing.",
+    "disp": "ORTHOGONAL",
+    "note": "B's diagnosis is correct even though its instrument does not exist \u2014 every roster file in this repo resolves its Core Principles into mutual non-conflict, which real practitioners do not do. Worth building separately, but it needs a file before it earns the \"built alongside\" clause. Preserve also the lead's audit of A: two of its three showcased transforms cannot be deterministic, so A ships at High, not Ceiling, and any transform that needs a model call inside it forfeits the independence its own claim rests on. ---"
+   },
+   "Skeptic": {
+    "mech": "Bisect a persona along a fault line named in its own profile and ship the unresolved argument rather than the synthesis.",
+    "same": "FAIL \u2014 A's claim is that changing what the model can *see* changes the output; B's claim is that forbidding internal *resolution* changes the output. One is about input material, the other about output register. Two claims about why output is homogeneous, not one.",
+    "del": "FAIL \u2014 merely smaller. Delete the fracture six months from now and A still strips clauses, still hands each persona a mutilated artifact, still forbids \"well-supported by paragraph four.\" The transforms have no dependency whatsoever on the reader being split. Nothing degrades; the repo just has fewer voices.",
+    "one": "FAIL \u2014 \"Each persona reads a mechanically transformed artifact **and also** argues with itself along a fault line in its own profile.\" The conjunction is unavoidable because the two mechanisms act on different objects: A transforms the artifact, B fractures the reader.",
+    "disp": "ORTHOGONAL",
+    "note": "Two findings for the record. First, B's fault lines are not \"named in its own profile\" \u2014 the franciscan-monk profile names five Core Principles and four Anti-Patterns and states no tension between them; B requires a per-profile fault-line section that does not exist and that someone would have to author, which relocates B's novelty from the mechanism to the authoring. Second, A's own exemplar list smuggles a model-judgment transform (`farmer`: sort by how long a line stays true) in among two genuinely mechanical ones and calls all three \"deterministic.\" The monk's live objection stands unresolved: 24 personas \u00d7 one transform each is 24 files of machinery to accomplish what `sed` accomplishes twice \u2014 but the monk concedes the machinery *subtracts*, which is the monk's own Phase 1 executed in code, and that the deletion is irreversible within the pass, which is the one thing the monk cannot do by asking. ---"
+   },
+   "Ecologist": {
+    "mech": "The persona is split along a fault line named in its own profile and the unresolved argument ships as part of the output.",
+    "same": "FAIL \u2014 A claims that changing what the model can *see* changes what it produces; B claims that models resolve internal tension into a single *register*. One is about input information, the other about output voice. A near-miss worth recording: running two different transforms on one persona and giving each half a differently-mutilated document would produce disagreement *caused by* differing evidence \u2014 but that is A's mechanism applied twice, not B's.",
+    "del": "FAIL \u2014 merely smaller. Delete the fracture six months on and A still strips supporting clauses, still deletes superlatives, still hands the persona a document that is not the document. Nothing A does depends on the persona being two.",
+    "one": "FAIL \u2014 \"Each persona reads only a mechanically transformed artifact and ships the unresolved argument between its two halves.\" The \"and\" is load-bearing and cannot be removed; the two clauses operate on different objects.",
+    "disp": "ORTHOGONAL",
+    "note": "The absorption near-miss is the finding. Disagreement sourced from *differing evidence* (two transforms, two halves, two documents) is a different and better object than disagreement sourced from *instructed tension*, and only the first is un-simulatable. Build it under A's thesis, not B's. ---"
+   }
+  }
+ },
+ "10": {
+  "A": "C8",
+  "B": "A4",
+  "region": "Moat",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A *is* the High reference implemented \u2014 \"forbid the answer from containing the problem's own vocabulary\" \u2014 and applied at input rather than output, which is stronger, since you cannot reach for what you cannot name. B sits between Low and Mid: five to seven voices is a framing change; the vocabulary is intact and \"positions no single persona holds\" is an aspiration, not a mechanism.",
+      "pred": "A forbids \"add a leaderboard integrity check\" and \"tune the cheating-detection heuristics\" \u2014 unproposable, because there is no leaderboard and no cheating in the text the persona reads, only MECHANISM_B and BEHAVIOR_C. B forbids \"a unanimous recommendation with no recorded dissent.\" Nameable, but that is a formatting prohibition."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** and its intermediate artifact sits at the **Ceiling** verbatim \u2014 \"the output is unrecognizable as an answer to the question until it is translated back.\" A is the only idea in this packet with a literal translation-back step. I am precise about which half hits ceiling: the intermediate output does, the delivered output does not, because the mapping is restored. B sits at **Mid** \u2014 \"require the answer to come from a named non-obvious domain.\" The domain is parliamentary procedure and coalition theory, genuinely non-obvious and genuinely imported, but the answer keeps every noun and remains recognizable as a recommendation.",
+      "pred": "*Name a specific output this forbids.* A forbids: \"Leaderboards are inherently competitive, so lean into that \u2014 add tiers and badges.\" That solution exists only because the noun \"leaderboard\" carries gamification connotations; against MECHANISM_B it has nothing to attach to and dies. B forbids: \"All specialists agree that the recommended path is X.\" A unanimous output cannot be produced, because a verbatim minority report is a required section. Real, and structurally enforced by the output schema \u2014 but a forbid on the output's *shape*, not on the space of answers it can occupy."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at the **Ceiling** \u2014 \"the output is unrecognizable as an answer to the question until it is translated back.\" The entry says this itself: \"only afterward is the mapping restored.\" It also passes through **High** on the way (the problem's own vocabulary is gone). B sits between **Low** and **Mid** \u2014 the output *form* changes (a preserved minority report) but the content space is the same one seven ordinary voices already occupy.",
+      "pred": "A forbids `\"add a rate limit to the leaderboard to stop cheating.\"` The persona never sees \"leaderboard\" or \"cheating,\" so the rate-limit prior that the word \"cheating\" summons never fires \u2014 it sees MECHANISM_B and BEHAVIOR_C. B forbids \"a single-voiced recommendation with no dissent.\" That is a ban on a *shape*, not on a *content*; no specific proposal is made unreachable, which is why it scores nearer the floor than the ceiling."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High approaching Ceiling \u2014 noun substitution is a solved engineering problem, and the persona reads only the masked version, so information is withheld without its consent. B sits between Low and Mid: its political rules are checkable as an output schema, but as pitched they are a structured template.",
+      "pred": "A \u2014 an NER-plus-substitution-table transform; the packet does not name the path but the operation is `spacy` plus a dictionary and it runs today. It is also reversible, which the lead credits: the original is always retained, so the blast radius is bounded. B \u2014 no file. `SECONDED-BY:`, `DEFECTION-PRICE:`, and a `MINORITY REPORT:` block are all validator-checkable fields, so a checker is buildable, but none is named, and orchestrating five to seven agents with priced defection is the element most likely to be shipped as a long prompt."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 a script that runs whose output the model must consume, and \"must\" is literal here since the personas see only the abstracted text. The restore step implies a persisted mapping table, so there is state as well as a transform. B sits between **Low** and **Mid**: \"a structured prompt template with required sections\" (the minority report is a required section) shading into \"a checklist the model self-verifies against\" (does this proposal have a second? does this defection state a price?).",
+      "pred": "*Name the file that runs.* A: the noun-substitution pre-pass and its mapping table \u2014 the packet describes both operations explicitly (\"a transform strips its domain nouns,\" \"only afterward is the mapping restored\"), which requires a transformer and a persisted symbol table. Not given a path, but the two artifacts are entailed by the description rather than asserted. B: **no file.** Three protocol rules are named and none is given an enforcer. The journalist notes in B's favor that \"a defection must state its price\" is genuinely parseable \u2014 you could reject any dissent lacking a price clause \u2014 but the packet does not say anything does. Scores as a template, not a gate."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "Both sit below where they claim. A sits at **Mid\u2013High**: a noun-substitution pass is deterministic and script-shaped (NER plus a substitution table plus an inverse map), so it *can* become a file. B sits at **Low**: \"a proposal needs a second, a defection must state its price\" is a structured prompt template with required sections \u2014 the model both proposes and adjudicates, so nothing external executes.",
+      "pred": "**Neither entry names a file, and this is the packet's weakest spot on this axis.** A would be `transforms/abstract.py` plus its inverse; the packet says only \"a transform.\" B has no candidate filename at all, because there is no operation in B that is not a model turn. The gap is that A's described operation is deterministic and B's is not: A can become a file, B can only ever become a template."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A is the High reference exactly: withhold a fact from the context window. B is the Low reference: promptable multi-agent theater.",
+      "pred": "A \u2014 a base model given only `Ignore that these are users and this is a leaderboard; reason about the abstract structure.` reproduces about 10%. A model that knows the nouns cannot unknow them, and this is the cleanest instance of that in the packet. B \u2014 a base model given only `Convene seven experts. Each proposal needs a second. Any defector must state their price. End with a verbatim minority report.` reproduces about 70%."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits between **Low** and **Mid**. B sits at **Low**. Both are close to the promptable floor, and I say so directly against my own winner: abstraction-and-remap is a *named, documented technique*, one of the most promptable ideas in this entire packet. A's irreducible fraction is not the transformation \u2014 it is the enforcement that the reasoning pass never holds the original nouns, which is a context-window fact, not a prompt.",
+      "pred": "A base model given only the prompt `Rewrite this problem statement replacing every domain-specific noun with a variable like ENTITY_A, solve the abstract version, then map the solution back.` reproduces about **55%** of A. The substitution and the abstract reasoning come out fine; what fails is that the same model still has the original nouns in context and leaks them back in (\"MECHANISM_B \u2014 the leaderboard \u2014 should...\"). A base model given only the prompt `Convene a six-expert panel on this; a proposal needs a second, defectors must state their price, and preserve a verbatim minority report.` reproduces about **70%** of B. Models perform panels readily and will happily act out coalition mechanics; what they produce is consensus theater, which is exactly B's failure mode, so the 70% reproduced includes the defect."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** \u2014 the persona genuinely does not hold the mapping, which is \"withhold a fact from the context window.\" B sits at **Low** \u2014 a promptable behavior; committee transcripts are a genre the base model performs fluently.",
+      "pred": "A \u2014 a base model given only `\"Replace every domain-specific noun in this problem with a variable name, then solve the abstracted version.\"` reproduces about **25%**, because the model doing the substitution retains the mapping and its priors fire anyway; the asymmetry requires a second process that never receives the key. B \u2014 a base model given only `\"Simulate a seven-person committee. A proposal needs a second. A defection must state its price. Preserve the minority report verbatim.\"` reproduces about **70%**."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      null,
+      0
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 2,
+    "raw": {
+     "A": 0,
+     "B": 2
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both sit at the bottom of the table. A is Floor \u2014 the mask is structurally identical every time. B is Low \u2014 a novelty that fades as you learn the contrarian always defects. This is a vote against the panel's declared bias and it should be recorded as one: A is the better machine and loses this axis outright.",
+      "pred": "A \u2014 use #10 produces the same substitution over different nouns. The same thing. Floor, and I am saying so. B \u2014 use #10 draws a different committee composition, so the faction structure differs from use #1. That is combinatorial variety, not tightening; the lens wanted to argue the minority report accumulates into a corpus of rejected positions, but the packet says only \"preserved verbatim in the output,\" singular and per-run. Nothing persists. That argument does not survive its own reading."
+     },
+     {
+      "side": null,
+      "pts": 0,
+      "ref": "Both sit at the **Floor** \u2014 \"identical on use #10 as on use #1.\" Neither accumulates state. A applies the same substitution convention forever; B convenes a fresh committee with no memory of prior votes, alliances, or defections. B's minority report is \"preserved verbatim **in the output**,\" not in the repo, so nothing carries forward. A arguably *decays* below floor: by use #10 the personas have learned the convention and begin back-translating ENTITY_A \u2192 users in their heads, restoring the priors the transform removed. B's committee varies across uses because the draw varies, but variety across uses is not the same as getting weirder with use, and the axis asks for the latter.",
+      "pred": "*State what use #10 produces that use #1 does not.* A: **the same thing** \u2014 the same abstraction applied to a different problem, with the added liability that the reader has now learned the code. B: **the same thing** \u2014 a different committee on a different problem, with no faction history, no accumulated voting record, and no growing corpus of minority reports. Both at the floor, and I say so."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Floor** \u2014 \"identical on use #10 as on use #1.\" The substitution table is the substitution table. B sits at **Low** \u2014 the cast varies, so the factions vary, but nothing from uses #1\u20139 is carried into #10; the variety is re-rolled, not accumulated.",
+      "pred": "A \u2014 use #10 produces **the same thing** as use #1: ENTITY_A, MECHANISM_B, BEHAVIOR_C, again. This is the floor and we name it against our own preferred entry. B \u2014 use #10 produces a coalition among a different 5\u20137 draw from a 24-roster, so the alliance that forms is one uses #1\u20139 could not have formed. That is genuine per-use variance and it is more than A has, and the panel's compounding bias does not get to pretend otherwise."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 7,
+    "raw": {
+     "A": 7,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits at High \u2014 an unusable answer that names a hidden assumption. B sits at Mid \u2014 cheap noise, with a weak secondary signal.",
+      "pred": "A's failure output is `ENTITY_A should be prevented from BEHAVIOR_C by restricting access to MECHANISM_B.`, which remaps to \"users should be prevented from cheating by restricting access to the leaderboard\" \u2014 a tautology, and the tautology names the assumption that the problem statement carried structure beyond its nouns. It did not. B's failure output is `MINORITY REPORT: I would have preferred a phased rollout.` \u2014 a token quibble from a committee that agreed. Discardable, though an empty minority report does weakly indicate roster homogeneity, which is why this is slight and not significant."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits between **High** and **Ceiling** on its primary failure and at the **Floor** on its secondary one; I name both rather than let the good example stand for the whole. B sits at the **Floor**, and below it in practical terms, because B's floor failure is *disguised as rigor*.",
+      "pred": "*Describe the exact failure output.* A, primary failure (over-abstraction): the transform strips everything and the persona is handed `\"How should ENTITY_A prevent BEHAVIOR_C on MECHANISM_B without reducing ENGAGEMENT_D?\"`, and returns `\"Introduce a cost on BEHAVIOR_C proportional to its detection probability.\"` Remapped, this is generic deterrence applicable to any problem \u2014 and that unusable output names a hidden assumption: the problem's apparent specificity was carried entirely by its nouns, and there was no structure underneath. That is a proposal worth acting on. A, secondary failure (under-abstraction): the transform leaves `\"MECHANISM_B (the leaderboard)\"` and the pass silently produces the default answer \u2014 Floor. B: six personas converge in one round \u2014 `\"Second.\" \"Second.\" \"Agreed.\"` \u2014 and the required section reads `\"Minority report: None \u2014 the committee reached consensus.\"` The pass produced the median answer and stamped it with procedural legitimacy. This is the single most dangerous output in the packet: it is the journalist's false-balance anti-pattern running in reverse, manufacturing the appearance of adversarial process around an unexamined default."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** and argues to **Ceiling** \u2014 \"the failure is itself a proposal worth acting on.\" B sits at **Floor** \u2014 \"nothing; the pass silently produces the default answer,\" with a certificate attached.",
+      "pred": "A \u2014 over-abstraction produces `\"ENTITY_A should be removed from MECHANISM_B entirely.\"` Mapped back: \"remove users from the leaderboard.\" Unusable on its face, and it names the hidden assumption that a leaderboard must display users \u2014 a leaderboard of anonymized cohorts is a real proposal that no un-abstracted pass would reach. B \u2014 the seven voices converge and the minority report reads `\"No minority position was recorded.\"` The pass produced the median and stamped it as deliberated, which is worse than producing nothing, because the stamp suppresses the pressure to look again."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 30,
+   "B": 2
+  },
+  "winner_side": "A",
+  "winner": "C8",
+  "loser": "A4",
+  "margin": 28,
+  "contested": false,
+  "splits": [],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "A",
+   "Ecologist": "A"
+  },
+  "decided": {
+   "Builder": "A removes the nouns from the context window, which a model that knows them cannot simulate; B's coalition mechanics are output-format constraints that a model performs fluently on request.",
+   "Skeptic": "B's failure mode \u2014 a procedurally clean deliberation whose minority report reads \"None; the committee reached consensus\" \u2014 launders the median answer as a rigorously deliberated result, which is worse than no mechanism at all, while A's failure mode tells you something true about your problem.",
+   "Ecologist": "A is the only entry in the packet that lands on the Distance ceiling reference near-verbatim \u2014 the output is unrecognizable as an answer until the mapping is restored \u2014 while B's coalition mechanics are a governance protocol on top of a deliberation the model already knows how to write."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Preserve the dissenting position verbatim in the shipped output rather than folding it into the consensus.",
+    "same": "FAIL \u2014 A's claim is about *input* priors firing on nouns; the minority report is about *output* format under disagreement. Preserving dissent is a second diagnosis of homogeneity, not a consequence of the first.",
+    "del": "FAIL \u2014 merely smaller. Strip verbatim dissent from a merged A and the masking still fires, connotation-dependent solutions still die, and the tautology failure still surfaces. The masking mechanism is untouched.",
+    "one": "FAIL \u2014 \"Strip the domain nouns before any persona reasons, and preserve the dissenting persona's verbatim objection in the output.\" Two mechanisms, one name.",
+    "disp": "ORTHOGONAL",
+    "note": "A's unexamined seam is the remapping step, and the lens insists it be recorded: restoring ENTITY_A to \"users\" is a find-and-replace, not a re-inhabitation, so the proposal reads as though written by someone who does not know the domain \u2014 which it was. The accidental false solution a reader will invent is \"this output does not understand our problem,\" and it will damage trust in a correct answer. A needs a re-domaining beat it does not currently have. Second finding: abstraction is a filter that cuts both ways \u2014 connotation is where domain insight lives too, so the surviving solutions may be the blandest ones, and the axis on which A wins Distance is the same axis on which it may thin the output. ---"
+   },
+   "Skeptic": {
+    "mech": "A verbatim minority report preserved as a required output section, which forbids shipping a consensus-only answer.",
+    "same": "FAIL \u2014 A's claim is that the model's domain priors fire on nouns before reasoning begins, so removing the nouns removes the priors. The minority report's claim is that multi-agent prompting converges to consensus, so disagreement must become the output format. One is about lexical priors in the input; the other is about convergence dynamics among agents. Second claim imported.",
+    "del": "FAIL \u2014 merely smaller. Delete the minority report six months from now and A still strips nouns, still forces reasoning against abstracted structure, still kills connotation-dependent solutions. A single persona reasoning about ENTITY_A has no need of a minority report to function; removing it removes a section, not a capability.",
+    "one": "FAIL \u2014 \"Personas reason about a noun-stripped abstraction of the problem **and** preserve a verbatim minority report.\" The conjunction cannot be removed because the two mechanisms act at opposite ends of the pipeline \u2014 one on the input representation before reasoning, one on the output format after it.",
+    "disp": "ORTHOGONAL",
+    "note": "A's load-bearing claim is overstated and the packet does not disclose it: \"removing the nouns removes the priors\" is false as stated, because verbs and adjectives carry the priors too. \"Users **game** the leaderboard to gain **unearned** status\" becomes \"ENTITY_A **games** MECHANISM_B to gain **unearned** status\" \u2014 game, gain, and unearned survive intact and fire the same gamification prior the transform was built to suppress. The mechanism is real and the direction is right; the coverage claim is not sourced. The monk's objection is recorded and answered rather than smoothed: A's core move destroys haecceity \u2014 \"users \u2192 ENTITY_A\" erases the particular person, which is anti-Franciscan on its face \u2014 but because the mapping is *restored*, the monk classes it as a temporary fast from the particular rather than an erasure, which is a practice the tradition already contains. ---"
+   },
+   "Ecologist": {
+    "mech": "A defection must state its price.",
+    "same": "FAIL \u2014 A's claim is that domain priors fire on nouns, so removing the nouns removes the priors. A priced defection is a claim about *consensus dynamics among agents*, a second and independent account of why output is homogeneous. Running priced defection inside the abstraction (\"I defect, my price is that MECHANISM_B survives\") does not fuse the claims; it stacks them.",
+    "del": "FAIL \u2014 merely smaller. Delete priced defection six months on and A still strips nouns, personas still reason without their priors, the mapping still restores. A loses a feature, not a function.",
+    "one": "FAIL \u2014 \"Personas reason about a noun-stripped abstraction of the problem and must state a price to defect from a coalition.\" Two objects (the problem, the deliberation), two verbs, an unremovable \"and.\"",
+    "disp": "ORTHOGONAL",
+    "note": "The priced defection is the one part of B with real teeth, and it should be built separately: a price is a falsifiable commitment a persona can be held to later, which is the only thing in this matchup that could ever become a stock. The panel's farmer registers the maintenance asymmetry for the record \u2014 A costs one subprocess per pass and B costs seven persona invocations plus coalition bookkeeping, and in the season nobody has time, the seven-body pass is the first thing dropped while the one-script pass survives. ---"
+   }
+  }
+ },
+ "11": {
+  "A": "M4",
+  "B": "E4",
+  "region": "Moat",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 0,
+     "B": 3
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits between Low and Mid \u2014 it forbids by name, which beats \"an unconventional angle,\" but exclusion from a finite dead set leaves the entire remaining space including the median, and on day one the graveyard is empty and forbids nothing. B sits above Mid and below High: it does not forbid the problem's vocabulary, but it forces the answer to come from a domain that *does not exist*, which is stranger than the Mid reference's named non-obvious domain.",
+      "pred": "A forbids \"propose a knowledge-pack-per-persona structure\" once `graveyard/knowledge-packs-v1.md` records it dead \u2014 you must differ or write \"RESURRECTS: because packs now carry citation QA.\" B forbids the farmer's patient-cultivation answer: `bin/breed farmer physics-professor --seed 7` with polarity reversal on \"work with the season, not against it\" produces a persona structurally unable to give it."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Mid** \u2014 \"the answer may not be one we have already given\" is a real structural constraint, stronger than \"an unconventional angle,\" but it does not require the answer to come from anywhere in particular; it only fences off ground already walked. B sits between **Mid** and **High**, closer to High: \"require the answer to come from a named non-obvious domain\" understates it, because a farmer\u00d7monk hybrid with a polarity-reversed principle is a domain that *does not exist and has no priors at all*. \"Reverse a principle's polarity\" is the single most distance-generating operation in this packet \u2014 it manufactures positions no author would hold and no corpus contains.",
+      "pred": "*Name a specific output this forbids.* A forbids: `\"I suggest we add per-persona confidence scores.\"` \u2014 unless accompanied by an explicit resurrection statement naming what changed since `graveyard/confidence-scores.md`. Concrete and checkable, but note what it forbids: twelve things, in a repo that has tried twelve things. B forbids: `\"Follow the incentives, therefore map the money first.\"` \u2014 the journalist's own signature move \u2014 because the child holds journalist Principles against monk Methodology, and subtraction-first does not produce follow-the-money. The child's output is not recognizable as any roster entry's voice. The monk objects that this is noise-distance rather than insight-distance, and that a polarity-reversed principle is a corrupted file rather than a perspective; the frame's explicit instruction (\"efficiency is not the goal; exploration is\") overrides the objection but does not refute it."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Mid** \u2014 it forbids the already-catalogued, which pushes you off the median exactly as far as the median has been written down, and no further. B sits at **Mid\u2013High** \u2014 polarity reversal and phase deletion produce a profile that is internally incoherent by construction, which no author would write and no model asked to \"combine these two\" would ever emit.",
+      "pred": "A forbids re-proposing `\"rotate the lens persona randomly per pass\"` once that sits in `graveyard/` with cause of death \"personas ignored the rotation.\" Concrete and checkable. B forbids the sensible blend \u2014 it forbids `\"farmer + contrarian = a patient skeptic.\"` What it produces instead is a profile whose Principles still say patience is intelligence while its Methodology has had the preparation phase deleted, a persona that believes in groundwork and has no way to do any."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 9,
+    "raw": {
+     "A": 0,
+     "B": 9
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B sits at High \u2014 a script that runs whose output the model must consume. A sits between Floor and Mid: a corpus plus \"mandatory reading,\" which is nearly the Floor reference's own words. This is the panel's declared bias operating and it is declared openly.",
+      "pred": "B \u2014 `bin/breed <a> <b> --seed N`. Named, seeded, reproducible. Section surgery over the roster's fixed headers (Role Definition, Core Principles, Methodology, Voice & Tone, Anti-Patterns) runs today; only \"reverse a principle's polarity\" needs help. A \u2014 `graveyard/*.md` plus a CLAUDE.md line. The rule \"must either differ from the graveyard or explicitly resurrect\" has no checker; a `RESURRECTS:` field and a similarity gate would be an afternoon's work, and the fact that this is cheap to fix is a real argument for A that does not change what was submitted."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A sits at **Mid** at best \u2014 \"a checklist the model is asked to self-verify against\" (\"does my proposal differ from the graveyard?\"). Each tombstone is a structured template with a required cause-of-death field, which is Low; the differ-or-resurrect rule is a self-check, which is Mid. There is no diff, no gate, no rejection. B sits at **High** \u2014 \"a script that runs, whose output the model must consume\" \u2014 and beyond consume: the model must *become* the script's output. The scoring-and-promotion step adds a selection gate, though the packet does not say the gate is automatic.",
+      "pred": "*Name the file that runs.* A: `graveyard/<slug>.md` \u2014 files, plainly, but no runner. \"Mandatory reading\" names no mandator; nothing rejects a proposal that ignores the graveyard. B: **`bin/breed <a> <b> --seed N`** \u2014 named as an executable, with arguments and a determinism seed, in the packet's own text, plus `roster/f1/` as its output directory. The journalist verified the splice is implementable today: `roster/investigative-journalist.md` has literally `## Core Principles`, `## Methodology`, `## Anti-Patterns`, and `## Voice & Tone` as headings, so section-crossover is markdown surgery. Two of three named mutations are pure text operations (delete a methodology phase; import a foreign Voice register); \"reverse a principle's polarity\" is a model call, not a script \u2014 one overclaim, disclosed. This axis's question is \"does something execute,\" and one entry names a directory while the other names a binary."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A sits at **Low\u2013Mid**. \"Mandatory reading\" is the Floor reference \u2014 a paragraph asking the model to try harder \u2014 lifted only to Mid by the concrete differ-or-resurrect self-check, which is a checklist the model verifies against itself. B sits at **High** \u2014 \"a script that runs, whose output the model must consume.\" The child profile *is* the consumed output.",
+      "pred": "A \u2014 **no file runs.** `graveyard/` is a directory; nothing checks a proposal against it. By the ruler's own rule, no file means it scores as exhortation. B \u2014 `bin/breed <a> <b> --seed N`. Named, seeded, and therefore reproducible by someone else, which is what the predicate is for."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High by the inverse route from the reference \u2014 not withholding a fact but supplying one that exists nowhere else, which is equally unsimulable. B sits between Low and Mid: text manipulation a model can follow on instruction, whose genuinely irreducible core is only the *refusal to average*. This vote runs against the panel's bias \u2014 A has the weaker mechanism and the stronger irreducibility, and that is the honest reading.",
+      "pred": "A \u2014 a base model given only `Propose an improvement to a Claude Code persona-dispatch skill that differs from everything previously rejected.` reproduces about 10%, because it cannot know this repo's rejection set and no prompt can conjure it. B \u2014 a base model given only `Merge the farmer and physics-professor profiles: Principles from the first, Methodology from the second, interleave Anti-Patterns, then reverse one principle's polarity.` reproduces about 60%."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High**. The ruler's High is \"withhold a fact from the context window \u2014 cannot be simulated by a model that knows it\"; A does the inverse operation on the same quantity, supplying facts that are nowhere in the weights, and the axis's actual question (\"could the base model do this if simply asked nicely?\") answers no for the same reason. You cannot prompt a model into knowing what this specific repo rejected in March and why. B sits between **Low** and **Mid**: \"hand the model a persona file \u2014 real, but promptable,\" sharpened toward Mid because the mutated file *is* the persona, with no coherent original in context to regress toward.",
+      "pred": "A base model given only the prompt `Propose a mechanism for this repo that we have not already tried.` reproduces about **20%** of A \u2014 it does not know what you tried, so it re-proposes dead ideas at roughly the base rate. A base model given only the prompt `Take the investigative-journalist and franciscan-monk profiles, use A's Principles with B's Methodology, interleave the Anti-Patterns, reverse one principle's polarity, and answer as the result.` reproduces about **45%** of B \u2014 the splice happens in-context fine; what fails is *commitment*, since a model asked to reverse \"poverty clarifies\" will soften it back toward sense (\"that is, excessive austerity can create blind spots\"), and only the on-disk file prevents the regression. **This is my declared bias axis, and it cuts against my overall winner. I am recording that plainly:** on irreducibility, the graveyard is the better idea in this matchup by two positions, and my vote for B is a vote against my own bias. The journalist's counter-pressure \u2014 that A's irreducibility is purchased with hand-authored content rather than produced by the mechanism \u2014 does not survive scrutiny, since deciding what to withhold is equally hand-authored at the High reference."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at **High** by mirror image of the reference \u2014 the reference withholds a fact the model would otherwise know; A supplies a fact the model cannot possibly know. Both are information asymmetries a base model cannot cross. B sits at **Mid** \u2014 closer to a generator than to a parser that rejects.",
+      "pred": "A \u2014 a base model given only `\"Propose a mechanism for this repo that has not already been tried and failed here.\"` reproduces about **5%**. It cannot know the repo's failures; nothing in the weights contains them. B \u2014 a base model given only `\"Combine the farmer and contrarian profiles by taking Principles from one and Methodology from the other, then reverse one principle and delete a methodology phase.\"` reproduces about **50%**. It will do the splice, but it will smooth the seams into coherence, which is precisely the averaging the entry exists to forbid; the seeded, unsmoothed version is the irreducible part."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 5,
+    "raw": {
+     "A": 5,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High and touches Ceiling \u2014 the constraint tightens automatically with every rejection and relaxes only by written confession. B gets genuinely weirder with use (promoted children re-enter the pool, so generation-3 hybrids are stranger than generation-1), but the table's High and Ceiling positions are both worded around narrowing, and B's loop is gated on a scorer the packet never names. That is the \"can be relaxed\" disqualifier: a mutation engine nobody runs produces nothing.",
+      "pred": "A \u2014 use #10 must clear ten recorded causes of death; the permitted space is strictly smaller than at use #1 and shrank without anyone deciding it should. This is also, the panel notes against its own bias, a mechanized version of the governing frame itself: you reach #99 by exhausting #1 through #98. B \u2014 use #10 breeds from mutated stock rather than authored stock, which use #1 could not do, but promotion requires a decision no file makes."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits at **High** \u2014 \"each use narrows the space of permitted answers\" \u2014 stated almost verbatim, and it narrows *automatically*, since every rejection files a corpse. It does not reach Ceiling (\"tightens automatically and **cannot be relaxed**\") for one precise reason: the resurrection clause is an explicit, always-available escape hatch. That clause is the single thing keeping A off the ceiling of this axis. B sits between **Mid** and **High**: it accumulates a breeding pool that must be obeyed (promoted F1 personas get used), and generation 2 breeds from generation 1 survivors, so drift compounds \u2014 but the space *widens* rather than narrows, and the ruler's High is narrowing. I record the tension rather than resolve it: B better matches the axis's headline question (\"does it get weirder with use\") while A better matches the table the ruler declares authoritative, and the ruler governs.",
+      "pred": "*State what use #10 produces that use #1 does not.* A: use #10 must dodge nine prior deaths that use #1 did not have to dodge \u2014 the tenth proposal is measurably more constrained than the first, and the constraint is cumulative and unavoidable without a written resurrection. B: use #10 draws from a pool containing F1 survivors of nine prior selections, so generation-2 children are two crossovers removed from any authored profile \u2014 output no author's hand is in. The journalist flags an unsourced load-bearing step: B's entire compounding claim rests on \"scored,\" four words, with no scorer, no rubric, and no scale named."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits at **High** \u2014 \"each use narrows the space of permitted answers\" \u2014 and tightens without authoring, since the losers arrive on their own. It is held off the Ceiling by the resurrect valve, which is a deliberate relaxation. B sits at **Mid**, a little above it \u2014 `roster/f1/` is exactly \"material you may consult but need not obey,\" raised by the kill/promote step, which is real selection pressure rather than mere accretion.",
+      "pred": "A \u2014 use #10 produces `\"REJECTED: duplicates graveyard/2026-05-rotate-the-lens.md, cause of death: nothing consumed the rotation.\"` Use #1 could produce no rejection at all, because the graveyard was empty. B \u2014 use #10 breeds from a pool containing F1 survivors of uses #1\u20139, producing a child three mutations deep from any authored profile; use #1 could only cross authored \u00d7 authored. **The panel's systems thinker enters a dissent on its own verdict:** A's High position is unstable. The graveyard is an unbounded stock whose read cost is drawn from a fixed budget of attention, with no decay, no pruning, and no retrieval structure. That is a Limits to Growth with attention as the limiting condition; at roughly thirty headstones \"mandatory reading\" quietly becomes \"grep the graveyard,\" and then it becomes skipping it. B's Mid is stable indefinitely, because its accumulation is consulted by a script and never competes for context."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 5,
+    "raw": {
+     "A": 0,
+     "B": 5
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "B sits at the High/Ceiling boundary \u2014 the failure is itself a proposal about this repo. A sits at Mid: real but speculative, and its likelier failure is a lazy differentiation that satisfies the letter.",
+      "pred": "B's failure output, quotable and guaranteed by construction, is a child whose principles read \"Work with the season, not against it\" and \"Force the harvest before it is ready,\" producing `The patient thing is to wait. Therefore, cut now.` The finding: a self-contradicting persona that still yields fluent, confident output proves the Core Principles section was not load-bearing on the answer \u2014 a devastating and useful result about the repo's architecture. A's failure output is `RESURRECTS: graveyard/lens-transformers.md \u2014 nothing has changed, but the graveyard now exceeds the context window and I could not read past entry 40.` That names the hidden assumption that constraint corpora scale, but it arrives only at scale, and the everyday failure is \"this differs because it uses a different word for averaging\" \u2014 noise, cheaply discarded."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both reach **High**, and both touch **Ceiling**, but B reaches Ceiling by construction while A reaches it by interpretation. B's design *already treats* every failure as a proposal \u2014 score, then promote or kill \u2014 which is the Ceiling reference operationalized. A also has a genuine **Floor** failure that the packet does not acknowledge.",
+      "pred": "*Describe the exact failure output.* A, high failure: at 60 tombstones the pass returns `\"Proposal conflicts with graveyard/lens-transformers.md (cause of death: 'too much machinery'). Differentiate or resurrect.\"` against a proposal only superficially similar \u2014 a false-positive block that forces the author to articulate the actual distinction, which surfaces it. A, floor failure the journalist insists on recording: the pass runs *clean*, blocks exactly what it should by its own lights, and nobody notices the causes of death were wrong. B: `bin/breed farmer franciscan-monk --seed 7` deletes the methodology phase that held the profile together and reverses \"poverty clarifies,\" and the child outputs `\"The seasonal deadline is the only real constraint; accumulate what you need and do not stop to ask what is enough \u2014 the margin's view is a distraction from the harvest.\"` Unusable as advice, and it names a hidden assumption: the monk profile's subtractive stance was never argued for anywhere in the file, only asserted, and its reversal is internally coherent. It is also, straightforwardly, a proposal \u2014 an accumulationist agronomist is a real perspective this roster lacks, and B's pipeline is already built to promote it."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both sit at **High** \u2014 \"an unusable answer that nonetheless names a hidden assumption.\" B argues toward **Ceiling**, because its failures are targetable rather than incidental.",
+      "pred": "A \u2014 the failure output is `\"REJECTED: differs from graveyard/lens-shuffle.md only cosmetically,\"` applied to a proposal that differs in a way the cause-of-death never recorded. The author's rebuttal is the finding, and it improves the headstone. B \u2014 the failure output is `roster/f1/farmer-x-monk-seed-4409.md`: Principles from the farmer with \"Patience is intelligence\" reversed to \"Delay is the expensive failure,\" Methodology from the monk with Phase 2 deleted. It emits a plan with no preparation step and an incoherent voice, and the specific incoherence names Phase 2 as load-bearing. That is a lesion experiment \u2014 you learn a section's function by removing it \u2014 and unlike A's failure it can be aimed on purpose at any section you want to interrogate."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 14,
+   "B": 17
+  },
+  "winner_side": "B",
+  "winner": "E4",
+  "loser": "M4",
+  "margin": 3,
+  "contested": false,
+  "splits": [],
+  "panel_winners": {
+   "Builder": "B",
+   "Skeptic": "B",
+   "Ecologist": "B"
+  },
+  "decided": {
+   "Builder": "One axis wide \u2014 B is the only entry in this packet naming an executable path with a seed, and its guaranteed failure indicts the repo's own architecture, while A's enforcement is a markdown norm and its power is exclusionary in a tournament that asks for generation.",
+   "Skeptic": "The governing frame \u2014 A is a filter on the existing generative process that reliably moves you from #12 to #13 and structurally never further, while B is a *different generative process*, which is what the frame says reaching #99 requires; A wins my own bias axis and I still vote against it on this ground.",
+   "Ecologist": "B generates and A only filters \u2014 and the absorption test below shows the asymmetry is one-way: A's memory of the dead can be moved into B without loss, but you cannot breed with a graveyard."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "A durable log of what was killed, with its cause of death, consulted before the next attempt.",
+    "same": "PASS \u2014 narrowly, and scoped. B already contains a kill step (\"scored, then promoted to `roster/f1/` or killed\") whose corpses currently vanish. B's claim is that the roster *evolves* rather than being authored; evolution without differential survival memory is drift, not selection. The graveyard does not import a second thesis here, it completes the one B states. The scope matters: what passes is the narrow version \u2014 killed hybrids with causes of death \u2014 not Failure Archaeology's full claim over every rejected idea in the repo.",
+    "del": "PASS \u2014 worse, not smaller. Remove the kill-log six months out and the breeder has no memory: `--seed N` re-rolls into regions already proven dead, and the promote-or-kill decision has no baseline to judge against. The evolutionary loop degrades into a random profile generator. That is broken, not trimmed.",
+    "one": "PASS \u2014 \"`bin/breed` performs seeded structural crossover on two persona profiles, logging every killed child with its cause of death so the next generation cannot re-derive it.\" One mechanism: a breeding program with a studbook. The \"so that\" is purposive, not a second idea.",
+    "disp": "ABSORBED",
+    "note": "The one true absorption in this packet, which is what makes the three refusals credible. Record also the lens's unresolved objection to the winner: a bred persona *reads* like a specialist \u2014 same format, same confident register, same inherited citations \u2014 with no expertise underneath, and its Lineage field is stitched from two unrelated professions. That is a fabricated credential in a repo whose entire value rests on preference sourced to real practice, and it is method presented as effect in the most dangerous direction, because the audience cannot detect it. `roster/f1/` at least labels the children, which is partial disclosure. Before B ships, inherited canon citations must be stripped from bred profiles. This is a design flaw to fix, not a reason the idea is less creative \u2014 and the panel split on it: the lead wanted to hold B for a named fitness authority (the roster is an irreversible accumulator; unscored mutants cannot be un-promoted), while the lens argued B is the only entrant whose output space is not bounded by what an author would write, and therefore the only one that reaches the moat and the UFOs. The lens carried it, narrowly. ---"
+   },
+   "Skeptic": {
+    "mech": "Every rejected idea is preserved with an authored cause of death, and future proposals must differ from the record or explicitly resurrect against it.",
+    "same": "FAIL \u2014 B's claim is generative (\"asked to combine two personas, a model averages toward the generic; structural crossover produces combinations no author would choose\"). The graveyard's claim is mnemonic (\"models do not remember what did not work\"). A record of dead children is *selection* pressure, not a generation mechanism; grafting it onto B imports a second claim about why output is homogeneous.",
+    "del": "FAIL \u2014 merely smaller. Delete the graveyard from B six months from now and `bin/breed --seed N` still produces mutants, scoring still promotes or kills, the roster still drifts. What B loses is that it re-breeds the same lethal combinations across generations \u2014 which is *waste*, and the governing frame states outright that efficiency is not the goal and exploration is. Under this frame, re-rolling a combination that died is not a defect. B gets slower, not worse. This is the test doing its job: the absorption is attractive precisely because it looks efficient, which is the thing the frame says not to buy.",
+    "one": "PASS \u2014 \"Personas are bred by mutation under selection pressure from a record of prior deaths.\" One sentence, no conjunction. Recorded as a pass, and it does not rescue the absorption, since all three tests must pass.",
+    "disp": "ORTHOGONAL",
+    "note": "The finding worth keeping is about A and applies to any repo that builds a graveyard: **the cause of death is authored by whoever killed the idea.** Nobody files a tombstone reading \"we killed this because the person proposing it was junior\" or \"because we were tired.\" The graveyard is institutional memory, institutional memory is written by whoever won the argument, and this repo's own journalist profile is trained to treat exactly that artifact as an official narrative requiring corroboration \u2014 yet A makes it *mandatory reading with binding force* and provides no mechanism for a dissenting death certificate. The monk's dissent from the verdict is also recorded: B is the accumulation instinct handed a breeding program, C(24,2) = 276 base pairs before seeds and mutations, and the monk's question \"would less be enough?\" has no answer inside B. The monk's grudging concession is that B has a kill step and A does not \u2014 A's founding premise is that nothing is ever discarded, which makes its mandatory reading a debt that grows without bound, while B at least contains the word \"killed.\" ---"
+   },
+   "Ecologist": {
+    "mech": "Every dead idea is preserved with a recorded cause of death, and new work must differ from the record or explicitly resurrect.",
+    "same": "PASS \u2014 and this is the surprise of the packet. B as written has a kill step with no destination: children are \"scored, then promoted to `roster/f1/` or killed,\" and killed children go nowhere. A breeding program with no record of what died is not performing selection; it is performing memoryless random search over a finite seed space it will re-draw forever. The graveyard is not a second claim imported into B \u2014 it is the missing half of B's own claim, because \"structural crossover produces combinations no author would choose\" is only true of combinations not yet drawn.",
+    "del": "PASS \u2014 worse, not smaller. Delete the record of dead children six months on and `bin/breed --seed N` re-draws lethal crossovers indefinitely, with no way to distinguish an unexplored region of the space from one already proved barren. The mechanism does not shrink; it degrades from selection to noise. This is the sharp test and it is the only clean pass in the packet.",
+    "one": "PASS \u2014 \"The roster breeds by seeded structural crossover against a record of which crossovers already proved lethal.\" One sentence, one object, no conjunction.",
+    "disp": "ABSORBED",
+    "note": "**This vote defies the panel's declared bias and we say so plainly.** Our bias is compounding and maintenance; A won the Compounding axis; we voted against it. Two reasons. First, A fails the ruler's own sharpest question \u2014 name the file that runs \u2014 outright, and a constraint with no enforcer is a constraint that survives exactly as long as the enthusiasm does. Second, under the governing frame a filter cannot reach #99 however full it gets: knowing where #1 through #12 are and forbidding them delivers you to #13. B samples a space no author would enumerate. The farmer's residue, recorded so it is not lost: A's graveyard is a compost heap that is never turned. Howard's point is *return* \u2014 the humus has to go back into the ground \u2014 and A has a return step it cannot afford to perform past thirty entries. Absorbed into B, the record is read by a script instead of by a person, which is the only version of it that survives year three. ---"
+   }
+  }
+ },
+ "12": {
+  "A": "C4",
+  "B": "M1",
+  "region": "Moat",
+  "rows": [
+   {
+    "axis": "Distance",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      3
+     ]
+    ],
+    "side": "B",
+    "pts": 1,
+    "raw": {
+     "A": 3,
+     "B": 4
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits between High and Ceiling \u2014 at forty words the output stops being an answer and becomes a fragment requiring translation back, which is the Ceiling reference's condition, while the vocabulary survives, which holds it below. B sits between Low and Mid, and the reason is structural: negation without direction lands you in the region adjacent to the median, not a distant one. \"Avoid the median\" gets you from #3 to #5. The governing frame is explicit that #99 requires a different generative process, not a filter on the current one \u2014 and B is a filter.",
+      "pred": "A forbids \"a 600-word response with three headers, a summary paragraph, and four bulleted recommendations\" \u2014 the median AI answer's exact signature, forbidden by an instrument that cannot be argued with. What ships instead: `STOP MIGRATION STOP RESTORE UNVERIFIED STOP NAME HOLD OWNER BEFORE MIDNIGHT STOP`. B forbids \"any section a competent unskilled model would also have written.\" Nameable and aimed correctly, but directionless."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Mid** \u2014 \"require the answer to come from a named non-obvious domain,\" and 1904 telegraphy economics is exactly that; the historical framing carries real compression grammar (dropped articles, STOP, nominal style) beyond a bare count. A's ceiling is uncapped but unguaranteed. B sits at **High** and is structurally unlike the reference points: every entry on the Distance table is an *indirect proxy* for distance from the median, while B measures the quantity the axis is named after and enforces a floor on it. That is worth more than its position suggests. It does not reach Ceiling: nothing about B produces untranslatable output.",
+      "pred": "*Name a specific output this forbids.* A forbids: `\"There are three considerations here. First, ...\"` \u2014 the tricolon preamble costs five dollars of a forty-dollar budget and buys nothing, so the economics kill it; more generally it forbids any restatement of the question. B forbids: `\"Use a 2x2 impact/effort matrix to prioritize your backlog.\"` \u2014 if the auditor reconstructs that line as the no-skill answer and it appears in the real output, that section is rejected and regenerated. A direct, enforced forbid on the median itself. The countervailing fact, which I move to Compounding where it belongs: B guarantees you leave #1\u2013#12 and lands you at #13, with no mechanism pushing further."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A sits at **Mid** \u2014 the sacrifice ordering does push toward a named non-obvious place (the persona's actual commitments), but a compressed median is still a median; the reader receives something plainly recognizable as an answer. B sits at **High** \u2014 it enforces non-overlap with the median as a measured quantity, which is the most literal implementation of this axis anywhere in the packet.",
+      "pred": "A forbids `\"It depends on the conditions \u2014 here are three factors to weigh.\"` At one dollar a word against forty, no persona can afford a caveat paragraph; concretely it forbids any output containing \"however.\" B forbids `\"the key is to align incentives with outcomes\"` \u2014 the auditor will reconstruct that exact sentence as the median, and the section carrying it is rejected and regenerated. B's forbidden set is larger and is discovered per-run rather than fixed in advance."
+     }
+    ]
+   },
+   {
+    "axis": "Mechanism",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "B",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 1,
+    "raw": {
+     "A": 4,
+     "B": 3
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "Both claim the Ceiling reference \u2014 a gate that rejects and forces regeneration without the model's consent. A's actually functions. B's discriminator is the entire load-bearing element and is left as \"past a threshold.\"",
+      "pred": "A \u2014 a word counter, `len(text.split()) <= 40`, as a hard reject. Five lines, no LLM judge, no threshold to tune, no ambiguity, and it cannot fail silently. It is the most trustworthy barrier in this packet. B \u2014 a similarity implementation nobody has named. The buildable version (n-gram overlap) does not measure the claimed thing: two answers can share zero 5-grams and be substantively identical, or share many and differ entirely. The lead's harder objection: the auditor is the same model, generating its \"counterfactual median\" *after* reading the real output, so it is anchored on the text it is supposed to be independent of. That is a contaminated instrument, and the contamination is in the spec, not the implementation \u2014 the packet states the order."
+     },
+     {
+      "side": "B",
+      "pts": 3,
+      "ref": "A sits between **Low** and **Mid** \u2014 a structured constraint the model self-verifies against by counting its own words. Nothing counts for it; nothing rejects it. B sits at the **Ceiling**, quoted almost verbatim by the packet: \"a gate that rejects the output and forces regeneration without the model's consent\" against \"the overlapping sections are rejected and regenerated.\" B is the only entry in this entire four-matchup packet that reaches the Mechanism ceiling.",
+      "pred": "*Name the file that runs.* A: **no file.** The price is stated in the prompt and enforced by the model's own restraint; there is no `wordcount` check, no budget rejector. Scores as exhortation with a period setting. B: the auditor subagent, its reconstruction artifact, and the overlap-threshold comparator. The journalist deducts honestly: **no path is named**, and the predicate asks for a file. But an overlap-past-a-threshold test is by definition an executable comparison with a numeric cutoff, so the component is entailed rather than merely asserted \u2014 which is more than A offers."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "Both designs sit at the **Ceiling** reference \u2014 \"a gate that rejects the output and forces regeneration without the model's consent.\" They separate on reliability, not on category. A's gate rejects on word count, a dimension the model cannot argue with. B's gate rejects on similarity to a reconstruction produced by the same class of process it is policing.",
+      "pred": "**Neither entry names a filename.** A's gate is `wc -w` against forty and a hard glyph count on the woodblock \u2014 trivially writable, and it executes correctly every time, though the thirty-second voicemail needs a separate instrument A does not supply. B's gate is a subagent plus an overlap threshold plus a regeneration loop, three executable components, none named. A takes this axis on ungameability: the packet says the auditor \"receives the near-final output,\" so the instrument reads the answer before reconstructing the median it will be compared against. An anchored auditor reconstructs a conveniently different median and systematically understates overlap. That is a measuring instrument coupled to the thing it measures."
+     }
+    ]
+   },
+   {
+    "axis": "Irreducibility",
+    "votes": [
+     [
+      "Builder",
+      "B",
+      1
+     ],
+     [
+      "Skeptic",
+      "B",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "B",
+    "pts": 3,
+    "raw": {
+     "A": 0,
+     "B": 3
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both sit in the Low-to-Mid band. A is Low: word limits are the most promptable constraint that exists, and this badly hurts the matchup's winner. B reaches Mid on one element \u2014 forced rejection the model cannot opt out of. This vote runs against the panel's declared bias in a matchup otherwise going the other way, and it is recorded as such.",
+      "pred": "A \u2014 a base model given only `Answer in exactly 40 words, as a 1904 telegram.` reproduces about 70%. B \u2014 a base model given only `Write the answer a competent model with no skill installed would give, then rewrite yours to avoid overlapping it.` reproduces about 55%: a model asked to avoid its own median will assert it has and will not have, and the rejection step is the part that is not promptable."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "Both sit low, and on my declared bias axis this is the weakest matchup in the packet. A sits at the **Floor-to-Low** boundary: it *is* a prompt, and a delightful one, which is a warning sign rather than a credential. B sits at **Mid** \u2014 \"force output through a parser that rejects it; the model cannot opt out\" \u2014 but only because of the gate; B's *reconstruction* step is highly promptable.",
+      "pred": "A base model given only the prompt `You have forty dollars at one dollar per word. Send this analysis as a 1904 telegram.` reproduces about **75%** of A \u2014 base models do this well and enjoy doing it, and the period framing supplies telegraphic grammar for free. A base model given only the prompt `First write the answer a competent model with no skill installed would give, then rewrite your real answer to avoid overlapping it.` reproduces about **50%** of B. The journalist notes that this partly falsifies B's own load-bearing claim: B asserts \"a model cannot see its own median from inside,\" yet a model asked to produce its own median produces a recognizable one. What is *not* reproducible is the threshold and the forced regeneration \u2014 a single model judging its own overlap grades leniently in its own favor every time. B's irreducible fraction is entirely in the gate, not in the insight. My bias's verdict on this matchup as a whole: A is closer to a costume than a claim, and B is a shaky claim with a real gate bolted to it."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Low** \u2014 \"hand the model a persona file: real, but promptable.\" The 1904 telegram is a beloved prompt genre. B sits at **Mid** \u2014 a separate agent is a real process boundary, but the coupling flaw above drags it down from the High it would otherwise claim.",
+      "pred": "A \u2014 a base model given only `\"Answer as a 1904 telegram, one dollar per word, forty dollar budget.\"` reproduces about **75%**. B \u2014 a base model given only `\"Write your answer, then write the answer a competent model with no skill installed would give, then rewrite whatever overlaps.\"` reproduces about **40%**. The residual is the process boundary; it would be nearer 15% if the auditor were denied sight of the real output, which is the single edit that would most improve this entry."
+     }
+    ]
+   },
+   {
+    "axis": "Compounding",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      1
+     ],
+     [
+      "Skeptic",
+      "A",
+      1
+     ],
+     [
+      "Ecologist",
+      "B",
+      1
+     ]
+    ],
+    "side": "A",
+    "pts": 1,
+    "raw": {
+     "A": 2,
+     "B": 1
+    },
+    "unanimous": false,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "Both sit at the bottom. A is Low \u2014 a novelty effect softened by media rotation. B is Floor. Neither tightens, and the gap is narrow enough that Tie was live.",
+      "pred": "A \u2014 use #10 produces a tenth telegram under the same $40; rotating the medium (index card, thirty-second voicemail, woodblock) delays the fade but nothing narrows. The stronger version \u2014 a persisted record of what each persona sacrificed, read across ten uses as a revealed priority ordering \u2014 is not claimed in the packet and cannot be credited. B \u2014 use #10 produces the same audit against the same fixed median; the auditor has no memory. The same thing, which is the floor. Worse, if it did remember, the model would learn to write around it, which degrades the instrument further."
+     },
+     {
+      "side": "A",
+      "pts": 1,
+      "ref": "A sits at **Low** \u2014 \"a novelty effect that fades as the pattern becomes familiar.\" Four media are named; by use #10 you have cycled all four twice and telegraphic compression has become a *register*, which is precisely the thing that wears off. B sits at the **Floor**: the auditor as described is stateless, receiving \"the near-final output\" fresh each time, storing no prior reconstructions, growing no forbidden zone. This is a vote against my overall winner and I mark it as such \u2014 B's stateless auditor is the more inert of two inert mechanisms.",
+      "pred": "*State what use #10 produces that use #1 does not.* A: a slightly more practiced telegraphic register \u2014 which is a loss, not a gain, since practiced strangeness is style. Effectively the floor with one step of decay above it. B: **the same thing** \u2014 the same threshold check against a freshly generated median. And here the structural cap belongs: even if the auditor *did* accumulate, B pushes only just past its threshold each time, so use #10 sits exactly threshold-far from whatever the median then is. That is a treadmill, not a ratchet \u2014 B is a machine for reliably reaching #13 forever, and under the governing frame that is its most serious defect."
+     },
+     {
+      "side": "B",
+      "pts": 1,
+      "ref": "A sits at **Low** \u2014 \"a novelty effect that fades.\" Four named media rotate, and by use #10 the telegram is a house style. B sits between **Floor** and **High**: the constraint never decays and cannot be relaxed *by the model*, which is most of the Ceiling's language \u2014 but it does not tighten, and nothing accumulates, because the packet does not store the reconstructed medians.",
+      "pred": "A \u2014 use #10 produces a telegram, same as use #1, in one of four rotating registers the reader has now seen. B \u2014 use #10 produces a rejection measured against a median that has itself moved, because the repo's other mechanisms changed what the unskilled baseline looks like; that is tracking drift rather than accumulating, but a non-decaying constraint beats a fading one. **Farmer's dissent, entered against the verdict:** \"cannot be relaxed by the model\" is not the same as cannot be relaxed. A threshold is a number, and numbers in a repo drift toward whatever stops the complaints. In year three the threshold has been loosened once and never tightened, and the gate is a rubber stamp everybody still believes in \u2014 the fence everyone assumes is electrified. A costs `wc -w` forever and survives the bad season intact. **Systems thinker's answer, for the record:** A is cheap because A is a parameter, the lowest leverage point on Meadows' list. B is expensive because B is a feedback loop. A decaying high-leverage intervention still beats a durable low-leverage one when the goal is exploration rather than reliability. The panel does not resolve this; it ships it."
+     }
+    ]
+   },
+   {
+    "axis": "Generative failure",
+    "votes": [
+     [
+      "Builder",
+      "A",
+      3
+     ],
+     [
+      "Skeptic",
+      "A",
+      3
+     ],
+     [
+      "Ecologist",
+      "A",
+      3
+     ]
+    ],
+    "side": "A",
+    "pts": 9,
+    "raw": {
+     "A": 9,
+     "B": 0
+    },
+    "unanimous": true,
+    "detail": [
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at High and argues to Ceiling \u2014 the failure is itself an actionable proposal. B sits between Floor and Low, and lands on whichever depending on how the threshold is set: an error that wastes the run, or a gate that never fires and silently delivers the default answer.",
+      "pred": "A's failure output is `SITUATION UNCLEAR STOP RECOMMEND FURTHER ANALYSIS STOP AWAIT INSTRUCTIONS STOP` \u2014 ten words spent of forty. The thirty unspent words are a legible measurement: this persona has nothing to say about this task. The failure proposes its own remedy, which is to drop the persona from this pairing. B's failure output is `Overlap 0.91 exceeds threshold 0.60 \u2014 section rejected (attempt 3/3), delivering anyway.` The run is wasted and the alarm is ambiguous between \"the output really was median\" and \"the auditor anchored on the text it just read\" \u2014 and an ambiguous alarm is worse than none, because it trains reviewers to ignore it."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A's primary failure sits at the **Ceiling** \u2014 \"the failure is itself a proposal worth acting on\" \u2014 and is the best failure mode in this packet; A also carries a **Floor** failure I name rather than hide. B sits at **Mid** and below it in practice, because its noise is expensive (each round is a full regeneration) and, worse, *invisible in the artifact*.",
+      "pred": "*Describe the exact failure output.* A, primary failure: the budget is spent and the deliverable reads `\"ROADMAP UNSOUND STOP PHASE TWO UNSCOPED STOP COMPETITOR RISK BURIED STOP RECOMMEND DELAY STOP\"` \u2014 thirteen words, thirteen dollars, under budget, every nuance gone. It is a failure *as a deliverable* and a proposal *as a finding*: it says the persona's full-length analysis contained exactly four claims and thirty sentences of padding. A, secondary failure: the model overruns the budget, silently self-corrects, and ships normal-length prose with telegraphic flavor \u2014 Floor. B: reconstruction and output overlap at 80%, sections are rejected, regenerated, overlap at 78%, regenerated again, and the loop terminates either on a retry cap (shipping the original with a warning) or by producing text beaten into non-median strangeness \u2014 `\"sort the backlog by a bespoke composite index of urgency-weighted stakeholder salience\"` \u2014 which is novel, worse, and unfalsifiably off-median. Nothing in the output tells a reader which of those two things happened."
+     },
+     {
+      "side": "A",
+      "pts": 3,
+      "ref": "A sits at the **Ceiling** \u2014 \"the failure is itself a proposal worth acting on.\" B sits at the **Floor** \u2014 \"nothing; the pass silently produces the default answer\" \u2014 with the aggravating feature that it issues a certificate saying otherwise.",
+      "pred": "A \u2014 the failure output is a persona that spent thirty-eight of forty words hedging: `\"CONDITIONS VARY STOP SOIL DEPLETED STOP RECOMMEND FURTHER STUDY STOP.\"` A persona that spends its entire budget on caveats has just confessed it holds no positions, and that is a directly actionable finding against `knowledge/<slug>/positions.md`. This is the best failure mode anywhere in the packet. B \u2014 the failure output is an anchored auditor producing a strawman median, overlap returning `8% \u2014 PASS`, nothing regenerating, and the default answer shipping with a green stamp on it. A gate that fails open and reports success is worse than no gate, because it removes the pressure to build one."
+     }
+    ]
+   }
+  ],
+  "tot": {
+   "A": 18,
+   "B": 11
+  },
+  "winner_side": "A",
+  "winner": "C4",
+  "loser": "M1",
+  "margin": 7,
+  "contested": true,
+  "splits": [
+   "AGGREGATE-VS-PANEL",
+   "Compounding",
+   "Distance",
+   "Mechanism",
+   "OVERALL"
+  ],
+  "panel_winners": {
+   "Builder": "A",
+   "Skeptic": "B",
+   "Ecologist": "B"
+  },
+  "decided": {
+   "Builder": "A's constraint is measured by an instrument with zero measurement error that cannot silently fail, and its failure mode is a finding; B's gate depends on an unspecified similarity threshold applied by the same model that wrote the text, reading text it has already seen.",
+   "Skeptic": "A's differentiating claim \u2014 that a priced budget is \"not a word-limit instruction\" \u2014 is the entire basis of its novelty and is supported by nothing in the packet; strip the 1904 costume and A is `--max-words 40`, whereas B's gate works whether or not B's claim about self-visibility is true.",
+   "Ecologist": "B is the only entry in the packet that measures the quantity the tournament is actually about \u2014 distance from the median \u2014 instead of a proxy for it, and A's priced budget is a proxy (short is not far)."
+  },
+  "absorb": {
+   "Builder": {
+    "mech": "Generate the counterfactual median explicitly, as a named artifact, so it becomes visible and therefore excludable.",
+    "same": "FAIL \u2014 A's claim is that scarcity forces a revealing sacrifice; B's is that the median is invisible from inside. These are two different diagnoses of homogeneity (abundance versus invisibility). Naming the median does not follow from pricing the words.",
+    "del": "FAIL \u2014 merely smaller. Remove the median-reconstruction from a merged A and the telegram still costs $40 for 40 words, still forces the sacrifice, still exposes the persona's ordering, still produces unspent-budget findings. Nothing in the pricing mechanism consults the median.",
+    "one": "FAIL \u2014 \"The persona delivers under a priced medium at one dollar per word against a forty-dollar budget, and a separate agent reconstructs the median answer so overlapping sections can be rejected.\" Two mechanisms, one name.",
+    "disp": "ORTHOGONAL",
+    "note": "The finding worth keeping is a partial subsumption that stops just short of the verdict: a forty-word ceiling already excludes the median for free, because length is the median answer's most reliable signature, so A achieves B's stated goal by a route that needs no threshold and no judge. B survives as orthogonal only because it would also catch a *short* median answer, which A would not. Record the lead's separate objection to the winner: \"$1/word against $40\" is presented as economics but implements as `max_words = 40` \u2014 in 1904 every word cost the same, so there is no allocation problem and no optimization. The revealed-preference claim is real; the pricing is decoration on a word limit, and A should either make the budget spendable across multiple messages or drop the economic framing."
+   },
+   "Skeptic": {
+    "mech": "A priced delivery budget where what the persona sacrifices under real cost reveals what it actually believes.",
+    "same": "FAIL \u2014 B's claim is that a model cannot see its own median from inside, so an external agent must generate it. A's claim is that models treat \"be concise\" as a style note, so a budget must be posed as an optimization problem. One is about self-visibility of the median; the other is about the difference between a style instruction and a constraint with a cost function. Two claims.",
+    "del": "FAIL \u2014 and in the sharper direction. Delete the price from B six months from now and the auditor still reconstructs the median, still measures overlap, still gates. B gets longer, not worse \u2014 and a longer output gives the auditor *more* surface to catch. Running the tests properly reveals the merge is actively harmful: short outputs overlap the median **more**, because there are fewer ways to say a thing in thirteen words, so the price would make B's gate fire constantly on correct-and-unavoidable phrasings. B is worse *with* the absorbed part, which is the strongest possible refusal this test can return.",
+    "one": "FAIL \u2014 \"An adversarial auditor rejects any section overlapping the median it reconstructs, **and** the persona delivers what survives under a priced word budget.\" The conjunction cannot be removed because the two mechanisms act on different quantities: one on length, one on overlap. No single predicate covers both.",
+    "disp": "ORTHOGONAL",
+    "note": "The finding worth keeping is a defect in the winner. **B's gate cannot distinguish \"median because unimaginative\" from \"median because correct.\"** It rejects overlap, and correct-and-obvious answers overlap by definition, so B systematically punishes right answers for being reachable \u2014 and because the auditor is itself a model with the same priors, the \"median\" it generates is its own default, meaning the threshold measures agreement between two samples from one distribution and calls it homogeneity. Second, for the record: A's central differentiator is unsupported. The packet asserts \"the economics of the medium, not a word-limit instruction\" and supplies no mechanism for the difference; the strongest exemplar is the woodblock, because a fixed glyph count is not a word count and carving is irreversible, and the weakest is the telegram, which is forty words with a hat on. The monk's judgment is the one this panel most wants preserved: A is **romantic poverty** \u2014 the anti-pattern named explicitly in the monk's own profile, \"conflating voluntary simplicity with imposed deprivation\" \u2014 and telegrams, index cards, and woodblocks are its costume. The monk concedes in the same breath that A's underlying epistemology is the monk's own (\"what a persona sacrifices under real cost reveals what it actually believes\" is \"poverty clarifies\" restated), and refuses to resolve the split: A gets the epistemology right and the apparatus wrong, and both halves are in the entry. Between a costume and a machine, the monk takes the machine only because the machine removes something."
+   },
+   "Ecologist": {
+    "mech": "A priced budget forces sacrifice, and what a persona sacrifices first reveals what it actually believes.",
+    "same": "FAIL \u2014 B claims a model cannot see its own median from inside, so a separate agent must generate it. A claims models treat \"be concise\" as a style note while a priced budget is an optimization problem. Median-blindness and compression-as-style are two different diagnoses. The steelman \u2014 run the auditor under a forty-word budget so the median is a sharper comparison target \u2014 is a real improvement to B, but it imports the compression claim, and it leaves A's actual payload (sacrifice reveals belief) entirely outside, since revealed preference has nothing to do with detecting a median.",
+    "del": "FAIL \u2014 merely smaller. Delete the priced budget six months on and B still runs the auditor, still computes overlap, still forces regeneration. The audits get longer and mushier; overlap on long text remains measurable. B loses tidiness, not function.",
+    "one": "FAIL \u2014 \"An adversarial auditor reconstructs the median answer and each persona delivers under a priced word budget.\" Unmergeable in principle, not just in phrasing: one is a checker that never proposes, the other is a producer. They act on opposite ends of the pass.",
+    "disp": "ORTHOGONAL",
+    "note": "Preserve two facts from this matchup, and they point in opposite directions. First, A's failure mode is the most valuable object in the packet: the all-hedges telegram is a diagnostic on the *roster*, not on the pass, and it is the only mechanism here that audits whether a persona has positions at all. Build it as an elicitation instrument even though it lost. Second, B's failure mode is the most dangerous object in the packet, and it is fixable with one edit: **deny the auditor sight of the near-final output.** An auditor that reconstructs the median from the task alone is an unanchored instrument and moves this entry from Mid to High on irreducibility; an auditor that reads the answer first is measuring itself. The panel's own compounding bias favored A here on maintenance cost and we voted against it, because cheap-to-maintain is not the same as compounding and the ruler has an axis for one and not the other."
+   }
+  }
  }
 }
