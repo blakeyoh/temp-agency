@@ -24,20 +24,24 @@ reaching idea #3**, and this repo currently stops around #12.
 
 ## Current state
 
-**Round of 32 · 12 of 16 games judged.** Brackets 1 (Fence) and 2 (Dog) are complete and
-ruled. Bracket 3 (Moat, games 9–12) has been judged by all three panels — verdicts are in
-`verdicts/r32-moat-*.md` and tallied into `r32-results.json` — and is **awaiting
-commissioner rulings**; nothing in it is final. Bracket 4 (UFO, games 13–16) has a packet
-written and has **not** been dispatched.
+**Round of 32 · COMPLETE — 16 of 16 games judged and ruled.** All four brackets have been
+judged by three blind panels and ruled by the commissioner: 10 rulings, 4 absorptions kept,
+6 ideas on the wildcard bench. The **Sweet 16 bracket has not been drawn.**
 
-Two rulings are outstanding on Moat: **G12** is CONTESTED (aggregate says Telegram
-Constraint, panel majority says Homogeneity Auditor — the Game 1 situation, where
-precedence is deliberately unset), and **G11** carries a 2–1 ABSORBED that needs
-ratifying or blocking.
+*(This section previously read "12 of 16 games judged" and listed two outstanding Moat
+rulings. Both were ruled — G11 ratified 2–1, G12 overruled with the entrant amended — and
+bracket 4 has since been dispatched, judged and ruled.)*
 
-Sweet 16 field so far, plus the wildcard bench, is in `commissioner-rulings.md`. That file
-is the source of truth for every decision. Do not re-derive results from the verdicts —
-read the ledger.
+The Sweet 16 field and the wildcard bench are in `commissioner-rulings.md`. That file is the
+source of truth for every decision. Do not re-derive results from the verdicts — read the
+ledger.
+
+**Before seeding, read two things.** `commissioner-rulings.md` → "Open items carried into
+the Sweet 16": five of the sixteen survivors carry a known defect. And `field-of-32.md` →
+"Going into the Sweet 16": each entrant now carries a Status / Enhancements / Gaps trailer,
+and the file's front matter holds a result board, a shared-gap table (which survivors are
+waiting on the same missing surface), and a list of collisions the draw should be made
+deliberately about rather than discover.
 
 ---
 
@@ -185,7 +189,10 @@ otherwise re-inherit them silently — and one is about the repo itself.
 |---|---|
 | `HANDOFF.md` | This file. Read first. |
 | `commissioner-rulings.md` | **Source of truth for every decision.** Overrides, tiebreaks, absorptions, the bench. |
-| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim. |
+| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the
+Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board,
+shared-gap table and collision list for seeding the Sweet 16. Annotated *from*
+`commissioner-rulings.md`; the ledger still wins any disagreement. |
 | `rules-v2.md` | Absorption standard, scoring anchors, panel design, commissioner powers, cross-pollinated draw. |
 | `reference-sets.md` | The ruler — five axes, fixed reference points, required predicates. |
 | `rules.md` | v1 rules. Superseded; kept for the record. |

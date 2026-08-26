@@ -458,9 +458,24 @@ mid-tournament remains an open commissioner decision.
 | **The Entropy Well** | Dog G6 | 18–13, clean |
 | **The Hostile Environment** | Dog G7 | 27–13 unanimous sweep, absorption refused |
 | **The Understudy** | Dog G8 | Revived from bench by commissioner |
+| **Lens Transformers** | Moat G9 | 37–2, the widest margin of the tournament |
+| **Make the Problem Strange First** | Moat G10 | 30–2 unanimous, defect noted |
+| **The Breeding Program** | Moat G11 | 17–14, absorption ratified 2–1 |
+| **The Blind Auditor** | Moat G12 | Commissioner overrule, entrant amended |
+| **The Adjudicated Ledger** | UFO G13 | 29–1, absorption ratified 3–0 |
+| **The Voice Oracle** | UFO G14 | 31–0 shutout |
+| **Notation Transposition** | UFO G15 | 19–16 unanimous |
+| **The Oblique Deck** | UFO G16 | 15–10, panels 2–1, defect noted |
+
+*(The Moat and UFO rows were ruled above but never added to this table; filled in
+2026-08-26 from the rulings on this page. No result changed.)*
 
 **Round of 32 complete.** All 16 games judged by three blind panels and ruled. Next round
-is the **Sweet 16** — 8 games, field below, bracket not yet drawn.
+is the **Sweet 16** — 8 games, field above, bracket not yet drawn.
+
+Per-entrant status, what each winner absorbed, and what the repo would need to build each
+one are recorded on the entrants themselves in `field-of-32.md`, whose front matter also
+carries a shared-gap table and a list of collisions worth deciding on before the draw.
 
 ## Open items carried into the Sweet 16
 
