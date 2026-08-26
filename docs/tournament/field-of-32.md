@@ -127,12 +127,11 @@ draw, and the commissioner should decide deliberately rather than discover them 
 
 | Pair | Why it collides | Prior finding |
 |---|---|---|
-| `M1` × `M5` | Both gate on overlap with a median; both carry the *same* Skeptic objection — neither can tell "median because correct" from "median because unimaginative" | The objection is unresolved against both |
+| `M1` × `M5` | Different gates, same risk: `M1` rejects overlap with a reconstructed unskilled-median answer, `M5` rejects landing in a region the historical corpus already occupies; both carry a novelty-vs-correctness objection — neither can tell "rejected because unimaginative" from "rejected because correct" | The objection is unresolved against both |
 | `A1` × `C8` | Same missing surface (a pre-read transform), opposite targets: `A1` transforms the artifact, `C8` transforms the brief | Both won their games by wide margins on Distance |
 | `E3` × `A6` | The G1 rematch — both defeat a reflex about authority | **All three panels refused the merge**, each saying they defeat *different* reflexes |
 | `E1` × `E2` | Both inject entropy: `E1` seeds the choice, `E2` imports the object | `E2` is the field's most irreducible entrant; `E1` is the field's only real PRNG |
 | `E5` × `C5` | Both force re-derivation by forbidding a vocabulary — one by date, one by notation | Both won on the same axis for the same reason |
-| `E4` × `A6` | Both generate derived persona files at 24× scale and both must answer the same rot problem | The Ecologist raised the rot cost against `A6` in G1 |
 
 ### Defects carried into the Sweet 16
 
@@ -143,7 +142,7 @@ summarised here so the draw is made with them visible.
 |---|---|---|
 | `M1` The Blind Auditor | Cannot tell "median because correct" from "median because unimaginative" | Fix proposed *(annotate each median claim **forced** or **chosen**; reject only on chosen)* and **commissioner-approved, untested** |
 | `M3` The Adjudicated Ledger | Names a `ledger/` directory that does not exist and no writer for it | Open — advanced on a promise |
-| `E6` The Oblique Deck | Corpus is two-thirds hand-authored; 16 of 24 have a `positions.md`; the default lens has none | Open — tracked in issue #21 |
+| `E6` The Oblique Deck | Corpus is one-third hand-authored; 16 of 24 have a `positions.md`; the default lens has none | Open — tracked in issue #21 |
 | `A3` Persona Toolbelts | Two of six named tools are prompts in costume | Open — advances **as written**, defect on the record |
 | `C8` Make the Problem Strange First | Overstates its mechanism; verbs and adjectives carry priors too | Open — the real mechanism is narrower than the claim |
 
@@ -344,7 +343,7 @@ imperatives; the deck file itself; a draw step; a check that the card was obeyed
 rather than applied where convenient — literal obedience to a bad-fit card is the entire
 mechanism and nothing currently verifies it. · *Wire:* `SKILL.md` step 4, plus the same
 seeded-draw surface `E1` needs. · *Absent:* 8 of 24 specialists have no conforming pack, so
-the deck is two-thirds hand-authored **by construction**, not by oversight.
+one-third of the deck needs another source **by construction**, not by oversight.
 
 **Carried defect** · The corpus claim is overstated. Only **16 of 24** specialists have a
 `positions.md` (~160 bullet lines total); of the entrant's three sample cards, one fairly
@@ -512,8 +511,9 @@ under real cost reveals what it actually believes.
 budget is an optimization problem with a different, revealing solution.
 
 **Status** · **WILDCARD BENCH** — Moat G12. **Won the aggregate 18–11 and lost to a
-commissioner overrule** [Ruling 8]; panels split 1–2 the other way. The only bench entry that
-won its game on points.
+commissioner overrule** [Ruling 8]; panels split 1–2 the other way. One of two bench entries
+that won its game on points — see also `M7`, which won its game 19–7 unanimously and was
+displaced by a revival rather than beaten.
 
 **Enhancements** · —
 
@@ -849,20 +849,25 @@ they were evaluating.
 
 **Gaps** · *Build:* `/bracket <question> --field 32` — a field generator, a seeded draw,
 packet anonymization, three-panel dispatch, tally, and a box-score renderer. · *Absent:*
-**almost nothing.** Every item on that list exists in `docs/tournament/` — `r32-draw-map.json`
-carries the seed, `packets/` are anonymized, `tally.py` parses and aggregates,
-`build_box_score.py` renders. The gap is not capability but **generalization**: nothing is
-parameterized by question, the packets were hand-written, and the commissioner step is a human
-who rules between rounds. This is the one eliminated entrant whose infrastructure is
-substantially already built.
+more than generalization. `tally.py` and `build_box_score.py` exist and do parse and render
+real data, and `r32-draw-map.json` and `packets/` are real artifacts — but they were
+hand-built for this one run, not produced by a generator or dispatcher. Repository-wide
+inspection finds no field generator and no three-panel tournament dispatcher anywhere in the
+repo; `SKILL.md`'s dispatch logic only ever selects and runs **one lead + one lens**, never a
+multi-panel tournament. Those central capabilities are absent, not merely unparameterized —
+what's already built is the back half of the pipeline (tally and render), not the front half
+(generate and dispatch).
 
 **Open finding against the format (unresolved)** · The Skeptic's charge: *"B is the entrant
 that most flatters the process now evaluating it… 32 entrants with a refusal-by-default
 absorption rule means 24 of them contribute nothing at all."* Measured at Round-of-32
-completion: **4 of 32 contributed nothing recorded**, not 24 — wrong by a factor of five,
-because absorption is not the only contribution channel. The bench (6), the mechanisms that
-travelled (4), and the flagged-for-separate-build list (2) are three more. The charge is **not
-dismissed**: a 4/32 waste rate is real, the cost per matchup is real, and the Ecologist's
+completion (all four brackets, not the 12-of-16 interim count this figure previously carried
+forward): **5 of 32 contributed nothing recorded** — this entrant itself, plus `C3` (Idea
+Bankruptcy), `M2` (Novelty Gate), `M6` (The Ratchet), and `M8` (The Reverse Brief, the UFO
+bracket's shutout) — not 24, roughly a factor of five, because absorption is not the only
+contribution channel. The bench (6), the mechanisms that travelled (4), and the
+flagged-for-separate-build list (2) are three more. The charge is **not
+dismissed**: a 5/32 waste rate is real, the cost per matchup is real, and the Ecologist's
 separate prediction — *"judge attention does not scale into year three"* — was confirmed twice
 by this session pausing on usage limits.
 
@@ -1079,9 +1084,11 @@ write at `SKILL.md` step 5 (to grow the corpus) and a read at step 1 (to steer t
 · *Absent:* the corpus is the hard prerequisite. The map has nothing to cluster until dispatches
 are recorded, and no dispatch has ever been recorded.
 
-**Note for the Sweet 16** · `M5` and `M1` gate on the same quantity — overlap with a median —
-and carry the **same** Skeptic objection: neither can tell a correct answer from a median one.
-If the draw pairs them, that shared objection is the game.
+**Note for the Sweet 16** · `M5` and `M1` gate on *different* quantities — `M5` rejects any
+output landing in a region the historical corpus has already occupied; `M1` rejects overlap
+with a separately reconstructed unskilled-median answer — but both carry the same unresolved
+Skeptic-style objection: neither can tell a correct answer from an unimaginative one. If the
+draw pairs them, that shared objection is the game, not a shared gate.
 
 ### M6 · The Ratchet ◇
 

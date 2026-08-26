@@ -45,15 +45,18 @@ deliberately about rather than discover.
 
 ---
 
-## How to run the remaining brackets
+## How the Round of 32 was run (historical — all 16 games complete)
 
-Everything needed is committed. The procedure is mechanical.
+**Nothing below is a pending task.** All four brackets — Fence, Dog, Moat, UFO — have been
+judged and ruled; do not re-dispatch the Moat or UFO panels. This section is kept as the
+exact, reusable procedure for **the next round** (the Sweet 16 draw) and later rounds.
 
-1. **Packets already exist**: `docs/tournament/packets/r32-moat.md` and `r32-ufo.md`.
-   They are anonymized — no codes, no seeds, no region labels, no marking of which
-   entries are the owner's — and A/B position was flipped on 10 of 16 games from
-   **seed 99**, logged in `r32-draw-map.json`. Do not regenerate them; the blinding and
-   the flip are part of the evidence.
+1. **Packets already exist** for the Round of 32: `docs/tournament/packets/r32-moat.md` and
+   `r32-ufo.md`, both already judged, kept as reference for the packet format. They are
+   anonymized — no codes, no seeds, no region labels, no marking of which entries are the
+   owner's — and A/B position was flipped on 10 of 16 games from **seed 99**, logged in
+   `r32-draw-map.json`. Do not regenerate them; the blinding and the flip are part of the
+   evidence.
 
 2. **Dispatch three panels per bracket**, isolated, in parallel. Each reads its two
    persona profiles plus `knowledge/<slug>/`, then `reference-sets.md`, then its packet.
@@ -189,14 +192,11 @@ otherwise re-inherit them silently — and one is about the repo itself.
 |---|---|
 | `HANDOFF.md` | This file. Read first. |
 | `commissioner-rulings.md` | **Source of truth for every decision.** Overrides, tiebreaks, absorptions, the bench. |
-| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the
-Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board,
-shared-gap table and collision list for seeding the Sweet 16. Annotated *from*
-`commissioner-rulings.md`; the ledger still wins any disagreement. |
+| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board, shared-gap table and collision list for seeding the Sweet 16. Annotated *from* `commissioner-rulings.md`; the ledger still wins any disagreement. |
 | `rules-v2.md` | Absorption standard, scoring anchors, panel design, commissioner powers, cross-pollinated draw. |
 | `reference-sets.md` | The ruler — five axes, fixed reference points, required predicates. |
 | `rules.md` | v1 rules. Superseded; kept for the record. |
-| `packets/r32-*.md` | Anonymized judging packets, one per bracket. Moat and UFO are unrun. |
+| `packets/r32-*.md` | Anonymized judging packets, one per bracket. All four (Fence, Dog, Moat, UFO) have been judged. |
 | `verdicts/r32-*.md` | Raw panel verdicts. The reasoning behind every score. |
 | `r32-draw-map.json` | The draw, A/B assignment, and the seed (99) that produced the flips. |
 | `r32-results.json` | Machine-readable tally output. |
