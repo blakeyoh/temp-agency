@@ -45,11 +45,11 @@ deliberately about rather than discover.
 
 ---
 
-## How the Round of 32 was run (historical — all 16 games complete)
+## Round-of-32 record (historical — all 16 games complete)
 
-**Nothing below is a pending task.** All four brackets — Fence, Dog, Moat, UFO — have been
-judged and ruled; do not re-dispatch the Moat or UFO panels. This section is kept as the
-exact, reusable procedure for **the next round** (the Sweet 16 draw) and later rounds.
+**Nothing below is a pending task or a reusable command sequence.** All four brackets — Fence,
+Dog, Moat, UFO — have been judged and ruled; do not re-dispatch them or run their tally.
+The paths below preserve the R32 evidence only.
 
 1. **Packets already exist** for the Round of 32: `docs/tournament/packets/r32-moat.md` and
    `r32-ufo.md`, both already judged, kept as reference for the packet format. They are
@@ -74,15 +74,30 @@ exact, reusable procedure for **the next round** (the Sweet 16 draw) and later r
 4. **Save each verdict** to `docs/tournament/verdicts/r32-<bracket>-<panel>.md`, matching
    the existing format exactly — the parser depends on it.
 
-5. **Run the tally**: `cd docs/tournament && python3 tally.py`. It reads
-   `verdicts/r32-*-<panel>.md` relative to its own location. **Run it in place** — a copy
+5. **Tally record**: R32 was tallied with `cd docs/tournament && python3 tally.py --round r32`.
+   It reads `verdicts/r32-*-<panel>.md` relative to its own location. **Run it in place** — a copy
    moved elsewhere silently globs the wrong layout and reports a partial tally as if it
    were complete. That happened once and nearly lost a whole bracket's results. It parses verdicts, sums signed per-axis points across panels, flags
-   CONTESTED, and writes `r32-results.json`.
+   CONTESTED, and writes `r32-results.json`. This command is for reproducing the R32 record;
+   it must never be used for the Sweet 16.
 
-6. **Stop.** Present the bracket to the commissioner and take rulings before proceeding.
+6. **Historical stop point.** The bracket was presented to the commissioner for rulings.
    The owner explicitly wants to rig matches; that is a feature of this process, not an
    interruption of it.
+
+## Sweet 16 setup
+
+Create round-specific artifacts before dispatching any panel: `s16-draw-map.json`,
+`packets/s16-<bracket>.md`, and `verdicts/s16-<bracket>-<panel>.md`. Preserve the R32 files
+as read-only evidence. Once all three panels have returned their verdicts, run:
+
+```bash
+cd docs/tournament && python3 tally.py --round s16
+```
+
+The round argument determines every input and output path: it reads only `s16-draw-map.json`
+and `verdicts/s16-*-<panel>.md`, then writes only `s16-results.json`. Any later round follows
+the same pattern with its own prefix.
 
 ---
 
