@@ -52,9 +52,11 @@ knowledge/<slug>/, then reference-sets.md, then its packet:
   Skeptic    = investigative-journalist + franciscan-monk        (bias: Irreducibility)
   Ecologist  = systems-thinker + farmer                          (bias: Compounding)
 Have them RETURN RESULTS INLINE — do not have them write files, that variant failed.
-Save each verdict to docs/tournament/verdicts/r32-<bracket>-<panel>.md in the exact
-existing format, then run python3 docs/tournament/tally.py. Then STOP and bring me the
-bracket.
+The Round of 32 is complete. For the Sweet 16, save each verdict to
+`docs/tournament/verdicts/s16-<bracket>-<panel>.md` in the existing format, create
+`docs/tournament/s16-draw-map.json`, then run `python3 docs/tournament/tally.py --round s16`.
+That command writes `s16-results.json` and leaves the Round-of-32 evidence untouched. Then
+STOP and bring me the bracket.
 
 HOW I WANT YOU TO WORK
 - I am the commissioner and I enjoy it. Bring me contested games with enough context to
