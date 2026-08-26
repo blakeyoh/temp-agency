@@ -351,6 +351,16 @@ grow or explicitly recant.
 **Not native:** every session starts fresh, so the persona reaches for its signature move
 forever. A persistent ledger makes the signature move unavailable after its first use.
 
+> **⚠ Verified defect — the ledger does not exist.** All three blind panels independently
+> checked the repo during Round-of-32 game 13 and found no `ledger/` directory, and —
+> more damaging than its absence — *nothing named that would write it.* "Every position a
+> persona takes is appended" is passive voice with no extractor, and a `.jsonl` file is
+> data, not an executable. The Builder's verdict: *"Both are exhortation; A at least
+> leaves a residue on disk."* This entrant won its bracket 29–1 and reached the Sweet 16
+> **on a promise.** Anything built from it must supply the writer, the extractor that
+> canonicalises a position into a claim string, and the gate that rejects a restatement —
+> none of which currently exist.
+
 ### M4 · Failure Archaeology ◇
 
 Keep the dead. Every rejected idea, losing bracket entrant, and abandoned plan is preserved

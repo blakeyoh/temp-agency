@@ -67,8 +67,10 @@ Everything needed is committed. The procedure is mechanical.
 4. **Save each verdict** to `docs/tournament/verdicts/r32-<bracket>-<panel>.md`, matching
    the existing format exactly — the parser depends on it.
 
-5. **Run the tally**: `python3 docs/tournament/tally.py` (expects verdict files beside it,
-   or adjust `SP`). It parses verdicts, sums signed per-axis points across panels, flags
+5. **Run the tally**: `cd docs/tournament && python3 tally.py`. It reads
+   `verdicts/r32-*-<panel>.md` relative to its own location. **Run it in place** — a copy
+   moved elsewhere silently globs the wrong layout and reports a partial tally as if it
+   were complete. That happened once and nearly lost a whole bracket's results. It parses verdicts, sums signed per-axis points across panels, flags
    CONTESTED, and writes `r32-results.json`.
 
 6. **Stop.** Present the bracket to the commissioner and take rulings before proceeding.

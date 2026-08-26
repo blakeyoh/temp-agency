@@ -277,6 +277,69 @@ anyway, 30–2, but its stated mechanism is broader than its real one.
 
 ---
 
+## Round of 32 · Bracket 4 (UFO) — round complete
+
+### Ruling 9 — Game 13: ABSORPTION RATIFIED 3–0
+**Panel result:** The Grudge Ledger 29, The 19th Way 1. Unanimous, and the **only
+unanimous absorption of the tournament** — all three panels independently selected the
+same mechanism and passed it on all three tests without seeing each other.
+
+The 19th Way scored **one point across five axes**, all three panels placing it at or near
+the Irreducibility floor for the same reason: it is its own prompt. A base model handed the
+instruction verbatim reproduces 70–95% of it.
+
+**Ruling:** absorption accepted. **The non-adjacency test only** — the count of 19 and the
+mediocrity-as-toll argument stay behind, as all three panels specified.
+
+> **Ecologist:** *"A's rule is 'you may not restate any of these' with no definition of
+> 'restate,' which leaves the ledger self-graded; the four axes supply exactly that
+> definition and add no second claim."*
+>
+> **Builder:** *"A rule that appears to bind and does not is the worst state of the three."*
+>
+> **Skeptic:** *"the rare absorption where the loser supplies the missing predicate of the
+> winner's own rule."*
+
+**Merged definition:** *"A persona is handed its own past claims and may not restate any of
+them, where 'restate' means failing to differ in mechanism, actor, failure mode, or
+timescale."*
+
+**Advances as THE ADJUDICATED LEDGER.**
+
+**Carried defect — the ledger does not exist.** All three panels checked: no `ledger/`
+directory, and nothing named that would write it. Recorded on the entrant in
+`field-of-32.md`. This entrant reached the Sweet 16 on a promise.
+
+### Ruling 10 — Game 16: OBLIQUE DECK ADVANCES
+**Panel result:** The Oblique Deck 15, Scarcity Economy 10. Panels 2–1 for the Deck;
+aggregate agrees. CONTESTED on the panel split.
+
+**Ruling:** **The Oblique Deck advances. Scarcity Economy to the wildcard bench.**
+
+**Note for the record:** the dissenting Ecologist wrote the sharpest argument *against its
+own pick*, and it belongs in the bench entry rather than being lost —
+
+> *"'Contrarian — balance 0, RETIRED.' The persona whose entire function is disagreement is
+> the persona most often marked noise… personas optimize for what gets marked decisive,
+> which is a reinforcing loop toward the user's own taste. A mechanism sold as 'economize
+> on relevance' will in practice teach personas to economize on **approval**, and an
+> approval-selected roster converges on the median-of-this-user answer. That is
+> homogenization with a ledger attached."*
+
+**Carried defect on the winner:** the Deck's corpus claim is overstated. Only 16 of 24
+specialists have a `positions.md`; of its three sample cards, one fairly distils real text,
+one appears in no `positions.md`, and one appears **nowhere in the repo**. The real corpus
+is ~139 bullets across 16 files, and the Contrarian — the designated default lens — has no
+pack at all. Tracked in issue #21.
+
+### Games 14 and 15 — no ruling required
+| Game | Result | Note |
+|---|---|---|
+| G14 | **The Voice Oracle** 31, Reverse Brief 0 | A shutout. Every panel at the Irreducibility **ceiling** — the only entrant in 32 that changes weights. Parked as a future state in issue #21 |
+| G15 | **Notation Transposition** 19, Temperature Choreography 16 | Unanimous on the winner, closest unanimous game of the round |
+
+---
+
 ## Two claims verified against the repo
 
 The panels made claims about this repo rather than about entrants. Both were checked
@@ -345,6 +408,7 @@ Eliminated ideas the commissioner is not ready to discard. Revivable into any la
 | The Constraint Compiler | R32 · G5 | Commissioner not ready to discard; its checker already partly absorbed |
 | The Anti-Roster | R32 · G6 | Took Distance +9 unanimous; lost on mechanism, not on ambition |
 | The Committee of Strangers | R32 · G10 | Lost 30–2 as specified (5–7 bodies). Held for the **committee-of-3** variant — see note below |
+| The Scarcity Economy | R32 · G16 | Only entrant in its matchup whose state differs at use #10 — but its own dissenting judge showed the selection pressure runs toward user approval, retiring the personas whose friction is the product |
 | The Telegram Constraint | R32 · G12 | Won the aggregate 18–11 and lost to a commissioner overrule. Its failure mode is the most valuable object in its packet: an all-hedges telegram is a diagnostic on the **roster**, not on the pass |
 | ~~The Understudy~~ | *revived* | Took the G8 Sweet 16 slot |
 
@@ -382,7 +446,7 @@ mid-tournament remains an open commissioner decision.
 
 ---
 
-## Sweet 16 field so far (12 of 16 R32 games judged)
+## Sweet 16 field — COMPLETE (16 of 16 R32 games judged)
 
 | Advancing | From | How |
 |---|---|---|
@@ -395,5 +459,22 @@ mid-tournament remains an open commissioner decision.
 | **The Hostile Environment** | Dog G7 | 27–13 unanimous sweep, absorption refused |
 | **The Understudy** | Dog G8 | Revived from bench by commissioner |
 
-**Not yet run:** Bracket 4 (UFO, games 13–16). Packet committed at
-`docs/tournament/packets/r32-ufo.md`; panels not dispatched.
+**Round of 32 complete.** All 16 games judged by three blind panels and ruled. Next round
+is the **Sweet 16** — 8 games, field below, bracket not yet drawn.
+
+## Open items carried into the Sweet 16
+
+1. **The Blind Auditor** cannot distinguish "median because unimaginative" from "median
+   because correct." A fix has been proposed (have the blind auditor annotate each claim in
+   its reconstructed median as *forced* or *chosen*, and reject overlap only on *chosen*
+   claims) and **approved by the commissioner**, but is untested.
+2. **The Adjudicated Ledger** names a `ledger/` directory that does not exist and no writer
+   for it.
+3. **The Oblique Deck's** corpus is two-thirds hand-authored, and the designated default
+   lens has no pack.
+4. **Persona Toolbelts** ships two tools that are prompts in costume.
+5. **Make the Problem Strange First** overstates its mechanism — verbs and adjectives carry
+   priors too.
+
+Five of the sixteen survivors carry a known defect into the next round. That is worth
+knowing before seeding.

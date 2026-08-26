@@ -32,15 +32,17 @@ fleet of UFOs. Reaching idea #99 requires a different generative process than re
 idea #3, and this repo currently stops around #12.
 
 WHERE WE ARE
-Round of 32, 12 of 16 games judged. Brackets 1 (Fence), 2 (Dog) and 3 (Moat) are complete
-and ruled. Bracket 4 (UFO, games 13-16) has an anonymized packet committed at
-docs/tournament/packets/r32-ufo.md and has NOT been dispatched. It opens with the Grudge
-Ledger - run 1's top scorer at 45/50 - against The 19th Way, which is my own entry.
+ROUND OF 32 IS COMPLETE - all 16 games judged by blind panels and ruled. 10 commissioner
+rulings, 4 absorptions kept, 6 ideas on the wildcard bench. The next round is the SWEET 16,
+8 games, and the bracket has NOT been drawn yet.
+
+Five of the sixteen survivors carry a known defect into the next round - see "Open items
+carried into the Sweet 16" in commissioner-rulings.md. Do not seed the bracket without
+reading that section.
 
 YOUR NEXT ACTION
 Confirm you've read the four documents and tell me the current Sweet 16 field and the
-wildcard bench back to me in a short table, so I know the handoff landed. Then ask whether
-to dispatch bracket 4. Do not dispatch until I say so — I watch usage
+wildcard bench back to me in a short table, so I know the handoff landed. Then ask how I want the Sweet 16 seeded. Do not draw or dispatch until I say so — I watch usage
 limits and I want to rule between rounds.
 
 HOW TO RUN A BRACKET (full detail in HANDOFF.md)
@@ -70,7 +72,15 @@ HOW I WANT YOU TO WORK
 - Commit and push the reasoning, not just the results. If a session dies, the reasoning
   must survive.
 
-FOUR DEFECTS THE PANELS FOUND IN THE FIELD - see HANDOFF.md
+TWO ISSUES ARE FILED AND OPEN - work them independently of the bracket
+#20 - every roster profile resolves its own principles into non-conflict; 0 of 24 name an
+internal tension. This is plausibly a direct cause of the homogeneity the tournament
+exists to fight. Highest-value item in the repo right now.
+#21 - the knowledge packs total 22,004 words across all 18. Too small to train a voice,
+and 8 of 24 specialists have no pack at all including the contrarian, which SKILL.md
+designates the default lens. Phase 1 needs no ML.
+
+FIVE DEFECTS THE PANELS FOUND IN THE FIELD - see HANDOFF.md
 Two entrants cite things that do not exist (fake tools in Persona Toolbelts; a fault line
 in Stochastic Persona Fracture that is not in the monk's profile). One overstates its
 mechanism. The Blind Auditor carries an unresolved objection: it cannot tell "median
