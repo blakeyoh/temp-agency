@@ -485,7 +485,7 @@ carries a shared-gap table and a list of collisions worth deciding on before the
    claims) and **approved by the commissioner**, but is untested.
 2. **The Adjudicated Ledger** names a `ledger/` directory that does not exist and no writer
    for it.
-3. **The Oblique Deck's** corpus is two-thirds hand-authored, and the designated default
+3. **The Oblique Deck's** corpus is one-third hand-authored, and the designated default
    lens has no pack.
 4. **Persona Toolbelts** ships two tools that are prompts in costume.
 5. **Make the Problem Strange First** overstates its mechanism — verbs and adjectives carry
