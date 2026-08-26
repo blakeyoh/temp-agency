@@ -1,5 +1,5 @@
-"""Parse panel verdicts -> per-axis tally, margins, CONTESTED flags, dispositions."""
-import re, json, sys, os, glob
+"""Parse one round's panel verdicts into its own tally artifact."""
+import argparse, re, json, sys, os, glob
 SP=os.path.dirname(os.path.abspath(__file__))
 AXES=["Distance","Mechanism","Irreducibility","Compounding","Generative failure"]
 PANELS=["Builder","Skeptic","Ecologist"]
@@ -88,16 +88,28 @@ def tally(panels, gmap):
     return res
 
 if __name__=="__main__":
-    gmap={g['g']:g for g in json.load(open(f"{SP}/r32-draw-map.json"))['games']}
+    parser = argparse.ArgumentParser(
+        description="Tally a single tournament round without touching another round's evidence."
+    )
+    parser.add_argument("--round", required=True, dest="round_id",
+                        help="Round file prefix, for example r32 or s16.")
+    args = parser.parse_args()
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", args.round_id):
+        parser.error("--round must use lowercase letters, digits, and hyphens only")
+
+    round_id = args.round_id
+    draw_map = f"{SP}/{round_id}-draw-map.json"
+    results_path = f"{SP}/{round_id}-results.json"
+    gmap={g['g']:g for g in json.load(open(draw_map))['games']}
     panels={}
     for p in PANELS:
-        fs=sorted(glob.glob(f"{SP}/verdicts/r32-*-{p.lower()}.md"))
+        fs=sorted(glob.glob(f"{SP}/verdicts/{round_id}-*-{p.lower()}.md"))
         merged={}
         for f in fs: merged.update(parse_panel(open(f).read()))
         panels[p]=merged
         print(f"{p}: parsed {len(merged)} matchups from {len(fs)} file(s)", file=sys.stderr)
     res=tally(panels, {k:v for k,v in gmap.items() if all(k in panels[p] for p in PANELS)})
-    json.dump(res, open(f"{SP}/r32-results.json","w"), indent=1)
+    json.dump(res, open(results_path,"w"), indent=1)
     for n in sorted(res):
         r=res[n]
         flag=" ** CONTESTED **" if r['contested'] else ""
