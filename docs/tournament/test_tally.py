@@ -61,6 +61,15 @@ EVIDENCE: traces/a.md and traces/b.md
         self.assertEqual('2026-08-27T12:00:00Z',rec['yield_evidence']['sealed'])
         self.assertEqual('traces/a.md and traces/b.md',rec['enactment_evidence'])
 
+    def test_parser_rejects_duplicate_matchups_within_one_file(self):
+        text='''## MATCHUP 1
+WINNER: A
+## MATCHUP 1
+WINNER: B
+'''
+        with self.assertRaisesRegex(ValueError,'duplicate matchup records'):
+            tally.parse_panel(text)
+
     def test_tie_ballots_count_in_yield_vote(self):
         self.assertIsNone(tally.majority(['A',None,None],count_ties=True))
         self.assertEqual('A',tally.majority(['A','A',None],count_ties=True))
@@ -89,6 +98,22 @@ EVIDENCE: traces/a.md and traces/b.md
         rec['absorb']['disp']='ABSORBED'
         self.assertNotIn('absorption-inconsistent',tally.validate_live_record(rec))
 
+    def test_absorption_rejects_unresolved_or_unexplained_tests(self):
+        rec=live_record(); rec['absorb']['same']='PASS / FAIL — reason'
+        self.assertIn('absorption-tests',tally.validate_live_record(rec))
+        rec=live_record(); rec['absorb']['same']='PASS'
+        self.assertIn('absorption-tests',tally.validate_live_record(rec))
+        rec=live_record(); rec['absorb']['same']='PASS — reason'
+        self.assertIn('absorption-tests',tally.validate_live_record(rec))
+        rec=live_record(); rec['absorb']['same']='PASS — supported by the receipt'
+        self.assertNotIn('absorption-tests',tally.validate_live_record(rec))
+
+    def test_pass_1_seal_requires_an_explicit_utc_timestamp(self):
+        rec=live_record(); rec['yield_evidence']['sealed']='later'
+        self.assertIn('yield-seal',tally.validate_live_record(rec))
+        rec['yield_evidence']['sealed']='2026-08-27T12:00:00Z'
+        self.assertNotIn('yield-seal',tally.validate_live_record(rec))
+
     def test_enactment_limit_alone_is_not_contested(self):
         names=['Builder','Fresh One','Fresh Two']
         panels={p:{1:copy.deepcopy(live_record())} for p in names}
@@ -112,6 +137,14 @@ EVIDENCE: traces/a.md and traces/b.md
         self.assertIn('lead-profile',tally.specialist_errors(invalid))
         false_pack={**valid,'lead_pack':'incomplete'}
         self.assertIn('lead-pack-status',tally.specialist_errors(false_pack))
+
+    def test_sweet_16_anchor_identity_and_roster_are_pinned(self):
+        builder={'name':'Builder','file_tag':'builder','fresh':False,
+                 'lead':'nuclear-reactor-operator','lens':'magician-illusionist'}
+        fresh=[{'name':'Fresh One','fresh':True},{'name':'Fresh Two','fresh':True}]
+        self.assertEqual([],tally.anchor_errors('s16',[builder,*fresh]))
+        wrong={**builder,'lens':'farmer'}
+        self.assertEqual(['lens'],tally.anchor_errors('s16',[wrong,*fresh]))
 
     def test_draw_rejects_reused_games_and_entrants(self):
         games=[{'g':1,'A':'E1','B':'E2','region':'One'},

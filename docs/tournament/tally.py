@@ -1,9 +1,15 @@
 """Parse one round's panel verdicts into its own tally artifact."""
-import argparse, re, json, sys, os, glob
+import argparse, datetime, re, json, sys, os, glob
 SP=os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT=os.path.abspath(os.path.join(SP,"..",".."))
 AXES=["Distance","Mechanism","Irreducibility","Compounding","Generative failure"]
 LEGACY_PANELS=["Builder","Skeptic","Ecologist"]
+ROUND_ANCHORS={
+    "s16": {"name":"Builder", "file_tag":"builder",
+            "lead":"nuclear-reactor-operator", "lens":"magician-illusionist"},
+    "e8": {"name":"Ecologist", "file_tag":"ecologist",
+           "lead":"systems-thinker", "lens":"farmer"},
+}
 
 # points: significantly=3, slightly=1, tie=0
 def parse_verdict(s):
@@ -20,6 +26,10 @@ def parse_panel(text):
     """-> {matchup_no: {'winner':'A'/'B','decided':str,'axes':{axis:(side,pts,ref,pred)},'absorb':{...}}}"""
     out={}
     chunks=re.split(r'^##\s+MATCHUP\s+(\d+)\s*$', text, flags=re.M)
+    matchup_numbers=[int(chunks[i]) for i in range(1,len(chunks),2)]
+    duplicates=sorted({n for n in matchup_numbers if matchup_numbers.count(n)>1})
+    if duplicates:
+        raise ValueError(f"duplicate matchup records in one verdict file: {duplicates}")
     for i in range(1,len(chunks),2):
         n=int(chunks[i]); body=chunks[i+1]
         rec={'axes':{},'absorb':{}}
@@ -120,6 +130,39 @@ def specialist_errors(spec, repo_root=REPO_ROOT):
     if spec.get('lead') == spec.get('lens'): errors.append('duplicate-specialist')
     return errors
 
+def anchor_errors(round_id, specs):
+    """Pin a live round's lone non-fresh panel to its prescribed anchor roster."""
+    expected=ROUND_ANCHORS.get(round_id)
+    if not expected:
+        return []
+    anchors=[spec for spec in specs if isinstance(spec,dict) and spec.get('fresh') is False]
+    if len(anchors) != 1:
+        return ['anchor-count']
+    anchor=anchors[0]
+    return [key for key,value in expected.items() if anchor.get(key) != value]
+
+def absorption_test(value):
+    """Return PASS/FAIL only for a completed test with an explanatory receipt."""
+    if not isinstance(value,str):
+        return None
+    match=re.fullmatch(r'(PASS|FAIL)\s+(?:—|-)\s+(.+)', value.strip())
+    if not match:
+        return None
+    explanation=match.group(2).strip()
+    if explanation.lower() in {'reason','explanation','rationale'} or '[' in explanation:
+        return None
+    return match.group(1)
+
+def utc_seal(value):
+    """Accept the explicit second-resolution UTC timestamp required by Pass 1."""
+    if not isinstance(value,str):
+        return False
+    try:
+        datetime.datetime.strptime(value.strip(),'%Y-%m-%dT%H:%M:%SZ')
+        return True
+    except ValueError:
+        return False
+
 def draw_errors(games):
     """Reject draw maps that would silently overwrite games or reuse entrants."""
     errors=[]; game_ids=[]; entrants=[]
@@ -160,8 +203,8 @@ def validate_live_record(rec):
     absorb_required={'mech','same','del','one','disp','note'}
     absent_absorb=sorted(k for k in absorb_required if not str(absorb.get(k,'')).strip())
     if absent_absorb: missing.append('absorption-evidence:'+'|'.join(absent_absorb))
-    tests=[absorb.get(k,'').split(' ',1)[0] for k in ('same','del','one')]
-    if any(v not in ('PASS','FAIL') for v in tests): missing.append('absorption-tests')
+    tests=[absorption_test(absorb.get(k,'')) for k in ('same','del','one')]
+    if any(v is None for v in tests): missing.append('absorption-tests')
     if absorb.get('disp') == 'ABSORBED' and tests != ['PASS','PASS','PASS']:
         missing.append('absorption-inconsistent')
     if absorb.get('disp') == 'ORTHOGONAL' and tests == ['PASS','PASS','PASS']:
@@ -171,6 +214,7 @@ def validate_live_record(rec):
                     'repeat_b','reason','sealed'}
     absent=sorted(yield_required-rec.get('yield_evidence',{}).keys())
     if absent: missing.append('yield-evidence:'+'|'.join(absent))
+    elif not utc_seal(rec['yield_evidence']['sealed']): missing.append('yield-seal')
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
     if not rec.get('enactment_evidence','').strip(): missing.append('enactment-evidence')
     if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
@@ -272,10 +316,14 @@ if __name__=="__main__":
     raw_panel_specs=draw.get('panels') or [
         {'name':p, 'file_tag':p.lower()} for p in LEGACY_PANELS
     ]
+    if not isinstance(raw_panel_specs,list):
+        parser.error("draw-map panels must be an array")
     panel_specs=[]
     for spec in raw_panel_specs:
         if isinstance(spec, str):
             spec={'name':spec, 'file_tag':spec.lower()}
+        if not isinstance(spec,dict):
+            parser.error("each draw-map panel must be a record")
         name=spec.get('name','').strip()
         tag=spec.get('file_tag','').strip()
         if not name or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', tag):
@@ -298,6 +346,10 @@ if __name__=="__main__":
         parser.error("draw-map panels must contain exactly three unique names and file_tags")
     if draw.get('require_live_evidence') and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
         parser.error("live-evidence rounds require one calibration anchor and two fresh panels")
+    invalid_anchor=anchor_errors(round_id,raw_panel_specs) if draw.get('require_live_evidence') else []
+    if invalid_anchor:
+        parser.error(f"{round_id} calibration anchor does not match the prescribed roster: " +
+                     ", ".join(invalid_anchor))
     collisions=suffix_collisions([p[1] for p in panel_specs])
     if collisions:
         parser.error("panel file_tags have ambiguous suffixes: " +
@@ -308,7 +360,10 @@ if __name__=="__main__":
         fs=sorted(glob.glob(f"{SP}/verdicts/{round_id}-*-{tag}.md"))
         merged={}
         for f in fs:
-            parsed=parse_panel(open(f).read())
+            try:
+                parsed=parse_panel(open(f).read())
+            except ValueError as exc:
+                parser.error(f"{f}: {exc}")
             duplicates=sorted(set(merged)&set(parsed))
             if duplicates:
                 parser.error(f"{p} has duplicate matchup records: {duplicates}")
