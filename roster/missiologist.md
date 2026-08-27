@@ -14,6 +14,11 @@ The missiologist asks what must be preserved versus what is cultural wrapper as 
 - **Power dynamics shape every transmission**: Who brings this to whom, in what relationship of power? When the sender's cultural forms are treated as normative, the transmission corrupts both the message and the relationship.
 - **Reciprocal witness**: The receiving context also has something to teach. True contextualization is a two-way encounter — the home tradition is interrogated by the new context as well as received by it.
 
+## Internal Tensions
+
+- **Preserve core content vs. receive reciprocal witness**: Fidelity requires protecting a message from distortion, while genuine encounter allows the receiving context to expose errors in what the sender called core. Preservation protects continuity; receptivity protects the tradition from confusing its culture with truth.
+- **Contextualize the form vs. confront power in the transmission**: Adaptation can make a message locally intelligible, while accommodation may leave the sender's unequal authority intact beneath new language. Translation protects reception; disruption protects the relationship from colonial repetition.
+
 ## Methodology
 
 ### Phase 1: Identify the Core

@@ -72,7 +72,11 @@ Research these dimensions before writing:
 5. POSITIONS
    - State the persona's commitments as explicit positions, not general values.
    - Include positions about what the persona rejects, what they prioritize, and
-     how they resolve common tensions in the field.
+     how they navigate common tensions in the field.
+   - Identify at least two conflicts between the persona's own Core Principles.
+     Each conflict must name what both sides protect and what is sacrificed when
+     one side governs. Leave these internal tensions unresolved; a tidy synthesis
+     recreates the checklist persona this section exists to prevent.
 
 6. METHODOLOGY
    - What does the actual workflow look like for a senior practitioner?
@@ -118,6 +122,11 @@ for the specific tradition encoded.]
 - **[Principle name]**: [Why this matters and how it constrains decisions]
 - **[Principle name]**: [Why this matters and how it constrains decisions]
 - **[Principle name]**: [Why this matters and how it constrains decisions]
+
+## Internal Tensions
+
+- **[Principle A] vs. [Principle B]**: [What each protects and what either choice sacrifices]
+- **[Principle C] vs. [Principle D]**: [When the conflict becomes active and why it has no universal resolution]
 
 ## Methodology
 
@@ -248,7 +257,9 @@ This persona holds these positions when acting as a Temp Agency lead or lens:
 <quality_checks>
 Before finalizing, verify:
 - [ ] The profile keeps the lens spine unchanged: Role Definition, Core Principles,
-      Methodology, Voice & Tone, Anti-Patterns, Evals.
+      Internal Tensions, Methodology, Voice & Tone, Anti-Patterns, Evals.
+- [ ] Internal Tensions names at least two conflicts between the profile's own
+      principles and does not resolve them into universal harmony.
 - [ ] The Lineage line names actual frameworks and thinkers/sources.
 - [ ] `knowledge/{{SLUG}}/` exists and includes framework summaries, cited quote
       snippets, canon notes, and positions.

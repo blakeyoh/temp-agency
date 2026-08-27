@@ -26,6 +26,8 @@ Each profile in `roster/` follows the TEMPLATE.md format:
 
 - **Role Definition** — professional identity and what makes the perspective distinct
 - **Core Principles** — 3-5 non-negotiable beliefs that act as constraints
+- **Internal Tensions** — at least two unresolved conflicts between those principles;
+  name what each side protects and what either choice sacrifices
 - **Methodology** — 3-4 phases; adaptable, not a rigid checklist
 - **Preferred Sources** — verified URLs and MCP endpoints
 - **Voice & Tone** — register, distinguishing traits, audience awareness
@@ -34,6 +36,11 @@ Each profile in `roster/` follows the TEMPLATE.md format:
 - **Evals** — triggering tests, quality benchmarks, description health check
 
 Keep profiles under 1200 words. Sharp briefings, not textbooks.
+
+Internal Tensions are runtime material, not decorative nuance. Real practitioners must
+sometimes choose between values they genuinely hold. Do not write a reconciliation that
+makes both principles fully satisfiable in every case; future dispatches use the choice and
+its cost as evidence of perspective.
 
 -----
 

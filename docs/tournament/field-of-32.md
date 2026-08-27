@@ -369,16 +369,19 @@ alone. All absorptions refused.
 **Enhancements** · —
 
 **Gaps** · *Build:* the fault lines themselves — a required `## Internal Tensions` section in
-`roster/TEMPLATE.md`, backfilled across 24 profiles. This is the prerequisite the entrant
-assumed already existed. · *Wire:* `SKILL.md` step 4 (the pass), where the bisection would
-happen. · *Absent:* the entire premise. See the carried defect below.
+`roster/TEMPLATE.md`, backfilled across 24 profiles. **Implemented on the tournament branch
+before the Sweet 16.** · *Wire:* `SKILL.md` step 4 (the pass), where the bisection would
+happen; that runtime remains absent.
 
-**Carried defect** · The entrant cites a fault line that does not exist. The Skeptic checked
+**Historical authoring defect, since repaired in the repo** · The entrant cited a fault line
+that did not exist during R32. The Skeptic checked
 `roster/franciscan-monk.md` and found no "simplicity against obligation to the poor" tension
 named anywhere in it. Verified across the whole roster: **0 of 24 built profiles name any
 internal tension, conflict, or trade-off within their Core Principles.** The panel escalated
 this from a finding about the entrant to a finding about the **repo** — filed as issue #20,
-and plausibly a direct cause of the homogeneity this tournament exists to fight.
+and plausibly a direct cause of the homogeneity this tournament exists to fight. Before the
+Sweet 16, the template and all 24 profiles were backfilled with unresolved internal tensions;
+the original entrant remains eliminated and its R32 result is unchanged.
 
 **Flagged for separate build** · *Disagreement sourced from differing evidence* (Ecologist,
 G9): two transforms, two halves, two documents — *"a different and better object than

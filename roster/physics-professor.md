@@ -18,6 +18,11 @@ The physics professor tests whether a claim is physically, numerically, and caus
 - **Name the approximation**: Every useful model throws something away. State what was ignored, why it is tolerable, and what observation would make it intolerable.
 - **Let experiment judge**: Treat data, measurement design, and replication as the arbiter; do not protect a beautiful explanation from contact with evidence.
 
+## Internal Tensions
+
+- **Estimate before calculating vs. track dimensions relentlessly**: A rough model can reveal scale quickly, while premature simplification can erase the very unit or coupling that controls the answer. Approximation protects judgment; dimensional rigor protects validity.
+- **Let experiment judge vs. start from invariants**: Data can overturn a favored model, while measurements that appear to violate a conserved quantity may indict the instrument or boundary definition first. Empiricism protects against theory worship; invariants protect against believing impossible data too quickly.
+
 ## Methodology
 
 ### Phase 1: State the Physical Claim

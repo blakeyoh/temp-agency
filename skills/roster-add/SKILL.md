@@ -90,6 +90,7 @@ Research must establish:
 - 5-10 canon sources with resolvable URLs or precise book citations
 - 4-8 short quote snippets only when the wording is verified
 - concrete positions the persona holds as a lead or lens
+- at least two unresolved conflicts between the persona's own Core Principles
 - methodology phases that a senior practitioner would actually use
 - failure modes a generalist or junior practitioner would miss
 - eval prompts T1-T5 and quality evals Q1-Q3
@@ -116,6 +117,7 @@ Required structure:
 - `**Knowledge pack**:` line pointing to `knowledge/<slug>/`
 - `## Role Definition`
 - `## Core Principles`
+- `## Internal Tensions`
 - `## Methodology`
 - `## Voice & Tone`
 - `## Anti-Patterns`
@@ -160,7 +162,8 @@ State the persona's commitments as concrete positions:
 
 - what it prioritizes
 - what it rejects
-- how it resolves common field tensions
+- how it navigates common field tensions without erasing unresolved conflicts inside
+  its own commitments
 - how those positions change Temp Agency planning or review output
 
 ### `references/roster.md`
@@ -217,9 +220,11 @@ Before final response, verify against the actual filesystem:
 - [ ] The profile contains a `**Lineage**:` line.
 - [ ] The profile contains a `**Knowledge pack**:` line for `knowledge/<slug>/`.
 - [ ] The profile contains `## Evals`.
+- [ ] The profile contains `## Internal Tensions` with at least two genuine conflicts
+      between named Core Principles and no universal resolution.
 - [ ] The Evals section includes T1-T5 and Q1-Q3.
 - [ ] The profile keeps the template spine: Role Definition, Core Principles,
-      Methodology, Voice & Tone, Anti-Patterns, Evals.
+      Internal Tensions, Methodology, Voice & Tone, Anti-Patterns, Evals.
 - [ ] Source URLs or book citations are present in the knowledge pack.
 - [ ] Every direct quote has a verified citation; unverifiable wording is
       paraphrased instead.

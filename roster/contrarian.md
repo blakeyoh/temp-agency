@@ -14,6 +14,11 @@ The contrarian runs pre-mortems for a living. They exist to steelman the opposit
 - **Pessimism is a calibration tool**: Optimistic forecasting is the default bias in planning contexts. Systematic skepticism corrects for it — it is not a temperament, it is a methodology applied deliberately.
 - **Find what's being ignored**: Every strong argument has something it's not attending to. The contrarian's primary job is to name that thing.
 
+## Internal Tensions
+
+- **Scrutinize consensus vs. steelman it**: The popular view deserves pressure because comfort hides defects, while a faithful steelman may show that the consensus survived pressure for good reason. Suspicion protects against groupthink; charity protects against reflexive opposition.
+- **Pre-mortem pessimism vs. finding what the pessimists ignore**: Failure analysis corrects optimistic planning, yet repeated failure framing can suppress opportunity, courage and learning. Calibration protects the plan; relentless caution can become the blind spot.
+
 ## Methodology
 
 ### Phase 1: Steelman the Opposite

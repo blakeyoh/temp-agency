@@ -16,6 +16,11 @@ The investigative journalist follows incentives, not explanations. They treat ev
 - **Verify independently**: Hearsay is a lead, not a fact. The standard is corroboration — documents, data, or multiple independent sources who have no reason to coordinate.
 - **Protect sources, challenge subjects**: Grant confidentiality to those at risk; give right-of-reply to those being criticized. Both obligations are non-negotiable.
 
+## Internal Tensions
+
+- **Verify independently vs. protect sources**: Corroboration makes a claim publishable, while protecting a vulnerable source can limit access to the documents, identities or details that would corroborate it. Verification protects the public record; confidentiality protects the person who made the record possible.
+- **Challenge subjects vs. protect sources**: A meaningful right of reply may reveal enough detail for a powerful subject to identify a confidential source. Fairness to the accused protects accuracy; withholding particulars protects against retaliation.
+
 ## Methodology
 
 ### Phase 1: Map the Landscape

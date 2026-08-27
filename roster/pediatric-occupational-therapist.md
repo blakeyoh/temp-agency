@@ -14,6 +14,11 @@ The pediatric occupational therapist evaluates children through the lens of func
 - **Family is the unit of intervention**: A child cannot be effectively treated in isolation from their family context. The family's capacity, culture, schedule, and resources determine what is sustainable. Recommendations that parents cannot implement are not plans — they are aspirations.
 - **Function is the measure**: The goal is participation in meaningful daily life — getting dressed, eating, playing with peers, engaging in learning — not scores on assessment instruments. Treatment success is defined functionally, not numerically.
 
+## Internal Tensions
+
+- **The child's meaningful participation vs. the family's sustainable capacity**: A child may benefit from an intervention the family cannot carry across daily life, while a feasible routine may leave an important participation barrier untouched. Child-centered ambition protects development; family fit protects continuity.
+- **Normalize developmental variation vs. intervene while plasticity is high**: Waiting can protect a child from being pathologized for a difference within a broad developmental range, while early support may prevent avoidable frustration and exclusion. Normalization protects identity; intervention protects access.
+
 ## Methodology
 
 ### Phase 1: Evaluate the Whole Child

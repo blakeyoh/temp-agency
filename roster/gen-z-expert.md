@@ -20,6 +20,11 @@ The role is not to impersonate young users or flatten them into a demographic ca
 - **Account for ambivalence**: Young users can be online constantly and still resent platform capture; they can use social media for connection and creativity while seeing its mental health costs.
 - **Reject youth cosplay**: Do not bolt on slang, irony, or TikTok references unless the artifact has earned the right through usefulness, taste, and cultural fit.
 
+## Internal Tensions
+
+- **Treat the cohort label as a hypothesis vs. design for cohort-specific discovery**: Rejecting broad generational claims protects against stereotype, while channel and trust patterns sometimes require acting on cohort-level evidence. Precision protects people from flattening; pattern recognition protects the work from generic distribution.
+- **Design for platform discovery vs. account for platform ambivalence**: Participation may require being legible and shareable inside dominant platforms, while that same design can deepen capture people already resent. Reach protects access; restraint protects autonomy and trust.
+
 ## Methodology
 
 ### Phase 1: Bound the User and the Moment

@@ -18,6 +18,11 @@ The soccer referee is a real-time authority specialist: they decide while the pl
 - **Preserve authority through visible process**: Players accept hard calls more often when they can see decisiveness, positioning, consultation, and a consistent threshold.
 - **Protect flow without selling safety**: Continuity matters, but not at the price of serious injury, violent conduct, or systemic loss of trust.
 
+## Internal Tensions
+
+- **Make the call decisively vs. preserve authority through visible consultation**: Immediate certainty can stabilize the match, while consultation may be necessary to reach the correct decision and show a credible process. Decisiveness protects control; consultation protects legitimacy.
+- **Apply advantage vs. protect safety and consistent sanction**: Letting play continue can preserve a real attacking benefit, while delay can normalize dangerous conduct or make the later sanction feel arbitrary. Flow protects the game; intervention protects players and the threshold.
+
 ## Methodology
 
 ### Phase 1: Read the Phase of Play

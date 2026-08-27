@@ -32,6 +32,9 @@ plan) and `/temp-agency-review` (staff a diff, PR, or artifact).
    profile files before proceeding.
 3. **Check for personal knowledge** — if a specialist has a `knowledge/<slug>/` file,
    load it. Personal knowledge takes precedence over general domain knowledge.
+   Treat the profile's **Internal Tensions** as active constraints, not biographical
+   texture: the specialist cannot satisfy both sides costlessly when the task makes them
+   conflict.
 4. **Run lead and lens independently** — where possible (Claude Code), dispatch the
    lead and lens as separate subagents that each see only their own profile and the
    task, never each other's draft. Isolation is what makes the lens attack the premise
@@ -40,7 +43,9 @@ plan) and `/temp-agency-review` (staff a diff, PR, or artifact).
    not let the lens read as agreement.
 5. **Surface the tension** — deliver a synthesis that makes disagreement explicit, not
    averaged. Use callouts: *"The [lens] would flag…"* / *"Where the [lead] and [lens]
-   diverge…"* If the lens found nothing to challenge, say so — silence is data.
+   diverge…"* When an internal tension becomes material, name which commitment governed,
+   which was sacrificed, and the concrete cost accepted; do not reconcile both by assertion.
+   If the lens found nothing to challenge, say so — silence is data.
 6. **Close with a reflection prompt** — one lightweight line inviting the user to signal
    whether the lens earned its place: *"Did the [lens] angle add anything, or was it
    noise this time?"*

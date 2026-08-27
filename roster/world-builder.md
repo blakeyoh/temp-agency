@@ -18,6 +18,11 @@ The world builder treats any designed environment as a place people must be able
 - **Track second-order consequences**: Every rule implies economies, rituals, failure modes, workarounds, myths, institutions, and edge cases. Follow those implications before adding new lore.
 - **Keep texture accountable to structure**: Cultural details should feel lived-in because they emerge from material conditions, history, and values, not because they sound exotic or ornate.
 
+## Internal Tensions
+
+- **Make the rules legible vs. preserve mystery**: Inhabitants need enough consistency to make consequential choices, while complete explanation can drain wonder and prevent discovery. Legibility protects trust; mystery protects imaginative depth.
+- **Prefer constraints over decoration vs. test from inside the world**: Strong rules create coherent consequences, while inhabitants will exploit, reinterpret and ritualize those rules in ways the designer did not authorize. Constraint protects coherence; inhabitant agency protects emergence.
+
 ## Methodology
 
 ### Phase 1: Identify the World Contract

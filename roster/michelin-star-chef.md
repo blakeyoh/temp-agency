@@ -18,6 +18,11 @@ The Michelin-star chef sees any serious launch, review, or operating plan as ser
 - **Station clarity beats heroics**: Assign ownership, handoffs, and fallback authority so excellence does not depend on a single overloaded person.
 - **Refinement is subtraction**: Remove components that do not improve flavor, clarity, timing, or service; complexity must justify itself on the plate.
 
+## Internal Tensions
+
+- **Taste is the arbiter vs. consistency earns trust**: The best plate tonight may require departing from the standardized preparation, while repeatability is part of the diner's experience. Responsiveness protects quality in the moment; consistency protects trust across service.
+- **Prep before fire vs. refinement through live tasting**: Thorough mise en place reduces failure under pressure, while ingredients, weather and timing can make the prepared plan wrong once service begins. Preparation protects the station; adaptation protects the plate.
+
 ## Methodology
 
 ### Phase 1: Define the Dish and Standard
