@@ -1,6 +1,7 @@
 """Parse one round's panel verdicts into its own tally artifact."""
 import argparse, re, json, sys, os, glob
 SP=os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT=os.path.abspath(os.path.join(SP,"..",".."))
 AXES=["Distance","Mechanism","Irreducibility","Compounding","Generative failure"]
 LEGACY_PANELS=["Builder","Skeptic","Ecologist"]
 
@@ -26,8 +27,21 @@ def parse_panel(text):
         rec['winner']=w.group(1) if w else None
         d=re.search(r'^DECIDED BY:\s*(.+)$', body, re.M)
         rec['decided']=d.group(1).strip() if d else ''
-        y=re.search(r'^YIELD VERDICT:\s*(A|B|TIE)\s*$', body, re.M|re.I)
-        if y: rec['yield']=None if y.group(1).upper()=='TIE' else y.group(1).upper()
+        pass1=re.search(r'^###\s+PASS 1.*OUTPUT-ONLY YIELD\s*$(.*?)(?=^###|^##|\Z)',
+                        body, re.M|re.S)
+        rec['yield_evidence']={}
+        if pass1:
+            p1=pass1.group(1)
+            y=re.search(r'^YIELD VERDICT:\s*(A|B|TIE)\s*$', p1, re.M|re.I)
+            if y: rec['yield']=None if y.group(1).upper()=='TIE' else y.group(1).upper()
+            for key,label in [
+                ('strongest_a','STRONGEST A'),('return_a','A RETURN PATH'),
+                ('repeat_a','A REPETITION ONSET'),('strongest_b','STRONGEST B'),
+                ('return_b','B RETURN PATH'),('repeat_b','B REPETITION ONSET'),
+                ('reason','YIELD REASON'),('sealed','PASS 1 SEALED \\(UTC\\)')]:
+                m=re.search(rf'^{label}:\s*(.+?)(?=^[A-Z0-9][A-Z0-9 ()\-]+:|\Z)',
+                            p1, re.M|re.S)
+                if m: rec['yield_evidence'][key]=' '.join(m.group(1).split())
         for ax in AXES:
             sec=re.search(rf'^###\s+{re.escape(ax)}\s*$(.*?)(?=^###|\Z)', body, re.M|re.S)
             if not sec: continue
@@ -49,10 +63,13 @@ def parse_panel(text):
                 rec['absorb'][k]=' '.join(m.group(1).split()) if m else ''
         e=re.search(r'^###\s+FAITHFUL ENACTMENT\s*$(.*?)(?=^###|^##|\Z)', body, re.M|re.S)
         rec['enactment']={}
+        rec['enactment_evidence']=''
         if e:
             for side in ('A','B'):
                 m=re.search(rf'^{side} STATUS:\s*(FAITHFUL|PARTIAL|NOT ENACTED|PROMISE ONLY)\s*$', e.group(1), re.M|re.I)
                 if m: rec['enactment'][side]=m.group(1).upper()
+            evidence=re.search(r'^EVIDENCE:\s*(.+?)\s*$', e.group(1), re.M|re.S)
+            if evidence: rec['enactment_evidence']=' '.join(evidence.group(1).split())
         for heading,key,labels in [
             ('SACRIFICE RECEIPT','sacrifice',
              [('honored','HONORED'),('sacrificed','SACRIFICED'),
@@ -69,10 +86,61 @@ def parse_panel(text):
         out[n]=rec
     return out
 
-def majority(votes):
+def majority(votes, count_ties=False):
+    """Return A/B winner, or None for a tied result."""
     counts={side:votes.count(side) for side in ('A','B')}
+    if count_ties:
+        counts[None]=votes.count(None)
+        high=max(counts.values())
+        leaders=[side for side,count in counts.items() if count==high]
+        return leaders[0] if len(leaders)==1 and leaders[0] in ('A','B') else None
     if counts['A'] == counts['B']: return None
     return 'A' if counts['A'] > counts['B'] else 'B'
+
+def suffix_collisions(tags):
+    """Return panel tags whose suffixes make the verdict glob ambiguous."""
+    return sorted({tuple(sorted((a,b))) for a in tags for b in tags
+                   if a != b and (a.endswith('-'+b) or b.endswith('-'+a))})
+
+def specialist_errors(spec, repo_root=REPO_ROOT):
+    """Validate live panel specialist slugs and claimed knowledge-pack status."""
+    errors=[]
+    for role in ('lead','lens'):
+        slug=spec.get(role)
+        if not isinstance(slug,str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',slug):
+            errors.append(role+'-slug')
+            continue
+        if not os.path.isfile(os.path.join(repo_root,'roster',slug+'.md')):
+            errors.append(role+'-profile')
+            continue
+        actual='complete' if os.path.isfile(
+            os.path.join(repo_root,'knowledge',slug,'positions.md')) else 'incomplete'
+        if spec.get(role+'_pack') != actual:
+            errors.append(role+'-pack-status')
+    if spec.get('lead') == spec.get('lens'): errors.append('duplicate-specialist')
+    return errors
+
+def draw_errors(games):
+    """Reject draw maps that would silently overwrite games or reuse entrants."""
+    errors=[]; game_ids=[]; entrants=[]
+    if not games: errors.append('missing-games')
+    for index,game in enumerate(games):
+        if not isinstance(game,dict):
+            errors.append(f'game-{index}-record')
+            continue
+        game_id=game.get('g')
+        if not isinstance(game_id,int) or game_id < 1: errors.append(f'game-{index}-id')
+        else: game_ids.append(game_id)
+        for side in ('A','B'):
+            code=game.get(side)
+            if not isinstance(code,str) or not code.strip(): errors.append(f'game-{index}-{side}')
+            else: entrants.append(code)
+        if game.get('A') == game.get('B'): errors.append(f'game-{index}-self-match')
+        if not isinstance(game.get('region'),str) or not game['region'].strip():
+            errors.append(f'game-{index}-region')
+    if len(game_ids) != len(set(game_ids)): errors.append('duplicate-game-id')
+    if len(entrants) != len(set(entrants)): errors.append('duplicate-entrant')
+    return errors
 
 def validate_live_record(rec):
     """Return missing or invalid fields that must block a live-evidence tally."""
@@ -86,10 +154,25 @@ def validate_live_record(rec):
         invalid=[ax for ax in AXES if not axes[ax].get('ref','').strip()
                  or not axes[ax].get('pred','').strip()]
         if invalid: missing.append('axis-evidence:' + '|'.join(invalid))
-    if rec.get('absorb',{}).get('disp') not in ('ABSORBED','ORTHOGONAL','SUBSUMED','REFUSED'):
+    absorb=rec.get('absorb',{})
+    if absorb.get('disp') not in ('ABSORBED','ORTHOGONAL','SUBSUMED'):
         missing.append('absorption')
+    absorb_required={'mech','same','del','one','disp','note'}
+    absent_absorb=sorted(k for k in absorb_required if not str(absorb.get(k,'')).strip())
+    if absent_absorb: missing.append('absorption-evidence:'+'|'.join(absent_absorb))
+    tests=[absorb.get(k,'').split(' ',1)[0] for k in ('same','del','one')]
+    if any(v not in ('PASS','FAIL') for v in tests): missing.append('absorption-tests')
+    if absorb.get('disp') == 'ABSORBED' and tests != ['PASS','PASS','PASS']:
+        missing.append('absorption-inconsistent')
+    if absorb.get('disp') == 'ORTHOGONAL' and tests == ['PASS','PASS','PASS']:
+        missing.append('absorption-inconsistent')
     if 'yield' not in rec: missing.append('yield')
+    yield_required={'strongest_a','return_a','repeat_a','strongest_b','return_b',
+                    'repeat_b','reason','sealed'}
+    absent=sorted(yield_required-rec.get('yield_evidence',{}).keys())
+    if absent: missing.append('yield-evidence:'+'|'.join(absent))
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
+    if not rec.get('enactment_evidence','').strip(): missing.append('enactment-evidence')
     if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
         missing.append('sacrifice')
     if not rec.get('collision',{}).keys() >= {'candidate','mechanism','not_a','not_b','why'}:
@@ -129,7 +212,7 @@ def tally(panels, gmap, panel_names):
         panel_records=[panels.get(p,{}).get(n,{}) for p in panel_names]
         yield_votes=[rec.get('yield') for rec in panel_records]
         have_yield=any('yield' in rec for rec in panel_records)
-        yield_winner=majority(yield_votes) if have_yield else None
+        yield_winner=majority(yield_votes, count_ties=True) if have_yield else None
         if have_yield and yield_winner != wside: splits.append('YIELD-VS-AGGREGATE')
         if have_yield and yield_winner != maj: splits.append('YIELD-VS-PANEL')
         enactment={p:panels.get(p,{}).get(n,{}).get('enactment',{}) for p in panel_names}
@@ -154,8 +237,13 @@ def tally(panels, gmap, panel_names):
         if have_yield:
             game['yield']={'votes':dict(zip(panel_names,yield_votes)),
                            'winner_side':yield_winner,
-                           'winner':g[yield_winner] if yield_winner else None}
-        if have_enactment: game['enactment']=enactment
+                           'winner':g[yield_winner] if yield_winner else None,
+                           'evidence':{p:panels[p][n].get('yield_evidence',{})
+                                       for p in panel_names}}
+        if have_enactment:
+            game['enactment']=enactment
+            game['enactment_evidence']={p:panels[p][n].get('enactment_evidence','')
+                                         for p in panel_names}
         sacrifices={p:panels.get(p,{}).get(n,{}).get('sacrifice',{}) for p in panel_names}
         collisions={p:panels.get(p,{}).get(n,{}).get('collision',{}) for p in panel_names}
         if any(bool(v) for v in sacrifices.values()): game['sacrifice']=sacrifices
@@ -177,7 +265,10 @@ if __name__=="__main__":
     draw_map = f"{SP}/{round_id}-draw-map.json"
     results_path = f"{SP}/{round_id}-results.json"
     draw=json.load(open(draw_map))
-    gmap={g['g']:g for g in draw['games']}
+    games=draw.get('games',[])
+    invalid_draw=draw_errors(games)
+    if invalid_draw: parser.error("invalid draw map: " + ", ".join(invalid_draw))
+    gmap={g['g']:g for g in games}
     raw_panel_specs=draw.get('panels') or [
         {'name':p, 'file_tag':p.lower()} for p in LEGACY_PANELS
     ]
@@ -199,21 +290,37 @@ if __name__=="__main__":
                 parser.error("panel fresh status must be true or false")
             if spec['fresh'] and spec['lead_pack']=='incomplete' and spec['lens_pack']=='incomplete':
                 parser.error(f"fresh panel {name} violates the issue #21 pack guardrail")
+            errors=specialist_errors(spec)
+            if errors:
+                parser.error(f"live panel {name} has invalid specialist configuration: {','.join(errors)}")
         panel_specs.append((name,tag))
     if len(panel_specs) != 3 or len({p[0] for p in panel_specs}) != 3 or len({p[1] for p in panel_specs}) != 3:
         parser.error("draw-map panels must contain exactly three unique names and file_tags")
     if draw.get('require_live_evidence') and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
         parser.error("live-evidence rounds require one calibration anchor and two fresh panels")
+    collisions=suffix_collisions([p[1] for p in panel_specs])
+    if collisions:
+        parser.error("panel file_tags have ambiguous suffixes: " +
+                     ", ".join('/'.join(pair) for pair in collisions))
     panel_names=[p[0] for p in panel_specs]
     panels={}
     for p,tag in panel_specs:
         fs=sorted(glob.glob(f"{SP}/verdicts/{round_id}-*-{tag}.md"))
         merged={}
-        for f in fs: merged.update(parse_panel(open(f).read()))
+        for f in fs:
+            parsed=parse_panel(open(f).read())
+            duplicates=sorted(set(merged)&set(parsed))
+            if duplicates:
+                parser.error(f"{p} has duplicate matchup records: {duplicates}")
+            merged.update(parsed)
         panels[p]=merged
         print(f"{p}: parsed {len(merged)} matchups from {len(fs)} file(s)", file=sys.stderr)
     if draw.get('require_live_evidence'):
         incomplete=[]
+        expected=set(gmap)
+        for p in panel_names:
+            extra=sorted(set(panels[p])-expected)
+            if extra: parser.error(f"{p} has matchups absent from the draw map: {extra}")
         for n in sorted(gmap):
             for p in panel_names:
                 rec=panels.get(p,{}).get(n,{})

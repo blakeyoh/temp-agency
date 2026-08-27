@@ -202,7 +202,9 @@ The round draw map must include exactly three `panels` records. Each record name
 display `name`, lowercase filename-safe `file_tag`, lead and lens slugs, and each member's
 pack-completeness status. `tally.py` reads those records rather than assuming the R32 panel
 ecology. It must also set `"require_live_evidence": true`; the tally then refuses an
-incomplete yield vote or faithful-enactment record and includes both signals in the result.
+incomplete or unsealed yield record, unsupported faithful-enactment status, missing axis
+predicate/reference, invalid absorption receipt, ambiguous panel filename, or roster/pack
+claim that does not match the filesystem. It includes the audited signals in the result.
 R32 remains backward-compatible through its legacy three-panel default.
 
 ```json

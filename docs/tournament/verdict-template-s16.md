@@ -73,8 +73,9 @@ LOSER'S STRONGEST MECHANISM:
 SAME-THESIS: PASS / FAIL — reason
 DELETION: PASS / FAIL — reason
 ONE-SENTENCE: PASS / FAIL — merged mechanism without “and also,” or why impossible
-DISPOSITION: ABSORBED / ORTHOGONAL / SUBSUMED / REFUSED
-NOTE: Absorption defaults to refusal; all three tests must pass.
+DISPOSITION: ABSORBED / ORTHOGONAL / SUBSUMED
+NOTE: Absorption defaults to refusal; a refused merge is recorded as ORTHOGONAL so the
+independent mechanism reaches `parallel-track.md`. All three tests must pass for ABSORBED.
 
 ### SACRIFICE RECEIPT
 HONORED: One principle or bias from this panel's loaded profile.

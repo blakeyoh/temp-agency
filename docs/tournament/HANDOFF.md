@@ -253,6 +253,7 @@ evidence.
 | `r32-draw-map.json` | The draw, A/B assignment, and the seed (99) that produced the flips. |
 | `r32-results.json` | Machine-readable tally output. |
 | `tally.py` | Verdict parser and aggregator. |
+| `test_tally.py` | Regression coverage for live evidence, draw integrity, panel configuration and R32 compatibility. |
 | `box-score.html` | Rendered box score, published as an Artifact. Favicon 🛸 — keep it stable across redeploys. |
 | `build_box_score.py` | Regenerates the box score's DATA blob from `r32-results.json`. |
 
