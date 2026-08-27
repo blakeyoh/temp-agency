@@ -74,6 +74,28 @@ def majority(votes):
     if counts['A'] == counts['B']: return None
     return 'A' if counts['A'] > counts['B'] else 'B'
 
+def validate_live_record(rec):
+    """Return missing or invalid fields that must block a live-evidence tally."""
+    missing=[]
+    if rec.get('winner') not in ('A','B'): missing.append('winner')
+    if not rec.get('decided'): missing.append('decided-by')
+    axes=rec.get('axes',{})
+    if set(axes) != set(AXES):
+        missing.append('five-axes')
+    else:
+        invalid=[ax for ax in AXES if not axes[ax].get('ref','').strip()
+                 or not axes[ax].get('pred','').strip()]
+        if invalid: missing.append('axis-evidence:' + '|'.join(invalid))
+    if rec.get('absorb',{}).get('disp') not in ('ABSORBED','ORTHOGONAL','SUBSUMED','REFUSED'):
+        missing.append('absorption')
+    if 'yield' not in rec: missing.append('yield')
+    if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
+    if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
+        missing.append('sacrifice')
+    if not rec.get('collision',{}).keys() >= {'candidate','mechanism','not_a','not_b','why'}:
+        missing.append('collision')
+    return missing
+
 def tally(panels, gmap, panel_names):
     """panels: {panel_name: parsed}. gmap: {n: {'A':code,'B':code,...}}"""
     res={}
@@ -123,7 +145,8 @@ def tally(panels, gmap, panel_names):
                 'loser':g['B' if wside=='A' else 'A'] if wside else None,
                 'margin':abs(tot['A']-tot['B']),
                 'contested':contested or 'OVERALL' in splits or 'AGGREGATE-VS-PANEL' in splits
-                            or any(s.startswith(('YIELD-', 'ENACTMENT-')) for s in splits)
+                            or any(s.startswith('YIELD-') for s in splits)
+                            or 'ENACTMENT-INCOMPLETE' in splits or 'ENACTMENT-SPLIT' in splits
                             or tot['A']==tot['B'],
                 'splits':sorted(set(splits)),'panel_winners':dict(zip(panel_names,panel_winners)),
                 'decided':{p:panels.get(p,{}).get(n,{}).get('decided','') for p in panel_names},
@@ -194,18 +217,7 @@ if __name__=="__main__":
         for n in sorted(gmap):
             for p in panel_names:
                 rec=panels.get(p,{}).get(n,{})
-                missing=[]
-                if rec.get('winner') not in ('A','B'): missing.append('winner')
-                if not rec.get('decided'): missing.append('decided-by')
-                if set(rec.get('axes',{})) != set(AXES): missing.append('five-axes')
-                if rec.get('absorb',{}).get('disp') not in ('ABSORBED','ORTHOGONAL','SUBSUMED','REFUSED'):
-                    missing.append('absorption')
-                if 'yield' not in rec: missing.append('yield')
-                if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
-                if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
-                    missing.append('sacrifice')
-                if not rec.get('collision',{}).keys() >= {'candidate','mechanism','not_a','not_b','why'}:
-                    missing.append('collision')
+                missing=validate_live_record(rec)
                 if missing: incomplete.append(f"G{n}:{p}({','.join(missing)})")
         if incomplete:
             parser.error("live-evidence fields missing for " + ", ".join(incomplete))
