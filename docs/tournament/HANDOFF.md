@@ -24,32 +24,39 @@ reaching idea #3**, and this repo currently stops around #12.
 
 ## Current state
 
-**Round of 32 · 12 of 16 games judged.** Brackets 1 (Fence) and 2 (Dog) are complete and
-ruled. Bracket 3 (Moat, games 9–12) has been judged by all three panels — verdicts are in
-`verdicts/r32-moat-*.md` and tallied into `r32-results.json` — and is **awaiting
-commissioner rulings**; nothing in it is final. Bracket 4 (UFO, games 13–16) has a packet
-written and has **not** been dispatched.
+**Round of 32 · COMPLETE — 16 of 16 games judged and ruled.** All four brackets have been
+judged by three blind panels and ruled by the commissioner: 10 rulings, 4 absorptions kept,
+6 ideas on the wildcard bench. The **Sweet 16 bracket has not been drawn.**
 
-Two rulings are outstanding on Moat: **G12** is CONTESTED (aggregate says Telegram
-Constraint, panel majority says Homogeneity Auditor — the Game 1 situation, where
-precedence is deliberately unset), and **G11** carries a 2–1 ABSORBED that needs
-ratifying or blocking.
+*(This section previously read "12 of 16 games judged" and listed two outstanding Moat
+rulings. Both were ruled — G11 ratified 2–1, G12 overruled with the entrant amended — and
+bracket 4 has since been dispatched, judged and ruled.)*
 
-Sweet 16 field so far, plus the wildcard bench, is in `commissioner-rulings.md`. That file
-is the source of truth for every decision. Do not re-derive results from the verdicts —
-read the ledger.
+The Sweet 16 field and the wildcard bench are in `commissioner-rulings.md`. That file is the
+source of truth for every decision. Do not re-derive results from the verdicts — read the
+ledger.
+
+**Before seeding, read two things.** `commissioner-rulings.md` → "Open items carried into
+the Sweet 16": five of the sixteen survivors carry a known defect. And `field-of-32.md` →
+"Going into the Sweet 16": each entrant now carries a Status / Enhancements / Gaps trailer,
+and the file's front matter holds a result board, a shared-gap table (which survivors are
+waiting on the same missing surface), and a list of collisions the draw should be made
+deliberately about rather than discover.
 
 ---
 
-## How to run the remaining brackets
+## Round-of-32 record (historical — all 16 games complete)
 
-Everything needed is committed. The procedure is mechanical.
+**Nothing below is a pending task or a reusable command sequence.** All four brackets — Fence,
+Dog, Moat, UFO — have been judged and ruled; do not re-dispatch them or run their tally.
+The paths below preserve the R32 evidence only.
 
-1. **Packets already exist**: `docs/tournament/packets/r32-moat.md` and `r32-ufo.md`.
-   They are anonymized — no codes, no seeds, no region labels, no marking of which
-   entries are the owner's — and A/B position was flipped on 10 of 16 games from
-   **seed 99**, logged in `r32-draw-map.json`. Do not regenerate them; the blinding and
-   the flip are part of the evidence.
+1. **Packets already exist** for the Round of 32: `docs/tournament/packets/r32-moat.md` and
+   `r32-ufo.md`, both already judged, kept as reference for the packet format. They are
+   anonymized — no codes, no seeds, no region labels, no marking of which entries are the
+   owner's — and A/B position was flipped on 10 of 16 games from **seed 99**, logged in
+   `r32-draw-map.json`. Do not regenerate them; the blinding and the flip are part of the
+   evidence.
 
 2. **Dispatch three panels per bracket**, isolated, in parallel. Each reads its two
    persona profiles plus `knowledge/<slug>/`, then `reference-sets.md`, then its packet.
@@ -67,15 +74,30 @@ Everything needed is committed. The procedure is mechanical.
 4. **Save each verdict** to `docs/tournament/verdicts/r32-<bracket>-<panel>.md`, matching
    the existing format exactly — the parser depends on it.
 
-5. **Run the tally**: `cd docs/tournament && python3 tally.py`. It reads
-   `verdicts/r32-*-<panel>.md` relative to its own location. **Run it in place** — a copy
+5. **Tally record**: R32 was tallied with `cd docs/tournament && python3 tally.py --round r32`.
+   It reads `verdicts/r32-*-<panel>.md` relative to its own location. **Run it in place** — a copy
    moved elsewhere silently globs the wrong layout and reports a partial tally as if it
    were complete. That happened once and nearly lost a whole bracket's results. It parses verdicts, sums signed per-axis points across panels, flags
-   CONTESTED, and writes `r32-results.json`.
+   CONTESTED, and writes `r32-results.json`. This command is for reproducing the R32 record;
+   it must never be used for the Sweet 16.
 
-6. **Stop.** Present the bracket to the commissioner and take rulings before proceeding.
+6. **Historical stop point.** The bracket was presented to the commissioner for rulings.
    The owner explicitly wants to rig matches; that is a feature of this process, not an
    interruption of it.
+
+## Sweet 16 setup
+
+Create round-specific artifacts before dispatching any panel: `s16-draw-map.json`,
+`packets/s16-<bracket>.md`, and `verdicts/s16-<bracket>-<panel>.md`. Preserve the R32 files
+as read-only evidence. Once all three panels have returned their verdicts, run:
+
+```bash
+cd docs/tournament && python3 tally.py --round s16
+```
+
+The round argument determines every input and output path: it reads only `s16-draw-map.json`
+and `verdicts/s16-*-<panel>.md`, then writes only `s16-results.json`. Any later round follows
+the same pattern with its own prefix.
 
 ---
 
@@ -185,11 +207,11 @@ otherwise re-inherit them silently — and one is about the repo itself.
 |---|---|
 | `HANDOFF.md` | This file. Read first. |
 | `commissioner-rulings.md` | **Source of truth for every decision.** Overrides, tiebreaks, absorptions, the bench. |
-| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim. |
+| `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board, shared-gap table and collision list for seeding the Sweet 16. Annotated *from* `commissioner-rulings.md`; the ledger still wins any disagreement. |
 | `rules-v2.md` | Absorption standard, scoring anchors, panel design, commissioner powers, cross-pollinated draw. |
 | `reference-sets.md` | The ruler — five axes, fixed reference points, required predicates. |
 | `rules.md` | v1 rules. Superseded; kept for the record. |
-| `packets/r32-*.md` | Anonymized judging packets, one per bracket. Moat and UFO are unrun. |
+| `packets/r32-*.md` | Anonymized judging packets, one per bracket. All four (Fence, Dog, Moat, UFO) have been judged. |
 | `verdicts/r32-*.md` | Raw panel verdicts. The reasoning behind every score. |
 | `r32-draw-map.json` | The draw, A/B assignment, and the seed (99) that produced the flips. |
 | `r32-results.json` | Machine-readable tally output. |
