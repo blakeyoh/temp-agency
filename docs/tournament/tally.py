@@ -11,6 +11,8 @@ ROUND_ANCHORS={
            "lead":"systems-thinker", "lens":"farmer"},
 }
 ROUND_GAME_COUNTS={"s16":8,"e8":4}
+S16_SURVIVORS={'E3','M5','E2','A3','E5','E1','A5','A6',
+               'A1','C8','E4','M1','M3','A2','C5','E6'}
 YIELD_PLACEHOLDERS={
     'strongest_a':'Idea number and exact identifying phrase.',
     'return_a':'The causal path from that proposal to the brief.',
@@ -19,6 +21,14 @@ YIELD_PLACEHOLDERS={
     'return_b':'The causal path from that proposal to the brief.',
     'repeat_b':'First idea number where early moves begin repeating, or NONE with reason.',
     'reason':'Compare ideas 17–24 for surprising usefulness, penalizing distance with no causal return path.',
+}
+AXIS_REFERENCE_PLACEHOLDER='Place both entrants against the fixed anchors in `reference-sets.md`.'
+AXIS_PREDICATE_PLACEHOLDERS={
+    'Distance':'Name a concrete output each mechanism makes unavailable.',
+    'Mechanism':'Name the file, tool, context boundary or external actor that runs and enforces each mechanism; disclose manual substitutions.',
+    'Irreducibility':'Estimate what an ordinary prompt could reproduce and identify the inaccessible state, operation or guarantee.',
+    'Compounding':'State what use 10 can produce that use 1 cannot, using observed trace evidence where available.',
+    'Generative failure':'Give an exact plausible failure output and say whether it diagnoses an assumption or merely creates noise.',
 }
 
 # points: significantly=3, slightly=1, tie=0
@@ -35,6 +45,9 @@ def parse_verdict(s):
 def parse_panel(text):
     """-> {matchup_no: {'winner':'A'/'B','decided':str,'axes':{axis:(side,pts,ref,pred)},'absorb':{...}}}"""
     out={}
+    opened=re.search(r'^- \*\*Mechanism packet opened \(UTC\):\*\*\s*(.+?)\s*$',
+                     text,re.M)
+    mechanism_opened=opened.group(1).strip() if opened else ''
     chunks=re.split(r'^##\s+MATCHUP\s+(\d+)\s*$', text, flags=re.M)
     matchup_numbers=[int(chunks[i]) for i in range(1,len(chunks),2)]
     duplicates=sorted({n for n in matchup_numbers if matchup_numbers.count(n)>1})
@@ -42,7 +55,7 @@ def parse_panel(text):
         raise ValueError(f"duplicate matchup records in one verdict file: {duplicates}")
     for i in range(1,len(chunks),2):
         n=int(chunks[i]); body=chunks[i+1]
-        rec={'axes':{},'absorb':{}}
+        rec={'axes':{},'absorb':{},'mechanism_opened':mechanism_opened}
         w=re.search(r'^WINNER:\s*(A|B)', body, re.M)
         rec['winner']=w.group(1) if w else None
         d=re.search(r'^DECIDED BY:\s*(.+)$', body, re.M)
@@ -151,6 +164,14 @@ def anchor_errors(round_id, specs):
     anchor=anchors[0]
     return [key for key,value in expected.items() if anchor.get(key) != value]
 
+def fresh_pair_errors(specs):
+    """Reject reused specialist pairs among nominally independent fresh panels."""
+    pairs=[]
+    for spec in specs:
+        if isinstance(spec,dict) and spec.get('fresh') is True:
+            pairs.append(tuple(sorted((spec.get('lead'),spec.get('lens')))))
+    return ['duplicate-fresh-pair'] if len(pairs) != len(set(pairs)) else []
+
 def absorption_test(value):
     """Return PASS/FAIL only for a completed test with an explanatory receipt."""
     if not isinstance(value,str):
@@ -170,6 +191,15 @@ def utc_seal(value):
     try:
         datetime.datetime.strptime(value.strip(),'%Y-%m-%dT%H:%M:%SZ')
         return True
+    except ValueError:
+        return False
+
+def pass1_precedes_mechanism(sealed,opened):
+    """Require both UTC receipts and a seal no later than mechanism disclosure."""
+    try:
+        seal=datetime.datetime.strptime(str(sealed).strip(),'%Y-%m-%dT%H:%M:%SZ')
+        mechanism=datetime.datetime.strptime(str(opened).strip(),'%Y-%m-%dT%H:%M:%SZ')
+        return seal <= mechanism
     except ValueError:
         return False
 
@@ -198,6 +228,8 @@ def draw_errors(games, round_id=None):
         expected_ids=set(range(1,expected_count+1))
         if len(games) != expected_count: errors.append(f'{round_id}-game-count')
         if set(game_ids) != expected_ids: errors.append(f'{round_id}-game-ids')
+    if round_id == 's16' and set(entrants) != S16_SURVIVORS:
+        errors.append('s16-survivor-field')
     return errors
 
 def validate_live_record(rec):
@@ -212,6 +244,10 @@ def validate_live_record(rec):
         invalid=[ax for ax in AXES if not axes[ax].get('ref','').strip()
                  or not axes[ax].get('pred','').strip()]
         if invalid: missing.append('axis-evidence:' + '|'.join(invalid))
+        placeholders=[ax for ax in AXES
+                      if axes[ax].get('ref','').strip() == AXIS_REFERENCE_PLACEHOLDER
+                      or axes[ax].get('pred','').strip() == AXIS_PREDICATE_PLACEHOLDERS[ax]]
+        if placeholders: missing.append('axis-placeholders:'+'|'.join(placeholders))
     absorb=rec.get('absorb',{})
     if absorb.get('disp') not in ('ABSORBED','ORTHOGONAL','SUBSUMED'):
         missing.append('absorption')
@@ -234,6 +270,9 @@ def validate_live_record(rec):
                           if rec['yield_evidence'].get(k,'').strip() == v)
         if unresolved: missing.append('yield-placeholders:'+'|'.join(unresolved))
         if not utc_seal(rec['yield_evidence']['sealed']): missing.append('yield-seal')
+        if not pass1_precedes_mechanism(rec['yield_evidence']['sealed'],
+                                       rec.get('mechanism_opened','')):
+            missing.append('pass1-chronology')
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
     if not rec.get('enactment_evidence','').strip(): missing.append('enactment-evidence')
     if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
@@ -368,6 +407,9 @@ if __name__=="__main__":
         parser.error("draw-map panels must contain exactly three unique names and file_tags")
     if live_evidence_required and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
         parser.error("live-evidence rounds require one calibration anchor and two fresh panels")
+    invalid_pairs=fresh_pair_errors(raw_panel_specs) if live_evidence_required else []
+    if invalid_pairs:
+        parser.error("live-evidence fresh panels must use distinct specialist pairs")
     invalid_anchor=anchor_errors(round_id,raw_panel_specs) if live_evidence_required else []
     if invalid_anchor:
         parser.error(f"{round_id} calibration anchor does not match the prescribed roster: " +
