@@ -70,6 +70,9 @@ def parse_panel(text):
     opened=re.search(r'^- \*\*Mechanism packet opened \(UTC\):\*\*\s*(.+?)\s*$',
                      text,re.M)
     mechanism_opened=opened.group(1).strip() if opened else ''
+    output=re.search(r'^- \*\*Output packet opened \(UTC\):\*\*\s*(.+?)\s*$',
+                     text,re.M)
+    output_opened=output.group(1).strip() if output else ''
     chunks=re.split(r'^##\s+MATCHUP\s+(\d+)\s*$', text, flags=re.M)
     matchup_numbers=[int(chunks[i]) for i in range(1,len(chunks),2)]
     duplicates=sorted({n for n in matchup_numbers if matchup_numbers.count(n)>1})
@@ -77,7 +80,8 @@ def parse_panel(text):
         raise ValueError(f"duplicate matchup records in one verdict file: {duplicates}")
     for i in range(1,len(chunks),2):
         n=int(chunks[i]); body=chunks[i+1]
-        rec={'axes':{},'absorb':{},'mechanism_opened':mechanism_opened}
+        rec={'axes':{},'absorb':{},'mechanism_opened':mechanism_opened,
+             'output_opened':output_opened}
         w=re.search(r'^WINNER:\s*(A|B)', body, re.M)
         rec['winner']=w.group(1) if w else None
         d=re.search(r'^DECIDED BY:\s*(.+)$', body, re.M)
@@ -94,8 +98,9 @@ def parse_panel(text):
                 ('repeat_a','A REPETITION ONSET'),('strongest_b','STRONGEST B'),
                 ('return_b','B RETURN PATH'),('repeat_b','B REPETITION ONSET'),
                 ('reason','YIELD REASON'),('sealed','PASS 1 SEALED \\(UTC\\)')]:
-                m=re.search(rf'^{label}:\s*(.+?)(?=^[A-Z0-9][A-Z0-9 ()\-]+:|\Z)',
-                            p1, re.M|re.S)
+                m=re.search(
+                    rf'^{label}:[ \t]*(\S[^\n]*(?:\n(?![A-Z0-9][A-Z0-9 ()\-]+:)[^\n]*)*)',
+                    p1,re.M)
                 if m: rec['yield_evidence'][key]=' '.join(m.group(1).split())
         for ax in AXES:
             sec=re.search(rf'^###\s+{re.escape(ax)}\s*$(.*?)(?=^###|\Z)', body, re.M|re.S)
@@ -187,12 +192,12 @@ def anchor_errors(round_id, specs):
     return [key for key,value in expected.items() if anchor.get(key) != value]
 
 def fresh_pair_errors(specs):
-    """Reject reused specialist pairs among nominally independent fresh panels."""
+    """Reject any fresh specialist pair reused elsewhere in the panel slate."""
     pairs=[]
     for spec in specs:
-        if isinstance(spec,dict) and spec.get('fresh') is True:
+        if isinstance(spec,dict):
             pairs.append(tuple(sorted((spec.get('lead'),spec.get('lens')))))
-    return ['duplicate-fresh-pair'] if len(pairs) != len(set(pairs)) else []
+    return ['duplicate-panel-pair'] if len(pairs) != len(set(pairs)) else []
 
 def panel_declaration_errors(text,spec,draw):
     """Bind a verdict artifact to its draw-map panel, frozen draw, and two-pass receipts."""
@@ -242,10 +247,14 @@ def advancement_field(round_id,repo_root=REPO_ROOT):
     if not committed_version(path,repo_root):
         return set()
     try:
-        ledger=json.load(open(path))
+        with open(path) as source:
+            ledger=json.load(source)
     except (OSError,json.JSONDecodeError):
         return set()
     advancers=ledger.get('advancers') if isinstance(ledger,dict) else None
+    if not isinstance(ledger,dict) or ledger.get('round') != 's16' \
+            or ledger.get('ratified_by') != 'commissioner':
+        return set()
     if not isinstance(advancers,list) or not all(isinstance(code,str) for code in advancers):
         return set()
     field=set(advancers)
@@ -330,6 +339,10 @@ def pass1_precedes_mechanism(sealed,opened):
     """Require both UTC receipts and a seal no later than mechanism disclosure."""
     return utc_not_after(sealed,opened)
 
+def valid_pass1_chronology(output_opened,sealed,mechanism_opened):
+    """Require output disclosure, sealing, and mechanism disclosure in order."""
+    return utc_not_after(output_opened,sealed) and utc_not_after(sealed,mechanism_opened)
+
 def draw_errors(games, round_id=None, expected_field=None):
     """Reject draw maps that would silently overwrite games or reuse entrants."""
     errors=[]; game_ids=[]; entrants=[]
@@ -389,7 +402,7 @@ def validate_live_record(rec):
     if any(v is None for v in tests): missing.append('absorption-tests')
     if absorb.get('disp') == 'ABSORBED' and tests != ['PASS','PASS','PASS']:
         missing.append('absorption-inconsistent')
-    if absorb.get('disp') == 'ORTHOGONAL' and tests == ['PASS','PASS','PASS']:
+    if absorb.get('disp') != 'ABSORBED' and tests == ['PASS','PASS','PASS']:
         missing.append('absorption-inconsistent')
     if 'yield' not in rec: missing.append('yield')
     yield_required={'strongest_a','return_a','repeat_a','strongest_b','return_b',
@@ -401,8 +414,9 @@ def validate_live_record(rec):
                           if rec['yield_evidence'].get(k,'').strip() == v)
         if unresolved: missing.append('yield-placeholders:'+'|'.join(unresolved))
         if not utc_seal(rec['yield_evidence']['sealed']): missing.append('yield-seal')
-        if not pass1_precedes_mechanism(rec['yield_evidence']['sealed'],
-                                       rec.get('mechanism_opened','')):
+        if not valid_pass1_chronology(rec.get('output_opened',''),
+                                     rec['yield_evidence']['sealed'],
+                                     rec.get('mechanism_opened','')):
             missing.append('pass1-chronology')
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
     enactment_evidence=rec.get('enactment_evidence','').strip()
