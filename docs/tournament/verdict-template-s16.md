@@ -14,7 +14,7 @@ For every axis, replace the bracket with exactly one of: `A significantly better
 - **Lens specialist:**
 - **Lead has conforming `positions.md`:** Yes / No
 - **Lens has conforming `positions.md`:** Yes / No
-- **Draw seed and draw-map commit:**
+- **Draw seed and draw-map commit:** `<seed> / <40-character commit SHA>`
 - **Output packet opened (UTC):**
 - **Mechanism packet opened (UTC):**
 - **Isolation attestation:** I did not inspect another panel's verdict, prior-round verdicts,
@@ -89,6 +89,9 @@ MECHANISM: The third mechanism visible only because A and B collided.
 NOT IN A: Difference in mechanism, actor, failure mode or timescale.
 NOT IN B: Difference in mechanism, actor, failure mode or timescale.
 WHY IT MATTERS: What it might make newly reachable.
+
+If there is no collision candidate, set `CANDIDATE: NONE` and set `MECHANISM`, `NOT IN A`,
+`NOT IN B`, and `WHY IT MATTERS` to exactly `N/A`.
 
 ### FAITHFUL ENACTMENT
 A STATUS: [FAITHFUL, PARTIAL, NOT ENACTED, or PROMISE ONLY — replace]
