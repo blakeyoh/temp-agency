@@ -29,7 +29,7 @@ def live_record(side='B'):
         'enactment_evidence':'execution traces',
         'sacrifice':{'honored':'x','sacrificed':'y','cost':'z','validation':'conflict'},
         'collision':{'candidate':'NONE','mechanism':'N/A','not_a':'N/A',
-                     'not_b':'N/A','why':'none'},
+                     'not_b':'N/A','why':'N/A'},
     }
 
 
@@ -88,6 +88,12 @@ WINNER: B
         self.assertIn('enactment-evidence',tally.validate_live_record(rec))
         rec=live_record(); rec['axes']['Distance']['ref']=tally.AXIS_REFERENCE_PLACEHOLDER
         self.assertIn('axis-placeholders:Distance',tally.validate_live_record(rec))
+        rec=live_record(); rec['enactment_evidence']=tally.ENACTMENT_PLACEHOLDER
+        self.assertIn('enactment-placeholder',tally.validate_live_record(rec))
+        rec=live_record(); rec['sacrifice']['honored']=tally.SACRIFICE_PLACEHOLDERS['honored']
+        self.assertIn('sacrifice-placeholders:honored',tally.validate_live_record(rec))
+        rec=live_record(); rec['collision']['candidate']='NONE / short name'
+        self.assertIn('collision-placeholders:candidate',tally.validate_live_record(rec))
 
     def test_refused_is_not_a_disposition(self):
         rec=live_record(); rec['absorb']['disp']='REFUSED'
@@ -171,6 +177,17 @@ WINNER: B
         fresh[1]['lens']='skeptic'
         self.assertEqual([],tally.fresh_pair_errors(fresh))
 
+    def test_verdict_declaration_is_bound_to_panel_and_draw(self):
+        spec={'name':'Fresh One','lead':'farmer','lens':'physicist'}
+        draw={'seed':17,'_commit':'a'*40}
+        text='''- **Panel name:** Fresh One
+- **Lead specialist:** farmer
+- **Lens specialist:** physicist
+- **Draw seed and draw-map commit:** 17 / aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+'''
+        self.assertEqual([],tally.panel_declaration_errors(text,spec,draw))
+        self.assertEqual(['name'],tally.panel_declaration_errors(text.replace('Fresh One','Fresh Two'),spec,draw))
+
     def test_draw_rejects_reused_games_and_entrants(self):
         games=[{'g':1,'A':'E1','B':'E2','region':'One'},
                {'g':1,'A':'E2','B':'E3','region':'Two'}]
@@ -189,6 +206,29 @@ WINNER: B
         self.assertIn('s16-game-ids',errors)
         games[0]['A']='TYPO'
         self.assertIn('s16-survivor-field',tally.draw_errors(games,'s16'))
+
+    def test_elite_8_draw_requires_prior_round_advancers(self):
+        field={f'W{n}' for n in range(1,9)}
+        entrants=sorted(field)
+        games=[{'g':n,'A':entrants[(n-1)*2],'B':entrants[(n-1)*2+1],'region':'Test'}
+               for n in range(1,5)]
+        self.assertNotIn('e8-advancer-field',tally.draw_errors(games,'e8',field))
+        games[0]['A']='TYPO'
+        self.assertIn('e8-advancer-field',tally.draw_errors(games,'e8',field))
+
+    def test_sweet_16_reseed_receipts_replay_draw(self):
+        order=list(tally.S16_SURVIVOR_ORDER); seed=17; ab_seed=29
+        shuffled=list(order); tally.random.Random(seed).shuffle(shuffled)
+        ab=tally.random.Random(ab_seed); games=[]
+        for n,index in enumerate(range(0,16,2),1):
+            pair=shuffled[index:index+2]
+            if ab.getrandbits(1): pair.reverse()
+            games.append({'g':n,'A':pair[0],'B':pair[1],'region':'Test'})
+        draw={'algorithm':'python-random-v1','seed':seed,'ab_seed':ab_seed,
+              'input_order':order,'games':games}
+        self.assertEqual([],tally.reseed_errors(draw))
+        draw['games'][0]['A'],draw['games'][1]['A']=draw['games'][1]['A'],draw['games'][0]['A']
+        self.assertIn('reseed-replay',tally.reseed_errors(draw))
 
 
 if __name__ == '__main__':
