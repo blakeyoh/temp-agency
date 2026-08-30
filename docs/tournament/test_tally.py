@@ -76,6 +76,32 @@ WINNER: B
         with self.assertRaisesRegex(ValueError,'duplicate matchup records'):
             tally.parse_panel(text)
 
+    def test_blank_structured_fields_do_not_consume_the_next_label(self):
+        # A blank axis REFERENCE must not swallow the following PREDICATE line.
+        axis=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\n### Distance\n'
+            'VERDICT: A slightly better\nREFERENCE:\nPREDICATE: concrete predicate\n')[1]
+        self.assertEqual('',axis['axes']['Distance']['ref'])
+        self.assertEqual('concrete predicate',axis['axes']['Distance']['pred'])
+        # A blank enactment EVIDENCE must not capture the --- separator.
+        enact=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\n### FAITHFUL ENACTMENT\n'
+            'A STATUS: FAITHFUL\nB STATUS: PROMISE ONLY\nEVIDENCE:\n\n---\n')[1]
+        self.assertEqual('',enact['enactment_evidence'])
+        # A blank Sacrifice receipt must not capture the next receipt line.
+        sac=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\n### SACRIFICE RECEIPT\n'
+            'HONORED:\nSACRIFICED: competing principle\n'
+            'ACCEPTED COST: a cost\nVALIDATION: a validation\n')[1]
+        self.assertNotIn('honored',sac['sacrifice'])
+        self.assertEqual('competing principle',sac['sacrifice']['sacrificed'])
+        # A blank absorption field must not capture the next receipt line.
+        absorb=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\n### ABSORPTION\n'
+            "LOSER'S STRONGEST MECHANISM:\nSAME-THESIS: FAIL — distinct thesis\n")[1]
+        self.assertEqual('',absorb['absorb']['mech'])
+        self.assertEqual('FAIL — distinct thesis',absorb['absorb']['same'])
+
     def test_tie_ballots_count_in_yield_vote(self):
         self.assertIsNone(tally.majority(['A',None,None],count_ties=True))
         self.assertEqual('A',tally.majority(['A','A',None],count_ties=True))

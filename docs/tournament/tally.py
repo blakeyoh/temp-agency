@@ -107,8 +107,8 @@ def parse_panel(text):
             if not sec: continue
             b=sec.group(1)
             v=re.search(r'^VERDICT:\s*(.+)$', b, re.M)
-            ref=re.search(r'^REFERENCE:\s*(.+?)(?=^\w+:|\Z)', b, re.M|re.S)
-            pr=re.search(r'^PREDICATE:\s*(.+?)(?=^\w+:|\Z)', b, re.M|re.S)
+            ref=re.search(r'^REFERENCE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
+            pr=re.search(r'^PREDICATE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
             if not v: continue
             side,pts=parse_verdict(v.group(1))
             rec['axes'][ax]={'side':side,'pts':pts,
@@ -119,7 +119,7 @@ def parse_panel(text):
             ab=a.group(1)
             for k,lbl in [('mech','LOWER|LOSER.S STRONGEST MECHANISM'),('same','SAME-THESIS'),
                           ('del','DELETION'),('one','ONE-SENTENCE'),('disp','DISPOSITION'),('note','NOTE')]:
-                m=re.search(rf'^(?:{lbl}):\s*(.+?)(?=^[A-Z][A-Z\- ]+:|\Z)', ab, re.M|re.S)
+                m=re.search(rf'^(?:{lbl}):[ \t]*(\S[^\n]*(?:\n(?![A-Z][A-Z\- ]+:)[^\n]*)*)', ab, re.M)
                 rec['absorb'][k]=' '.join(m.group(1).split()) if m else ''
         e=re.search(r'^###\s+FAITHFUL ENACTMENT\s*$(.*?)(?=^###|^##|\Z)', body, re.M|re.S)
         rec['enactment']={}
@@ -128,7 +128,7 @@ def parse_panel(text):
             for side in ('A','B'):
                 m=re.search(rf'^{side} STATUS:\s*(FAITHFUL|PARTIAL|NOT ENACTED|PROMISE ONLY)\s*$', e.group(1), re.M|re.I)
                 if m: rec['enactment'][side]=m.group(1).upper()
-            evidence=re.search(r'^EVIDENCE:\s*(.+?)\s*$', e.group(1), re.M|re.S)
+            evidence=re.search(r'^EVIDENCE:[ \t]*(\S[^\n]*)', e.group(1), re.M)
             if evidence: rec['enactment_evidence']=' '.join(evidence.group(1).split())
         for heading,key,labels in [
             ('SACRIFICE RECEIPT','sacrifice',
@@ -141,7 +141,7 @@ def parse_panel(text):
             rec[key]={}
             if sec:
                 for short,label in labels:
-                    m=re.search(rf'^{label}:\s*(.+?)(?=^[A-Z][A-Z ]+:|\Z)', sec.group(1), re.M|re.S)
+                    m=re.search(rf'^{label}:[ \t]*(\S[^\n]*(?:\n(?![A-Z][A-Z ]+:)[^\n]*)*)', sec.group(1), re.M)
                     if m: rec[key][short]=' '.join(m.group(1).split())
         out[n]=rec
     return out
