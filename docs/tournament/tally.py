@@ -1,5 +1,5 @@
 """Parse one round's panel verdicts into its own tally artifact."""
-import argparse, datetime, re, json, sys, os, glob
+import argparse, datetime, re, json, sys, os, glob, random, subprocess
 SP=os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT=os.path.abspath(os.path.join(SP,"..",".."))
 AXES=["Distance","Mechanism","Irreducibility","Compounding","Generative failure"]
@@ -11,8 +11,9 @@ ROUND_ANCHORS={
            "lead":"systems-thinker", "lens":"farmer"},
 }
 ROUND_GAME_COUNTS={"s16":8,"e8":4}
-S16_SURVIVORS={'E3','M5','E2','A3','E5','E1','A5','A6',
-               'A1','C8','E4','M1','M3','A2','C5','E6'}
+S16_SURVIVOR_ORDER=('E3','M5','E2','A3','E5','E1','A5','A6',
+                    'A1','C8','E4','M1','M3','A2','C5','E6')
+S16_SURVIVORS=set(S16_SURVIVOR_ORDER)
 YIELD_PLACEHOLDERS={
     'strongest_a':'Idea number and exact identifying phrase.',
     'return_a':'The causal path from that proposal to the brief.',
@@ -29,6 +30,20 @@ AXIS_PREDICATE_PLACEHOLDERS={
     'Irreducibility':'Estimate what an ordinary prompt could reproduce and identify the inaccessible state, operation or guarantee.',
     'Compounding':'State what use 10 can produce that use 1 cannot, using observed trace evidence where available.',
     'Generative failure':'Give an exact plausible failure output and say whether it diagnoses an assumption or merely creates noise.',
+}
+ENACTMENT_PLACEHOLDER='Cite the relevant traces and substitutions.'
+SACRIFICE_PLACEHOLDERS={
+    'honored':'One principle or bias from this panel\'s loaded profile.',
+    'sacrificed':'A genuinely competing principle from the same profile.',
+    'cost':'Specific risk or loss this vote accepts.',
+    'validation':'Explain where the game made both commitments impossible to honor costlessly.',
+}
+COLLISION_PLACEHOLDERS={
+    'candidate':'NONE / short name',
+    'mechanism':'The third mechanism visible only because A and B collided.',
+    'not_a':'Difference in mechanism, actor, failure mode or timescale.',
+    'not_b':'Difference in mechanism, actor, failure mode or timescale.',
+    'why':'What it might make newly reachable.',
 }
 
 # points: significantly=3, slightly=1, tie=0
@@ -172,6 +187,68 @@ def fresh_pair_errors(specs):
             pairs.append(tuple(sorted((spec.get('lead'),spec.get('lens')))))
     return ['duplicate-fresh-pair'] if len(pairs) != len(set(pairs)) else []
 
+def panel_declaration_errors(text,spec,draw):
+    """Bind a verdict artifact to its draw-map panel and frozen draw."""
+    labels={
+        'name':'Panel name','lead':'Lead specialist','lens':'Lens specialist',
+        'draw':'Draw seed and draw-map commit',
+    }
+    declared={}
+    for key,label in labels.items():
+        match=re.search(rf'^- \*\*{re.escape(label)}:\*\*\s*(.+?)\s*$',text,re.M)
+        declared[key]=match.group(1).strip() if match else ''
+    expected={'name':spec.get('name',''),'lead':spec.get('lead',''),
+              'lens':spec.get('lens',''),
+              'draw':f"{draw.get('seed','')} / {draw.get('_commit','')}"}
+    return [key for key in labels if not declared[key] or declared[key] != expected[key]]
+
+def advancement_field(round_id,repo_root=REPO_ROOT):
+    """Load the prior round's frozen winners for a downstream draw."""
+    if round_id != 'e8':
+        return None
+    path=os.path.join(repo_root,'docs','tournament','s16-results.json')
+    if not committed_version(path,repo_root):
+        return set()
+    try:
+        results=json.load(open(path))
+    except (OSError,json.JSONDecodeError):
+        return set()
+    winners=[rec.get('winner') for rec in results.values() if isinstance(rec,dict)]
+    field=set(winners)
+    return field if len(winners)==8 and len(field)==8 and field <= S16_SURVIVORS else set()
+
+def reseed_errors(draw):
+    """Replay the prescribed S16 shuffle and independent A/B assignment."""
+    errors=[]
+    if draw.get('algorithm') != 'python-random-v1': errors.append('reseed-algorithm')
+    seed=draw.get('seed'); ab_seed=draw.get('ab_seed'); order=draw.get('input_order')
+    if not isinstance(seed,int): errors.append('reseed-seed')
+    if not isinstance(ab_seed,int) or ab_seed == seed: errors.append('ab-seed')
+    if order != list(S16_SURVIVOR_ORDER):
+        errors.append('reseed-input-order')
+    if errors: return errors
+    shuffled=list(order); random.Random(seed).shuffle(shuffled)
+    ab=random.Random(ab_seed)
+    expected=[]
+    for index in range(0,16,2):
+        pair=shuffled[index:index+2]
+        if ab.getrandbits(1): pair.reverse()
+        expected.append(tuple(pair))
+    actual=[(game.get('A'),game.get('B')) for game in draw.get('games',[])
+            if isinstance(game,dict)]
+    if actual != expected: errors.append('reseed-replay')
+    return errors
+
+def committed_version(path,repo_root=REPO_ROOT):
+    """Return the commit that froze a file, or empty for an uncommitted artifact."""
+    try:
+        value=subprocess.check_output(
+            ['git','log','-1','--format=%H','--',os.path.abspath(path)],
+            cwd=repo_root,text=True,stderr=subprocess.DEVNULL).strip()
+        return value if re.fullmatch(r'[0-9a-f]{40}',value) else ''
+    except (OSError,subprocess.CalledProcessError):
+        return ''
+
 def absorption_test(value):
     """Return PASS/FAIL only for a completed test with an explanatory receipt."""
     if not isinstance(value,str):
@@ -203,7 +280,7 @@ def pass1_precedes_mechanism(sealed,opened):
     except ValueError:
         return False
 
-def draw_errors(games, round_id=None):
+def draw_errors(games, round_id=None, expected_field=None):
     """Reject draw maps that would silently overwrite games or reuse entrants."""
     errors=[]; game_ids=[]; entrants=[]
     if not games: errors.append('missing-games')
@@ -230,6 +307,8 @@ def draw_errors(games, round_id=None):
         if set(game_ids) != expected_ids: errors.append(f'{round_id}-game-ids')
     if round_id == 's16' and set(entrants) != S16_SURVIVORS:
         errors.append('s16-survivor-field')
+    if round_id == 'e8' and set(entrants) != (expected_field or set()):
+        errors.append('e8-advancer-field')
     return errors
 
 def validate_live_record(rec):
@@ -274,11 +353,26 @@ def validate_live_record(rec):
                                        rec.get('mechanism_opened','')):
             missing.append('pass1-chronology')
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
-    if not rec.get('enactment_evidence','').strip(): missing.append('enactment-evidence')
+    enactment_evidence=rec.get('enactment_evidence','').strip()
+    if not enactment_evidence: missing.append('enactment-evidence')
+    elif enactment_evidence == ENACTMENT_PLACEHOLDER: missing.append('enactment-placeholder')
     if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
         missing.append('sacrifice')
     if not rec.get('collision',{}).keys() >= {'candidate','mechanism','not_a','not_b','why'}:
         missing.append('collision')
+    sacrifice=rec.get('sacrifice',{})
+    unresolved_sacrifice=sorted(k for k,v in SACRIFICE_PLACEHOLDERS.items()
+                                if sacrifice.get(k,'').strip() == v)
+    if unresolved_sacrifice: missing.append('sacrifice-placeholders:'+'|'.join(unresolved_sacrifice))
+    collision=rec.get('collision',{})
+    unresolved_collision=sorted(k for k,v in COLLISION_PLACEHOLDERS.items()
+                                if collision.get(k,'').strip() == v)
+    if unresolved_collision: missing.append('collision-placeholders:'+'|'.join(unresolved_collision))
+    if collision.get('candidate','').strip() == 'NONE':
+        if any(collision.get(k,'').strip() != 'N/A' for k in ('mechanism','not_a','not_b','why')):
+            missing.append('collision-none-form')
+    elif any(collision.get(k,'').strip() in ('NONE','N/A') for k in ('candidate','mechanism','not_a','not_b','why')):
+        missing.append('collision-none-form')
     return missing
 
 def tally(panels, gmap, panel_names):
@@ -367,8 +461,11 @@ if __name__=="__main__":
     draw_map = f"{SP}/{round_id}-draw-map.json"
     results_path = f"{SP}/{round_id}-results.json"
     draw=json.load(open(draw_map))
+    draw['_commit']=committed_version(draw_map)
     games=draw.get('games',[])
-    invalid_draw=draw_errors(games,round_id)
+    prior_field=advancement_field(round_id)
+    invalid_draw=draw_errors(games,round_id,prior_field)
+    if round_id == 's16': invalid_draw.extend(reseed_errors(draw))
     if invalid_draw: parser.error("invalid draw map: " + ", ".join(invalid_draw))
     gmap={g['g']:g for g in games}
     raw_panel_specs=draw.get('panels') or [
@@ -377,6 +474,8 @@ if __name__=="__main__":
     if not isinstance(raw_panel_specs,list):
         parser.error("draw-map panels must be an array")
     live_evidence_required=round_id in ROUND_GAME_COUNTS
+    if live_evidence_required and not draw['_commit']:
+        parser.error(f"{round_id} draw map must be committed before tallying")
     if live_evidence_required and draw.get('require_live_evidence') is not True:
         parser.error(f"{round_id} requires live evidence")
     panel_specs=[]
@@ -402,7 +501,7 @@ if __name__=="__main__":
             errors=specialist_errors(spec)
             if errors:
                 parser.error(f"live panel {name} has invalid specialist configuration: {','.join(errors)}")
-        panel_specs.append((name,tag))
+        panel_specs.append((name,tag,spec))
     if len(panel_specs) != 3 or len({p[0] for p in panel_specs}) != 3 or len({p[1] for p in panel_specs}) != 3:
         parser.error("draw-map panels must contain exactly three unique names and file_tags")
     if live_evidence_required and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
@@ -420,12 +519,16 @@ if __name__=="__main__":
                      ", ".join('/'.join(pair) for pair in collisions))
     panel_names=[p[0] for p in panel_specs]
     panels={}
-    for p,tag in panel_specs:
+    for p,tag,spec in panel_specs:
         fs=sorted(glob.glob(f"{SP}/verdicts/{round_id}-*-{tag}.md"))
         merged={}
         for f in fs:
             try:
-                parsed=parse_panel(open(f).read())
+                verdict_text=open(f).read()
+                declaration_errors=panel_declaration_errors(verdict_text,spec,draw) if live_evidence_required else []
+                if declaration_errors:
+                    parser.error(f"{f}: panel declaration mismatch: {','.join(declaration_errors)}")
+                parsed=parse_panel(verdict_text)
             except ValueError as exc:
                 parser.error(f"{f}: {exc}")
             duplicates=sorted(set(merged)&set(parsed))
