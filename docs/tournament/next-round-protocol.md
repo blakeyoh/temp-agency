@@ -210,6 +210,11 @@ R32 remains backward-compatible through its legacy three-panel default.
 ```json
 {
   "require_live_evidence": true,
+  "algorithm": "python-random-v1",
+  "seed": 12345,
+  "ab_seed": 67890,
+  "input_order": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6",
+                  "A1", "C8", "E4", "M1", "M3", "A2", "C5", "E6"],
   "panels": [
     {
       "name": "Builder",
