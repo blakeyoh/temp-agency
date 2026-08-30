@@ -402,6 +402,67 @@ A REPETITION ONSET: A20
             with open(os.path.join(repo,artifacts['contact']),'a') as fh: fh.write('dirty\n')
             self.assertIn('game-1-contact-artifact',tally.e8_return_errors([game],repo))
 
+    def test_elite_8_return_artifacts_reject_aliases_and_escapes(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*args):
+                subprocess.run(['git',*args],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            base='docs/tournament/artifacts'
+            os.makedirs(os.path.join(repo,base))
+            for name in ('one.md','two.md','three.md'):
+                with open(os.path.join(repo,base,name),'w') as fh: fh.write(name+'\n')
+            git('add','.'); git('commit','-m','freeze')
+            seed=17
+            direction='A→B' if tally.random.Random(seed).getrandbits(1) else 'B→A'
+            def game(a,b,c):
+                return {'g':1,'return_test':{'algorithm':'python-random-v1',
+                        'contact_seed':seed,'direction':direction,
+                        'artifacts':{'a_solo':a,'b_solo':b,'contact':c}}}
+            # Lexical aliases of one committed file share a resolved identity.
+            aliases=game(f'{base}/one.md',f'./{base}/one.md',
+                         f'{base}/../artifacts/one.md')
+            self.assertIn('duplicate-return-artifact',
+                          tally.e8_return_errors([aliases],repo))
+            # A symlink escaping the repository is rejected as an invalid artifact.
+            outside=tempfile.NamedTemporaryFile(delete=False,suffix='.md')
+            outside.write(b'x'); outside.close()
+            try:
+                os.symlink(outside.name,os.path.join(repo,base,'escape.md'))
+                git('add','.'); git('commit','-m','link')
+                errors=tally.e8_return_errors(
+                    [game(f'{base}/escape.md',f'{base}/two.md',f'{base}/three.md')],repo)
+                self.assertIn('game-1-a_solo-artifact',errors)
+                self.assertNotIn('duplicate-return-artifact',errors)
+            finally:
+                os.unlink(outside.name)
+
+    def test_verdict_accepts_only_canonical_strings(self):
+        self.assertEqual(('A',3),tally.parse_verdict('A significantly better'))
+        self.assertEqual(('B',1),tally.parse_verdict('b slightly better.'))
+        self.assertEqual((None,0),tally.parse_verdict(' Tie '))
+        for bad in ('B is not significantly better','A better','significantly better',
+                    'A significantly worse','maybe A slightly better',''):
+            with self.assertRaises(ValueError):
+                tally.parse_verdict(bad)
+
+    def test_malformed_axis_verdict_blocks_parsing(self):
+        with self.assertRaisesRegex(ValueError,'unparseable verdict'):
+            tally.parse_panel('## MATCHUP 1\nWINNER: A\n### Distance\n'
+                'VERDICT: B is not significantly better\nREFERENCE: r\nPREDICATE: p\n')
+
+    def test_absorption_allows_markdown_but_rejects_placeholders(self):
+        self.assertEqual('PASS',tally.absorption_test(
+            'PASS — supported by [G1 trace](artifacts/g1.md)'))
+        self.assertIsNone(tally.absorption_test('PASS — [reason]'))
+        self.assertIsNone(tally.absorption_test('FAIL — rationale'))
+        self.assertEqual('FAIL',tally.absorption_test('FAIL — merely smaller'))
+
+    def test_draw_rejects_boolean_game_id(self):
+        self.assertIn('game-0-id',
+                      tally.draw_errors([{'g':True,'A':'E3','B':'M5','region':'x'}]))
+
 
 if __name__ == '__main__':
     unittest.main()

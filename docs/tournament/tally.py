@@ -54,23 +54,27 @@ ISOLATION_ATTESTATION=("I did not inspect another panel's verdict, prior-round v
                        "mechanism identities during Pass 1, or the current tally.")
 
 # points: significantly=3, slightly=1, tie=0
+# The template permits exactly these five comparative verdict strings; anything
+# else (negations, hedged prose, partial matches) is rejected rather than scored,
+# so malformed text can never award points or decide an axis.
+VERDICT_POINTS={
+    'a significantly better':('A',3),'a slightly better':('A',1),
+    'b significantly better':('B',3),'b slightly better':('B',1),
+    'tie':(None,0),
+}
 def parse_verdict(s):
-    s=s.strip().lower().rstrip('.')
-    m=re.match(r'^(a|b)\s+(significantly|slightly)\s+better', s)
-    if m: return (m.group(1).upper(), 3 if m.group(2)=="significantly" else 1)
-    if s.startswith('tie') or 'tie' == s: return (None, 0)
-    m=re.search(r'\b(a|b)\b.*\b(significantly|slightly)\b', s)
-    if m: return (m.group(1).upper(), 3 if m.group(2)=="significantly" else 1)
-    if 'tie' in s: return (None, 0)
-    raise ValueError(f"unparseable verdict: {s!r}")
+    key=' '.join(str(s).strip().lower().rstrip('.').split())
+    if key not in VERDICT_POINTS:
+        raise ValueError(f"unparseable verdict: {s!r}")
+    return VERDICT_POINTS[key]
 
 def parse_panel(text):
     """-> {matchup_no: {'winner':'A'/'B','decided':str,'axes':{axis:(side,pts,ref,pred)},'absorb':{...}}}"""
     out={}
-    opened=re.search(r'^- \*\*Mechanism packet opened \(UTC\):\*\*\s*(.+?)\s*$',
+    opened=re.search(r'^- \*\*Mechanism packet opened \(UTC\):\*\*[ \t]*(.+?)\s*$',
                      text,re.M)
     mechanism_opened=opened.group(1).strip() if opened else ''
-    output=re.search(r'^- \*\*Output packet opened \(UTC\):\*\*\s*(.+?)\s*$',
+    output=re.search(r'^- \*\*Output packet opened \(UTC\):\*\*[ \t]*(.+?)\s*$',
                      text,re.M)
     output_opened=output.group(1).strip() if output else ''
     chunks=re.split(r'^##\s+MATCHUP\s+(\d+)\s*$', text, flags=re.M)
@@ -82,7 +86,7 @@ def parse_panel(text):
         n=int(chunks[i]); body=chunks[i+1]
         rec={'axes':{},'absorb':{},'mechanism_opened':mechanism_opened,
              'output_opened':output_opened}
-        w=re.search(r'^WINNER:\s*(A|B)', body, re.M)
+        w=re.search(r'^WINNER:[ \t]*(A|B)\b', body, re.M)
         rec['winner']=w.group(1) if w else None
         d=re.search(r'^DECIDED BY:[ \t]*(\S[^\n]*)', body, re.M)
         rec['decided']=d.group(1).strip() if d else ''
@@ -91,7 +95,7 @@ def parse_panel(text):
         rec['yield_evidence']={}
         if pass1:
             p1=pass1.group(1)
-            y=re.search(r'^YIELD VERDICT:\s*(A|B|TIE)\s*$', p1, re.M|re.I)
+            y=re.search(r'^YIELD VERDICT:[ \t]*(A|B|TIE)[ \t]*$', p1, re.M|re.I)
             if y: rec['yield']=None if y.group(1).upper()=='TIE' else y.group(1).upper()
             for key,label in [
                 ('strongest_a','STRONGEST A'),('return_a','A RETURN PATH'),
@@ -126,7 +130,7 @@ def parse_panel(text):
         rec['enactment_evidence']=''
         if e:
             for side in ('A','B'):
-                m=re.search(rf'^{side} STATUS:\s*(FAITHFUL|PARTIAL|NOT ENACTED|PROMISE ONLY)\s*$', e.group(1), re.M|re.I)
+                m=re.search(rf'^{side} STATUS:[ \t]*(FAITHFUL|PARTIAL|NOT ENACTED|PROMISE ONLY)[ \t]*$', e.group(1), re.M|re.I)
                 if m: rec['enactment'][side]=m.group(1).upper()
             evidence=re.search(r'^EVIDENCE:[ \t]*(\S[^\n]*)', e.group(1), re.M)
             if evidence: rec['enactment_evidence']=' '.join(evidence.group(1).split())
@@ -207,7 +211,7 @@ def panel_declaration_errors(text,spec,draw):
     }
     declared={}
     for key,label in labels.items():
-        match=re.search(rf'^- \*\*{re.escape(label)}:\*\*\s*(.+?)\s*$',text,re.M)
+        match=re.search(rf'^- \*\*{re.escape(label)}:\*\*[ \t]*(.+?)\s*$',text,re.M)
         declared[key]=match.group(1).strip() if match else ''
     expected={'name':spec.get('name',''),'lead':spec.get('lead',''),
               'lens':spec.get('lens',''),
@@ -216,11 +220,11 @@ def panel_declaration_errors(text,spec,draw):
     # Provenance receipts: the isolation attestation and the two-pass packet order
     # must establish that Pass 1 saw only outputs before mechanism disclosure.
     def line(label):
-        m=re.search(rf'^- \*\*{re.escape(label)}:\*\*\s*(.+?)\s*$',text,re.M)
+        m=re.search(rf'^- \*\*{re.escape(label)}:\*\*[ \t]*(.+?)\s*$',text,re.M)
         return m.group(1).strip() if m else ''
     output_opened=line('Output packet opened (UTC)')
     mechanism_opened=line('Mechanism packet opened (UTC)')
-    att=re.search(r'^- \*\*Isolation attestation:\*\*\s*(.+?)(?=^- \*\*|^---|^#|\Z)',
+    att=re.search(r'^- \*\*Isolation attestation:\*\*[ \t]*(\S.*?)(?=^- \*\*|^---|^#|\Z)',
                   text,re.M|re.S)
     attestation=' '.join(att.group(1).split()) if att else ''
     if attestation != ISOLATION_ATTESTATION:
@@ -285,6 +289,7 @@ def reseed_errors(draw):
 def e8_return_errors(games,repo_root=REPO_ROOT):
     """Require each Elite 8 game to freeze all three Return Test artifacts."""
     errors=[]; used_artifacts=[]
+    repo_real=os.path.realpath(repo_root)
     for game in games:
         if not isinstance(game,dict):
             continue
@@ -310,11 +315,16 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
             if not isinstance(relpath,str) or not relpath.strip():
                 errors.append(f'game-{game_id}-{key}-artifact')
                 continue
-            path=os.path.abspath(os.path.join(repo_root,relpath))
-            if os.path.commonpath((repo_root,path)) != os.path.abspath(repo_root) \
-                    or not os.path.isfile(path) or not committed_version(path,repo_root):
+            # Resolve `.`, `..`, and symlinks to a canonical identity so path
+            # aliases cannot masquerade as three separate frozen artifacts, and a
+            # symlink escaping the repository is rejected outright.
+            resolved=os.path.realpath(os.path.join(repo_real,relpath))
+            if os.path.commonpath((repo_real,resolved)) != repo_real \
+                    or not os.path.isfile(resolved) \
+                    or not committed_version(resolved,repo_real):
                 errors.append(f'game-{game_id}-{key}-artifact')
-            used_artifacts.append(relpath)
+                continue
+            used_artifacts.append(resolved)
     if len(used_artifacts) != len(set(used_artifacts)):
         errors.append('duplicate-return-artifact')
     return errors
@@ -349,7 +359,10 @@ def absorption_test(value):
     if not match:
         return None
     explanation=match.group(2).strip()
-    if explanation.lower() in {'reason','explanation','rationale'} or '[' in explanation:
+    # Reject only unresolved placeholder text — a bare word or a lone [...] token —
+    # not every explanation that happens to contain a Markdown link or bracketed cite.
+    if explanation.lower() in {'reason','explanation','rationale'} \
+            or re.fullmatch(r'\[[^\]]*\]', explanation):
         return None
     return match.group(1)
 
@@ -372,10 +385,6 @@ def utc_not_after(earlier,later):
     except ValueError:
         return False
 
-def pass1_precedes_mechanism(sealed,opened):
-    """Require both UTC receipts and a seal no later than mechanism disclosure."""
-    return utc_not_after(sealed,opened)
-
 def valid_pass1_chronology(output_opened,sealed,mechanism_opened):
     """Require output disclosure, sealing, and mechanism disclosure in order."""
     return utc_not_after(output_opened,sealed) and utc_not_after(sealed,mechanism_opened)
@@ -389,7 +398,8 @@ def draw_errors(games, round_id=None, expected_field=None):
             errors.append(f'game-{index}-record')
             continue
         game_id=game.get('g')
-        if not isinstance(game_id,int) or game_id < 1: errors.append(f'game-{index}-id')
+        if not isinstance(game_id,int) or isinstance(game_id,bool) or game_id < 1:
+            errors.append(f'game-{index}-id')
         else: game_ids.append(game_id)
         for side in ('A','B'):
             code=game.get(side)
