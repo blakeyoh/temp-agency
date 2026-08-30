@@ -266,6 +266,23 @@ Each matchup produces three artifacts:
 3. one directional contact run, A→B or B→A, selected by a recorded seed after both solo
    outputs are sealed.
 
+The Elite 8 draw map records those frozen receipts on each game. Artifact paths are relative
+to the repository root and must name committed, clean files. The tally replays the direction
+from `contact_seed` and refuses the round until all three artifacts exist:
+
+```json
+"return_test": {
+  "algorithm": "python-random-v1",
+  "contact_seed": 24680,
+  "direction": "A→B",
+  "artifacts": {
+    "a_solo": "docs/tournament/artifacts/e8-g1-a-solo.md",
+    "b_solo": "docs/tournament/artifacts/e8-g1-b-solo.md",
+    "contact": "docs/tournament/artifacts/e8-g1-contact.md"
+  }
+}
+```
+
 The contact run does not determine the head-to-head winner. It reveals whether the mechanisms
 amplify, dampen, exploit or ignore one another. Useful pairings are recorded in
 `parallel-track.md` as coalitions without changing either entrant's definition.
