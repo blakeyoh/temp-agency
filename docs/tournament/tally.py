@@ -10,6 +10,16 @@ ROUND_ANCHORS={
     "e8": {"name":"Ecologist", "file_tag":"ecologist",
            "lead":"systems-thinker", "lens":"farmer"},
 }
+ROUND_GAME_COUNTS={"s16":8,"e8":4}
+YIELD_PLACEHOLDERS={
+    'strongest_a':'Idea number and exact identifying phrase.',
+    'return_a':'The causal path from that proposal to the brief.',
+    'repeat_a':'First idea number where early moves begin repeating, or NONE with reason.',
+    'strongest_b':'Idea number and exact identifying phrase.',
+    'return_b':'The causal path from that proposal to the brief.',
+    'repeat_b':'First idea number where early moves begin repeating, or NONE with reason.',
+    'reason':'Compare ideas 17–24 for surprising usefulness, penalizing distance with no causal return path.',
+}
 
 # points: significantly=3, slightly=1, tie=0
 def parse_verdict(s):
@@ -163,7 +173,7 @@ def utc_seal(value):
     except ValueError:
         return False
 
-def draw_errors(games):
+def draw_errors(games, round_id=None):
     """Reject draw maps that would silently overwrite games or reuse entrants."""
     errors=[]; game_ids=[]; entrants=[]
     if not games: errors.append('missing-games')
@@ -183,6 +193,11 @@ def draw_errors(games):
             errors.append(f'game-{index}-region')
     if len(game_ids) != len(set(game_ids)): errors.append('duplicate-game-id')
     if len(entrants) != len(set(entrants)): errors.append('duplicate-entrant')
+    expected_count=ROUND_GAME_COUNTS.get(round_id)
+    if expected_count is not None:
+        expected_ids=set(range(1,expected_count+1))
+        if len(games) != expected_count: errors.append(f'{round_id}-game-count')
+        if set(game_ids) != expected_ids: errors.append(f'{round_id}-game-ids')
     return errors
 
 def validate_live_record(rec):
@@ -214,7 +229,11 @@ def validate_live_record(rec):
                     'repeat_b','reason','sealed'}
     absent=sorted(yield_required-rec.get('yield_evidence',{}).keys())
     if absent: missing.append('yield-evidence:'+'|'.join(absent))
-    elif not utc_seal(rec['yield_evidence']['sealed']): missing.append('yield-seal')
+    else:
+        unresolved=sorted(k for k,v in YIELD_PLACEHOLDERS.items()
+                          if rec['yield_evidence'].get(k,'').strip() == v)
+        if unresolved: missing.append('yield-placeholders:'+'|'.join(unresolved))
+        if not utc_seal(rec['yield_evidence']['sealed']): missing.append('yield-seal')
     if not rec.get('enactment',{}).keys() >= {'A','B'}: missing.append('enactment')
     if not rec.get('enactment_evidence','').strip(): missing.append('enactment-evidence')
     if not rec.get('sacrifice',{}).keys() >= {'honored','sacrificed','cost','validation'}:
@@ -310,7 +329,7 @@ if __name__=="__main__":
     results_path = f"{SP}/{round_id}-results.json"
     draw=json.load(open(draw_map))
     games=draw.get('games',[])
-    invalid_draw=draw_errors(games)
+    invalid_draw=draw_errors(games,round_id)
     if invalid_draw: parser.error("invalid draw map: " + ", ".join(invalid_draw))
     gmap={g['g']:g for g in games}
     raw_panel_specs=draw.get('panels') or [
@@ -318,6 +337,9 @@ if __name__=="__main__":
     ]
     if not isinstance(raw_panel_specs,list):
         parser.error("draw-map panels must be an array")
+    live_evidence_required=round_id in ROUND_GAME_COUNTS
+    if live_evidence_required and draw.get('require_live_evidence') is not True:
+        parser.error(f"{round_id} requires live evidence")
     panel_specs=[]
     for spec in raw_panel_specs:
         if isinstance(spec, str):
@@ -328,7 +350,7 @@ if __name__=="__main__":
         tag=spec.get('file_tag','').strip()
         if not name or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', tag):
             parser.error("draw-map panels require a name and lowercase file_tag")
-        if draw.get('require_live_evidence'):
+        if live_evidence_required:
             required=('lead','lens','lead_pack','lens_pack','fresh')
             if any(k not in spec for k in required):
                 parser.error("live-evidence panel records require lead, lens, pack statuses, and fresh")
@@ -344,9 +366,9 @@ if __name__=="__main__":
         panel_specs.append((name,tag))
     if len(panel_specs) != 3 or len({p[0] for p in panel_specs}) != 3 or len({p[1] for p in panel_specs}) != 3:
         parser.error("draw-map panels must contain exactly three unique names and file_tags")
-    if draw.get('require_live_evidence') and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
+    if live_evidence_required and sum(bool(s.get('fresh')) for s in raw_panel_specs) != 2:
         parser.error("live-evidence rounds require one calibration anchor and two fresh panels")
-    invalid_anchor=anchor_errors(round_id,raw_panel_specs) if draw.get('require_live_evidence') else []
+    invalid_anchor=anchor_errors(round_id,raw_panel_specs) if live_evidence_required else []
     if invalid_anchor:
         parser.error(f"{round_id} calibration anchor does not match the prescribed roster: " +
                      ", ".join(invalid_anchor))
@@ -370,7 +392,7 @@ if __name__=="__main__":
             merged.update(parsed)
         panels[p]=merged
         print(f"{p}: parsed {len(merged)} matchups from {len(fs)} file(s)", file=sys.stderr)
-    if draw.get('require_live_evidence'):
+    if live_evidence_required:
         incomplete=[]
         expected=set(gmap)
         for p in panel_names:
