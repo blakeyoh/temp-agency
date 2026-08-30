@@ -77,6 +77,16 @@ WINNER: B
             tally.parse_panel(text)
 
     def test_blank_structured_fields_do_not_consume_the_next_label(self):
+        # Blank overall and axis verdicts must not borrow text from the next line.
+        blank=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\nDECIDED BY:\n'
+            '### PASS 1 — OUTPUT-ONLY YIELD\n')[1]
+        self.assertEqual('',blank['decided'])
+        axis_vote=tally.parse_panel(
+            '## MATCHUP 1\nWINNER: A\n### Distance\n'
+            'VERDICT:\nREFERENCE: A significantly better than the floor\n'
+            'PREDICATE: concrete predicate\n')[1]
+        self.assertNotIn('Distance',axis_vote['axes'])
         # A blank axis REFERENCE must not swallow the following PREDICATE line.
         axis=tally.parse_panel(
             '## MATCHUP 1\nWINNER: A\n### Distance\n'
@@ -356,8 +366,41 @@ A REPETITION ONSET: A20
         draw={'algorithm':'python-random-v1','seed':seed,'ab_seed':ab_seed,
               'input_order':order,'games':games}
         self.assertEqual([],tally.reseed_errors(draw))
+        draw['seed']=True; draw['ab_seed']=False
+        self.assertIn('reseed-seed',tally.reseed_errors(draw))
+        self.assertIn('ab-seed',tally.reseed_errors(draw))
+        draw['seed']=seed; draw['ab_seed']=ab_seed
         draw['games'][0]['A'],draw['games'][1]['A']=draw['games'][1]['A'],draw['games'][0]['A']
         self.assertIn('reseed-replay',tally.reseed_errors(draw))
+
+    def test_elite_8_requires_committed_return_test_artifacts(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*args):
+                subprocess.run(['git',*args],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            os.makedirs(os.path.join(repo,'docs','tournament','artifacts'))
+            artifacts={}
+            for key in ('a_solo','b_solo','contact'):
+                rel=f'docs/tournament/artifacts/g1-{key}.md'
+                with open(os.path.join(repo,rel),'w') as fh: fh.write(key+'\n')
+                artifacts[key]=rel
+            git('add','.'); git('commit','-m','freeze return test')
+            seed=17
+            direction='A→B' if tally.random.Random(seed).getrandbits(1) else 'B→A'
+            game={'g':1,'return_test':{'algorithm':'python-random-v1',
+                                      'contact_seed':seed,'direction':direction,
+                                      'artifacts':artifacts}}
+            self.assertEqual([],tally.e8_return_errors([game],repo))
+            game['return_test']['direction']='B→A' if direction == 'A→B' else 'A→B'
+            self.assertIn('game-1-contact-direction',tally.e8_return_errors([game],repo))
+            game['return_test']['direction']=direction
+            game['return_test']['contact_seed']=True
+            self.assertIn('game-1-contact-seed',tally.e8_return_errors([game],repo))
+            game['return_test']['contact_seed']=seed
+            with open(os.path.join(repo,artifacts['contact']),'a') as fh: fh.write('dirty\n')
+            self.assertIn('game-1-contact-artifact',tally.e8_return_errors([game],repo))
 
 
 if __name__ == '__main__':
