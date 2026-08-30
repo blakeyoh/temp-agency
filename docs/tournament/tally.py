@@ -84,7 +84,7 @@ def parse_panel(text):
              'output_opened':output_opened}
         w=re.search(r'^WINNER:\s*(A|B)', body, re.M)
         rec['winner']=w.group(1) if w else None
-        d=re.search(r'^DECIDED BY:\s*(.+)$', body, re.M)
+        d=re.search(r'^DECIDED BY:[ \t]*(\S[^\n]*)', body, re.M)
         rec['decided']=d.group(1).strip() if d else ''
         pass1=re.search(r'^###\s+PASS 1.*OUTPUT-ONLY YIELD\s*$(.*?)(?=^###|^##|\Z)',
                         body, re.M|re.S)
@@ -106,7 +106,7 @@ def parse_panel(text):
             sec=re.search(rf'^###\s+{re.escape(ax)}\s*$(.*?)(?=^###|\Z)', body, re.M|re.S)
             if not sec: continue
             b=sec.group(1)
-            v=re.search(r'^VERDICT:\s*(.+)$', b, re.M)
+            v=re.search(r'^VERDICT:[ \t]*(\S[^\n]*)', b, re.M)
             ref=re.search(r'^REFERENCE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
             pr=re.search(r'^PREDICATE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
             if not v: continue
@@ -265,8 +265,8 @@ def reseed_errors(draw):
     errors=[]
     if draw.get('algorithm') != 'python-random-v1': errors.append('reseed-algorithm')
     seed=draw.get('seed'); ab_seed=draw.get('ab_seed'); order=draw.get('input_order')
-    if not isinstance(seed,int): errors.append('reseed-seed')
-    if not isinstance(ab_seed,int) or ab_seed == seed: errors.append('ab-seed')
+    if type(seed) is not int: errors.append('reseed-seed')
+    if type(ab_seed) is not int or ab_seed == seed: errors.append('ab-seed')
     if order != list(S16_SURVIVOR_ORDER):
         errors.append('reseed-input-order')
     if errors: return errors
@@ -280,6 +280,43 @@ def reseed_errors(draw):
     actual=[(game.get('A'),game.get('B')) for game in draw.get('games',[])
             if isinstance(game,dict)]
     if actual != expected: errors.append('reseed-replay')
+    return errors
+
+def e8_return_errors(games,repo_root=REPO_ROOT):
+    """Require each Elite 8 game to freeze all three Return Test artifacts."""
+    errors=[]; used_artifacts=[]
+    for game in games:
+        if not isinstance(game,dict):
+            continue
+        game_id=game.get('g','?')
+        receipt=game.get('return_test')
+        if not isinstance(receipt,dict):
+            errors.append(f'game-{game_id}-return-test')
+            continue
+        seed=receipt.get('contact_seed')
+        direction=receipt.get('direction')
+        if receipt.get('algorithm') != 'python-random-v1':
+            errors.append(f'game-{game_id}-contact-algorithm')
+        if type(seed) is not int:
+            errors.append(f'game-{game_id}-contact-seed')
+        elif direction != ('A→B' if random.Random(seed).getrandbits(1) else 'B→A'):
+            errors.append(f'game-{game_id}-contact-direction')
+        artifacts=receipt.get('artifacts')
+        if not isinstance(artifacts,dict):
+            errors.append(f'game-{game_id}-return-artifacts')
+            continue
+        for key in ('a_solo','b_solo','contact'):
+            relpath=artifacts.get(key)
+            if not isinstance(relpath,str) or not relpath.strip():
+                errors.append(f'game-{game_id}-{key}-artifact')
+                continue
+            path=os.path.abspath(os.path.join(repo_root,relpath))
+            if os.path.commonpath((repo_root,path)) != os.path.abspath(repo_root) \
+                    or not os.path.isfile(path) or not committed_version(path,repo_root):
+                errors.append(f'game-{game_id}-{key}-artifact')
+            used_artifacts.append(relpath)
+    if len(used_artifacts) != len(set(used_artifacts)):
+        errors.append('duplicate-return-artifact')
     return errors
 
 def committed_version(path,repo_root=REPO_ROOT):
@@ -532,6 +569,7 @@ if __name__=="__main__":
     prior_field=advancement_field(round_id)
     invalid_draw=draw_errors(games,round_id,prior_field)
     if round_id == 's16': invalid_draw.extend(reseed_errors(draw))
+    if round_id == 'e8': invalid_draw.extend(e8_return_errors(games))
     if invalid_draw: parser.error("invalid draw map: " + ", ".join(invalid_draw))
     gmap={g['g']:g for g in games}
     raw_panel_specs=draw.get('panels') or [
