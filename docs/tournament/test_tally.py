@@ -19,6 +19,7 @@ def live_record(side='B'):
             'strongest_b':'B19','return_b':'causal B','repeat_b':'NONE',
             'reason':'late-window comparison','sealed':'2026-08-27T12:00:00Z',
         },
+        'mechanism_opened':'2026-08-27T12:01:00Z',
         'axes':{a:{'side':side,'pts':1,'ref':'fixed anchor','pred':'falsifiable output'}
                 for a in tally.AXES},
         'absorb':{'mech':'loser mechanism','same':'FAIL — distinct thesis',
@@ -34,7 +35,8 @@ def live_record(side='B'):
 
 class TallyTests(unittest.TestCase):
     def test_parser_captures_yield_and_enactment_evidence(self):
-        text='''## MATCHUP 1
+        text='''- **Mechanism packet opened (UTC):** 2026-08-27T12:01:00Z
+## MATCHUP 1
 WINNER: B
 DECIDED BY: mechanism evidence
 
@@ -59,6 +61,7 @@ EVIDENCE: traces/a.md and traces/b.md
         self.assertIsNone(rec['yield'])
         self.assertEqual('A17 moat',rec['yield_evidence']['strongest_a'])
         self.assertEqual('2026-08-27T12:00:00Z',rec['yield_evidence']['sealed'])
+        self.assertEqual('2026-08-27T12:01:00Z',rec['mechanism_opened'])
         self.assertEqual('traces/a.md and traces/b.md',rec['enactment_evidence'])
 
     def test_parser_rejects_duplicate_matchups_within_one_file(self):
@@ -83,6 +86,8 @@ WINNER: B
         self.assertIn('yield-evidence:sealed',tally.validate_live_record(rec))
         rec=live_record(); rec['enactment_evidence']=' '
         self.assertIn('enactment-evidence',tally.validate_live_record(rec))
+        rec=live_record(); rec['axes']['Distance']['ref']=tally.AXIS_REFERENCE_PLACEHOLDER
+        self.assertIn('axis-placeholders:Distance',tally.validate_live_record(rec))
 
     def test_refused_is_not_a_disposition(self):
         rec=live_record(); rec['absorb']['disp']='REFUSED'
@@ -113,6 +118,12 @@ WINNER: B
         self.assertIn('yield-seal',tally.validate_live_record(rec))
         rec['yield_evidence']['sealed']='2026-08-27T12:00:00Z'
         self.assertNotIn('yield-seal',tally.validate_live_record(rec))
+
+    def test_pass_1_must_precede_mechanism_disclosure(self):
+        rec=live_record(); rec['mechanism_opened']='2026-08-27T11:59:59Z'
+        self.assertIn('pass1-chronology',tally.validate_live_record(rec))
+        rec['mechanism_opened']='2026-08-27T12:00:01Z'
+        self.assertNotIn('pass1-chronology',tally.validate_live_record(rec))
 
     def test_pass_1_template_boilerplate_is_rejected(self):
         for field,placeholder in tally.YIELD_PLACEHOLDERS.items():
@@ -153,6 +164,13 @@ WINNER: B
         wrong={**builder,'lens':'farmer'}
         self.assertEqual(['lens'],tally.anchor_errors('s16',[wrong,*fresh]))
 
+    def test_fresh_panels_require_distinct_specialist_pairs(self):
+        fresh=[{'fresh':True,'lead':'farmer','lens':'physicist'},
+               {'fresh':True,'lead':'physicist','lens':'farmer'}]
+        self.assertEqual(['duplicate-fresh-pair'],tally.fresh_pair_errors(fresh))
+        fresh[1]['lens']='skeptic'
+        self.assertEqual([],tally.fresh_pair_errors(fresh))
+
     def test_draw_rejects_reused_games_and_entrants(self):
         games=[{'g':1,'A':'E1','B':'E2','region':'One'},
                {'g':1,'A':'E2','B':'E3','region':'Two'}]
@@ -162,12 +180,15 @@ WINNER: B
         self.assertIn('missing-games',tally.draw_errors([]))
 
     def test_sweet_16_draw_requires_all_eight_numbered_games(self):
-        games=[{'g':n,'A':f'E{n*2-1}','B':f'E{n*2}','region':'Test'}
+        entrants=sorted(tally.S16_SURVIVORS)
+        games=[{'g':n,'A':entrants[(n-1)*2],'B':entrants[(n-1)*2+1],'region':'Test'}
                for n in range(1,9)]
         self.assertEqual([],tally.draw_errors(games,'s16'))
         errors=tally.draw_errors(games[:-1],'s16')
         self.assertIn('s16-game-count',errors)
         self.assertIn('s16-game-ids',errors)
+        games[0]['A']='TYPO'
+        self.assertIn('s16-survivor-field',tally.draw_errors(games,'s16'))
 
 
 if __name__ == '__main__':
