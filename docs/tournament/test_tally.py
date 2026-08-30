@@ -447,16 +447,22 @@ A REPETITION ONSET: A20
             with self.assertRaises(ValueError):
                 tally.parse_verdict(bad)
 
-    def test_malformed_axis_verdict_blocks_parsing(self):
-        with self.assertRaisesRegex(ValueError,'unparseable verdict'):
-            tally.parse_panel('## MATCHUP 1\nWINNER: A\n### Distance\n'
-                'VERDICT: B is not significantly better\nREFERENCE: r\nPREDICATE: p\n')
+    def test_malformed_axis_verdict_is_flagged_not_crashed(self):
+        # A non-canonical verdict is captured as invalid (no score) instead of
+        # aborting the whole parse, and is rejected by a targeted validation error.
+        rec=tally.parse_panel('## MATCHUP 1\nWINNER: A\n### Distance\n'
+            'VERDICT: B is not significantly better\nREFERENCE: r\nPREDICATE: p\n')[1]
+        self.assertIsNone(rec['axes']['Distance']['pts'])
+        live=live_record(); live['axes']['Distance']['pts']=None
+        self.assertIn('axis-verdict:Distance',tally.validate_live_record(live))
 
     def test_absorption_allows_markdown_but_rejects_placeholders(self):
         self.assertEqual('PASS',tally.absorption_test(
             'PASS — supported by [G1 trace](artifacts/g1.md)'))
         self.assertIsNone(tally.absorption_test('PASS — [reason]'))
         self.assertIsNone(tally.absorption_test('FAIL — rationale'))
+        # A placeholder embedded in prose must not clear the test either.
+        self.assertIsNone(tally.absorption_test('PASS — resolved via [TODO fill in]'))
         self.assertEqual('FAIL',tally.absorption_test('FAIL — merely smaller'))
 
     def test_draw_rejects_boolean_game_id(self):

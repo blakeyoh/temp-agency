@@ -114,7 +114,13 @@ def parse_panel(text):
             ref=re.search(r'^REFERENCE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
             pr=re.search(r'^PREDICATE:[ \t]*(\S[^\n]*(?:\n(?!\w+:)[^\n]*)*)', b, re.M)
             if not v: continue
-            side,pts=parse_verdict(v.group(1))
+            try:
+                side,pts=parse_verdict(v.group(1))
+            except ValueError:
+                # A non-canonical verdict is recorded as invalid (pts=None) and
+                # flagged per-axis in validation, rather than aborting the whole
+                # tally at parse time; it still scores nothing and blocks the round.
+                side,pts=None,None
             rec['axes'][ax]={'side':side,'pts':pts,
                              'ref':' '.join(ref.group(1).split()) if ref else '',
                              'pred':' '.join(pr.group(1).split()) if pr else ''}
@@ -359,10 +365,12 @@ def absorption_test(value):
     if not match:
         return None
     explanation=match.group(2).strip()
-    # Reject only unresolved placeholder text — a bare word or a lone [...] token —
-    # not every explanation that happens to contain a Markdown link or bracketed cite.
+    # Reject unresolved placeholder text: a bare word, or any bracketed [...] token
+    # that is not a Markdown link ([label](url)). This still allows links and
+    # ordinary prose, but a leftover placeholder such as [reason] or [TODO fill in],
+    # anywhere in the explanation, does not clear the test.
     if explanation.lower() in {'reason','explanation','rationale'} \
-            or re.fullmatch(r'\[[^\]]*\]', explanation):
+            or re.search(r'\[[^\]]*\](?!\()', explanation):
         return None
     return match.group(1)
 
@@ -435,6 +443,8 @@ def validate_live_record(rec):
         invalid=[ax for ax in AXES if not axes[ax].get('ref','').strip()
                  or not axes[ax].get('pred','').strip()]
         if invalid: missing.append('axis-evidence:' + '|'.join(invalid))
+        bad_verdict=[ax for ax in AXES if axes[ax].get('pts') is None]
+        if bad_verdict: missing.append('axis-verdict:'+'|'.join(bad_verdict))
         placeholders=[ax for ax in AXES
                       if axes[ax].get('ref','').strip() == AXIS_REFERENCE_PLACEHOLDER
                       or axes[ax].get('pred','').strip() == AXIS_PREDICATE_PLACEHOLDERS[ax]]
