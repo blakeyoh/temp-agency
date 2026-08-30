@@ -114,6 +114,13 @@ WINNER: B
         rec['yield_evidence']['sealed']='2026-08-27T12:00:00Z'
         self.assertNotIn('yield-seal',tally.validate_live_record(rec))
 
+    def test_pass_1_template_boilerplate_is_rejected(self):
+        for field,placeholder in tally.YIELD_PLACEHOLDERS.items():
+            with self.subTest(field=field):
+                rec=live_record(); rec['yield_evidence'][field]=placeholder
+                errors=tally.validate_live_record(rec)
+                self.assertTrue(any(e.startswith('yield-placeholders:') for e in errors))
+
     def test_enactment_limit_alone_is_not_contested(self):
         names=['Builder','Fresh One','Fresh Two']
         panels={p:{1:copy.deepcopy(live_record())} for p in names}
@@ -153,6 +160,14 @@ WINNER: B
         self.assertIn('duplicate-game-id',errors)
         self.assertIn('duplicate-entrant',errors)
         self.assertIn('missing-games',tally.draw_errors([]))
+
+    def test_sweet_16_draw_requires_all_eight_numbered_games(self):
+        games=[{'g':n,'A':f'E{n*2-1}','B':f'E{n*2}','region':'Test'}
+               for n in range(1,9)]
+        self.assertEqual([],tally.draw_errors(games,'s16'))
+        errors=tally.draw_errors(games[:-1],'s16')
+        self.assertIn('s16-game-count',errors)
+        self.assertIn('s16-game-ids',errors)
 
 
 if __name__ == '__main__':
