@@ -19,6 +19,7 @@ def live_record(side='B'):
             'strongest_b':'B19','return_b':'causal B','repeat_b':'NONE',
             'reason':'late-window comparison','sealed':'2026-08-27T12:00:00Z',
         },
+        'output_opened':'2026-08-27T11:59:00Z',
         'mechanism_opened':'2026-08-27T12:01:00Z',
         'axes':{a:{'side':side,'pts':1,'ref':'fixed anchor','pred':'falsifiable output'}
                 for a in tally.AXES},
@@ -35,7 +36,8 @@ def live_record(side='B'):
 
 class TallyTests(unittest.TestCase):
     def test_parser_captures_yield_and_enactment_evidence(self):
-        text='''- **Mechanism packet opened (UTC):** 2026-08-27T12:01:00Z
+        text='''- **Output packet opened (UTC):** 2026-08-27T11:59:00Z
+- **Mechanism packet opened (UTC):** 2026-08-27T12:01:00Z
 ## MATCHUP 1
 WINNER: B
 DECIDED BY: mechanism evidence
@@ -62,6 +64,7 @@ EVIDENCE: traces/a.md and traces/b.md
         self.assertEqual('A17 moat',rec['yield_evidence']['strongest_a'])
         self.assertEqual('2026-08-27T12:00:00Z',rec['yield_evidence']['sealed'])
         self.assertEqual('2026-08-27T12:01:00Z',rec['mechanism_opened'])
+        self.assertEqual('2026-08-27T11:59:00Z',rec['output_opened'])
         self.assertEqual('traces/a.md and traces/b.md',rec['enactment_evidence'])
 
     def test_parser_rejects_duplicate_matchups_within_one_file(self):
@@ -108,6 +111,8 @@ WINNER: B
         self.assertIn('absorption-inconsistent',tally.validate_live_record(rec))
         rec['absorb']['disp']='ABSORBED'
         self.assertNotIn('absorption-inconsistent',tally.validate_live_record(rec))
+        rec['absorb']['disp']='SUBSUMED'
+        self.assertIn('absorption-inconsistent',tally.validate_live_record(rec))
 
     def test_absorption_rejects_unresolved_or_unexplained_tests(self):
         rec=live_record(); rec['absorb']['same']='PASS / FAIL — reason'
@@ -130,6 +135,19 @@ WINNER: B
         self.assertIn('pass1-chronology',tally.validate_live_record(rec))
         rec['mechanism_opened']='2026-08-27T12:00:01Z'
         self.assertNotIn('pass1-chronology',tally.validate_live_record(rec))
+        rec['output_opened']='2026-08-27T12:00:01Z'
+        self.assertIn('pass1-chronology',tally.validate_live_record(rec))
+
+    def test_blank_pass_1_field_does_not_consume_the_next_label(self):
+        text='''## MATCHUP 1
+### PASS 1 — OUTPUT-ONLY YIELD
+STRONGEST A:
+A RETURN PATH: causal A
+A REPETITION ONSET: A20
+'''
+        evidence=tally.parse_panel(text)[1]['yield_evidence']
+        self.assertNotIn('strongest_a',evidence)
+        self.assertEqual('causal A',evidence['return_a'])
 
     def test_pass_1_template_boilerplate_is_rejected(self):
         for field,placeholder in tally.YIELD_PLACEHOLDERS.items():
@@ -173,9 +191,11 @@ WINNER: B
     def test_fresh_panels_require_distinct_specialist_pairs(self):
         fresh=[{'fresh':True,'lead':'farmer','lens':'physicist'},
                {'fresh':True,'lead':'physicist','lens':'farmer'}]
-        self.assertEqual(['duplicate-fresh-pair'],tally.fresh_pair_errors(fresh))
+        self.assertEqual(['duplicate-panel-pair'],tally.fresh_pair_errors(fresh))
         fresh[1]['lens']='skeptic'
         self.assertEqual([],tally.fresh_pair_errors(fresh))
+        anchor={'fresh':False,'lead':'physicist','lens':'farmer'}
+        self.assertEqual(['duplicate-panel-pair'],tally.fresh_pair_errors([anchor,*fresh]))
 
     def test_verdict_declaration_is_bound_to_panel_and_draw(self):
         spec={'name':'Fresh One','lead':'farmer','lens':'physicist'}
@@ -249,6 +269,27 @@ WINNER: B
         self.assertIsNone(tally.advancement_field('s16'))
         # With no committed post-ruling ledger, the field is empty and blocks any E8 draw.
         self.assertEqual(set(),tally.advancement_field('e8'))
+
+    def test_elite_8_ledger_requires_commissioner_attestation(self):
+        import json, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            tournament=os.path.join(repo,'docs','tournament')
+            os.makedirs(tournament)
+            def git(*args):
+                subprocess.run(['git',*args],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            path=os.path.join(tournament,'s16-advancers.json')
+            def commit_ledger(payload,message):
+                with open(path,'w') as fh: json.dump(payload,fh)
+                git('add','docs/tournament/s16-advancers.json'); git('commit','-m',message)
+            codes=list(tally.S16_SURVIVOR_ORDER[:8])
+            commit_ledger({'advancers':codes},'draft')
+            self.assertEqual(set(),tally.advancement_field('e8',repo))
+            commit_ledger({'round':'s16','ratified_by':'panel','advancers':codes},'panel')
+            self.assertEqual(set(),tally.advancement_field('e8',repo))
+            commit_ledger({'round':'s16','ratified_by':'commissioner','advancers':codes},'ratify')
+            self.assertEqual(set(codes),tally.advancement_field('e8',repo))
 
     def test_draw_rejects_reused_games_and_entrants(self):
         games=[{'g':1,'A':'E1','B':'E2','region':'One'},
