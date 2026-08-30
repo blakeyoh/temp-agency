@@ -45,6 +45,13 @@ COLLISION_PLACEHOLDERS={
     'not_b':'Difference in mechanism, actor, failure mode or timescale.',
     'why':'What it might make newly reachable.',
 }
+# Leading sentence of the template's DECIDED BY instruction; an unedited overall
+# ballot repeats it verbatim and must not decide the Pass 2 winner.
+DECIDED_PLACEHOLDER='One sentence naming the decisive mechanism evidence.'
+# The fixed Pass 1 isolation affirmation carried verbatim in every live verdict's
+# panel declaration; a blank or reworded attestation is not a receipt.
+ISOLATION_ATTESTATION=("I did not inspect another panel's verdict, prior-round verdicts, "
+                       "mechanism identities during Pass 1, or the current tally.")
 
 # points: significantly=3, slightly=1, tie=0
 def parse_verdict(s):
@@ -188,7 +195,7 @@ def fresh_pair_errors(specs):
     return ['duplicate-fresh-pair'] if len(pairs) != len(set(pairs)) else []
 
 def panel_declaration_errors(text,spec,draw):
-    """Bind a verdict artifact to its draw-map panel and frozen draw."""
+    """Bind a verdict artifact to its draw-map panel, frozen draw, and two-pass receipts."""
     labels={
         'name':'Panel name','lead':'Lead specialist','lens':'Lens specialist',
         'draw':'Draw seed and draw-map commit',
@@ -200,22 +207,49 @@ def panel_declaration_errors(text,spec,draw):
     expected={'name':spec.get('name',''),'lead':spec.get('lead',''),
               'lens':spec.get('lens',''),
               'draw':f"{draw.get('seed','')} / {draw.get('_commit','')}"}
-    return [key for key in labels if not declared[key] or declared[key] != expected[key]]
+    errors=[key for key in labels if not declared[key] or declared[key] != expected[key]]
+    # Provenance receipts: the isolation attestation and the two-pass packet order
+    # must establish that Pass 1 saw only outputs before mechanism disclosure.
+    def line(label):
+        m=re.search(rf'^- \*\*{re.escape(label)}:\*\*\s*(.+?)\s*$',text,re.M)
+        return m.group(1).strip() if m else ''
+    output_opened=line('Output packet opened (UTC)')
+    mechanism_opened=line('Mechanism packet opened (UTC)')
+    att=re.search(r'^- \*\*Isolation attestation:\*\*\s*(.+?)(?=^- \*\*|^---|^#|\Z)',
+                  text,re.M|re.S)
+    attestation=' '.join(att.group(1).split()) if att else ''
+    if attestation != ISOLATION_ATTESTATION:
+        errors.append('isolation-attestation')
+    if not utc_seal(output_opened):
+        errors.append('output-packet-open')
+    if not utc_seal(mechanism_opened):
+        errors.append('mechanism-packet-open')
+    if utc_seal(output_opened) and utc_seal(mechanism_opened) \
+            and not utc_not_after(output_opened,mechanism_opened):
+        errors.append('packet-chronology')
+    return errors
 
 def advancement_field(round_id,repo_root=REPO_ROOT):
-    """Load the prior round's frozen winners for a downstream draw."""
+    """Load the prior round's ratified advancers for a downstream draw.
+
+    Elite 8 membership comes from a frozen, committed post-ruling advancement
+    ledger, never from the raw Sweet 16 tally: the commissioner may overrule a
+    tally winner, so the ratified advancer and the record's `winner` can differ.
+    """
     if round_id != 'e8':
         return None
-    path=os.path.join(repo_root,'docs','tournament','s16-results.json')
+    path=os.path.join(repo_root,'docs','tournament','s16-advancers.json')
     if not committed_version(path,repo_root):
         return set()
     try:
-        results=json.load(open(path))
+        ledger=json.load(open(path))
     except (OSError,json.JSONDecodeError):
         return set()
-    winners=[rec.get('winner') for rec in results.values() if isinstance(rec,dict)]
-    field=set(winners)
-    return field if len(winners)==8 and len(field)==8 and field <= S16_SURVIVORS else set()
+    advancers=ledger.get('advancers') if isinstance(ledger,dict) else None
+    if not isinstance(advancers,list) or not all(isinstance(code,str) for code in advancers):
+        return set()
+    field=set(advancers)
+    return field if len(advancers)==8 and len(field)==8 and field <= S16_SURVIVORS else set()
 
 def reseed_errors(draw):
     """Replay the prescribed S16 shuffle and independent A/B assignment."""
@@ -240,12 +274,24 @@ def reseed_errors(draw):
     return errors
 
 def committed_version(path,repo_root=REPO_ROOT):
-    """Return the commit that froze a file, or empty for an uncommitted artifact."""
+    """Return the commit that froze a file, or empty when it is uncommitted or dirty.
+
+    A file counts as frozen only when its working-tree and index contents still
+    match the committed blob. An operator edit to a committed artifact (a changed
+    seed, pairing, panel, or advancer) must not be accepted under the artifact's
+    old commit SHA while verdicts keep declaring that SHA.
+    """
+    abspath=os.path.abspath(path)
     try:
         value=subprocess.check_output(
-            ['git','log','-1','--format=%H','--',os.path.abspath(path)],
+            ['git','log','-1','--format=%H','--',abspath],
             cwd=repo_root,text=True,stderr=subprocess.DEVNULL).strip()
-        return value if re.fullmatch(r'[0-9a-f]{40}',value) else ''
+        if not re.fullmatch(r'[0-9a-f]{40}',value):
+            return ''
+        status=subprocess.check_output(
+            ['git','status','--porcelain','--',abspath],
+            cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
+        return value if not status.strip() else ''
     except (OSError,subprocess.CalledProcessError):
         return ''
 
@@ -271,14 +317,18 @@ def utc_seal(value):
     except ValueError:
         return False
 
-def pass1_precedes_mechanism(sealed,opened):
-    """Require both UTC receipts and a seal no later than mechanism disclosure."""
+def utc_not_after(earlier,later):
+    """True only when both are UTC receipts and earlier is no later than later."""
     try:
-        seal=datetime.datetime.strptime(str(sealed).strip(),'%Y-%m-%dT%H:%M:%SZ')
-        mechanism=datetime.datetime.strptime(str(opened).strip(),'%Y-%m-%dT%H:%M:%SZ')
-        return seal <= mechanism
+        first=datetime.datetime.strptime(str(earlier).strip(),'%Y-%m-%dT%H:%M:%SZ')
+        second=datetime.datetime.strptime(str(later).strip(),'%Y-%m-%dT%H:%M:%SZ')
+        return first <= second
     except ValueError:
         return False
+
+def pass1_precedes_mechanism(sealed,opened):
+    """Require both UTC receipts and a seal no later than mechanism disclosure."""
+    return utc_not_after(sealed,opened)
 
 def draw_errors(games, round_id=None, expected_field=None):
     """Reject draw maps that would silently overwrite games or reuse entrants."""
@@ -316,6 +366,8 @@ def validate_live_record(rec):
     missing=[]
     if rec.get('winner') not in ('A','B'): missing.append('winner')
     if not rec.get('decided'): missing.append('decided-by')
+    elif rec.get('decided','').strip().startswith(DECIDED_PLACEHOLDER):
+        missing.append('decided-placeholder')
     axes=rec.get('axes',{})
     if set(axes) != set(AXES):
         missing.append('five-axes')

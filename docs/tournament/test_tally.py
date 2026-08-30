@@ -180,13 +180,75 @@ WINNER: B
     def test_verdict_declaration_is_bound_to_panel_and_draw(self):
         spec={'name':'Fresh One','lead':'farmer','lens':'physicist'}
         draw={'seed':17,'_commit':'a'*40}
-        text='''- **Panel name:** Fresh One
-- **Lead specialist:** farmer
-- **Lens specialist:** physicist
-- **Draw seed and draw-map commit:** 17 / aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-'''
+        text=('- **Panel name:** Fresh One\n'
+              '- **Lead specialist:** farmer\n'
+              '- **Lens specialist:** physicist\n'
+              '- **Draw seed and draw-map commit:** 17 / '+('a'*40)+'\n'
+              '- **Output packet opened (UTC):** 2026-09-01T10:00:00Z\n'
+              '- **Mechanism packet opened (UTC):** 2026-09-01T10:30:00Z\n'
+              '- **Isolation attestation:** '+tally.ISOLATION_ATTESTATION+'\n\n---\n')
         self.assertEqual([],tally.panel_declaration_errors(text,spec,draw))
-        self.assertEqual(['name'],tally.panel_declaration_errors(text.replace('Fresh One','Fresh Two'),spec,draw))
+        self.assertEqual(['name'],
+            tally.panel_declaration_errors(text.replace('Fresh One','Fresh Two',1),spec,draw))
+
+    def test_verdict_declaration_requires_provenance_receipts(self):
+        spec={'name':'Fresh One','lead':'farmer','lens':'physicist'}
+        draw={'seed':17,'_commit':'a'*40}
+        text=('- **Panel name:** Fresh One\n'
+              '- **Lead specialist:** farmer\n'
+              '- **Lens specialist:** physicist\n'
+              '- **Draw seed and draw-map commit:** 17 / '+('a'*40)+'\n'
+              '- **Output packet opened (UTC):** 2026-09-01T10:00:00Z\n'
+              '- **Mechanism packet opened (UTC):** 2026-09-01T10:30:00Z\n'
+              '- **Isolation attestation:** '+tally.ISOLATION_ATTESTATION+'\n\n---\n')
+        # A blank isolation attestation is not a receipt.
+        blank=text.replace('- **Isolation attestation:** '+tally.ISOLATION_ATTESTATION,
+                           '- **Isolation attestation:**')
+        self.assertIn('isolation-attestation',
+                      tally.panel_declaration_errors(blank,spec,draw))
+        # A missing output-packet-open timestamp is rejected.
+        no_output=text.replace('2026-09-01T10:00:00Z','')
+        self.assertIn('output-packet-open',
+                      tally.panel_declaration_errors(no_output,spec,draw))
+        # The output packet must open no later than mechanism disclosure.
+        reversed_order=text.replace('2026-09-01T10:00:00Z','2026-09-01T11:00:00Z')
+        self.assertIn('packet-chronology',
+                      tally.panel_declaration_errors(reversed_order,spec,draw))
+
+    def test_decided_by_placeholder_is_rejected(self):
+        rec=live_record()
+        rec['decided']=('One sentence naming the decisive mechanism evidence. '
+                        'This is the Pass 2 overall')
+        self.assertIn('decided-placeholder',tally.validate_live_record(rec))
+        rec['decided']=''
+        self.assertIn('decided-by',tally.validate_live_record(rec))
+        self.assertNotIn('decided-placeholder',tally.validate_live_record(live_record()))
+
+    def test_committed_version_rejects_dirty_and_uncommitted_artifacts(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*a):
+                subprocess.run(['git',*a],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            path=os.path.join(repo,'artifact.json')
+            with open(path,'w') as fh: fh.write('{"frozen": true}\n')
+            # Untracked -> not frozen.
+            self.assertEqual('',tally.committed_version(path,repo))
+            git('add','artifact.json'); git('commit','-m','freeze')
+            self.assertRegex(tally.committed_version(path,repo),r'^[0-9a-f]{40}$')
+            # An operator edit after freezing is no longer frozen.
+            with open(path,'w') as fh: fh.write('{"frozen": false}\n')
+            self.assertEqual('',tally.committed_version(path,repo))
+            # Staged-but-uncommitted is still dirty.
+            git('add','artifact.json')
+            self.assertEqual('',tally.committed_version(path,repo))
+
+    def test_elite_8_field_derives_from_committed_ledger(self):
+        # A non-downstream round has no advancement field.
+        self.assertIsNone(tally.advancement_field('s16'))
+        # With no committed post-ruling ledger, the field is empty and blocks any E8 draw.
+        self.assertEqual(set(),tally.advancement_field('e8'))
 
     def test_draw_rejects_reused_games_and_entrants(self):
         games=[{'g':1,'A':'E1','B':'E2','region':'One'},

@@ -3,6 +3,12 @@
 > One file per isolated panel. Complete Pass 1 before opening the mechanism packet. After
 > Pass 1 is sealed, complete Pass 2, absorption, the Sacrifice Receipt and Collision Residue.
 > The five axis headings and `VERDICT` syntax are parser contracts for `tally.py`.
+>
+> The panel declaration is a set of receipts the tally binds to the draw. Keep the
+> **Isolation attestation** exactly as written, fill **Output packet opened (UTC)** and
+> **Mechanism packet opened (UTC)** with explicit `YYYY-MM-DDTHH:MM:SSZ` timestamps, and open
+> the output packet no later than the mechanism packet. Replace the `DECIDED BY` instruction
+> with concrete decisive-mechanism evidence; the instruction sentence itself is rejected.
 
 For every axis, replace the bracket with exactly one of: `A significantly better`,
 `A slightly better`, `Tie`, `B slightly better`, or `B significantly better`.

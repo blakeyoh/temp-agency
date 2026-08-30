@@ -207,6 +207,22 @@ predicate/reference, invalid absorption receipt, ambiguous panel filename, or ro
 claim that does not match the filesystem. It includes the audited signals in the result.
 R32 remains backward-compatible through its legacy three-panel default.
 
+Each live verdict opens with a panel declaration whose receipts the tally binds to the
+draw. Beyond panel name, lead, lens and the `<seed> / <commit>` identity, the tally requires
+the **Isolation attestation** to carry the fixed Pass 1 affirmation verbatim, the **Output
+packet opened (UTC)** and **Mechanism packet opened (UTC)** receipts to be explicit
+second-resolution UTC timestamps, and the output packet to open no later than mechanism
+disclosure — a mechanism-informed ballot cannot enter the output-only pass. `DECIDED BY`
+must name concrete decisive-mechanism evidence; the template's instruction sentence is
+rejected as an unedited overall ballot.
+
+**Frozen artifacts are verified against their committed blob.** A draw map, results file or
+advancement ledger counts as frozen only when its working-tree and index contents still
+match the commit that last touched it. An operator edit to a committed `s16-draw-map.json`
+(a changed seed, pairing or panel) makes the tally treat it as uncommitted and refuse the
+round, rather than tallying the modified draw under the old commit SHA that verdicts still
+declare.
+
 ```json
 {
   "require_live_evidence": true,
@@ -257,6 +273,23 @@ amplify, dampen, exploit or ignore one another. Useful pairings are recorded in
 Elite 8 judging retains the two-pass structure. The Ecologist becomes the calibration anchor
 because cross-context durability and compounding are now observable. Two new high-contrast
 panels are drawn under the same issue #21 guardrail.
+
+**The Elite 8 field is the ratified advancement ledger, not the raw Sweet 16 tally.** Because
+the commissioner may overrule a Sweet 16 result, the eight advancers are frozen after rulings
+in a committed `s16-advancers.json`, and the tally derives the expected Elite 8 entrant set
+from that ledger. A pre-ruling tally winner that was overruled is absent from the ledger and
+rejected; the ratified entrant is required. The ledger lists exactly eight unique survivor
+codes from the frozen Sweet 16 field:
+
+```json
+{
+  "round": "s16",
+  "ratified_by": "commissioner",
+  "advancers": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6"]
+}
+```
+
+Until this ledger is committed and clean, the tally admits no Elite 8 draw.
 
 The tournament stops again after the Elite 8. The commissioner receives the Final Four,
 the updated parallel architecture, the Collision Residue ledger and every contested game
