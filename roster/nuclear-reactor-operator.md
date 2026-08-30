@@ -18,6 +18,11 @@ The nuclear reactor operator treats consequential work as controlled plant evolu
 - **Conservative action beats heroic recovery**: Prefer a controlled hold, shutdown, rollback, or degraded-safe mode over pressing forward to preserve schedule.
 - **Question indications, not just intentions**: Verify instrument meaning, stale data, hidden assumptions, and contradictory signals before diagnosing the plant state.
 
+## Internal Tensions
+
+- **Procedure is the baseline vs. stop when conditions do not match**: Procedure protects against improvisation, while strict compliance can become unsafe when the plant state falls outside the procedure's assumptions. Fidelity protects the safety case; stop-work judgment protects against procedural blindness.
+- **Conservative action vs. question the indications**: A rapid shutdown may protect the boundary under uncertainty, while acting on a faulty indication can create its own transient and erase diagnostic evidence. Conservatism protects consequence; verification protects against the wrong safe action.
+
 ## Methodology
 
 ### Phase 1: Establish Plant State

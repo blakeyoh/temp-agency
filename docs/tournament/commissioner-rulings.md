@@ -364,6 +364,10 @@ smoothness this whole tournament exists to fight.
 `roster/TEMPLATE.md` naming at least two of the profile's own principles that pull against
 each other, and backfill the 24. This is worth doing whatever wins the bracket.
 
+**Resolved on the tournament branch before the Sweet 16:** the template and all 24 built
+profiles now contain the required section. The historical finding remains here because it
+explains why issue #20 existed and why future verdicts require a Sacrifice Receipt.
+
 ### CHECKED — the Skeptic's charge against the format is not holding up
 
 The charge: *"32 entrants with a refusal-by-default absorption rule means 24 of them
@@ -431,7 +435,7 @@ merging, which belong with this note:
 
 ---
 
-## Open item — a defect in the field, found by the panels
+## Defect in the field, found by the panels
 
 Two panels independently flagged that **`bin/claims` and `bin/who-benefits`** in Persona
 Toolbelts are not tools:
@@ -441,8 +445,86 @@ Toolbelts are not tools:
 
 Four of six named tools are real computations; two are prompts in costume. An authoring
 defect in the entrant as written, not a finding against the idea. **Persona Toolbelts
-advances as written, with the defect on the record.** Whether an entrant may be amended
-mid-tournament remains an open commissioner decision.
+advances as written, with the defect on the record.** Ruling 11 below later authorizes it to
+enter the scrimmage unchanged; one evidence-based amendment may still be ruled after the
+scrimmage under the shared protocol.
+
+---
+
+## Pre-Sweet-16 commissioner directives · 2026-08-27
+
+The commissioner approved the live-evidence direction in `next-round-protocol.md` in
+principle, with four explicit instructions:
+
+1. The three ideas that emerged accidentally from R32 collisions — **disagreement sourced
+   from differing evidence** (G9), **priced defection** (G10), and **forced-versus-chosen
+   claims** (G12) — must be preserved in `collision-residue.md`.
+2. Issue #21 may be deferred if its resource cost threatens the round. The consultant's
+   ruling within that discretion: **defer full pack expansion as a round blocker**. All 24
+   profiles remain judging-eligible; every fresh panel must include at least one specialist
+   with a conforming `positions.md`, and pack status must be recorded in the draw.
+3. The complete Sweet 16 and Elite 8 reasoning must be committed before any scrimmage so a
+   future session inherits the design rather than reconstructing it.
+4. The preparation order is documentation and evidence contracts first, then issue #20,
+   then any other readiness work, and only then the unscored scrimmages.
+
+**Issue #20 implementation:** the tournament branch now adds `## Internal Tensions` to
+`roster/TEMPLATE.md` and all 24 built profiles, with at least two conflicts grounded in each
+profile's own Core Principles. The `roster-add` authoring flow and research prompt require the
+section for future profiles. Future verdicts add a **Sacrifice Receipt** so the tension becomes
+a runtime choice rather than static biography.
+
+**Issue #21 status:** deferred, not dismissed. It remains a direct evidence limitation for
+the Voice Oracle and Oblique Deck. Their Sweet 16 evidence contracts carry `PROMISE` and
+defect flags respectively.
+
+**No competitive action has begun.** No scrimmage has run, the random reseed has not yet been
+drawn, A/B positions have not been assigned, and no Sweet 16 panel has been dispatched.
+
+The approved protocol artifacts are:
+
+- `next-round-protocol.md`
+- `evidence-contracts-s16.md`
+- `collision-residue.md`
+- `parallel-track.md`
+- `pre-s16-readiness.md`
+- `scrimmage-template.md`
+- `verdict-template-s16.md`
+
+---
+
+## Pre-scrimmage commissioner rulings · 2026-08-27
+
+### Ruling 11 — CARRY ALL FIVE FLAGS INTO THE SCRIMMAGES
+
+**Ruling:** Persona Toolbelts, Make the Problem Strange First, the Blind Auditor, the
+Adjudicated Ledger and the Oblique Deck may enter their unscored scrimmages with their known
+defect or evidence flags intact. A pre-scrimmage repair is not required.
+
+**Commissioner reason:** the scrimmage is the appropriate place to expose what each defect
+does in execution. Requiring speculative repairs before observation would spend the
+diagnostic opportunity the scrimmage was created to provide.
+
+This ruling authorizes diagnosis, not quiet repair. Each contract retains its current flag,
+every manual substitution remains visible, and the standing limit of one commissioner-ruled
+amendment per entrant still applies after the scrimmage. A `PROMISE` entrant remains a
+`PROMISE` unless observed evidence supports a recorded amendment.
+
+### Ruling 12 — RANDOM RESEED
+
+**Consultant recommendation:** eight diagnostic pairings designed to resolve preselected
+mechanism questions, recorded in `next-round-protocol.md`.
+
+**OVERRIDE — Commissioner ruling:** use a random Sweet 16 reseed instead.
+
+**Commissioner reason:** the commissioner prefers a random reseed for this round.
+
+The draw has not occurred. After the scrimmages and any amendments are frozen, shuffle the
+sixteen survivor codes from the ledger with an externally generated seed, pair adjacent
+codes, and record the seed, algorithm, input order and resulting eight games in
+`s16-draw-map.json`. Use a separate recorded seed to assign A/B positions. The rejected
+diagnostic draw remains in the protocol as a visible consultant recommendation; none of its
+pairings has bracket authority.
 
 ---
 
@@ -492,4 +574,5 @@ carries a shared-gap table and a list of collisions worth deciding on before the
    priors too.
 
 Five of the sixteen survivors carry a known defect into the next round. That is worth
-knowing before seeding.
+knowing before seeding. Ruling 11 authorizes all five to enter the unscored scrimmages with
+their flags intact.

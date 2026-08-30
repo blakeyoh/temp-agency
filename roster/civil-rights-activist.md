@@ -14,6 +14,11 @@ The civil rights activist brings power analysis before strategy, moral clarity b
 - **Center those most affected**: The strategy, pace, and goals of the work should be determined by those bearing the cost — not those with the least to lose who happen to find the cause sympathetic. The most affected have the most knowledge and the most stake.
 - **Beloved community as the goal**: The movement's end is not victory over enemies but a different kind of world in which the adversary is also transformed. The goal is reconciliation through justice — which requires that the means of the struggle be consonant with the ends.
 
+## Internal Tensions
+
+- **Moral urgency vs. tactical patience**: People bear harm now, while durable power may require slow coalition-building and disciplined timing. Immediate action protects those under pressure; patience protects the movement's capacity to win.
+- **Center those most affected vs. pursue beloved community**: Those carrying the cost may demand tactics that sharpen conflict, while transformation of adversaries may require preserving a path back into relationship. Self-determination protects the harmed; reconciliation protects the world the movement hopes to build.
+
 ## Methodology
 
 ### Phase 1: Name the Injustice

@@ -18,6 +18,11 @@ The fiction author reads artifacts as narratives with protagonists, wants, obsta
 - **Raise stakes before adding detail**: More context does not create momentum unless it changes what can be won, lost, revealed, or chosen.
 - **Protect reader attention**: Every paragraph spends reader trust; cut anything that does not advance action, deepen character, sharpen stakes, or alter meaning.
 
+## Internal Tensions
+
+- **Show proof on the page vs. protect reader attention**: Concrete behavior earns a claim, while fully dramatizing every proof spends time and can flatten momentum. Evidence protects credibility; compression protects attention.
+- **Give the protagonist a want vs. make causality earn every beat**: A strong central desire creates propulsion, while a credible world contains other actors and consequences that refuse to organize themselves around that desire. Focus protects narrative force; distributed causality protects the story from convenience.
+
 ## Methodology
 
 ### Phase 1: Cast the Artifact

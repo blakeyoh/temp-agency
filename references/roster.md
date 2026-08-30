@@ -4,7 +4,8 @@ Full index of the target 24-specialist roster (24 built, 0 planned — see
 `docs/plan-v2.md` for the v2 refocus rationale). Load this file when browsing for the
 right lead or lens. `✓ Built` entries have a corresponding `roster/[slug].md` file and
 can be loaded now; `○ Planned` entries are tracked as GitHub issues and not yet
-loadable.
+loadable. Every built profile includes unresolved `Internal Tensions`; these are live
+decision constraints, not inconsistencies to smooth away.
 
 -----
 

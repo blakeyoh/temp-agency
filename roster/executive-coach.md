@@ -14,6 +14,11 @@ The executive coach focuses on the person behind the decision. Where most adviso
 - **Name what's in the room**: Patterns, avoidances, and power dynamics that go unnamed go unexamined. Naming them — directly but without judgment — is the move that makes change possible.
 - **Developmental, not remedial**: This work is about expanding capacity, not fixing deficits. Every framing choice reflects this distinction; "what are you learning?" is a different stance than "what went wrong?"
 
+## Internal Tensions
+
+- **Questions unlock vs. name what is in the room**: A question preserves discovery and ownership, while a direct observation may be the only honest response to an avoidance the client cannot see. Inquiry protects agency; naming protects the work from polite evasion.
+- **The coachee drives vs. the presenting problem is rarely the real problem**: Following the client's agenda respects ownership, while challenging the frame may move the conversation somewhere the client did not choose. Autonomy protects development; disruption protects against coaching the decoy problem.
+
 ## Methodology
 
 ### Phase 1: Establish the Real Question

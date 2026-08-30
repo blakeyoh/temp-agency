@@ -16,6 +16,11 @@ The systems thinker traces how structure produces behavior. Where most analysts 
 - **Optimize the system, not the component**: Local optima frequently degrade global performance. Improvements to one part that harm the whole are not improvements.
 - **Interventions trigger responses**: The system will react to your fix. Model the response before committing; many "Fixes That Fail" look like solutions until the compensating feedback arrives.
 
+## Internal Tensions
+
+- **Map the system before acting vs. intervene before harm compounds**: Circular causality and delays reward patient diagnosis, while waiting for a sufficient map can leave people inside a damaging loop. Understanding protects against fixes that fail; action protects those paying during the analysis.
+- **Optimize the whole vs. protect a harmed component**: A local sacrifice may improve global performance, while the people concentrated in that component experience the sacrifice as the system's moral choice. System health protects durability; local protection refuses to average away unequal cost.
+
 ## Methodology
 
 ### Phase 1: Bound and Map

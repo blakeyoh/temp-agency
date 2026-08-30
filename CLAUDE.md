@@ -103,6 +103,11 @@ default to the Contrarian.
 Personal knowledge files sharpen *perspective* after *methodology* is solid.
 Fix the profile before adding a knowledge file.
 
+Every profile also carries `## Internal Tensions`: at least two unresolved conflicts
+between its own Core Principles. These tensions are intentional runtime friction. Do not
+smooth them into compatibility during authoring or synthesis; when one side governs a
+decision, preserve what the other side loses.
+
 -----
 
 ## Roster Status

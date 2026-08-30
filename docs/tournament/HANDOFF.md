@@ -25,8 +25,10 @@ reaching idea #3**, and this repo currently stops around #12.
 ## Current state
 
 **Round of 32 · COMPLETE — 16 of 16 games judged and ruled.** All four brackets have been
-judged by three blind panels and ruled by the commissioner: 10 rulings, 4 absorptions kept,
-6 ideas on the wildcard bench. The **Sweet 16 bracket has not been drawn.**
+judged by three blind panels and ruled by the commissioner: 12 rulings, 4 absorptions kept,
+6 ideas on the wildcard bench. The tournament is now in **pre-Sweet-16 preparation**. No
+scrimmage has run, a random reseed has been ordered but not drawn, A/B positions have not
+been assigned and no Sweet 16 panel has been dispatched.
 
 *(This section previously read "12 of 16 games judged" and listed two outstanding Moat
 rulings. Both were ruled — G11 ratified 2–1, G12 overruled with the entrant amended — and
@@ -36,12 +38,17 @@ The Sweet 16 field and the wildcard bench are in `commissioner-rulings.md`. That
 source of truth for every decision. Do not re-derive results from the verdicts — read the
 ledger.
 
-**Before seeding, read two things.** `commissioner-rulings.md` → "Open items carried into
-the Sweet 16": five of the sixteen survivors carry a known defect. And `field-of-32.md` →
-"Going into the Sweet 16": each entrant now carries a Status / Enhancements / Gaps trailer,
-and the file's front matter holds a result board, a shared-gap table (which survivors are
-waiting on the same missing surface), and a list of collisions the draw should be made
-deliberately about rather than discover.
+**Before any scrimmage, read five more things after the governing four:**
+
+1. `next-round-protocol.md` — approved preparation order and the Sweet 16/Elite 8 design.
+2. `evidence-contracts-s16.md` — the evidence each survivor owes before competition.
+3. `collision-residue.md` — the three R32 discoveries and the future entry standard.
+4. `parallel-track.md` — the ORTHOGONAL architecture promised by the rules.
+5. `pre-s16-readiness.md` — the blocking commissioner docket and execution freeze.
+
+Five survivors carry a defect or missing evidence condition. Ruling 11 authorizes all five
+to enter the unscored scrimmages with the flag visible; the scrimmages may supply evidence
+for one later amendment per entrant.
 
 ---
 
@@ -85,11 +92,30 @@ The paths below preserve the R32 evidence only.
    The owner explicitly wants to rig matches; that is a feature of this process, not an
    interruption of it.
 
-## Sweet 16 setup
+## Sweet 16 setup — amended after the Round of 32
 
-Create round-specific artifacts before dispatching any panel: `s16-draw-map.json`,
-`packets/s16-<bracket>.md`, and `verdicts/s16-<bracket>-<panel>.md`. Preserve the R32 files
-as read-only evidence. Once all three panels have returned their verdicts, run:
+The Round-of-32 packet flow is historical evidence, not the full Sweet 16 procedure. Follow
+`next-round-protocol.md`. Preparation precedes every scrimmage: documentation, collision and
+parallel ledgers, sixteen evidence contracts, explicit defect rulings, issue #20, then a
+frozen roster/knowledge commit. The defect rulings are complete: all five flags carry into
+the scrimmages.
+
+Issue #20 is implemented on this branch: `roster/TEMPLATE.md` and all 24 profiles now name at
+least two unresolved internal tensions, and the authoring flow requires them for future
+profiles. Issue #21 is deferred as a blocker under the guardrail in `next-round-protocol.md`;
+all 24 profiles remain judge-eligible, but every fresh panel must include at least one
+specialist with a conforming `positions.md`.
+
+Each entrant then runs one **unscored scrimmage**. The commissioner rules on any amendment and
+freezes the contracts before the official brief is revealed. The Sweet 16 uses a Tail Test
+and two sealed judging passes: output-only yield first, existing five-axis mechanism scoring
+second. A mismatch is CONTESTED.
+
+Create round-specific artifacts without touching R32 evidence: `s16-draw-map.json`,
+`packets/s16-<bracket>.md`, and `verdicts/s16-<bracket>-<file_tag>.md`. The draw map must contain
+the three panel records described in `next-round-protocol.md`; `tally.py` uses their names and
+file tags, so the two fresh panels do not masquerade as the retired Skeptic and Ecologist.
+Once all three panels have returned their verdicts, run:
 
 ```bash
 cd docs/tournament && python3 tally.py --round s16
@@ -151,9 +177,10 @@ Two findings that a future session should not lose:
 this whole exercise — lost 19–7 in round one, unanimously, to judges blind to what they
 were judging. The Ecologist predicted the exact failure mode this session then hit:
 *"judge attention does not scale into year three."* The session paused for usage limits
-after two brackets. The Skeptic's charge is sharper and remains **unresolved**: with
-refusal-by-default absorption, 24 of 32 entrants may contribute nothing. The counter is
-that the ORTHOGONAL list is itself a deliverable. Do not paper over this.
+after two brackets. The Skeptic predicted that 24 of 32 entrants might contribute nothing.
+The completed record falsified that quantity: **5 of 32 contributed nothing recorded**.
+The cost and attention objection remains valid. `parallel-track.md` now instantiates the
+ORTHOGONAL deliverable instead of leaving it as a counter-argument in prose.
 
 **2. The v1 run was badly mis-scored, and the v2 method caught it.** The first pass
 (archived, see below) was judged by me alone with absolute 1–10 scores and mandatory
@@ -172,29 +199,32 @@ ties, routs, and reversals. The second is more useful and less flattering.
 
 ## Defects on the record
 
-Four now. Three are authoring defects in entrants — recorded because a future session will
-otherwise re-inherit them silently — and one is about the repo itself.
+The Round of 32 found three entrant authoring defects and one repo-wide defect. The repo-wide
+defect has been repaired before the Sweet 16; the historical finding remains part of the
+evidence.
 
 - **Persona Toolbelts** names two things that are not tools (`bin/claims`,
   `bin/who-benefits`). A model judgment dressed as an executable launders a judgment into
   apparent measurement, which is worse than stating it plainly. Four of six are real.
-- **Stochastic Persona Fracture** cites a fault line that does not exist: the Skeptic
+- **Stochastic Persona Fracture** cited a fault line that did not exist during R32: the Skeptic
   checked `roster/franciscan-monk.md` and found no such tension named. The panel escalated
   this to a finding about the **repo** — every roster file resolves its principles into
-  mutual non-conflict, which real practitioners do not do. Worth acting on independently
-  of the tournament.
+  mutual non-conflict, which real practitioners do not do. **Resolved before S16:** the
+  template and all 24 profiles now carry unresolved internal tensions. The R32 result remains
+  unchanged.
 - **Make the Problem Strange First** overstates its mechanism: verbs and adjectives carry
   priors too, so stripping nouns does not strip the prior. Advanced 30–2 anyway.
 - **The Blind Auditor** carries an unresolved objection the amendment does not fix: its
   gate cannot tell "median because unimaginative" from "median because correct," so it
-  systematically punishes right answers for being reachable. Resolve before it advances.
+  systematically punishes right answers for being reachable. Ruling 11 carries the objection
+  into the scrimmage for observation.
 
 ## Two older defects
 
 - **`bin/claims` and `bin/who-benefits`** in Persona Toolbelts are not tools — *"a prompt
   wearing an executable's name."* Found independently by two panels. Persona Toolbelts
-  advanced with the defect noted. Whether entrants may be amended mid-tournament is an
-  **open commissioner decision**.
+  advanced with the defect noted. Ruling 11 carries it into the scrimmage unchanged; one
+  evidence-based amendment may be ruled afterward.
 - **v1's absorptions were mostly unjustified.** Applied retroactively, roughly a third
   survive the three tests. The v1 box score is kept as a record of the first method, not
   as a result to build on.
@@ -208,6 +238,13 @@ otherwise re-inherit them silently — and one is about the repo itself.
 | `HANDOFF.md` | This file. Read first. |
 | `commissioner-rulings.md` | **Source of truth for every decision.** Overrides, tiebreaks, absorptions, the bench. |
 | `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board, shared-gap table and collision list for seeding the Sweet 16. Annotated *from* `commissioner-rulings.md`; the ledger still wins any disagreement. |
+| `next-round-protocol.md` | Approved preparation order plus Sweet 16 Tail Test, panel rotation, Sacrifice Receipt and Elite 8 Return Test. |
+| `evidence-contracts-s16.md` | Pre-scrimmage evidence owed by all sixteen survivors; includes RUNNABLE / MANUAL PROTOTYPE / PROMISE state. |
+| `collision-residue.md` | Independent third mechanisms produced by collisions; seeded with G9, G10 and G12 discoveries. |
+| `parallel-track.md` | Durable ORTHOGONAL relationships and future Elite 8 coalitions. |
+| `pre-s16-readiness.md` | Preflight gate: completed preparation, six commissioner decisions and the execution freeze. |
+| `scrimmage-template.md` | Per-entrant unscored enactment record, including substitutions and amendment docket. |
+| `verdict-template-s16.md` | Parser-compatible two-pass panel record with Sacrifice Receipt and Collision Residue. |
 | `rules-v2.md` | Absorption standard, scoring anchors, panel design, commissioner powers, cross-pollinated draw. |
 | `reference-sets.md` | The ruler — five axes, fixed reference points, required predicates. |
 | `rules.md` | v1 rules. Superseded; kept for the record. |
@@ -216,6 +253,7 @@ otherwise re-inherit them silently — and one is about the repo itself.
 | `r32-draw-map.json` | The draw, A/B assignment, and the seed (99) that produced the flips. |
 | `r32-results.json` | Machine-readable tally output. |
 | `tally.py` | Verdict parser and aggregator. |
+| `test_tally.py` | Regression coverage for live evidence, draw integrity, panel configuration and R32 compatibility. |
 | `box-score.html` | Rendered box score, published as an Artifact. Favicon 🛸 — keep it stable across redeploys. |
 | `build_box_score.py` | Regenerates the box score's DATA blob from `r32-results.json`. |
 
@@ -241,3 +279,9 @@ they will pause. Design each round to be a clean stopping point.
 and blind to each other. Isolation is why the convergences mean anything — when Builder
 and Ecologist independently produced near-identical merged sentences for the Binding Map
 without seeing each other, that was evidence, not agreement.
+
+**Do not begin with a scrimmage in a cold session.** First verify that documentation and
+contracts are committed, issue #20 is present in all 24 profiles, Ruling 11's carried flags
+are present in the five contracts, and the roster/knowledge commit is frozen. The next action
+after this preparation pass is a readiness review, then the unscored scrimmages. Ruling 12
+requires the random bracket draw to wait until any scrimmage amendments are frozen.

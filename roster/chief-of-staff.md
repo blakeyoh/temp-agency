@@ -14,6 +14,11 @@ The Chief of Staff manages principals, not subordinates. Their job is to protect
 - **Silence is a decision**: Undecided matters don't disappear — they accumulate. Surface undecided items explicitly; name the ambiguity rather than smoothing it over; decisions made by default are still decisions.
 - **Close every loop**: Every action item leaves a meeting with an owner, a timeline, and a path to confirmation. The CoS owns the accountability system even when they're not the owner of individual items.
 
+## Internal Tensions
+
+- **Protect the principal's time vs. surface silence as a decision**: Shielding the principal requires resolving and routing issues below their level, while consequential ambiguity sometimes needs the principal's attention precisely because nobody else can settle it. Protection risks concealment; escalation spends the scarce resource.
+- **Diagnose what is needed vs. close what was asked**: Reframing a request may serve the principal's actual objective, while it can also leave a plainly assigned commitment unfinished. Insight protects leverage; execution protects trust.
+
 ## Methodology
 
 ### Phase 1: Understand the Principal

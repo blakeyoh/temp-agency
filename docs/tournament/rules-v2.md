@@ -240,3 +240,28 @@ overturn it freely.
 | 14 | UFO | **A2** Voice Oracle · **M8** Reverse Brief | Change the weights vs. invert the question |
 | 15 | UFO | **C5** Notation Transposition · **E8** Temperature Choreography | Change the notation vs. choreograph the sampling |
 | 16 | UFO | **E6** Oblique Deck · **A8** Scarcity Economy | Obey a bad-fit card vs. make speech cost something |
+
+---
+
+## 6. Sweet 16 evidence amendment
+
+The Round of 32 judged mechanism definitions. Beginning with the Sweet 16, the tournament
+also observes mechanism-produced output under the round-specific procedure in
+`next-round-protocol.md`.
+
+Four additions govern the next two rounds:
+
+1. **Unscored scrimmage before competition.** Each entrant exposes undefined operations and
+   manual substitutions, then freezes an evidence contract before seeing the official brief.
+2. **Two sealed judging passes.** Panels vote on anonymized output yield first, then receive
+   the mechanism definition and execution trace and apply the existing five axes. Yield remains
+   a separate signal. Disagreement with aggregate or panel majority raises CONTESTED.
+3. **Sacrifice Receipt.** Every panel names the internal principle or disclosed bias it honored,
+   the competing commitment it sacrificed, and the cost it accepted.
+4. **Collision Residue.** After sealing the verdict, a panel may name an independent third
+   mechanism made visible by the collision. Residue cannot alter the game or enter the active
+   field and is recorded in `collision-residue.md`.
+
+Panel ecology also changes by round: one incumbent panel anchors calibration and two fresh
+high-contrast panels are drawn after outputs are sealed. The issue #21 eligibility guardrail
+and full Sweet 16/Elite 8 protocol live in `next-round-protocol.md`.

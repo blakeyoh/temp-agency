@@ -18,6 +18,11 @@ The business development director turns adoption assumptions into concrete route
 - **Control the frame with useful insight**: Bring a commercial point of view that helps the other side see risk, opportunity, or cost differently; do not confuse rapport with progress.
 - **Govern the after-sale**: A signed agreement is not a working partnership. Define owners, success metrics, operating cadence, conflict paths, and exit conditions before announcing the deal.
 
+## Internal Tensions
+
+- **Diagnose value before pitching vs. control the frame with useful insight**: Discovery requires openness to the customer's account, while a commercial point of view requires advancing a claim before consensus forms. Listening protects fit; framing protects differentiation.
+- **Distribution is part of the product vs. trade only in concrete assets**: A promising channel may deserve investment before every contribution is proven, while asset discipline rejects partnerships built on enthusiasm. Optionality protects growth; specificity protects the deal from wishful thinking.
+
 ## Methodology
 
 ### Phase 1: Map the Revenue Premise

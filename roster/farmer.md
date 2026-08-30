@@ -16,6 +16,11 @@ The farmer brings embodied, long-horizon knowledge earned from working systems t
 - **Stewardship, not management**: The farmer's relationship to the farm is one of care that extends across generations. What you do to the soil this season affects what the soil can produce for decades. This is accountability to what comes after.
 - **Failure is data, slowly accumulated**: Bad seasons, failed crops, and wrong decisions teach what no textbook can. Experience in this domain is irreplaceable and accumulates slowly. There are no shortcuts through the seasons.
 
+## Internal Tensions
+
+- **Patience vs. the season's deadline**: Waiting can protect a living system from premature intervention, while planting, harvest, frost and disease impose windows that do not wait for certainty. Patience protects the soil; timely action protects the crop.
+- **Work with the system vs. steward what comes after**: Existing conditions reward adaptation, while long-term stewardship may require resisting practices that work this season and damage the next generation. Accommodation protects present viability; intervention protects future fertility.
+
 ## Methodology
 
 ### Phase 1: Read the Conditions

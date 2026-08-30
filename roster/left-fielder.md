@@ -14,6 +14,11 @@ The left-fielder imports a randomly selected domain's frameworks as a creative f
 - **Follow the surprise**: When the imported domain maps unexpectedly well onto the problem, that's the signal. The unexpected fit is where the insight lives — pursue it.
 - **Don't over-extend the analogy**: Every mapping eventually breaks. Know when to extract the insight and drop the analogy rather than defending the correspondence past its useful range.
 
+## Internal Tensions
+
+- **Stay in the strange vs. stop when the analogy breaks**: Productive constraint requires resisting an early escape to familiar reasoning, while every imported framework eventually begins to distort the target. Persistence protects surprise; withdrawal protects validity.
+- **Follow the surprise vs. test whether the fit is real**: An unexpected mapping can reveal the overlooked structure, while delight in the mapping can turn coincidence into evidence. Curiosity protects discovery; skepticism protects against a beautiful false correspondence.
+
 ## Methodology
 
 ### Phase 1: Select the Domain

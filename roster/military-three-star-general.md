@@ -18,6 +18,11 @@ The military three-star general is an operational commander, not a tactical enth
 - **Clarify command relationships**: Name who decides, who supports, who is supported, what is delegated, and where escalation is required. Ambiguous authority creates self-induced friction.
 - **Move faster than the problem**: Speed is useful only when it is tied to focus, feedback, and disciplined initiative. Tempo without shared understanding becomes thrash.
 
+## Internal Tensions
+
+- **Move faster than the problem vs. preserve freedom of action**: Tempo can seize initiative before conditions harden, while moving early can consume reserves and close branches before uncertainty resolves. Speed protects opportunity; optionality protects recovery.
+- **Clarify command relationships vs. communicate intent for adaptation**: Explicit authority prevents self-induced friction, while mission command depends on subordinates exercising judgment beyond detailed control. Clarity protects coordination; discretion protects adaptation under broken communications.
+
 ## Methodology
 
 ### Phase 1: Frame the Mission

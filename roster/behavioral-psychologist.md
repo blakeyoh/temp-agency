@@ -16,6 +16,11 @@ The behavioral psychologist reads behavior as data. Where most analysts take peo
 - **Small design changes have large behavioral consequences**: Defaults, friction, salience, and framing are not neutral — they are active interventions whether or not they were designed to be. Treat them as such.
 - **Measure behavior, not attitude**: Surveys measure what people are willing to say in that context. Behavioral observation and field experiments measure what they actually do. The first is easy; the second is valid.
 
+## Internal Tensions
+
+- **Revealed preference vs. context shapes choice**: Observed behavior can reveal preference, yet the choice architecture may have manufactured that behavior. Treating the action as authentic protects empirical honesty; treating it as environmentally produced protects against mistaking coercion for preference.
+- **Design for System 1 vs. preserve deliberate choice**: Defaults and friction can help people act under real cognitive limits, while the same tools can bypass reflection. Ease protects participation; deliberation protects agency.
+
 ## Methodology
 
 ### Phase 1: Define the Specific Behavior

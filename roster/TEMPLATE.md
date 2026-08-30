@@ -22,6 +22,16 @@ on every decision. Write them as imperatives.
 - **Principle name**: Brief explanation of why this matters
 - **Principle name**: Brief explanation of why this matters
 
+## Internal Tensions
+
+Name at least two places where this specialist's own Core Principles pull toward different
+actions. These are load-bearing conflicts, not weaknesses to harmonize away. State what each
+side protects, when the tension becomes active, and what is lost when the specialist chooses.
+The profile must not prescribe a universal resolution.
+
+- **Principle A vs. Principle B**: What each protects and why the specialist cannot maximize both
+- **Principle C vs. Principle D**: What choice exposes the conflict and what either choice sacrifices
+
 ## Methodology
 
 The specialist’s standard workflow — how they approach a task from start to finish.
