@@ -213,6 +213,34 @@ unset").** When the five-axis aggregate and the panel's majority call disagree o
 neither automatically governs. The matchup is flagged CONTESTED and escalates to the
 commissioner, who rules case by case (see §3 Voting).
 
+**Amendment 3 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 13).** A mechanism
+whose contract requires generation from a transformed, masked, or withheld view is enacted
+only when the generating pass runs in a separate context that receives the transformed
+artifact and nothing else; a same-context run records that operation as NOT RUN.
+
+**Amendment 4 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 14).** An official
+E1 run must include one counterfactual replay: re-draw at least one opener's indices under a
+second stamped seed and show materially different prose for that opener. If the changed draw
+leaves the prose materially unchanged, the run records decorative randomness as a contract
+failure.
+
+**Amendment 5 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 15).** Where an
+entrant's contract claims a foreign frame — a foraged artifact, a wrong-expert derivation, or
+similar — shapes the output, the enforcer must run a per-item deletion test: if removing the
+foreign frame leaves an item's substance unchanged, the item is rejected and regenerated
+under the frame. A pass requires at least three surviving frame-dependent items.
+
+**Amendment 6 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 16).** Before an A6
+generation, a per-run degradation card must record the exact phase permutation, the one
+overused signature technique, and the false load-bearing principle, each with one required
+output consequence; the card travels with both outputs.
+
+**Amendment 7 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 19).** An official
+E6 run must count the real `knowledge/*/positions.md` files at dispatch, and the seeded draw
+must select both the source packs and the card from that full counted corpus; the operator
+may not pre-select which packs feed distillation, and a missing requested pack fails the draw
+closed.
+
 ---
 
 ## 5. Cross-pollinated regions

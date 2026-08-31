@@ -184,7 +184,14 @@ random-*sounding* option. A real PRNG has no favorite number.
 **Status** · **ADVANCED → Sweet 16** — Dog G6, 18–13, panels 2–1, no ruling required. All
 absorptions refused (Skeptic SUBSUMED, two ORTHOGONAL).
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 14 / Amendment 4]. E1's
+scrimmage showed the PRNG genuinely drew a seed, but nothing confirmed the prose actually
+tracked the drawn indices — the mapping from seed to output was unchecked
+(`s16-e1.md:175,182`). **Amended definition:** an official run must include one counterfactual
+replay — re-draw at least one index under a second stamped seed and confirm the prose for that
+item changes materially. A replay that leaves the prose unchanged records the run as decorative
+randomness, a contract failure rather than a pass. Load-bearing beyond E1 itself: E6's card draw
+and A6's mutation seed both assume a seed actually moves the output.
 
 **Gaps** · *Build:* `bin/draw`, a real PRNG that emits a seed and derives every stochastic
 choice from it; a seed-stamped dispatch header. · *Wire:* `SKILL.md` §Staffing Logic steps
@@ -215,7 +222,13 @@ priors. Genuinely foraged text is outside the prior by construction.
 [Ruling 2]. Panels leaned 2–1 to Foraging. Took Distance +7 and Irreducibility +9 unanimous
 and maximal; lost Compounding +9 unanimous and maximal.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 15 / Amendment 5], shared with
+`E3`. E2's scrimmage fetched a real artifact, but the "load-bearing" check was operator
+self-review with no authority to reject — 7 of 10 items were untouched by the foraged object
+(`s16-e2.md:236,249`). **Amended definition:** the load-bearing check becomes a per-item
+deletion test with real teeth — if removing the foraged artifact leaves an item's substance
+unchanged, that item is rejected and regenerated under the artifact. A pass requires at least
+three surviving artifact-dependent items, replacing operator judgment with a mechanical gate.
 
 **Gaps** · *Build:* a forager with named, reachable sources; a **load-bearing check** with
 the authority to reject a pass when the foraged object does no work past the opening
@@ -244,7 +257,14 @@ deliberate defeat of that reflex, at the position of maximum authority.
 majority 2–1, **commissioner overrule** [Ruling 1]. All three panels returned ORTHOGONAL
 against The Understudy; the merge was refused three times independently.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 15 / Amendment 5], shared with
+`E2`. E3's scrimmage ran the inversion, but the wrong expert's derivation only restructured the
+answer's spine — the ten surface items stayed conventional under control-room labels, a "thin
+costume" the record names against itself (`s16-e3.md:149-151,174`). **Amended definition:** the
+wrong-expert frame is subject to the same per-item deletion test as `E2` — if removing the
+wrong-expert derivation leaves an item's substance unchanged, the item is rejected and
+regenerated under the frame, with at least three items required to survive it. Forces the
+mismatch to actually deform the output rather than relabel it.
 
 **Gaps** · *Build:* a "least relevant" selector over `references/roster.md` — the inverse of
 the contextual match the repo performs today; a rule that stops the demoted domain expert's
@@ -336,7 +356,15 @@ where it doesn't. Literal obedience to a bad-fit instruction is not a default be
 **Status** · **ADVANCED → Sweet 16** — UFO G16, 15–10, panels 2–1, CONTESTED on the split
 [Ruling 10]. All absorptions refused.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 19 / Amendment 7]. E6's
+scrimmage drew genuinely, but only over a deck the operator had hand-built from 2 of 16
+available `positions.md` files — the randomness only ever chose among options already curated
+(`s16-e6.md:33-37,101`). **Amended definition:** an official run counts the real
+`knowledge/*/positions.md` files at dispatch, and the seeded draw selects both the source packs
+and the card from that full counted corpus; the operator may not pre-select which packs feed
+distillation, and a missing requested pack fails the draw closed. Pushes randomness upstream of
+curation, widening the tail the draw can actually reach — complements, but does not resolve, the
+carried corpus defect below (only 16 of 24 packs exist at all).
 
 **Gaps** · *Build:* a distiller turning `knowledge/*/positions.md` into single-line
 imperatives; the deck file itself; a draw step; a check that the card was obeyed **literally**
@@ -630,7 +658,15 @@ Removing the nouns removes the priors — you cannot pattern-match what you cann
 **Status** · **ADVANCED → Sweet 16** — Moat G10, 30–2, unanimous across all three panels. All
 absorptions refused. Landed on the Distance ceiling reference near-verbatim.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 13 / Amendment 3], shared with
+`A1` and `M1`. C8's scrimmage masked nouns by substitution inside a context that still held the
+originals — its own defect test proved the untouched words (`open`, `List`, `distinct`) still
+carried the priors the mask claims to remove (`s16-c8.md:110,121,88-94`). **Amended
+definition:** the noun-masking transform runs in a context that emits only the abstracted
+brief; the persona reasoning against it never shares a context with the raw brief, so no
+untransformed word can leak a prior forward. A same-context run records the mask as NOT RUN.
+This is additive to the carried defect below — blinding the context does not by itself fix the
+verbs-and-adjectives overclaim.
 
 **Gaps** · *Build:* a noun-masking transform with a stable mapping table and a restore step;
 a decision on whether verbs and adjectives are in scope (see the carried defect). · *Wire:* a
@@ -667,7 +703,16 @@ where every claim has been mechanically severed from its support changes what it
 **Status** · **ADVANCED → Sweet 16** — Moat G9, 37–2. **The widest margin of the tournament**;
 four of five axes at +9 unanimous and maximal. All absorptions refused.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 13 / Amendment 3], shared with
+`C8` and `M1`: three independently-run scrimmages, each testing an unrelated mechanism,
+converged on the identical gap without seeing each other's work. A1's scrimmage ran the
+transform deterministically, but the responding pass still sat in the same context as the raw
+artifact — the transform decorated the response instead of governing it (`s16-a1.md:117,127`).
+**Amended definition:** each `transforms/<slug>.py` pass runs in a context that receives only
+its transformed artifact; the persona then reasons and responds from inside that same
+restricted context, never regaining sight of the raw original. A same-context run — transform
+applied, but the responding pass can still see the untransformed artifact — records the
+transform as NOT RUN, not merely weakened.
 
 **Gaps** · *Build:* `transforms/<slug>.py` per persona — the journalist's claim-stripper, the
 farmer's re-sort by how long each line stays true, the monk's superlative delete. · *Wire:*
@@ -817,7 +862,14 @@ rather than eliminated. Dog G8: **revived from the bench by the commissioner** a
 Sweet 16 slot over both G8 entrants [Ruling 6]. The only entrant in the field to reach the
 Sweet 16 by revival.
 
-**Enhancements** · — (advances as written)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 16 / Amendment 6]. A6's
+scrimmage produced all three degradation errors, but only via per-run manual prompting —
+preserving the degradation depended on operator discipline, with no mechanism forcing it to
+survive (`s16-a6.md:129`). **Amended definition:** before generation, a per-run degradation card
+freezes the exact phase permutation, the one overused signature technique, and the false
+load-bearing principle, each with one required output consequence; the card travels with both
+outputs. Blocks silent normalization back to the parent persona's competent answer — the
+required-consequence clause is what makes the degradation stick rather than drift.
 
 **Gaps** · *Build:* a degradation generator — methodology without judgment: phase-order
 scramble, signature-move over-use, misidentification of the load-bearing principle — and 24
@@ -939,6 +991,14 @@ unskilled model would give; any section of the real output that overlaps it is r
 regenerated."* · This ruling set the standing rule for amendments: an entrant may be amended when
 a panel identifies a specific improving edit, the edit serves the entrant's existing thesis, and
 the amendment is recorded with its source.
+
+**Second amendment** [Ruling 13 / Amendment 3], shared with `A1` and `C8`. M1's scrimmage ran
+both the real pass and the blind-auditor pass inside one continuous Codex session, so "never
+seen the real output" was never actually enforced and median independence could not be
+established (`s16-m1.md:159-165,181`). **Amended definition (supersedes the blindness clause
+above):** the auditor's reconstruction runs in a context separate from the one that produced the
+real output, receiving the brief and nothing else; a same-context run — auditor and generator
+sharing one session — records the auditor pass as NOT RUN, not merely unblinded.
 
 **Gaps** · *Build:* a separate agent that receives the brief but not the output; an overlap
 measure with a defensible threshold; a **section-level** reject-and-regenerate loop; and the

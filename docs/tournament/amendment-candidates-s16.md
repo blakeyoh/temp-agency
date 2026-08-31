@@ -32,8 +32,10 @@ stays visible, output regresses to the median (A1's ten generic openers, C8's co
 restored list, M1's un-blind auditor). This is not audit plumbing; it is the difference
 between the mechanism existing and being theater.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** ACCEPT
+- **Commissioner reason:** Accepted as written. Independent convergence across three
+  unrelated scrimmages (A1, C8, M1) is the tournament's own evidentiary standard — the same
+  basis as Ruling 9's unanimous absorption.
 
 ---
 
@@ -53,8 +55,8 @@ randomness primitive — E6's card draw and A6's mutation seed both assume a see
 moves the output. Without this test, the model can write its preferred opener under any
 label and the seed becomes theater.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** ACCEPT
+- **Commissioner reason:** Accepted as written.
 
 ---
 
@@ -73,8 +75,8 @@ exhibits the identical failure with no proposed cure.
 deform the ideas rather than decorate them — the different generative process the north star
 requires, not an audit trail.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** ACCEPT
+- **Commissioner reason:** Accepted as written.
 
 ---
 
@@ -91,8 +93,8 @@ requires, not an audit trail.
 blocks silent normalization back to the parent's competent answer. A6's coherent-wrong pass
 produced the only genuinely different idea-list in its group.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** ACCEPT
+- **Commissioner reason:** Accepted as written.
 
 ---
 
@@ -109,8 +111,10 @@ produced the only genuinely different idea-list in its group.
 regions so each generation must search untried recombinations, compounding across runs
 toward idea #99 rather than rediscovering ideas #1–12.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** REJECT
+- **Commissioner reason:** Rejected. Expensive to log and track for little long-term benefit
+  — a full parent/seed/mutation/cause ledger is standing overhead that doesn't pay for
+  itself.
 
 ---
 
@@ -128,8 +132,14 @@ toward idea #99 rather than rediscovering ideas #1–12.
 this forces the ban to actually operate at least once rather than remain a promise (with an
 empty ledger, every comparison is currently vacuously "extension").
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** REJECT (as an amendment)
+- **Commissioner reason:** Not a standing rule — every other candidate is a check that runs
+  itself automatically on every future run, with no advance authoring. This one requires the
+  commissioner to hand-write two specific test candidates before the fixture exists, which
+  makes it a one-time bootstrap task, not a per-run contract. The underlying problem is real
+  (M3's rejection gate has never fired because its ledger starts empty) and is logged as an
+  action item in `pre-s16-readiness.md`'s Execution freeze instead of promoted to
+  `rules-v2.md`.
 
 ---
 
@@ -148,8 +158,8 @@ count-check proposal.
 spare") but only within a 2-persona space the operator curated in advance — pushing the
 randomness upstream of curation widens the tail the draw can actually reach.
 
-- **Commissioner disposition:** PENDING
-- **Commissioner reason:**
+- **Commissioner disposition:** ACCEPT
+- **Commissioner reason:** Accepted as written.
 
 ---
 

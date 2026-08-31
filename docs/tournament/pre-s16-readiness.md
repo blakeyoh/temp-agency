@@ -54,8 +54,23 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   `docs/tournament/scrimmages/s16-<code>.md` for all 16 (E3, M5, E2, A3, E5, E1, A5, A6,
   A1, C8, E4, M1, M3, A2, C5, E6). 14 propose one amendment candidate each; A2 and M5
   propose none.
-- [ ] Rule on at most one scrimmage-derived amendment per entrant.
-- [ ] Freeze final entrant definitions and official substitutions by commit.
+- [x] Rule on at most one scrimmage-derived amendment per entrant. **Rulings:**
+  `commissioner-rulings.md` "Post-scrimmage amendment rulings" (Rulings 13–19). Five
+  accepted, promoted to `rules-v2.md` §4 as Amendments 3–7 (1: A1/C8/M1, 2: E1, 3: E2/E3,
+  4: A6, 7: E6); two rejected (5: E4, 6: M3).
+- [ ] **M3 ledger bootstrap (action item, not an amendment — Ruling 18):** build the
+  killed/accepted-claims ledger and writer for The Adjudicated Ledger (currently missing —
+  same defect as "Open items carried into the Sweet 16" item 2 in
+  `commissioner-rulings.md`), then run one commissioner-frozen two-dispatch fixture
+  (dispatch one on empty history, dispatch two seeded with dispatch one's accepted claims,
+  presenting one axis-identical and one axis-changing candidate) before M3's Sweet 16 game
+  is scored, so its rejection gate has something to compare against.
+- [x] Freeze final entrant definitions and official substitutions by commit. **Amended
+  definitions:** `field-of-32.md` — A1, C8, M1 (Amendment 3), E1 (Amendment 4), E2, E3
+  (Amendment 5), A6 (Amendment 6), E6 (Amendment 7), each folded into that entrant's own
+  `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. No
+  official substitutions were made — all sixteen Sweet 16 entrants play as originally
+  seeded.
 - [ ] Choose and seal the unseen Tail Test brief.
 - [ ] After scrimmage amendments freeze, use an externally generated seed to shuffle the
   ledger's sixteen survivor codes and pair adjacent codes; record seed, algorithm and input
