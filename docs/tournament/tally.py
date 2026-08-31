@@ -127,7 +127,7 @@ def parse_panel(text):
         a=re.search(r'^###\s+ABSORPTION\s*$(.*?)(?=^###|^##|\Z)', body, re.M|re.S)
         if a:
             ab=a.group(1)
-            for k,lbl in [('mech','LOWER|LOSER.S STRONGEST MECHANISM'),('same','SAME-THESIS'),
+            for k,lbl in [('mech','LOSER.S STRONGEST MECHANISM'),('same','SAME-THESIS'),
                           ('del','DELETION'),('one','ONE-SENTENCE'),('disp','DISPOSITION'),('note','NOTE')]:
                 m=re.search(rf'^(?:{lbl}):[ \t]*(\S[^\n]*(?:\n(?![A-Z][A-Z\- ]+:)[^\n]*)*)', ab, re.M)
                 rec['absorb'][k]=' '.join(m.group(1).split()) if m else ''
@@ -296,6 +296,23 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
     """Require each Elite 8 game to freeze all three Return Test artifacts."""
     errors=[]; used_artifacts=[]
     repo_real=os.path.realpath(repo_root)
+    candidates=[]
+    for game in games:
+        if not isinstance(game,dict):
+            continue
+        receipt=game.get('return_test')
+        if not isinstance(receipt,dict):
+            continue
+        artifacts=receipt.get('artifacts')
+        if not isinstance(artifacts,dict):
+            continue
+        for key in ('a_solo','b_solo','contact'):
+            relpath=artifacts.get(key)
+            if isinstance(relpath,str) and relpath.strip():
+                resolved=os.path.realpath(os.path.join(repo_real,relpath))
+                if os.path.commonpath((repo_real,resolved)) == repo_real:
+                    candidates.append(resolved)
+    dirty=dirty_paths(candidates,repo_real)
     for game in games:
         if not isinstance(game,dict):
             continue
@@ -327,7 +344,7 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
             resolved=os.path.realpath(os.path.join(repo_real,relpath))
             if os.path.commonpath((repo_real,resolved)) != repo_real \
                     or not os.path.isfile(resolved) \
-                    or not committed_version(resolved,repo_real):
+                    or not committed_version(resolved,repo_real,dirty_set=dirty):
                 errors.append(f'game-{game_id}-{key}-artifact')
                 continue
             used_artifacts.append(resolved)
@@ -335,13 +352,44 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
         errors.append('duplicate-return-artifact')
     return errors
 
-def committed_version(path,repo_root=REPO_ROOT):
+def dirty_paths(paths,repo_root=REPO_ROOT):
+    """Batch `git status` across every path at once instead of one call each.
+
+    Returns the subset of `paths` (as realpaths) with uncommitted working-tree
+    or index changes. A `git status` failure fails closed: every candidate path
+    is treated as dirty rather than silently passing as frozen.
+    """
+    paths=list(dict.fromkeys(paths))
+    if not paths:
+        return set()
+    try:
+        out=subprocess.check_output(
+            ['git','status','--porcelain','--',*paths],
+            cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
+    except (OSError,subprocess.CalledProcessError):
+        return set(paths)
+    dirty=set()
+    for line in out.splitlines():
+        if len(line)<4:
+            continue
+        # A rename shows as "XY orig -> new"; mark both sides dirty rather
+        # than parse out which one is the candidate we asked about.
+        for rel in line[3:].split(' -> '):
+            dirty.add(os.path.realpath(os.path.join(repo_root,rel)))
+    return dirty
+
+def committed_version(path,repo_root=REPO_ROOT,dirty_set=None):
     """Return the commit that froze a file, or empty when it is uncommitted or dirty.
 
     A file counts as frozen only when its working-tree and index contents still
     match the committed blob. An operator edit to a committed artifact (a changed
     seed, pairing, panel, or advancer) must not be accepted under the artifact's
     old commit SHA while verdicts keep declaring that SHA.
+
+    `dirty_set`, when given, is a precomputed `dirty_paths()` result checked
+    against the file's realpath instead of issuing a per-call `git status` —
+    lets a caller validating many artifacts at once (e.g. `e8_return_errors`)
+    batch that check into a single subprocess.
     """
     abspath=os.path.abspath(path)
     try:
@@ -350,10 +398,14 @@ def committed_version(path,repo_root=REPO_ROOT):
             cwd=repo_root,text=True,stderr=subprocess.DEVNULL).strip()
         if not re.fullmatch(r'[0-9a-f]{40}',value):
             return ''
-        status=subprocess.check_output(
-            ['git','status','--porcelain','--',abspath],
-            cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
-        return value if not status.strip() else ''
+        if dirty_set is None:
+            status=subprocess.check_output(
+                ['git','status','--porcelain','--',abspath],
+                cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
+            is_dirty=bool(status.strip())
+        else:
+            is_dirty=os.path.realpath(abspath) in dirty_set
+        return '' if is_dirty else value
     except (OSError,subprocess.CalledProcessError):
         return ''
 
@@ -604,8 +656,6 @@ if __name__=="__main__":
         parser.error(f"{round_id} requires live evidence")
     panel_specs=[]
     for spec in raw_panel_specs:
-        if isinstance(spec, str):
-            spec={'name':spec, 'file_tag':spec.lower()}
         if not isinstance(spec,dict):
             parser.error("each draw-map panel must be a record")
         name=spec.get('name','').strip()
