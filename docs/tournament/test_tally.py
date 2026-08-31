@@ -300,6 +300,41 @@ A REPETITION ONSET: A20
             git('add','artifact.json')
             self.assertEqual('',tally.committed_version(path,repo))
 
+    def test_dirty_paths_handles_git_quoted_filenames(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*a):
+                subprocess.run(['git',*a],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            paths=[]
+            for name in ('artifact with spaces.md','artifact-\N{SNOWMAN}.md'):
+                path=os.path.join(repo,name)
+                with open(path,'w') as fh: fh.write('frozen\n')
+                paths.append(path)
+            git('add','.'); git('commit','-m','freeze')
+            for path in paths:
+                with open(path,'a') as fh: fh.write('operator edit\n')
+            dirty=tally.dirty_paths(paths,repo)
+            self.assertEqual(set(map(os.path.realpath,paths)),dirty)
+            for path in paths:
+                self.assertEqual('',tally.committed_version(path,repo,dirty_set=dirty))
+
+    def test_dirty_paths_marks_both_sides_of_a_staged_rename(self):
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*a):
+                subprocess.run(['git',*a],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            old=os.path.join(repo,'old artifact.md')
+            new=os.path.join(repo,'new artifact.md')
+            with open(old,'w') as fh: fh.write('frozen\n')
+            git('add','.'); git('commit','-m','freeze')
+            git('mv','old artifact.md','new artifact.md')
+            dirty=tally.dirty_paths([old,new],repo)
+            self.assertEqual({os.path.realpath(old),os.path.realpath(new)},dirty)
+
     def test_elite_8_field_derives_from_committed_ledger(self):
         # A non-downstream round has no advancement field.
         self.assertIsNone(tally.advancement_field('s16'))
