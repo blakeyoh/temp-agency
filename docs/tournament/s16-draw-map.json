@@ -18,6 +18,36 @@
     { "game": 7, "pair": ["E2", "E5"], "a": "E5", "b": "E2" },
     { "game": 8, "pair": ["M1", "M3"], "a": "M1", "b": "M3" }
   ],
-  "panels": "PENDING — not yet drawn (Execution freeze item 5). tally.py requires exactly three panels records (one Builder-anchor + two fresh) before this file is a valid draw map.",
-  "status": "DRAFT — reseed and A/B assignment complete; not yet frozen by commit. Freezing requires panels above to be filled in first."
+  "panel_seed": 3390074417,
+  "panel_seed_disclosure": "The two fresh leads were drawn via `secrets.randbits(32)` (OS entropy) then `random.Random(3390074417).sample(pool, 2)`, pool = all 24 roster members minus nuclear-reactor-operator and magician-illusionist (already seated on the Builder anchor). Draw order gave civil-rights-activist, behavioral-psychologist. Each lens was then hand-selected for contrast per references/roster.md's High-Contrast Lens Pairings table (not drawn) — lead selection is randomized for fairness, lens selection is curatorial per CLAUDE.md's contrast rule, matching how Builder (nuclear-reactor-operator/magician-illusionist) and R32's Ecologist (systems-thinker/farmer) were themselves deliberately paired rather than randomly matched.",
+  "panels": [
+    {
+      "name": "Builder",
+      "file_tag": "builder",
+      "lead": "nuclear-reactor-operator",
+      "lens": "magician-illusionist",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": false
+    },
+    {
+      "name": "Advocate",
+      "file_tag": "advocate",
+      "lead": "civil-rights-activist",
+      "lens": "systems-thinker",
+      "lead_pack": "incomplete",
+      "lens_pack": "complete",
+      "fresh": true
+    },
+    {
+      "name": "Architect",
+      "file_tag": "architect",
+      "lead": "behavioral-psychologist",
+      "lens": "franciscan-monk",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": true
+    }
+  ],
+  "status": "DRAFT — reseed, A/B assignment and panel draw complete; not yet frozen by commit. Ready for commissioner review before freezing (Execution freeze item 6, packet template, still open)."
 }

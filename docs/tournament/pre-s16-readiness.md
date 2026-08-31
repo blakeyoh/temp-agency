@@ -81,12 +81,24 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   request — directly targets the same "restate under new vocabulary" failure mode the
   tournament already polices at the ledger/comparator level (see Amendment 3), applied here
   to a single entrant's own list instead of across dispatches.
-- [ ] After scrimmage amendments freeze, use an externally generated seed to shuffle the
+- [x] After scrimmage amendments freeze, use an externally generated seed to shuffle the
   ledger's sixteen survivor codes and pair adjacent codes; record seed, algorithm and input
-  order in `s16-draw-map.json`.
-- [ ] Assign A/B positions using a second recorded seed.
-- [ ] Draw Builder-anchor and two fresh high-contrast panels; record pack completeness and
-  redraw any fresh panel containing two incomplete-pack specialists.
+  order in `s16-draw-map.json`. **Seed:** `372500925`, drawn via `secrets.randbits(32)` (OS
+  entropy) and applied deterministically via `random.Random(seed).shuffle(...)` — disclosed
+  and independently reproducible. **Result:** 8 pairs recorded in `s16-draw-map.json`
+  `games`.
+- [x] Assign A/B positions using a second recorded seed. **Seed:** `2597142654`, same
+  disclosed method. **Result:** A/B per game recorded in `s16-draw-map.json` `games`.
+- [x] Draw Builder-anchor and two fresh high-contrast panels; record pack completeness and
+  redraw any fresh panel containing two incomplete-pack specialists. **Builder** (pinned,
+  `tally.py` `ROUND_ANCHORS`): nuclear-reactor-operator / magician-illusionist, both
+  complete-pack. **Advocate** (fresh, lead drawn via seed `3390074417`): civil-rights-activist
+  (incomplete pack) / systems-thinker (complete pack) — valid, one complete member.
+  **Architect** (fresh, lead drawn via the same seed): behavioral-psychologist (complete
+  pack) / franciscan-monk (complete pack) — valid. No redraw needed; neither fresh panel has
+  two incomplete-pack members. Lens for each fresh panel was hand-selected for contrast per
+  `references/roster.md`'s High-Contrast Lens Pairings table, not drawn — only lead selection
+  was randomized. Full disclosure in `s16-draw-map.json`'s `panel_seed_disclosure`.
 - [ ] Generate output-only packets separately from mechanism-and-trace packets.
 
 ## Start authorization
