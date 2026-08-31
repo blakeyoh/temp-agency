@@ -50,7 +50,10 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   (current HEAD of `claude/ai-creativity-randomness-tournament-e609ek`; unchanged since).
 - [x] Record the roster and knowledge-pack commit. **Commit:** `f4288ed` (same — `roster/`
   and `knowledge/` are unmodified as of this HEAD).
-- [ ] Run sixteen unscored scrimmages using `scrimmage-template.md`.
+- [x] Run sixteen unscored scrimmages using `scrimmage-template.md`. **Records:**
+  `docs/tournament/scrimmages/s16-<code>.md` for all 16 (E3, M5, E2, A3, E5, E1, A5, A6,
+  A1, C8, E4, M1, M3, A2, C5, E6). 14 propose one amendment candidate each; A2 and M5
+  propose none.
 - [ ] Rule on at most one scrimmage-derived amendment per entrant.
 - [ ] Freeze final entrant definitions and official substitutions by commit.
 - [ ] Choose and seal the unseen Tail Test brief.
