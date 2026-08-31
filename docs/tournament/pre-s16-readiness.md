@@ -71,7 +71,16 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. No
   official substitutions were made — all sixteen Sweet 16 entrants play as originally
   seeded.
-- [ ] Choose and seal the unseen Tail Test brief.
+- [x] Choose and seal the unseen Tail Test brief. **Brief:** *"Propose 24 distinct rules a
+  neighborhood could adopt to reduce noise complaints between 10pm and 7am, without banning
+  any specific activity outright. Each rule must be substantively different from every rule
+  proposed earlier in the list — no rule may restate an earlier idea in new words."*
+  **SHA-256:** `a98def4e953e1d48c2553a1151922ae6fc689db07209f358d3ca18c1090b790d`. Chosen by
+  the commissioner over two runner-up candidates (a library-foot-traffic brief and a
+  smoke-detector-features brief), with the no-restatement clause added at the commissioner's
+  request — directly targets the same "restate under new vocabulary" failure mode the
+  tournament already polices at the ledger/comparator level (see Amendment 3), applied here
+  to a single entrant's own list instead of across dispatches.
 - [ ] After scrimmage amendments freeze, use an externally generated seed to shuffle the
   ledger's sixteen survivor codes and pair adjacent codes; record seed, algorithm and input
   order in `s16-draw-map.json`.

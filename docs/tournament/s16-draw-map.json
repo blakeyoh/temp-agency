@@ -1,0 +1,23 @@
+{
+  "require_live_evidence": true,
+  "algorithm": "python-random-v1",
+  "seed": 372500925,
+  "ab_seed": 2597142654,
+  "seed_disclosure": "Both seeds drawn via `secrets.randbits(32)` (OS entropy, os.urandom-backed) on 2026-08-31, then consumed deterministically by `random.Random(seed)` for reproducibility. Anyone can verify: `random.Random(372500925).shuffle(codes)` on the input_order below reproduces the shuffled order; `[random.Random(2597142654).choice([True, False]) for _ in range(8)]` reproduces the A/B flips.",
+  "input_order": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6",
+                  "A1", "C8", "E4", "M1", "M3", "A2", "C5", "E6"],
+  "shuffled_order": ["A1", "E4", "E6", "E3", "A2", "C5", "A5", "E1",
+                      "A3", "C8", "A6", "M5", "E2", "E5", "M1", "M3"],
+  "games": [
+    { "game": 1, "pair": ["A1", "E4"], "a": "E4", "b": "A1" },
+    { "game": 2, "pair": ["E6", "E3"], "a": "E6", "b": "E3" },
+    { "game": 3, "pair": ["A2", "C5"], "a": "A2", "b": "C5" },
+    { "game": 4, "pair": ["A5", "E1"], "a": "E1", "b": "A5" },
+    { "game": 5, "pair": ["A3", "C8"], "a": "C8", "b": "A3" },
+    { "game": 6, "pair": ["A6", "M5"], "a": "A6", "b": "M5" },
+    { "game": 7, "pair": ["E2", "E5"], "a": "E5", "b": "E2" },
+    { "game": 8, "pair": ["M1", "M3"], "a": "M1", "b": "M3" }
+  ],
+  "panels": "PENDING — not yet drawn (Execution freeze item 5). tally.py requires exactly three panels records (one Builder-anchor + two fresh) before this file is a valid draw map.",
+  "status": "DRAFT — reseed and A/B assignment complete; not yet frozen by commit. Freezing requires panels above to be filled in first."
+}
