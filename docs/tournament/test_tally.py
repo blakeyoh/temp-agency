@@ -1,5 +1,6 @@
 """Focused regression tests for round-specific tournament tally behavior."""
 import copy
+import json
 import os
 import sys
 import unittest
@@ -407,6 +408,12 @@ A REPETITION ONSET: A20
         draw['seed']=seed; draw['ab_seed']=ab_seed
         draw['games'][0]['A'],draw['games'][1]['A']=draw['games'][1]['A'],draw['games'][0]['A']
         self.assertIn('reseed-replay',tally.reseed_errors(draw))
+
+    def test_committed_sweet_16_draw_is_live_tally_compatible(self):
+        with open(os.path.join(os.path.dirname(__file__),'s16-draw-map.json')) as f:
+            draw=json.load(f)
+        self.assertEqual([], tally.draw_errors(draw['games'], 's16'))
+        self.assertEqual([], tally.reseed_errors(draw))
 
     def test_elite_8_requires_committed_return_test_artifacts(self):
         import subprocess, tempfile

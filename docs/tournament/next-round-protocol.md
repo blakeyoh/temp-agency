@@ -96,18 +96,23 @@ Readiness and freeze state are tracked in `pre-s16-readiness.md`.
 ### Live generation
 
 All sixteen entrants receive the same unseen divergent brief after their contracts are
-frozen. Each produces 24 numbered proposals under a matched base model, context allowance
-and token budget. The generation packet requests all 24 sincerely and does not disclose that
-ideas 17-24 are the primary comparison window.
+frozen. The canonical Sweet 16 brief and its hash live in `tail-test-s16.txt` and
+`pre-s16-readiness.md`; Ruling 20 records its replacement of the earlier sealed brief before
+any official dispatch. Each entrant produces 24 numbered proposals under a matched base model,
+context allowance and **2,000-token output ceiling**. The generation packet requests all 24
+sincerely and does not disclose that ideas 17-24 are the primary comparison window.
 
 The official artifact contains all 24 ideas so panels can check repetition and novelty decay.
 The late window is highlighted only in the judging packet. Each late idea must retain a
 causal return path to the original problem; distance without a return path is noise.
 
-Where an entrant cannot be faithfully enacted, it submits no fabricated demonstration. It
-receives a visible `PROMISE` flag and a falsifiable build experiment. A `PROMISE` game is
-automatically CONTESTED when the available output evidence and the mechanism verdict point
-in different directions.
+Where an entrant cannot be faithfully enacted, it submits no fabricated demonstration. Its
+Pass 1 artifact is a matched baseline response, never credited as output of the unavailable
+mechanism. Its Pass 2 trace supplies a prewritten counterfactual mechanism note, falsifiable
+build experiment and either a bounded disclosed simulation or `NO SIMULATION`. A simulation
+cannot revise the Pass 1 artifact or claim live-yield credit. A `PROMISE` game is automatically
+CONTESTED when the available output evidence and the mechanism verdict point in different
+directions.
 
 ### Two-pass judging
 

@@ -640,3 +640,53 @@ no stated objection.
 Amendments 3–7. Candidates 5 and 6 are not promoted. A1, C8, M1, E1, E2, E3, A6, and E6 have
 each now received their one scrimmage-derived amendment per `pre-s16-readiness.md`'s freeze
 gate; E4 and M3 received none.
+
+---
+
+### Ruling 20 — TAIL TEST AMENDMENT AND PROMISE-EVIDENCE PROCEDURE
+
+**Ruling:** Replace the previously sealed short Tail Test before any official entrant dispatch.
+The canonical replacement is `tail-test-s16.txt`, SHA-256
+`0db8d3ebff02a96c949739a23c3f30f202756fc9b0727a781902e105c4275878`.
+
+**Commissioner reason:** the earlier brief tested late-list distinctness but gave mechanisms
+too little situated material to transform, constrain, withhold, import, or compound. The
+replacement introduces legitimate stakeholder conflict, operational scarcity, privacy and
+retaliation risk, and a burden-allocation obligation. It preserves the original round's core
+test: 24 substantively distinct proposals, with ideas 17–24 as the primary comparison window.
+
+**Superseded brief:** *"Propose 24 distinct rules a neighborhood could adopt to reduce noise
+complaints between 10pm and 7am, without banning any specific activity outright. Each rule
+must be substantively different from every rule proposed earlier in the list — no rule may
+restate an earlier idea in new words."* SHA-256
+`a98def4e953e1d48c2553a1151922ae6fc689db07209f358d3ca18c1090b790d`.
+
+**Output budget:** every official proposal artifact has a 2,000-token maximum. The limit
+applies to the visible 24-rule output only; the frozen brief, entrant materials, operating
+instructions, and private reasoning are outside the ceiling.
+
+**PROMISE procedure:** a still-unenacted mechanism may submit a matched baseline response to
+the anonymous Pass 1 yield comparison. The response is never represented as output of that
+mechanism. Before any panel sees the baseline, its Pass 2 record must contain the unavailable
+component, predicted observable difference from baseline, a falsifiable build experiment, and
+either a bounded disclosed simulation or `NO SIMULATION`. A simulation cannot alter the Pass 1
+artifact or receive live-yield credit. The Voice Oracle records `NO SIMULATION` because a
+separate trained checkpoint has no honest substitute. Any conflict between output yield and
+mechanism evidence remains CONTESTED under the existing protocol.
+
+---
+
+### Ruling 21 — DRAW-MAP SCHEMA AND A/B REPLAY CORRECTION
+
+**Ruling:** normalize `s16-draw-map.json` to the live tally schema (`g`, `A`, `B`, and
+`region`) and replay the recorded A/B seed with the tally's deterministic method:
+`random.Random(2597142654).getrandbits(1)` once per adjacent pair, reversing on `1`.
+
+**Reason:** the original map used historical lower-case fields and described a `choice()`
+method that could not reproduce its own A/B assignments. The live tally would reject it before
+game one. Replaying the recorded seed preserves the random draw: all eight survivor pairs are
+unchanged; Game 1 is `A1 × E4` and Game 8 is `M3 × M1` under the corrected A/B assignment.
+
+**Scope:** correction occurred before any official entrant dispatch, output packet, panel
+assignment, or verdict. It changes no field membership or matchup and introduces no
+commissioner preference into the bracket.

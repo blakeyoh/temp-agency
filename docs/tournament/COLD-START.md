@@ -38,22 +38,20 @@ fleet of UFOs. Reaching idea #99 requires a different generative process than re
 idea #3, and this repo currently stops around #12.
 
 WHERE WE ARE
-ROUND OF 32 IS COMPLETE - all 16 games judged by blind panels and ruled. 12 commissioner
-rulings, 4 absorptions kept, 6 ideas on the wildcard bench. We are preparing the SWEET 16.
-No scrimmage has run. A random reseed has been ordered but will not be drawn until any
-scrimmage amendments are frozen. A/B positions have not been assigned, and no panel has been
-dispatched.
+ROUND OF 32 IS COMPLETE. The Sweet 16's 16 unscored scrimmages, post-scrimmage rulings,
+entrant-definition freeze, M3 ledger bootstrap, random reseed, A/B assignment, and panel draw
+are complete. Rulings 20 and 21 amended the Tail Test/PROMISE procedure and corrected the
+draw-map schema before any official output dispatch. No panel has been dispatched.
 
 Five of the sixteen survivors carry a known defect into the next round - see "Open items
 carried into the Sweet 16" in commissioner-rulings.md. Do not seed the bracket without
 reading that section.
 
 YOUR NEXT ACTION
-Confirm you've read all nine documents. Check the filesystem and git status, then give me
-a short readiness report: which execution-freeze items remain, whether all five carried
-flags are present in the contracts, and whether the roster/knowledge commit is ready to
-freeze. Do not run a scrimmage, draw the random bracket or A/B positions, or dispatch a panel
-until I say so — I watch usage limits and I want to rule between stages.
+Read `official-runs/README.md`, verify the hash of `tail-test-s16.txt`, then create the sixteen
+isolated official source records. Run `python3 build_s16_packets.py --write` only after every
+record contains exactly 24 numbered rules. Commit the source artifacts and packet pairs before
+dispatching a panel. Do not reveal a mechanism-and-trace packet before that panel seals Pass 1.
 
 HOW THE NEXT ROUNDS DIFFER (full detail in next-round-protocol.md)
 Every entrant first receives one unscored scrimmage under its frozen evidence contract.

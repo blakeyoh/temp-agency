@@ -3,20 +3,20 @@
   "algorithm": "python-random-v1",
   "seed": 372500925,
   "ab_seed": 2597142654,
-  "seed_disclosure": "Both seeds drawn via `secrets.randbits(32)` (OS entropy, os.urandom-backed) on 2026-08-31, then consumed deterministically by `random.Random(seed)` for reproducibility. Anyone can verify: `random.Random(372500925).shuffle(codes)` on the input_order below reproduces the shuffled order; `[random.Random(2597142654).choice([True, False]) for _ in range(8)]` reproduces the A/B flips.",
+  "seed_disclosure": "Both seeds drawn via `secrets.randbits(32)` (OS entropy, os.urandom-backed) on 2026-08-31, then consumed deterministically by `random.Random(seed)` for reproducibility. Anyone can verify: `random.Random(372500925).shuffle(codes)` on the input_order below reproduces the shuffled order; consume `random.Random(2597142654).getrandbits(1)` once per adjacent pair and reverse that pair when it returns 1 to reproduce the A/B assignments. The A/B values were corrected by this replay before any official dispatch; the eight random pairs did not change.",
   "input_order": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6",
                   "A1", "C8", "E4", "M1", "M3", "A2", "C5", "E6"],
   "shuffled_order": ["A1", "E4", "E6", "E3", "A2", "C5", "A5", "E1",
                       "A3", "C8", "A6", "M5", "E2", "E5", "M1", "M3"],
   "games": [
-    { "game": 1, "pair": ["A1", "E4"], "a": "E4", "b": "A1" },
-    { "game": 2, "pair": ["E6", "E3"], "a": "E6", "b": "E3" },
-    { "game": 3, "pair": ["A2", "C5"], "a": "A2", "b": "C5" },
-    { "game": 4, "pair": ["A5", "E1"], "a": "E1", "b": "A5" },
-    { "game": 5, "pair": ["A3", "C8"], "a": "C8", "b": "A3" },
-    { "game": 6, "pair": ["A6", "M5"], "a": "A6", "b": "M5" },
-    { "game": 7, "pair": ["E2", "E5"], "a": "E5", "b": "E2" },
-    { "game": 8, "pair": ["M1", "M3"], "a": "M1", "b": "M3" }
+    { "g": 1, "pair": ["A1", "E4"], "A": "A1", "B": "E4", "region": "Sweet 16" },
+    { "g": 2, "pair": ["E6", "E3"], "A": "E6", "B": "E3", "region": "Sweet 16" },
+    { "g": 3, "pair": ["A2", "C5"], "A": "A2", "B": "C5", "region": "Sweet 16" },
+    { "g": 4, "pair": ["A5", "E1"], "A": "E1", "B": "A5", "region": "Sweet 16" },
+    { "g": 5, "pair": ["A3", "C8"], "A": "C8", "B": "A3", "region": "Sweet 16" },
+    { "g": 6, "pair": ["A6", "M5"], "A": "A6", "B": "M5", "region": "Sweet 16" },
+    { "g": 7, "pair": ["E2", "E5"], "A": "E5", "B": "E2", "region": "Sweet 16" },
+    { "g": 8, "pair": ["M1", "M3"], "A": "M3", "B": "M1", "region": "Sweet 16" }
   ],
   "panel_seed": 3390074417,
   "panel_seed_disclosure": "The two fresh leads were drawn via `secrets.randbits(32)` (OS entropy) then `random.Random(3390074417).sample(pool, 2)`, pool = all 24 roster members minus nuclear-reactor-operator and magician-illusionist (already seated on the Builder anchor). Draw order gave civil-rights-activist, behavioral-psychologist. Each lens was then hand-selected for contrast per references/roster.md's High-Contrast Lens Pairings table (not drawn) — lead selection is randomized for fairness, lens selection is curatorial per CLAUDE.md's contrast rule, matching how Builder (nuclear-reactor-operator/magician-illusionist) and R32's Ecologist (systems-thinker/farmer) were themselves deliberately paired rather than randomly matched.",
@@ -49,5 +49,5 @@
       "fresh": true
     }
   ],
-  "status": "DRAFT — reseed, A/B assignment and panel draw complete; not yet frozen by commit. Ready for commissioner review before freezing (Execution freeze item 6, packet template, still open)."
+  "status": "FROZEN FOR OFFICIAL OUTPUT GENERATION — reseed, A/B assignment and panel draw are complete. Ruling 20 replaces the Tail Test before any official dispatch; output packets remain the final execution item."
 }

@@ -112,10 +112,13 @@ freezes the contracts before the official brief is revealed. The Sweet 16 uses a
 and two sealed judging passes: output-only yield first, existing five-axis mechanism scoring
 second. A mismatch is CONTESTED.
 
-Create round-specific artifacts without touching R32 evidence: `s16-draw-map.json`,
-`packets/s16-<bracket>.md`, and `verdicts/s16-<bracket>-<file_tag>.md`. The draw map must contain
-the three panel records described in `next-round-protocol.md`; `tally.py` uses their names and
-file tags, so the two fresh panels do not masquerade as the retired Skeptic and Ecologist.
+Create round-specific artifacts without touching R32 evidence: `s16-draw-map.json`, sixteen
+`official-runs/s16-<code>.md` source records, paired
+`packets/s16-<game>-output.md` / `packets/s16-<game>-mechanism-trace.md` files, and
+`verdicts/s16-<bracket>-<file_tag>.md`. The output packets stay anonymous until Pass 1 seals;
+the mechanism-and-trace packet releases only afterward. The draw map contains the three panel
+records described in `next-round-protocol.md`; `tally.py` uses their names and file tags, so
+the two fresh panels do not masquerade as the retired Skeptic and Ecologist.
 Once all three panels have returned their verdicts, run:
 
 ```bash
@@ -243,7 +246,10 @@ evidence.
 | `evidence-contracts-s16.md` | Pre-scrimmage evidence owed by all sixteen survivors; includes RUNNABLE / MANUAL PROTOTYPE / PROMISE state. |
 | `collision-residue.md` | Independent third mechanisms produced by collisions; seeded with G9, G10 and G12 discoveries. |
 | `parallel-track.md` | Durable ORTHOGONAL relationships and future Elite 8 coalitions. |
-| `pre-s16-readiness.md` | Preflight gate: completed preparation, six commissioner decisions and the execution freeze. |
+| `pre-s16-readiness.md` | Preflight gate: completed preparation, commissioner decisions and the final packet execution item. |
+| `tail-test-s16.txt` | Canonical, hashed Sweet 16 Tail Test prompt, amended by Ruling 20 before official dispatch. |
+| `official-runs/README.md` | Official-output conditions, PROMISE treatment, source-record format, and packet release order. |
+| `build_s16_packets.py` | Validates the 16 source records and renders the eight isolated output/mechanism packet pairs. |
 | `amendment-candidates-s16.md` | 7 amendment candidates from the 16 scrimmages, pending commissioner ruling; rule here, then log to `commissioner-rulings.md` and promote accepted text into `rules-v2.md` §4. |
 | `scrimmages/s16-<code>.md` | 16 completed unscored scrimmage records, one per surviving entrant. |
 | `scrimmage-template.md` | Per-entrant unscored enactment record, including substitutions and amendment docket. |

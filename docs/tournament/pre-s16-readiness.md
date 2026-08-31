@@ -75,24 +75,25 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. No
   official substitutions were made — all sixteen Sweet 16 entrants play as originally
   seeded.
-- [x] Choose and seal the unseen Tail Test brief. **Brief:** *"Propose 24 distinct rules a
-  neighborhood could adopt to reduce noise complaints between 10pm and 7am, without banning
-  any specific activity outright. Each rule must be substantively different from every rule
-  proposed earlier in the list — no rule may restate an earlier idea in new words."*
-  **SHA-256:** `a98def4e953e1d48c2553a1151922ae6fc689db07209f358d3ca18c1090b790d`. Chosen by
-  the commissioner over two runner-up candidates (a library-foot-traffic brief and a
-  smoke-detector-features brief), with the no-restatement clause added at the commissioner's
-  request — directly targets the same "restate under new vocabulary" failure mode the
-  tournament already polices at the ledger/comparator level (see Amendment 3), applied here
-  to a single entrant's own list instead of across dispatches.
+- [x] Choose and seal the unseen Tail Test brief. **Amended and resealed by Ruling 20 before
+  any official dispatch.** The canonical UTF-8 prompt is `tail-test-s16.txt`; it adds concrete
+  stakeholder, resource, privacy, retaliation, and burden-allocation constraints so the test
+  measures more than list extension. **SHA-256:**
+  `0db8d3ebff02a96c949739a23c3f30f202756fc9b0727a781902e105c4275878`.
+  The superseded brief and hash `a98def4e953e1d48c2553a1151922ae6fc689db07209f358d3ca18c1090b790d`
+  remain recorded in Ruling 20. The official proposal artifact has a 2,000-token maximum;
+  prompt/context and private reasoning do not count against that output ceiling.
 - [x] After scrimmage amendments freeze, use an externally generated seed to shuffle the
   ledger's sixteen survivor codes and pair adjacent codes; record seed, algorithm and input
   order in `s16-draw-map.json`. **Seed:** `372500925`, drawn via `secrets.randbits(32)` (OS
   entropy) and applied deterministically via `random.Random(seed).shuffle(...)` — disclosed
   and independently reproducible. **Result:** 8 pairs recorded in `s16-draw-map.json`
   `games`.
-- [x] Assign A/B positions using a second recorded seed. **Seed:** `2597142654`, same
-  disclosed method. **Result:** A/B per game recorded in `s16-draw-map.json` `games`.
+- [x] Assign A/B positions using a second recorded seed. **Seed:** `2597142654`; the
+  deterministic replay consumes `getrandbits(1)` once per adjacent pair. **Result:** A/B per
+  game recorded in `s16-draw-map.json` `games`. The initial lower-case map could not satisfy
+  the live tally schema and its stated A/B replay; it was corrected before any official
+  dispatch, with pairs unchanged (Ruling 21).
 - [x] Draw Builder-anchor and two fresh high-contrast panels; record pack completeness and
   redraw any fresh panel containing two incomplete-pack specialists. **Builder** (pinned,
   `tally.py` `ROUND_ANCHORS`): nuclear-reactor-operator / magician-illusionist, both
@@ -103,7 +104,10 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
   two incomplete-pack members. Lens for each fresh panel was hand-selected for contrast per
   `references/roster.md`'s High-Contrast Lens Pairings table, not drawn — only lead selection
   was randomized. Full disclosure in `s16-draw-map.json`'s `panel_seed_disclosure`.
-- [ ] Generate output-only packets separately from mechanism-and-trace packets.
+- [ ] Generate output-only packets separately from mechanism-and-trace packets. Use
+  `official-runs/README.md`: first commit all sixteen source records, then render anonymous
+  Pass 1 packets and retain the A/B mapping, traces, enactment status, and PROMISE
+  counterfactual notes for Pass 2.
 
 ## Start authorization
 
