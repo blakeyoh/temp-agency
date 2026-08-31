@@ -37,10 +37,19 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 
 ## Execution freeze
 
-- [ ] Choose and hash one small neutral scrimmage brief shared by all sixteen entrants.
-- [ ] Assign an operator and matched base model / context allowance.
-- [ ] Freeze each evidence contract with its carried flag by commit.
-- [ ] Record the roster and knowledge-pack commit.
+- [x] Choose and hash one small neutral scrimmage brief shared by all sixteen entrants.
+  **Brief:** *"List 10 distinct ways to open a conversation with a stranger at a
+  conference."* **SHA-256:**
+  `4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a`.
+- [x] Assign an operator and matched base model / context allowance. **Operator:**
+  `codex:codex-rescue` (one isolated spawn per entrant). **Model:** `gpt-5.6-luna`,
+  `--effort xhigh`, write-capable — identical for all sixteen. Each spawn receives the
+  entrant's `roster/<slug>.md`, `knowledge/<slug>/`, its `evidence-contracts-s16.md`
+  section, this brief verbatim, and `scrimmage-template.md` as the record format.
+- [x] Freeze each evidence contract with its carried flag by commit. **Commit:** `f4288ed`
+  (current HEAD of `claude/ai-creativity-randomness-tournament-e609ek`; unchanged since).
+- [x] Record the roster and knowledge-pack commit. **Commit:** `f4288ed` (same — `roster/`
+  and `knowledge/` are unmodified as of this HEAD).
 - [ ] Run sixteen unscored scrimmages using `scrimmage-template.md`.
 - [ ] Rule on at most one scrimmage-derived amendment per entrant.
 - [ ] Freeze final entrant definitions and official substitutions by commit.
@@ -56,7 +65,7 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 ## Start authorization
 
 - **Readiness commit:** PENDING
-- **Frozen roster / knowledge commit:** PENDING
+- **Frozen roster / knowledge commit:** `f4288ed`
 - **Final draw-map commit:** PENDING
 - **Commissioner authorization:** PENDING
 - **Authorized at (UTC):** PENDING
