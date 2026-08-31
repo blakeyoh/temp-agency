@@ -364,18 +364,26 @@ def dirty_paths(paths,repo_root=REPO_ROOT):
         return set()
     try:
         out=subprocess.check_output(
-            ['git','status','--porcelain','--',*paths],
+            ['git','status','--porcelain=v1','-z','--',*paths],
             cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
     except (OSError,subprocess.CalledProcessError):
         return set(paths)
     dirty=set()
-    for line in out.splitlines():
-        if len(line)<4:
+    entries=out.split('\0')
+    index=0
+    while index < len(entries):
+        entry=entries[index]
+        index+=1
+        if len(entry)<4:
             continue
-        # A rename shows as "XY orig -> new"; mark both sides dirty rather
-        # than parse out which one is the candidate we asked about.
-        for rel in line[3:].split(' -> '):
-            dirty.add(os.path.realpath(os.path.join(repo_root,rel)))
+        status=entry[:2]
+        dirty.add(os.path.realpath(os.path.join(repo_root,entry[3:])))
+        # In NUL mode Git emits a rename/copy's second path as the next record,
+        # without quoting or a textual " -> " separator. Consume and mark it
+        # too so neither side can retain an old frozen identity.
+        if ('R' in status or 'C' in status) and index < len(entries):
+            dirty.add(os.path.realpath(os.path.join(repo_root,entries[index])))
+            index+=1
     return dirty
 
 def committed_version(path,repo_root=REPO_ROOT,dirty_set=None):
@@ -399,10 +407,10 @@ def committed_version(path,repo_root=REPO_ROOT,dirty_set=None):
         if not re.fullmatch(r'[0-9a-f]{40}',value):
             return ''
         if dirty_set is None:
-            status=subprocess.check_output(
-                ['git','status','--porcelain','--',abspath],
-                cwd=repo_root,text=True,stderr=subprocess.DEVNULL)
-            is_dirty=bool(status.strip())
+            # Keep the single-file path on the same NUL-safe, fail-closed parser
+            # used by batched return-test validation. This avoids maintaining a
+            # second status interpretation with subtly different edge cases.
+            is_dirty=os.path.realpath(abspath) in dirty_paths([abspath],repo_root)
         else:
             is_dirty=os.path.realpath(abspath) in dirty_set
         return '' if is_dirty else value

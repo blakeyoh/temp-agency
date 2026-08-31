@@ -244,6 +244,8 @@ evidence.
 | `collision-residue.md` | Independent third mechanisms produced by collisions; seeded with G9, G10 and G12 discoveries. |
 | `parallel-track.md` | Durable ORTHOGONAL relationships and future Elite 8 coalitions. |
 | `pre-s16-readiness.md` | Preflight gate: completed preparation, six commissioner decisions and the execution freeze. |
+| `amendment-candidates-s16.md` | 7 amendment candidates from the 16 scrimmages, pending commissioner ruling; rule here, then log to `commissioner-rulings.md` and promote accepted text into `rules-v2.md` §4. |
+| `scrimmages/s16-<code>.md` | 16 completed unscored scrimmage records, one per surviving entrant. |
 | `scrimmage-template.md` | Per-entrant unscored enactment record, including substitutions and amendment docket. |
 | `verdict-template-s16.md` | Parser-compatible two-pass panel record with Sacrifice Receipt and Collision Residue. |
 | `rules-v2.md` | Absorption standard, scoring anchors, panel design, commissioner powers, cross-pollinated draw. |

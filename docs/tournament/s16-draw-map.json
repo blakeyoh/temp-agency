@@ -1,0 +1,53 @@
+{
+  "require_live_evidence": true,
+  "algorithm": "python-random-v1",
+  "seed": 372500925,
+  "ab_seed": 2597142654,
+  "seed_disclosure": "Both seeds drawn via `secrets.randbits(32)` (OS entropy, os.urandom-backed) on 2026-08-31, then consumed deterministically by `random.Random(seed)` for reproducibility. Anyone can verify: `random.Random(372500925).shuffle(codes)` on the input_order below reproduces the shuffled order; `[random.Random(2597142654).choice([True, False]) for _ in range(8)]` reproduces the A/B flips.",
+  "input_order": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6",
+                  "A1", "C8", "E4", "M1", "M3", "A2", "C5", "E6"],
+  "shuffled_order": ["A1", "E4", "E6", "E3", "A2", "C5", "A5", "E1",
+                      "A3", "C8", "A6", "M5", "E2", "E5", "M1", "M3"],
+  "games": [
+    { "game": 1, "pair": ["A1", "E4"], "a": "E4", "b": "A1" },
+    { "game": 2, "pair": ["E6", "E3"], "a": "E6", "b": "E3" },
+    { "game": 3, "pair": ["A2", "C5"], "a": "A2", "b": "C5" },
+    { "game": 4, "pair": ["A5", "E1"], "a": "E1", "b": "A5" },
+    { "game": 5, "pair": ["A3", "C8"], "a": "C8", "b": "A3" },
+    { "game": 6, "pair": ["A6", "M5"], "a": "A6", "b": "M5" },
+    { "game": 7, "pair": ["E2", "E5"], "a": "E5", "b": "E2" },
+    { "game": 8, "pair": ["M1", "M3"], "a": "M1", "b": "M3" }
+  ],
+  "panel_seed": 3390074417,
+  "panel_seed_disclosure": "The two fresh leads were drawn via `secrets.randbits(32)` (OS entropy) then `random.Random(3390074417).sample(pool, 2)`, pool = all 24 roster members minus nuclear-reactor-operator and magician-illusionist (already seated on the Builder anchor). Draw order gave civil-rights-activist, behavioral-psychologist. Each lens was then hand-selected for contrast per references/roster.md's High-Contrast Lens Pairings table (not drawn) — lead selection is randomized for fairness, lens selection is curatorial per CLAUDE.md's contrast rule, matching how Builder (nuclear-reactor-operator/magician-illusionist) and R32's Ecologist (systems-thinker/farmer) were themselves deliberately paired rather than randomly matched.",
+  "panels": [
+    {
+      "name": "Builder",
+      "file_tag": "builder",
+      "lead": "nuclear-reactor-operator",
+      "lens": "magician-illusionist",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": false
+    },
+    {
+      "name": "Advocate",
+      "file_tag": "advocate",
+      "lead": "civil-rights-activist",
+      "lens": "systems-thinker",
+      "lead_pack": "incomplete",
+      "lens_pack": "complete",
+      "fresh": true
+    },
+    {
+      "name": "Architect",
+      "file_tag": "architect",
+      "lead": "behavioral-psychologist",
+      "lens": "franciscan-monk",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": true
+    }
+  ],
+  "status": "DRAFT — reseed, A/B assignment and panel draw complete; not yet frozen by commit. Ready for commissioner review before freezing (Execution freeze item 6, packet template, still open)."
+}

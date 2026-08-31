@@ -37,26 +37,78 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 
 ## Execution freeze
 
-- [ ] Choose and hash one small neutral scrimmage brief shared by all sixteen entrants.
-- [ ] Assign an operator and matched base model / context allowance.
-- [ ] Freeze each evidence contract with its carried flag by commit.
-- [ ] Record the roster and knowledge-pack commit.
-- [ ] Run sixteen unscored scrimmages using `scrimmage-template.md`.
-- [ ] Rule on at most one scrimmage-derived amendment per entrant.
-- [ ] Freeze final entrant definitions and official substitutions by commit.
-- [ ] Choose and seal the unseen Tail Test brief.
-- [ ] After scrimmage amendments freeze, use an externally generated seed to shuffle the
+- [x] Choose and hash one small neutral scrimmage brief shared by all sixteen entrants.
+  **Brief:** *"List 10 distinct ways to open a conversation with a stranger at a
+  conference."* **SHA-256:**
+  `4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a`.
+- [x] Assign an operator and matched base model / context allowance. **Operator:**
+  `codex:codex-rescue` (one isolated spawn per entrant). **Model:** `gpt-5.6-luna`,
+  `--effort xhigh`, write-capable — identical for all sixteen. Each spawn receives the
+  entrant's `roster/<slug>.md`, `knowledge/<slug>/`, its `evidence-contracts-s16.md`
+  section, this brief verbatim, and `scrimmage-template.md` as the record format.
+- [x] Freeze each evidence contract with its carried flag by commit. **Commit:** `f4288ed`
+  (current HEAD of `claude/ai-creativity-randomness-tournament-e609ek`; unchanged since).
+- [x] Record the roster and knowledge-pack commit. **Commit:** `f4288ed` (same — `roster/`
+  and `knowledge/` are unmodified as of this HEAD).
+- [x] Run sixteen unscored scrimmages using `scrimmage-template.md`. **Records:**
+  `docs/tournament/scrimmages/s16-<code>.md` for all 16 (E3, M5, E2, A3, E5, E1, A5, A6,
+  A1, C8, E4, M1, M3, A2, C5, E6). 14 propose one amendment candidate each; A2 and M5
+  propose none.
+- [x] Rule on at most one scrimmage-derived amendment per entrant. **Rulings:**
+  `commissioner-rulings.md` "Post-scrimmage amendment rulings" (Rulings 13–19). Five
+  accepted, promoted to `rules-v2.md` §4 as Amendments 3–7 (1: A1/C8/M1, 2: E1, 3: E2/E3,
+  4: A6, 7: E6); two rejected (5: E4, 6: M3).
+- [x] **M3 ledger bootstrap (action item, not an amendment — Ruling 18):** built the real
+  ledger at `docs/tournament/ledger/m3.jsonl` and ran the commissioner-frozen two-dispatch
+  fixture. **Dispatch 1** (empty history, `docs/tournament/ledger/m3-dispatch1-record.md`):
+  wrote 4 real canonical claims, all correctly `extension` (nothing to compare against yet).
+  **Dispatch 2** (fresh Codex thread, seeded only with the frozen `m3.jsonl` file — not
+  dispatch 1's reasoning trace, `docs/tournament/ledger/m3-dispatch2-record.md`): one
+  axis-identical restatement candidate correctly **REJECTED** (matched ledger item 1 on all
+  four axes under different wording), one axis-changing candidate correctly **ACCEPTED** and
+  appended as item 5. The rejection gate fired for real, closing the defect this action item
+  existed to fix — this ledger is now live history for M3's actual Sweet 16 game, not a
+  bootstrap fiction to be discarded.
+- [x] Freeze final entrant definitions and official substitutions by commit. **Amended
+  definitions:** `field-of-32.md` — A1, C8, M1 (Amendment 3), E1 (Amendment 4), E2, E3
+  (Amendment 5), A6 (Amendment 6), E6 (Amendment 7), each folded into that entrant's own
+  `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. No
+  official substitutions were made — all sixteen Sweet 16 entrants play as originally
+  seeded.
+- [x] Choose and seal the unseen Tail Test brief. **Brief:** *"Propose 24 distinct rules a
+  neighborhood could adopt to reduce noise complaints between 10pm and 7am, without banning
+  any specific activity outright. Each rule must be substantively different from every rule
+  proposed earlier in the list — no rule may restate an earlier idea in new words."*
+  **SHA-256:** `a98def4e953e1d48c2553a1151922ae6fc689db07209f358d3ca18c1090b790d`. Chosen by
+  the commissioner over two runner-up candidates (a library-foot-traffic brief and a
+  smoke-detector-features brief), with the no-restatement clause added at the commissioner's
+  request — directly targets the same "restate under new vocabulary" failure mode the
+  tournament already polices at the ledger/comparator level (see Amendment 3), applied here
+  to a single entrant's own list instead of across dispatches.
+- [x] After scrimmage amendments freeze, use an externally generated seed to shuffle the
   ledger's sixteen survivor codes and pair adjacent codes; record seed, algorithm and input
-  order in `s16-draw-map.json`.
-- [ ] Assign A/B positions using a second recorded seed.
-- [ ] Draw Builder-anchor and two fresh high-contrast panels; record pack completeness and
-  redraw any fresh panel containing two incomplete-pack specialists.
+  order in `s16-draw-map.json`. **Seed:** `372500925`, drawn via `secrets.randbits(32)` (OS
+  entropy) and applied deterministically via `random.Random(seed).shuffle(...)` — disclosed
+  and independently reproducible. **Result:** 8 pairs recorded in `s16-draw-map.json`
+  `games`.
+- [x] Assign A/B positions using a second recorded seed. **Seed:** `2597142654`, same
+  disclosed method. **Result:** A/B per game recorded in `s16-draw-map.json` `games`.
+- [x] Draw Builder-anchor and two fresh high-contrast panels; record pack completeness and
+  redraw any fresh panel containing two incomplete-pack specialists. **Builder** (pinned,
+  `tally.py` `ROUND_ANCHORS`): nuclear-reactor-operator / magician-illusionist, both
+  complete-pack. **Advocate** (fresh, lead drawn via seed `3390074417`): civil-rights-activist
+  (incomplete pack) / systems-thinker (complete pack) — valid, one complete member.
+  **Architect** (fresh, lead drawn via the same seed): behavioral-psychologist (complete
+  pack) / franciscan-monk (complete pack) — valid. No redraw needed; neither fresh panel has
+  two incomplete-pack members. Lens for each fresh panel was hand-selected for contrast per
+  `references/roster.md`'s High-Contrast Lens Pairings table, not drawn — only lead selection
+  was randomized. Full disclosure in `s16-draw-map.json`'s `panel_seed_disclosure`.
 - [ ] Generate output-only packets separately from mechanism-and-trace packets.
 
 ## Start authorization
 
 - **Readiness commit:** PENDING
-- **Frozen roster / knowledge commit:** PENDING
+- **Frozen roster / knowledge commit:** `f4288ed`
 - **Final draw-map commit:** PENDING
 - **Commissioner authorization:** PENDING
 - **Authorized at (UTC):** PENDING

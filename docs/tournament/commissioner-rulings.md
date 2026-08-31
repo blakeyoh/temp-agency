@@ -587,3 +587,56 @@ carries a shared-gap table and a list of collisions worth deciding on before the
 Five of the sixteen survivors carry a known defect into the next round. That is worth
 knowing before seeding. Ruling 11 authorizes all five to enter the unscored scrimmages with
 their flags intact.
+
+---
+
+## Post-scrimmage amendment rulings · 2026-08-31
+
+All sixteen unscored scrimmages ran (see `pre-s16-readiness.md` Execution freeze), and four
+independent model passes over the sixteen records surfaced seven amendment candidates in
+`amendment-candidates-s16.md`. The commissioner ruled on all seven directly in that file;
+this entry records the dispositions and reasons for the ledger.
+
+### Ruling 13 — Candidate 1: Enforced withholding — ACCEPT
+**Sourced from:** A1, C8, M1 — three independently-run scrimmages testing unrelated
+mechanisms, converged on the identical failure without seeing each other's work.
+
+**Ruling:** accepted as written. **Reason:** independent convergence across three unrelated
+scrimmages is the tournament's own evidentiary standard — the same basis as Ruling 9's
+unanimous absorption.
+
+### Ruling 14 — Candidate 2: Counterfactual-draw test — ACCEPT
+**Sourced from:** E1. **Ruling:** accepted as written. **Reason:** commissioner assessment,
+no stated objection.
+
+### Ruling 15 — Candidate 3: Deletion test for foreign-frame mechanisms — ACCEPT
+**Sourced from:** E2, E3. **Ruling:** accepted as written. **Reason:** commissioner
+assessment, no stated objection.
+
+### Ruling 16 — Candidate 4: Degradation card — ACCEPT
+**Sourced from:** A6. **Ruling:** accepted as written. **Reason:** commissioner assessment,
+no stated objection.
+
+### Ruling 17 — Candidate 5: Killed-hybrid ledger — REJECT
+**Sourced from:** E4. **Ruling:** rejected. **Reason:** expensive to log and track for
+little long-term benefit — a full parent/seed/mutation/cause ledger is standing overhead
+that doesn't pay for itself.
+
+### Ruling 18 — Candidate 6: M3 two-dispatch fixture — REJECT (reclassified as action item)
+**Sourced from:** M3. **Ruling:** rejected as an amendment. **Reason:** every other accepted
+candidate is a check that enforces itself automatically on every future run, with no advance
+authoring. This one requires the commissioner to hand-write two specific test candidates
+before the fixture exists, which makes it a one-time bootstrap, not a per-run contract. The
+underlying problem is real — M3's rejection gate has never fired because its ledger starts
+empty, the same defect already on record against The Adjudicated Ledger (see "Open items
+carried into the Sweet 16," item 2). Logged as an action item in `pre-s16-readiness.md`'s
+Execution freeze instead of promoted to `rules-v2.md`.
+
+### Ruling 19 — Candidate 7: Draw upstream of curation — ACCEPT
+**Sourced from:** E6. **Ruling:** accepted as written. **Reason:** commissioner assessment,
+no stated objection.
+
+**Consequence:** Candidates 1, 2, 3, 4, and 7 are promoted to `rules-v2.md` §4 as
+Amendments 3–7. Candidates 5 and 6 are not promoted. A1, C8, M1, E1, E2, E3, A6, and E6 have
+each now received their one scrimmage-derived amendment per `pre-s16-readiness.md`'s freeze
+gate; E4 and M3 received none.
