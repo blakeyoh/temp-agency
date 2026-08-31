@@ -35,8 +35,9 @@ rulings. Both were ruled — G11 ratified 2–1, G12 overruled with the entrant 
 bracket 4 has since been dispatched, judged and ruled.)*
 
 The Sweet 16 field and the wildcard bench are in `commissioner-rulings.md`. That file is the
-source of truth for every decision. Do not re-derive results from the verdicts — read the
-ledger.
+source of truth for every game result and override — not for what the rules are; that's
+`rules-v2.md` (see its §4 Authority boundary). Do not re-derive results from the
+verdicts — read the ledger.
 
 **Before any scrimmage, read five more things after the governing four:**
 
@@ -236,7 +237,7 @@ evidence.
 | File | What it is |
 |---|---|
 | `HANDOFF.md` | This file. Read first. |
-| `commissioner-rulings.md` | **Source of truth for every decision.** Overrides, tiebreaks, absorptions, the bench. |
+| `commissioner-rulings.md` | **Source of truth for every result.** Overrides, tiebreaks, absorptions, the bench — not the rules themselves (that's `rules-v2.md`, see its §4 Authority boundary). |
 | `field-of-32.md` | All 32 entrants with mechanism and "not native" claim — plus, since the Round of 32, a per-entrant **Status / Enhancements / Gaps** trailer and a result board, shared-gap table and collision list for seeding the Sweet 16. Annotated *from* `commissioner-rulings.md`; the ledger still wins any disagreement. |
 | `next-round-protocol.md` | Approved preparation order plus Sweet 16 Tail Test, panel rotation, Sacrifice Receipt and Elite 8 Return Test. |
 | `evidence-contracts-s16.md` | Pre-scrimmage evidence owed by all sixteen survivors; includes RUNNABLE / MANUAL PROTOTYPE / PROMISE state. |

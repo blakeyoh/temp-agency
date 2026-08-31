@@ -192,7 +192,8 @@ after the random draw.
 ### Sweet 16 panels
 
 - **Calibration anchor:** Builder, because faithful enactment is the round's immediate
-  vulnerability.
+  vulnerability. *(Pinned in `tally.py`'s `ROUND_ANCHORS`; the code governs if this line
+  and the dict ever disagree.)*
 - **Fresh panels:** two high-contrast lead/lens pairs drawn after outputs and packets are
   sealed.
 - **Eligibility:** the issue #21 guardrail above applies.
@@ -288,8 +289,9 @@ amplify, dampen, exploit or ignore one another. Useful pairings are recorded in
 `parallel-track.md` as coalitions without changing either entrant's definition.
 
 Elite 8 judging retains the two-pass structure. The Ecologist becomes the calibration anchor
-because cross-context durability and compounding are now observable. Two new high-contrast
-panels are drawn under the same issue #21 guardrail.
+because cross-context durability and compounding are now observable. *(Pinned in `tally.py`'s
+`ROUND_ANCHORS`; the code governs if this line and the dict ever disagree.)* Two new
+high-contrast panels are drawn under the same issue #21 guardrail.
 
 **The Elite 8 field is the ratified advancement ledger, not the raw Sweet 16 tally.** Because
 the commissioner may overrule a Sweet 16 result, the eight advancers are frozen after rulings

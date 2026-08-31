@@ -13,7 +13,8 @@ picking this up cold from a previous session. Everything you need is committed.
 READ THESE FIRST, IN THIS ORDER, BEFORE DOING ANYTHING:
   1. docs/tournament/HANDOFF.md          — state of play, procedure, what went wrong
   2. docs/tournament/rules-v2.md         — absorption standard, scoring, panels, my powers
-  3. docs/tournament/commissioner-rulings.md — THE SOURCE OF TRUTH for every decision
+  3. docs/tournament/commissioner-rulings.md — the ledger of every result and override
+     (rules-v2.md §4 governs what the rules are; this file governs what happened)
   4. docs/tournament/reference-sets.md   — the ruler the panels judge against
   5. docs/tournament/next-round-protocol.md — approved Sweet 16 and Elite 8 procedure
   6. docs/tournament/evidence-contracts-s16.md — what every survivor owes

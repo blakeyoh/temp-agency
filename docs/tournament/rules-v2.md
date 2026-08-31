@@ -94,7 +94,7 @@ points at known positions, and a judgment is made by asking **which references t
 sits between** — the way a difficulty table works in a judged sport, not the way an
 impression works.
 
-**Irreducibility reference set:**
+**Worked example — Irreducibility** *(full ruler for all five axes lives in `reference-sets.md`, the single source judges score against; this is illustration, not a second copy):*
 
 | Reference | Position |
 |---|---|
@@ -160,6 +160,10 @@ Reviewers vote **per axis**, not per matchup. Then:
 **The contested flag is the point.** It makes the round gate cheap — instead of reviewing
 sixteen games, the commissioner reviews the three the panel could not settle.
 
+A second, coarser disagreement — the five-axis aggregate and the panel's majority call
+naming different winners — is escalated the same way rather than resolved automatically;
+see §4 Amendment 2.
+
 ---
 
 ## 4. The commissioner
@@ -181,6 +185,33 @@ is the thing this whole repo exists to prevent.
 
 The round summary is built for a fast ruling: one screen, sixteen rows, contested games
 flagged. Dig into three, ratify thirteen.
+
+### Authority boundary
+
+`rules-v2.md` is the only place a general rule lives. `commissioner-rulings.md` is an
+append-only ledger of specific results, overrides, and their stated reasons — it records
+what happened, not what the rules are. A ruling that settles something beyond the one game
+it decided (a new eligibility test, a default disposition, a standing procedure) is not
+itself a rule until the commissioner folds it back into this document as a dated, numbered
+amendment; until then the ledger entry is marked **pending promotion** rather than treated
+as governing future games. If this document and a ruling ever disagree about what the rule
+*is* — as opposed to what a specific game's result was — this document governs.
+
+### Amendments
+
+Ratified additions to this document, numbered and dated. Each supersedes any prior informal
+practice on the same topic; the ruling that originated it is cited for the reasoning trail,
+but this text — not the ruling — is the rule going forward.
+
+**Amendment 1 (2026-08-30, ratified from `commissioner-rulings.md` Ruling 8).** An entrant
+may be amended mid-tournament when (a) a panel identifies a specific improving edit, (b) the
+edit serves the entrant's existing thesis rather than replacing it, and (c) the amendment is
+recorded in `commissioner-rulings.md` with its source.
+
+**Amendment 2 (2026-08-30, ratified from `commissioner-rulings.md` "Precedence: deliberately
+unset").** When the five-axis aggregate and the panel's majority call disagree on a winner,
+neither automatically governs. The matchup is flagged CONTESTED and escalates to the
+commissioner, who rules case by case (see §3 Voting).
 
 ---
 

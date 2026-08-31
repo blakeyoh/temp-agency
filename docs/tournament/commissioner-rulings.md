@@ -4,6 +4,11 @@ Per `rules-v2.md` §4, every override is printed **as an override**, with the
 commissioner's reason attached, never folded into the panel's verdict. Visible rigging
 is honest; invisible rigging is the thing this repo exists to prevent.
 
+**Scope.** This ledger records results, overrides, and their reasons — see `rules-v2.md`
+§4 "Authority boundary" for the line between a ruling and a rule. An entry that states a
+standing policy beyond the game it decided is marked **pending promotion** below until the
+commissioner folds it into `rules-v2.md` as a numbered amendment.
+
 ---
 
 ## Round of 32 · Bracket 1 (Fence)
@@ -237,6 +242,8 @@ overlaps it is rejected and regenerated."*
 **This ruling settles the open question about amending entrants mid-tournament.** An
 entrant may be amended when a panel identifies a specific improving edit, the edit serves
 the entrant's existing thesis, and the amendment is recorded here with its source.
+*(Promoted to `rules-v2.md` §4 Amendment 1, 2026-08-30 — that text is the rule going
+forward; this entry is the reasoning trail.)*
 
 **Defect carried forward, unaddressed by the amendment (Skeptic):**
 
@@ -397,11 +404,15 @@ When the five-axis aggregate disagrees with the panel majority, **neither automa
 governs**. The disagreement raises a CONTESTED flag and escalates to the commissioner, who
 rules case by case. Game 1 is the only instance so far; the commissioner chose the panel
 majority. That is a ruling, not a precedent.
+*(Promoted to `rules-v2.md` §4 Amendment 2, 2026-08-30 — that text is the rule going
+forward; this entry is the reasoning trail.)*
 
 ### Absorption default
 1–2 against carries as a refusal unless the commissioner rules otherwise. Both bracket-2
 absorptions were 1–2; one was accepted (modified), one refused. The vote count is a
 signal, not a rule.
+*(Not promoted — see `rules-v2.md` §4 Authority boundary. Sample size is 2, with one
+exception already; informative only, not governing, until there's more evidence.)*
 
 ### The wildcard bench
 Eliminated ideas the commissioner is not ready to discard. Revivable into any later round.
