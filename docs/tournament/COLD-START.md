@@ -54,9 +54,15 @@ wildcard bench. Read Ruling 22 before touching Game 8; Games 1-7 are unaffected.
 
 YOUR NEXT ACTION
 Read `official-runs/README.md`, verify the hash of `tail-test-s16.txt`, then create the sixteen
-isolated official source records. Run `python3 build_s16_packets.py --write` only after every
-record contains exactly 24 numbered rules. Commit the source artifacts and packet pairs before
-dispatching a panel. Do not reveal a mechanism-and-trace packet before that panel seals Pass 1.
+isolated official source records. Run `python3 build_s16_packets.py --write --phase output`
+only after every record contains exactly 24 numbered rules — this writes only the Pass 1
+anonymous packets. Commit those, dispatch and seal every panel's Pass 1 record, and only then
+run `python3 build_s16_packets.py --write --phase mechanism` to release the Pass 2
+definition/contract/trace packets. `--write` without `--phase` is rejected on purpose — it
+would otherwise be possible to release both phases in one call, which is exactly what Packet
+release order in `official-runs/README.md` forbids. Commit the source artifacts and packet
+pairs before dispatching a panel. Do not reveal a mechanism-and-trace packet before that panel
+seals Pass 1.
 
 HOW THE NEXT ROUNDS DIFFER (full detail in next-round-protocol.md)
 Every entrant first receives one unscored scrimmage under its frozen evidence contract.

@@ -480,6 +480,33 @@ A REPETITION ONSET: A20
             finally:
                 os.unlink(outside.name)
 
+    def test_elite_8_return_artifacts_reject_absolute_paths(self):
+        # os.path.join discards its first argument when the second is absolute,
+        # so an absolute path recorded under this exact checkout used to resolve
+        # to a real, committed, in-repo file and pass every check — while being
+        # unreplayable from any other clone. next-round-protocol.md requires
+        # repository-relative paths.
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as repo:
+            def git(*args):
+                subprocess.run(['git',*args],cwd=repo,check=True,
+                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            git('init'); git('config','user.email','t@example.com'); git('config','user.name','t')
+            base='docs/tournament/artifacts'
+            os.makedirs(os.path.join(repo,base))
+            for name in ('a.md','b.md','c.md'):
+                with open(os.path.join(repo,base,name),'w') as fh: fh.write(name+'\n')
+            git('add','.'); git('commit','-m','freeze')
+            seed=17
+            direction='A→B' if tally.random.Random(seed).getrandbits(1) else 'B→A'
+            abs_a=os.path.join(repo,base,'a.md')
+            game={'g':1,'return_test':{'algorithm':'python-random-v1',
+                    'contact_seed':seed,'direction':direction,
+                    'artifacts':{'a_solo':abs_a,'b_solo':f'{base}/b.md','contact':f'{base}/c.md'}}}
+            self.assertIn('game-1-a_solo-artifact-absolute',tally.e8_return_errors([game],repo))
+            game['return_test']['artifacts']['a_solo']=f'{base}/a.md'
+            self.assertEqual([],tally.e8_return_errors([game],repo))
+
     def test_verdict_accepts_only_canonical_strings(self):
         self.assertEqual(('A',3),tally.parse_verdict('A significantly better'))
         self.assertEqual(('B',1),tally.parse_verdict('b slightly better.'))
@@ -510,6 +537,20 @@ A REPETITION ONSET: A20
     def test_draw_rejects_boolean_game_id(self):
         self.assertIn('game-0-id',
                       tally.draw_errors([{'g':True,'A':'E3','B':'M5','region':'x'}]))
+
+    def test_incomplete_panels_flags_any_missing_game_in_any_round(self):
+        # A truncated panel used to be silently dropped from the tally (gmap was
+        # filtered to only fully-covered games before writing results), which is
+        # exactly the class of bug HANDOFF.md records nearly losing a bracket to.
+        # This applies to every round, not only live-evidence ones like s16/e8 —
+        # r32 has no ROUND_GAME_COUNTS entry and so gets no other completeness gate.
+        gmap={1:{'A':'E1','B':'E2'},2:{'A':'E3','B':'E4'},3:{'A':'E5','B':'E6'}}
+        complete={'Builder':{1:{},2:{},3:{}},'Skeptic':{1:{},2:{},3:{}},'Ecologist':{1:{},2:{},3:{}}}
+        self.assertEqual({},tally.incomplete_panels(gmap,complete,list(complete)))
+        truncated={'Builder':{1:{},2:{},3:{}},'Skeptic':{1:{},3:{}},'Ecologist':{1:{},2:{},3:{}}}
+        self.assertEqual({'Skeptic':[2]},tally.incomplete_panels(gmap,truncated,list(truncated)))
+        empty_panel={'Builder':{1:{},2:{},3:{}},'Skeptic':{},'Ecologist':{1:{},2:{},3:{}}}
+        self.assertEqual({'Skeptic':[1,2,3]},tally.incomplete_panels(gmap,empty_panel,list(empty_panel)))
 
 
 if __name__ == '__main__':

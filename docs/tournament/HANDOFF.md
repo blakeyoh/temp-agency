@@ -26,13 +26,25 @@ reaching idea #3**, and this repo currently stops around #12.
 
 **Round of 32 · COMPLETE — 16 of 16 games judged and ruled.** All four brackets have been
 judged by three blind panels and ruled by the commissioner: 12 rulings, 4 absorptions kept,
-6 ideas on the wildcard bench. The tournament is now in **pre-Sweet-16 preparation**. No
-scrimmage has run, a random reseed has been ordered but not drawn, A/B positions have not
-been assigned and no Sweet 16 panel has been dispatched.
+6 ideas on the wildcard bench.
 
-*(This section previously read "12 of 16 games judged" and listed two outstanding Moat
-rulings. Both were ruled — G11 ratified 2–1, G12 overruled with the entrant amended — and
-bracket 4 has since been dispatched, judged and ruled.)*
+**Sweet 16 preparation · COMPLETE.** All sixteen unscored scrimmages have run and their
+post-scrimmage amendments are ruled (Rulings 13–19), the random reseed and A/B assignment
+are drawn and recorded in `s16-draw-map.json`, and the three judging panels (one calibration
+anchor, two fresh) are drawn. **Not yet done:** no Sweet 16 panel has been dispatched —
+`build_s16_packets.py` has not been run to render the official Pass 1 packets, so no output
+has been judged. `pre-s16-readiness.md` is the authoritative checklist; read it, not this
+paragraph, for exactly which boxes are checked.
+
+*(This section has been corrected twice. It originally read "12 of 16 games judged" with two
+outstanding Moat rulings still open — both were ruled (G11 ratified 2–1, G12 overruled with
+the entrant amended) and bracket 4 was dispatched, judged and ruled. It then read "No
+scrimmage has run, a random reseed has been ordered but not drawn, A/B positions have not
+been assigned" well after all of that had actually happened — `pre-s16-readiness.md` and
+`COLD-START.md`, committed in the same PR, already showed every one of those steps complete.
+A cold agent following the stale block instead of the checklist risks repeating scrimmages
+or forking an already-frozen bracket. Trust `pre-s16-readiness.md` over this paragraph if
+they ever disagree again.)*
 
 The Sweet 16 field and the wildcard bench are in `commissioner-rulings.md`. That file is the
 source of truth for every game result and override — not for what the rules are; that's
@@ -259,7 +271,7 @@ evidence.
 | `pre-s16-readiness.md` | Preflight gate: completed preparation, commissioner decisions and the final packet execution item. |
 | `tail-test-s16.txt` | Canonical, hashed Sweet 16 Tail Test prompt, amended by Ruling 20 before official dispatch. |
 | `official-runs/README.md` | Official-output conditions, PROMISE treatment, source-record format, and packet release order. |
-| `build_s16_packets.py` | Validates the 16 source records and renders the eight isolated output/mechanism packet pairs. |
+| `build_s16_packets.py` | Validates the 16 source records and renders the eight isolated output/mechanism packet pairs. `--write` requires `--phase output` or `--phase mechanism` — it refuses to write both phases in one call, so a mechanism packet can never reach disk before every panel has sealed Pass 1. |
 | `amendment-candidates-s16.md` | 7 amendment candidates from the 16 scrimmages, pending commissioner ruling; rule here, then log to `commissioner-rulings.md` and promote accepted text into `rules-v2.md` §4. |
 | `scrimmages/s16-<code>.md` | 16 completed unscored scrimmage records, one per surviving entrant. |
 | `scrimmage-template.md` | Per-entrant unscored enactment record, including substitutions and amendment docket. |

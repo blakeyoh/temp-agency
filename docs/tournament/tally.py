@@ -311,7 +311,7 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
             continue
         for key in ('a_solo','b_solo','contact'):
             relpath=artifacts.get(key)
-            if isinstance(relpath,str) and relpath.strip():
+            if isinstance(relpath,str) and relpath.strip() and not os.path.isabs(relpath):
                 resolved=os.path.realpath(os.path.join(repo_real,relpath))
                 if os.path.commonpath((repo_real,resolved)) == repo_real:
                     candidates.append(resolved)
@@ -340,6 +340,15 @@ def e8_return_errors(games,repo_root=REPO_ROOT):
             relpath=artifacts.get(key)
             if not isinstance(relpath,str) or not relpath.strip():
                 errors.append(f'game-{game_id}-{key}-artifact')
+                continue
+            if os.path.isabs(relpath):
+                # next-round-protocol.md requires repository-relative paths. An
+                # absolute path under this exact checkout would otherwise pass
+                # every downstream check (it really is inside the repo, really is
+                # committed) while being unreplayable from any other clone —
+                # os.path.join discards repo_real entirely when relpath is
+                # absolute, so this must be rejected before that join happens.
+                errors.append(f'game-{game_id}-{key}-artifact-absolute')
                 continue
             # Resolve `.`, `..`, and symlinks to a canonical identity so path
             # aliases cannot masquerade as three separate frozen artifacts, and a
@@ -561,6 +570,15 @@ def validate_live_record(rec):
         missing.append('collision-none-form')
     return missing
 
+def incomplete_panels(gmap, panels, panel_names):
+    """Return {panel_name: [missing game numbers]} for any panel lacking a verdict
+    for a game present in gmap. Applies to every round, not just live-evidence
+    ones: filtering gmap down to only fully-covered games before tallying (the
+    prior behavior) writes a truncated results file with no error when a panel
+    is missing even one game's verdict. Empty dict means every panel is complete."""
+    missing={p: sorted(set(gmap)-set(panels.get(p,{}))) for p in panel_names}
+    return {p: gs for p, gs in missing.items() if gs}
+
 def tally(panels, gmap, panel_names):
     """panels: {panel_name: parsed}. gmap: {n: {'A':code,'B':code,...}}"""
     res={}
@@ -735,7 +753,16 @@ if __name__=="__main__":
                 if missing: incomplete.append(f"G{n}:{p}({','.join(missing)})")
         if incomplete:
             parser.error("live-evidence fields missing for " + ", ".join(incomplete))
-    res=tally(panels, {k:v for k,v in gmap.items() if all(k in panels[p] for p in panel_names)}, panel_names)
+    # HANDOFF.md records a silent-partial-tally bug nearly losing a whole bracket's
+    # results once already; this check applies to every round, live-evidence or not.
+    missing_by_panel=incomplete_panels(gmap, panels, panel_names)
+    if missing_by_panel:
+        parser.error(
+            "incomplete tally — every game in the draw map requires a verdict from "
+            "every panel before results are written: "
+            + ", ".join(f"{p} missing G{','.join(str(g) for g in gs)}" for p, gs in missing_by_panel.items())
+        )
+    res=tally(panels, gmap, panel_names)
     json.dump(res, open(results_path,"w"), indent=1)
     for n in sorted(res):
         r=res[n]
