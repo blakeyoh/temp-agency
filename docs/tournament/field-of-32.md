@@ -453,60 +453,74 @@ checkable part of this entrant — *"role asymmetry that is mechanically checkab
 membership against the generated pool"* — while refusing it as an absorption into a different
 thesis. It is cheap and it survives the loss.
 
-### E9 · String Seed of Thought (SSoT) ✦
+### E9 · String Seed of Thought (SSoT) ✦ — AMENDED
 *(external — Kou Misaki and Takuya Akiba, Sakana AI, "String Seed of Thought," pub.sakana.ai/ssot,
 arXiv, April 2026. Late entrant, seated 2026-09-03 by commissioner ruling in place of `M3`,
-now benched — see Ruling 22 / Amendment 8. Never played a Round-of-32 game.)*
+now benched — see Ruling 22 / Amendment 8. Amended 2026-09-03 — see Ruling 23 / Amendment 9.
+Never played a Round-of-32 game.)*
 
-Tell the model to generate a random string first, then require it to derive its actual
-answer only by doing arithmetic on that string — never by picking directly. Two sentences
-appended to the prompt: *generate a complex random string, manipulate it to guide any
-stochastic decisions while reasoning, then give the final answer.* Nothing else changes. No
-PRNG, no external tool, no training — the entire mechanism lives inside the prompt.
+Hand the model a random string from a real generator, then require it to derive its actual
+answer only by doing arithmetic on that string — never by picking directly, and never by
+inventing the string itself. **As published, the paper has the model generate its own
+string; as amended here, a real random-number generator (Python's `secrets` or `random`,
+or equivalent) produces the string first, and the model only ever sees the result.** The
+manipulation half is unchanged: *manipulate the given string to guide any stochastic
+decisions while reasoning, then give the final answer.*
 
 **Not native:** asked directly to "flip a fair coin," frontier models land far from 50/50 —
-one tested model gave Heads 78% of the time. The same model, given only the two-sentence
-instruction above, lands near 51/49 — and the effect beats every other prompting trick
-tested (higher temperature, few-shot examples, prompt ensembling, sequential sampling)
-across action spaces from 2 to 64 choices. Aimed at open-ended writing instead of a coin
-flip, the same mechanism measurably increases how different several outputs to the same
-prompt are from one another.
+one tested model gave Heads 78% of the time. The paper's own fix is a two-sentence
+generate-then-manipulate instruction, model-generated string included, and it beats every
+other prompting trick tested (higher temperature, few-shot, ensembling, sequential
+sampling) across action spaces from 2 to 64 choices. **This repo's own scrimmage testing
+found the model-generated half of that fix does not hold up under repetition** — see Carried
+defect and Amendment history below — which is why the string-generation half was amended
+out.
 
-**Status** · **ADVANCED → Sweet 16 (SUBSTITUTED FOR M3)** — Sweet 16 Game 8, position A,
-versus **M1** The Blind Auditor, position B [Ruling 22]. Entered after the Round of 32
-closed; displaced The Adjudicated Ledger to the wildcard bench.
+**Status** · **ADVANCED → Sweet 16 (SUBSTITUTED FOR M3), AMENDED** — Sweet 16 Game 8,
+position A, versus **M1** The Blind Auditor, position B [Ruling 22]. Entered after the
+Round of 32 closed; displaced The Adjudicated Ledger to the wildcard bench. Definition
+amended post-scrimmage [Ruling 23] before any official panel saw it.
 
-**Enhancements** · — (new entrant; nothing yet absorbed or refused)
+**Enhancements** · Not an absorption — an **amendment** [Ruling 23 / Amendment 9]. The seed
+string must now come from a real external generator; the model may never invent it. Checked
+against `E1` under the §1 same-thesis test and ruled a genuine amendment, not an absorption
+of E1's mechanism — E1 looks up a choice directly from a stamped seed index with no
+manipulation step; E9 still requires the model to legibly derive its answer from a given
+string, which is a different mechanism shape even once both sit on real entropy. **Commissioner's
+own words, on the record:** *"I don't think E9 would win in this tournament without the
+external randomness, but again, this is somewhat different than E1. My call is to keep E9
+but require the use of a generator. It is different than both, but it's better than the
+original E9 idea."*
 
-**Gaps** · *Build:* none. The unscored scrimmage (`scrimmages/s16-e9.md`) enacted the full
-mechanism with no substitution — this is the only Sweet 16 entrant whose evidence contract
-reads **RUNNABLE** rather than MANUAL PROTOTYPE or PROMISE. · *Wire:* `SKILL.md` step 4,
-anywhere a dispatch needs a stochastic or diversity-facing choice — the same missing surface
-`E1` names, since lead/lens selection today has no stochastic choice to seed at all. ·
-*Absent:* nothing required to exist first. The only open question is *where* in the dispatch
-this gets invoked, not whether it can be built.
+**Gaps** · *Build:* none — `secrets`/`random` are Python standard library. *Wire:* `SKILL.md`
+step 4, anywhere a dispatch needs a stochastic or diversity-facing choice — the same missing
+surface `E1` names, since lead/lens selection today has no stochastic choice to seed at all.
+*Absent:* the manipulation step is still entirely unenforced — nothing checks that a model's
+stated derivation from the string is the real cause of its answer rather than a
+backfilled justification. The amendment fixes the string's origin, not the derivation's
+honesty; that gap is untouched and still open.
 
-**Carried defect (found in its own scrimmage)** · The mechanism's arithmetic step ran
-correctly every time, but the model's own by-hand "random" string generation was not
-actually diverse: 5 of 10 scrimmage items collided on the same derived choice. The failure
-is one level upstream of the manipulation step — exactly the bias the source paper measures
-in direct prompting, reappearing at the string-generation layer instead of disappearing. An
-amendment requiring a counterfactual replay (redraw one item, confirm the mapped choice
-changes materially) is proposed in the scrimmage record and pending commissioner ruling —
-modeled directly on Amendment 4, which imposed the same discipline on `E1`.
+**Carried defect, now largely resolved by amendment** · The original scrimmage found the
+model's own by-hand "random" strings collided badly (5 of 10 items landed on the same
+derived category). Two follow-up tests confirmed the *cause*: eight isolated, context-free
+Sonnet calls each asked for one random string produced an **exact duplicate** (`jK9xR2mQ`
+twice, out of 62⁸ possible strings), and a Haiku call asked for a 250-character string
+turned out to be **the alphabet cited in strict order, 100% of 214 letters**, dressed up
+with digits and case changes — confirmed non-random by a compression check (0.649 ratio vs.
+~0.88 for real randomness). Two real-random strings tested after the amendment (one supplied
+by the commissioner, one generated live via `secrets.choice`) both cleared every check the
+model's strings failed and both improved the scrimmage's category spread from 4-of-10 to
+6-of-10. **Residual clumping remains** (4-of-10 and 2-of-10 collisions even on real-random
+input) but this is normal statistical behavior at this sample size, not a defect — a
+perfectly even spread across only 10 draws would itself be the unnatural result. Full
+evidence trail in `scrimmages/s16-e9.md`.
 
-**Note** · Checked against `E1` (The Entropy Well) under the §1 same-thesis test and failed
-it on purpose: both attack "the model can't be trusted to be random," but E1's answer is
-*go outside the model* (a real external PRNG) and E9's answer is *you don't have to* (a
-specific prompt gets close to PRNG quality using only the model's own generated entropy).
-`rules-v2.md` treats that as ORTHOGONAL, not a merge candidate — the field keeps both rather
-than combining them. E9 also carries the strongest irreducibility evidence in the tournament
-to date: every other entrant's "Not native" claim is argued from analogy; E9's comes with
-published, repeated, cross-model measurement that a skeptic could rerun. Its own predicate:
-*a base model asked only "flip a fair coin, output Heads or Tails" reproduces a real
-78/22-scale bias; the same model given only the two-sentence generate-then-manipulate
-instruction closes most of that gap, and no other tested prompting technique closes it as
-far.*
+**Note** · E9 still carries the strongest irreducibility evidence in the tournament: every
+other entrant's "Not native" claim is argued from analogy; E9's comes with published,
+repeated, cross-model measurement, and this repo's own follow-up testing is itself now part
+of that evidentiary record — including the failure mode the original paper's own experiments
+would predict (models are worse than they look at generating their own randomness) showing
+up exactly where expected, in this repo's own scrimmage.
 
 ---
 

@@ -770,3 +770,90 @@ directly in this Claude Code session (model: `claude-sonnet-5`) instead. This is
 disclosed difference in operator and base model, not a hidden one — the same standard this
 repo applies to every other simulation substitution — and should be weighed accordingly if
 E9 reaches an official panel.
+
+---
+
+### Ruling 23 — AMENDMENT: E9's SEED STRING MUST COME FROM A REAL GENERATOR
+
+**Ruling:** Amend E9 (String Seed of Thought). The seed string is no longer invented by the
+model. It must be produced by a real, external random-number generator — Python's `secrets`
+or `random` modules, or equivalent — before the model ever sees it. The model's role stays
+exactly what it always was for the *manipulation* half of the mechanism: derive the answer
+only by doing visible arithmetic on the string it is handed, never by picking directly and
+never by inventing the string itself.
+
+**Source.** Follow-up testing run live in this session, after E9's original scrimmage was
+already on the record. Not a formal isolated-operator scrimmage like the original sixteen —
+disclosed as informal, interactive evidence, same as Ruling 22's own late-entrant caveat.
+Three findings drove this:
+
+1. **Eight independent, context-isolated Sonnet subagents**, each asked once for "one complex
+   random string," produced an **exact duplicate** — two separate calls, no shared context,
+   both returned `jK9xR2mQ`. With 62⁸ (≈218 trillion) possible 8-character strings, that is
+   strong direct evidence the model's unaided idea of "random" occupies a far smaller space
+   than the paper's own coin-flip experiment already implied.
+2. **One Haiku call asked for a 250-character random string** returned something that
+   *looked* random at a glance but, checked character by character, was **the alphabet
+   cited in strict a-b-c-d order, repeated, 100% of 214 letters matching**, with digits and
+   case changes sprinkled in only for camouflage. A compression check confirmed it: 0.649
+   compression ratio versus ~0.88 for genuine randomness of the same length. Under length
+   pressure, the model didn't even attempt variation — it fell back to the single cheapest,
+   most predictable continuation available.
+3. **A 250-character string supplied by the commissioner**, and a second one generated live
+   in this session via `secrets.choice(string.ascii_lowercase + string.digits)` (fully
+   reproducible, shown inline, see `scrimmages/s16-e9.md`), both passed every check the model's
+   own strings failed: no sequential pattern (~6% coincidental match versus Haiku's 100%),
+   full use of the 36-character alphabet, and compression ratios (0.760, 0.764) close to the
+   real-random baseline. Both, run through the scrimmage's own opener-writing exercise, beat
+   the original model-generated run on category spread (6 of 10 categories versus 4 of 10).
+
+**Three-test check (rules-v2.md §1), run because this could just as easily have been an
+absorption into E1, or grounds to unwind Ruling 22 entirely — both were live options:**
+
+- *Same-thesis test* — **passes as an amendment.** E9's claim was never merely "no external
+  tool is used" as an end in itself; it was "the model derives a decision by legibly
+  manipulating a string, and that trace of manipulation is what makes the decision
+  irreducible." Fixing *where the string comes from* serves that same claim — it does not
+  replace it with E1's claim (a real seed determines a choice by direct, stamped index
+  lookup, with no manipulation step, no arithmetic, no legible derivation at all). The two
+  mechanisms still have different shapes even when both now sit on real entropy.
+- *Deletion test* — **passes.** Delete the amendment (let the model invent the string again)
+  and E9 gets **worse**, not smaller: three independent tests above show the unaided version
+  collapsing, once into outright duplication and once into reciting the alphabet. The fix is
+  load-bearing.
+- *One-sentence test* — **passes.** *"Generate the seed string with a real random-number
+  generator, not the model, and require the model to derive its answer only by visibly
+  manipulating that string."* One claim, no "and also."
+
+**Commissioner's own assessment, on the record rather than smoothed into the ruling:** *"I
+don't think E9 would win in this tournament without the external randomness, but again, this
+is somewhat different than E1. My call is to keep E9 but require the use of a generator. It
+is different than both, but it's better than the original E9 idea."* Recorded verbatim
+because it names the tension directly rather than resolving it quietly — E9 amended is
+plausibly still a weaker Sweet 16 entrant than E1 on the merits, and is kept anyway because
+it is judged to be a distinct mechanism worth having in the field, not a stronger one.
+
+**What this amendment does not fix, on the record.** The manipulation step — the model doing
+arithmetic on the string it's handed to derive its answer — is still entirely unenforced.
+Nothing checks that a model's stated derivation is the real cause of its answer rather than a
+justification invented after the fact, the same gap the original scrimmage already flagged.
+This amendment fixes the string's origin, not the derivation's honesty; the two are separate
+open questions and only the first is resolved here.
+
+**Residual clumping is not a new defect.** Both real-random strings tested above still
+produced 4-of-10 and 2-of-10 category collisions when run through the sum-mod-10 mapping —
+genuinely better than the model-invented run's 5-of-10 and 4-of-10, but still real clumps,
+not a uniform spread. That is expected statistical behavior at this sample size (the same
+birthday-paradox effect that produced clumping in the model-invented strings too), not
+evidence the amendment failed. A perfectly even 1-per-bucket spread across 10 draws would
+itself be the unnatural-looking result.
+
+**Effect on frozen artifacts.** `evidence-contracts-s16.md` § E9: `External operation`
+changes from `none` to a real generator call; `Enactment state` remains `RUNNABLE` — nothing
+new needs to be built, `secrets`/`random` are Python standard library. `field-of-32.md` § E9:
+mechanism description, Enhancements, and Carried defect updated to match. No change to
+`s16-draw-map.json`, `tally.py`, or E9's Game 8 slot — this is a definition amendment, not a
+second substitution.
+
+**Promoted to `rules-v2.md` §4 as Amendment 9,** per the standing rule that a ruling settling
+more than the one game it decided is not itself a rule until folded back into that document.

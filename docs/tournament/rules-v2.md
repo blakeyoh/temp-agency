@@ -255,6 +255,19 @@ model, or method between its evidence-gathering step and the round's other entra
 displaced entrant moves to the wildcard bench with full REVIVE eligibility — a substitution
 is never an elimination.
 
+**Amendment 9 (2026-09-03, ratified from `commissioner-rulings.md` Ruling 23).** E9 (String
+Seed of Thought)'s seed string must be produced by a real, external random-number generator
+(Python's `secrets` or `random` modules, or equivalent) before the model sees it; the model
+may never invent the string itself. The model's role is unchanged for the manipulation half
+of the mechanism — it must still derive its answer only by visible arithmetic on the string
+it is handed, never by picking directly. Checked against the three-test standard in §1 and
+ruled a same-thesis amendment, not an absorption of E1: E1 determines a choice by a direct,
+stamped-index lookup against a real seed, with no manipulation step; E9 still requires the
+model to legibly derive its answer from the string, and that derivation step — not merely
+"no external tool" — was always its actual claim. The amendment fixes where the string
+originates; it does not fix, and does not claim to fix, whether the model's stated derivation
+from that string is honest rather than invented after the fact — that remains open.
+
 ---
 
 ## 5. Cross-pollinated regions
