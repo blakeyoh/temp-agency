@@ -11,7 +11,9 @@
 > This field is 32 mechanisms for pushing the repo from #12 to #99.
 
 **Provenance:** entries marked ◆ are the owner's, expanded where flagged as vague enough
-to split. Entries marked ◇ are generated to fill the field to 32.
+to split. Entries marked ◇ are generated to fill the field to 32. One entry, marked ✦, is
+external — sourced from a real, cited, published mechanism and seated after the Round of 32
+closed, as a late-entrant substitution (see `E9`, Ruling 22).
 
 **Distinctness rule:** no two entries may share a primary mechanism. Several entries
 attack the same target (the model's prior) but must do so by different means —
@@ -40,7 +42,7 @@ organized around them.
 | Status | Meaning | Count |
 |---|---|---|
 | **ADVANCED** | In the Sweet 16 | 16 |
-| **WILDCARD BENCH** | Eliminated, but held by the commissioner and revivable into any later round | 6 |
+| **WILDCARD BENCH** | Eliminated, but held by the commissioner and revivable into any later round | 7 |
 | **ABSORBED** | Out, but a named mechanism travelled into a winner | 3 |
 | **ELIMINATED** | Out, nothing carried | 7 |
 
@@ -48,6 +50,11 @@ The three absorbed entrants read **ELIMINATED — MECHANISM ABSORBED** on their 
 they are out of the bracket, and are counted here under ABSORBED rather than twice. `C6` is the
 one entrant with a compound status — partially absorbed **and** benched — and is counted once,
 under the bench. `A6` advanced by **revival** from the bench, not by winning its game.
+
+**Late entrant, 2026-09-03 [Ruling 22]:** `E9` (String Seed of Thought) was inserted into
+the Sweet 16 in place of `M3` (The Adjudicated Ledger, now benched), a field mechanic the
+Round of 32 draw did not anticipate. The field is 33 entries as of this substitution, not
+32; the counts above already reflect it.
 
 ### The full field, by outcome
 
@@ -65,11 +72,12 @@ under the bench. `A6` advanced by **revival** from the bench, not by winning its
 | C8 | Make the Problem Strange First | Moat G10 | 30–2 | **ADVANCED** — unanimous, defect noted |
 | E4 | Roster Mutation → **The Breeding Program** | Moat G11 | 17–14 | **ADVANCED** — absorption 2–1 [R7] |
 | M1 | The Homogeneity Auditor → **The Blind Auditor** | Moat G12 | 11–18 | **ADVANCED** — overrule + amendment [R8] |
-| M3 | The Grudge Ledger → **The Adjudicated Ledger** | UFO G13 | 29–1 | **ADVANCED** — absorption 3–0 [R9] |
 | A2 | The Voice Oracle | UFO G14 | 31–0 | **ADVANCED** — shutout |
 | C5 | Notation Transposition | UFO G15 | 19–16 | **ADVANCED** — unanimous |
 | E6 | The Oblique Deck | UFO G16 | 15–10 | **ADVANCED** — 2–1, defect noted [R10] |
+| E9 | String Seed of Thought (SSoT) | Sweet 16 G8 (slot A) | — | **ADVANCED** — late-entrant substitution [R22], never played R32 |
 | M7 | The Adversarial Collaboration Contract | Dog G8 | 19–7 | **BENCH** — won unanimously, displaced by a revive |
+| M3 | The Grudge Ledger → **The Adjudicated Ledger** | UFO G13 | 29–1 | **BENCH** — won its R32 game 3–0 absorption [R9], displaced from the Sweet 16 by a late-entrant substitution [R22] |
 | C6 | The Constraint Compiler | Dog G5 | 13–17 | **BENCH + ABSORBED** — checker half travelled to `E5` |
 | C2 | The Anti-Roster | Dog G6 | 13–18 | **BENCH** — Distance +9 unanimous |
 | A4 | The Committee of Strangers | Moat G10 | 2–30 | **BENCH** — held for a committee-of-3 variant |
@@ -444,6 +452,61 @@ missing instrument that sank `M6` and that `M1` and `M5` still owe.
 checkable part of this entrant — *"role asymmetry that is mechanically checkable as subset
 membership against the generated pool"* — while refusing it as an absorption into a different
 thesis. It is cheap and it survives the loss.
+
+### E9 · String Seed of Thought (SSoT) ✦
+*(external — Kou Misaki and Takuya Akiba, Sakana AI, "String Seed of Thought," pub.sakana.ai/ssot,
+arXiv, April 2026. Late entrant, seated 2026-09-03 by commissioner ruling in place of `M3`,
+now benched — see Ruling 22 / Amendment 8. Never played a Round-of-32 game.)*
+
+Tell the model to generate a random string first, then require it to derive its actual
+answer only by doing arithmetic on that string — never by picking directly. Two sentences
+appended to the prompt: *generate a complex random string, manipulate it to guide any
+stochastic decisions while reasoning, then give the final answer.* Nothing else changes. No
+PRNG, no external tool, no training — the entire mechanism lives inside the prompt.
+
+**Not native:** asked directly to "flip a fair coin," frontier models land far from 50/50 —
+one tested model gave Heads 78% of the time. The same model, given only the two-sentence
+instruction above, lands near 51/49 — and the effect beats every other prompting trick
+tested (higher temperature, few-shot examples, prompt ensembling, sequential sampling)
+across action spaces from 2 to 64 choices. Aimed at open-ended writing instead of a coin
+flip, the same mechanism measurably increases how different several outputs to the same
+prompt are from one another.
+
+**Status** · **ADVANCED → Sweet 16 (SUBSTITUTED FOR M3)** — Sweet 16 Game 8, position A,
+versus **M1** The Blind Auditor, position B [Ruling 22]. Entered after the Round of 32
+closed; displaced The Adjudicated Ledger to the wildcard bench.
+
+**Enhancements** · — (new entrant; nothing yet absorbed or refused)
+
+**Gaps** · *Build:* none. The unscored scrimmage (`scrimmages/s16-e9.md`) enacted the full
+mechanism with no substitution — this is the only Sweet 16 entrant whose evidence contract
+reads **RUNNABLE** rather than MANUAL PROTOTYPE or PROMISE. · *Wire:* `SKILL.md` step 4,
+anywhere a dispatch needs a stochastic or diversity-facing choice — the same missing surface
+`E1` names, since lead/lens selection today has no stochastic choice to seed at all. ·
+*Absent:* nothing required to exist first. The only open question is *where* in the dispatch
+this gets invoked, not whether it can be built.
+
+**Carried defect (found in its own scrimmage)** · The mechanism's arithmetic step ran
+correctly every time, but the model's own by-hand "random" string generation was not
+actually diverse: 5 of 10 scrimmage items collided on the same derived choice. The failure
+is one level upstream of the manipulation step — exactly the bias the source paper measures
+in direct prompting, reappearing at the string-generation layer instead of disappearing. An
+amendment requiring a counterfactual replay (redraw one item, confirm the mapped choice
+changes materially) is proposed in the scrimmage record and pending commissioner ruling —
+modeled directly on Amendment 4, which imposed the same discipline on `E1`.
+
+**Note** · Checked against `E1` (The Entropy Well) under the §1 same-thesis test and failed
+it on purpose: both attack "the model can't be trusted to be random," but E1's answer is
+*go outside the model* (a real external PRNG) and E9's answer is *you don't have to* (a
+specific prompt gets close to PRNG quality using only the model's own generated entropy).
+`rules-v2.md` treats that as ORTHOGONAL, not a merge candidate — the field keeps both rather
+than combining them. E9 also carries the strongest irreducibility evidence in the tournament
+to date: every other entrant's "Not native" claim is argued from analogy; E9's comes with
+published, repeated, cross-model measurement that a skeptic could rerun. Its own predicate:
+*a base model asked only "flip a fair coin, output Heads or Tails" reproduces a real
+78/22-scale bias; the same model given only the two-sentence generate-then-manipulate
+instruction closes most of that gap, and no other tested prompting technique closes it as
+far.*
 
 ---
 
@@ -1061,10 +1124,17 @@ forever. A persistent ledger makes the signature move unavailable after its firs
 > canonicalises a position into a claim string, and the gate that rejects a restatement —
 > none of which currently exist.
 
-**Status** · **ADVANCED → Sweet 16 as THE ADJUDICATED LEDGER** — UFO G13, 29–1, **absorption
-ratified 3–0** [Ruling 9] — the only unanimous absorption of the tournament, with all three
-panels independently selecting the same mechanism and passing it on all three tests without
-seeing each other.
+**Status** · **BENCH — displaced from the Sweet 16 by a late-entrant substitution**
+[Ruling 22]. Won its Round-of-32 game clean: UFO G13, 29–1, **absorption ratified 3–0**
+[Ruling 9] — the only unanimous absorption of the tournament, with all three panels
+independently selecting the same mechanism and passing it on all three tests without seeing
+each other. It reached the Sweet 16 fairly and was never beaten there; it was traded for
+`E9` (String Seed of Thought) because it carried the field's thinnest live-evidence
+position — **PROMISE, DEFECT UNRESOLVED**, no writer, extractor, `ledger/` directory, or
+gate — while E9's is the only **RUNNABLE** contract in the field. Fully REVIVE-eligible
+under `rules-v2.md` §4. The M3 ledger bootstrap work
+(`ledger/m3.jsonl`, `ledger/m3-dispatch1-record.md`, `ledger/m3-dispatch2-record.md`) is
+preserved untouched as live evidence should the commissioner revive it.
 
 **Enhancements** · Absorbs The 19th Way's **four-axis non-adjacency test** and nothing else.
 The ledger's rule was *"you may not restate any of these"* with no definition of "restate,"

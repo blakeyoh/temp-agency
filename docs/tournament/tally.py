@@ -12,7 +12,10 @@ ROUND_ANCHORS={
 }
 ROUND_GAME_COUNTS={"s16":8,"e8":4}
 S16_SURVIVOR_ORDER=('E3','M5','E2','A3','E5','E1','A5','A6',
-                    'A1','C8','E4','M1','M3','A2','C5','E6')
+                    'A1','C8','E4','M1','E9','A2','C5','E6')
+# M3 (The Adjudicated Ledger) was benched and E9 (String Seed of Thought) substituted into
+# its Game 8 slot by Ruling 22 / rules-v2.md Amendment 8, after the original R32 field was
+# drawn. This constant reflects that substitution; see s16-draw-map.json "substitutions".
 S16_SURVIVORS=set(S16_SURVIVOR_ORDER)
 YIELD_PLACEHOLDERS={
     'strongest_a':'Idea number and exact identifying phrase.',

@@ -47,6 +47,11 @@ Five of the sixteen survivors carry a known defect into the next round - see "Op
 carried into the Sweet 16" in commissioner-rulings.md. Do not seed the bracket without
 reading that section.
 
+LATE-BREAKING (2026-09-03): Game 8 changed after the above was written. E9 (String Seed
+of Thought, an externally published mechanism) was substituted for M3 (The Adjudicated
+Ledger) at Game 8 position A, under Ruling 22 / rules-v2.md Amendment 8. M3 is now on the
+wildcard bench. Read Ruling 22 before touching Game 8; Games 1-7 are unaffected.
+
 YOUR NEXT ACTION
 Read `official-runs/README.md`, verify the hash of `tail-test-s16.txt`, then create the sixteen
 isolated official source records. Run `python3 build_s16_packets.py --write` only after every

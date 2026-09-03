@@ -230,6 +230,30 @@ experiment and triggers commissioner review when theory and output evidence dive
 - **Enactment state:** **MANUAL PROTOTYPE.** Forms can be authored; no notation library,
   independent selector or validator exists.
 
+## E9 · String Seed of Thought (SSoT)
+
+> Late entrant, seated per Ruling 22 / Amendment 8 in place of M3 (now benched).
+
+- **Input:** task and a fixed instruction appended to the prompt: generate a random string,
+  then derive every stochastic or diversity-facing decision only by manipulating that
+  string.
+- **External operation:** none. The entire mechanism runs inside one continuous reasoning
+  pass — no PRNG, no external tool, no training.
+- **Output:** answer, plus the generated string and the arithmetic trace that derived the
+  answer from it.
+- **Enforcer:** **none exists.** Nothing checks that a stated derivation from the string is
+  the real cause of the answer rather than a backfilled justification. This is the field's
+  first RUNNABLE entrant with no enforcer at all, because there is nothing external for an
+  enforcer to sit in front of.
+- **Forbidden signature:** an answer identical to what the model would have produced without
+  the instruction, with a string-and-arithmetic trace bolted on after the fact.
+- **Useful failure:** the model's own by-hand "random" string generation is not actually
+  diverse, so several outputs collide on the same derived choice even though the arithmetic
+  step ran correctly every time — observed directly in `scrimmages/s16-e9.md`.
+- **Enactment state:** **RUNNABLE.** The only entrant in the Sweet 16 field with nothing left
+  to build — the mechanism is two sentences added to a prompt, already demonstrated in the
+  scrimmage record without substitution.
+
 ## E6 · The Oblique Deck
 
 - **Input:** grounded imperative deck, task and draw seed.

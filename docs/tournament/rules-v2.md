@@ -241,6 +241,20 @@ must select both the source packs and the card from that full counted corpus; th
 may not pre-select which packs feed distillation, and a missing requested pack fails the draw
 closed.
 
+**Amendment 8 (2026-09-03, ratified from `commissioner-rulings.md` Ruling 22).** A mechanism
+discovered after the Round of 32 has closed may be substituted into an already-frozen
+bracket only by: **(a)** naming the exact seeded slot it occupies and the entrant it
+displaces; **(b)** passing it against every mechanism sharing its region through the §1
+same-thesis test before entry — a *pass* on that test (a genuine rival thesis) is required
+for entry as a new entrant, while a *fail* (it would in fact strengthen an existing
+entrant's own thesis) routes it to absorption instead, per the existing three tests;
+**(c)** running the same evidence-gathering step (unscored scrimmage, evidence contract)
+already completed by its round's other entrants before it may be judged; and **(d)**
+disclosing, rather than folding into the seeded draw, any difference in operator, base
+model, or method between its evidence-gathering step and the round's other entrants. The
+displaced entrant moves to the wildcard bench with full REVIVE eligibility — a substitution
+is never an elimination.
+
 ---
 
 ## 5. Cross-pollinated regions

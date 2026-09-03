@@ -39,6 +39,16 @@ source of truth for every game result and override — not for what the rules ar
 `rules-v2.md` (see its §4 Authority boundary). Do not re-derive results from the
 verdicts — read the ledger.
 
+**Late-breaking, 2026-09-03: one Sweet 16 slot changed after this section was written.**
+`E9` (String Seed of Thought — an externally published mechanism, not owner- or
+model-generated) was substituted into Game 8 position A in place of `M3` (The Adjudicated
+Ledger, now on the wildcard bench), under **Ruling 22 / rules-v2.md Amendment 8**. E9 ran
+its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
+(`evidence-contracts-s16.md` § E9, the field's only `RUNNABLE` entry). `s16-draw-map.json`,
+`field-of-32.md`, and `tally.py`'s `S16_SURVIVOR_ORDER` are all updated and the tally test
+suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
+(Games 1–7) is unaffected.
+
 **Before any scrimmage, read five more things after the governing four:**
 
 1. `next-round-protocol.md` — approved preparation order and the Sweet 16/Elite 8 design.

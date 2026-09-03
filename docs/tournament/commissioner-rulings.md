@@ -690,3 +690,83 @@ unchanged; Game 1 is `A1 × E4` and Game 8 is `M3 × M1` under the corrected A/B
 **Scope:** correction occurred before any official entrant dispatch, output packet, panel
 assignment, or verdict. It changes no field membership or matchup and introduces no
 commissioner preference into the bracket.
+
+---
+
+## Late entrant · 2026-09-03
+
+### Ruling 22 — LATE-ENTRANT SUBSTITUTION: STRING SEED OF THOUGHT FOR THE ADJUDICATED LEDGER
+
+**Ruling:** **Bench M3 (The Adjudicated Ledger).** Insert a new Entropy-region entrant,
+**E9 · String Seed of Thought (SSoT)**, into its vacated Sweet 16 slot — Game 8, position A,
+against **M1** The Blind Auditor, position B. M3 moves to the wildcard bench with full
+REVIVE eligibility under `rules-v2.md` §4; this is a substitution, not an elimination.
+
+**Source.** Owner-proposed, sourced from a real external publication: Kou Misaki and Takuya
+Akiba, Sakana AI, *"String Seed of Thought: Prompting LLMs for Distribution-Faithful and
+Diverse Generation"* (`pub.sakana.ai/ssot`, arXiv, April 2026). This is the tournament's
+first entrant whose "Not native" claim is backed by published, repeated, cross-model
+measurement (Jensen–Shannon divergence against a real-PRNG baseline, and NoveltyBench
+diversity scores) rather than argued from analogy.
+
+**Why M3 is the entry being displaced, not any other survivor.** M3 carries the field's
+thinnest live-evidence position of the sixteen: **PROMISE, DEFECT UNRESOLVED** in
+`evidence-contracts-s16.md` — no writer, no extractor, no `ledger/` directory, and no gate
+existed when it advanced 29–1 "on a promise" (see "Open items carried into the Sweet 16,"
+item 2, and `HANDOFF.md`'s verified-defect note on M3). E9 is the opposite case: its
+evidence contract (below) is the only **RUNNABLE** one in the field — the entire mechanism
+is two sentences appended to a prompt, with nothing left to build. Trading the field's
+weakest live-evidence position for its strongest is defensible on the tournament's own
+terms. The M3 ledger bootstrap work (`docs/tournament/ledger/m3.jsonl` and its two dispatch
+records) is preserved untouched — it remains live evidence for M3 if the commissioner later
+revives it.
+
+**Distinctness ruling — checked against E1, not merged.** E9 and E1 (The Entropy Well) both
+attack the same target: a model cannot be trusted to sample or vary genuinely on its own.
+Run against `rules-v2.md` §1's three-test absorption standard as a rival-vs-merge question:
+
+- *Same-thesis test* — **fails, deliberately.** E1's thesis is *go outside the model*: a
+  real external PRNG (`bin/draw`) determines every stochastic choice. E9's thesis is *you
+  do not have to go outside the model*: a specific two-step generate-a-string-then-do-
+  arithmetic-on-it prompt gets close to PRNG-quality output using only the model's own
+  generated entropy, and — per the paper's own head-to-head results — beats every other
+  prompting trick tested (high-temperature sampling, few-shot, prompt ensembling,
+  sequential sampling) across action spaces from 2 to 64 choices. These are incompatible
+  answers to the identical question, not one mechanism strengthening the other.
+- *Deletion test* — moot; there is nothing of E1's to delete from E9 or vice versa, since
+  neither is built from the other's parts.
+- *One-sentence test* — both state cleanly and separately; combining them would need an
+  "and also," which `rules-v2.md` treats as proof of two ideas wearing one name.
+
+Per §1, this is **ORTHOGONAL by construction**, not a merge candidate — the field is meant
+to hold both rather than absorb one into the other. E9 is therefore entered as its own
+entrant.
+
+**New standing procedure required.** None of the five existing commissioner powers
+(OVERRULE, FORCE ABSORPTION, BLOCK ABSORPTION, REVIVE, RESEED) covers inserting an entrant
+that did not exist at the Round of 32 into an already-frozen bracket. This ruling settles a
+standing procedure, not just this one substitution, and is promoted to `rules-v2.md` §4 as
+**Amendment 8**.
+
+**Effect on frozen artifacts.** `s16-draw-map.json` Game 8's `pair`/`A` value changes from
+`M3` to `E9`; `B` (`M1`) is unchanged. `random.Random(372500925).shuffle(...)` permutes list
+*positions*, not names, so relabeling `M3` to `E9` at its one position in both `input_order`
+and `shuffled_order` reproduces the identical permutation — the seed is replayed, not
+re-drawn. The A/B seed (`2597142654`) and its assignment for Game 8 are unchanged. This is a
+disclosed manual substitution at one already-drawn position, recorded in the map's new
+`substitutions` field rather than laundered into the seeded draw. `tally.py`'s
+`S16_SURVIVOR_ORDER` / `S16_SURVIVORS` are updated to swap `M3` for `E9` in place, and
+`test_tally.py`'s `test_committed_sweet_16_draw_is_live_tally_compatible` passes against the
+edited map.
+
+**Evidentiary parity.** E9 owes the same unscored scrimmage the other fifteen ran, against
+the same frozen neutral brief (SHA-256 `4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a`).
+Recorded in `scrimmages/s16-e9.md`.
+
+**Disclosed methodology difference.** The original fifteen scrimmages were enacted by an
+isolated `codex:codex-rescue` operator on `gpt-5.6-luna`, `--effort xhigh`. No matched
+external operator was available for this late entrant, so E9's scrimmage was enacted
+directly in this Claude Code session (model: `claude-sonnet-5`) instead. This is a real,
+disclosed difference in operator and base model, not a hidden one — the same standard this
+repo applies to every other simulation substitution — and should be weighed accordingly if
+E9 reaches an official panel.
