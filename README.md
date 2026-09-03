@@ -95,7 +95,8 @@ docs/plan-v2.md     The full design and roadmap
 /roster-add "pricing strategist"
 ```
 Researches the specialist, writes a profile + cited knowledge pack, updates the index,
-and stubs its evals — in one pass. Demand-driven, so the roster only grows when a real
+adds unresolved conflicts between its own principles, and stubs its evals — in one pass.
+Demand-driven, so the roster only grows when a real
 task needs a lens it doesn't have.
 
 ## License

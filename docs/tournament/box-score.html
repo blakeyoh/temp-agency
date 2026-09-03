@@ -1,0 +1,986 @@
+<title>The 99th Idea Bracket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Public+Sans:ital,wght@0,300..800;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+/* ============================================================
+   THE 99TH IDEA BRACKET
+   Palette: tournament-program oxblood / deep teal / brass
+   on a cool grey ground. Type: Fraunces (display, wonked),
+   Public Sans (body), IBM Plex Mono (stats).
+   ============================================================ */
+
+:root {
+  /* light — the complete palette lives here */
+  --ground:        #E9ECEC;
+  --paper:         #F6F7F6;
+  --paper-sunk:    #DFE3E3;
+  --rule:          #C6CCCC;
+  --rule-soft:     #D8DDDD;
+  --ink:           #191C1F;
+  --ink-2:         #4A5257;
+  --ink-3:         #737C81;
+
+  --oxblood:       #7B2D3B;
+  --oxblood-soft:  #A85567;
+  --oxblood-wash:  #7b2d3b14;
+  --teal:          #10635F;
+  --teal-soft:     #2E8D87;
+  --teal-wash:     #10635f14;
+  --brass:         #9A7614;
+  --brass-soft:    #C9A227;
+  --brass-wash:    #9a761418;
+
+  --win-bar:       #7B2D3B;
+  --lose-bar:      #A9B3B4;
+
+  --shadow:        0 1px 0 #ffffff80 inset, 0 1px 2px #191c1f0f, 0 8px 24px -12px #191c1f1f;
+
+  --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:    "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --wrap: 1180px;
+  --col:  70ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:       #131619;
+    --paper:        #1A1E22;
+    --paper-sunk:   #0F1214;
+    --rule:         #333B40;
+    --rule-soft:    #262D31;
+    --ink:          #E8ECEC;
+    --ink-2:        #A6B0B4;
+    --ink-3:        #788388;
+
+    --oxblood:      #D4697C;
+    --oxblood-soft: #B0475C;
+    --oxblood-wash: #d4697c1a;
+    --teal:         #4FB8B1;
+    --teal-soft:    #2F8C86;
+    --teal-wash:    #4fb8b11a;
+    --brass:        #DDBA4C;
+    --brass-soft:   #B8961F;
+    --brass-wash:   #ddba4c1c;
+
+    --win-bar:      #D4697C;
+    --lose-bar:     #414A4F;
+
+    --shadow:       0 1px 0 #ffffff08 inset, 0 1px 2px #00000040, 0 8px 24px -12px #00000066;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:       #131619;
+  --paper:        #1A1E22;
+  --paper-sunk:   #0F1214;
+  --rule:         #333B40;
+  --rule-soft:    #262D31;
+  --ink:          #E8ECEC;
+  --ink-2:        #A6B0B4;
+  --ink-3:        #788388;
+
+  --oxblood:      #D4697C;
+  --oxblood-soft: #B0475C;
+  --oxblood-wash: #d4697c1a;
+  --teal:         #4FB8B1;
+  --teal-soft:    #2F8C86;
+  --teal-wash:    #4fb8b11a;
+  --brass:        #DDBA4C;
+  --brass-soft:   #B8961F;
+  --brass-wash:   #ddba4c1c;
+
+  --win-bar:      #D4697C;
+  --lose-bar:     #414A4F;
+
+  --shadow:       0 1px 0 #ffffff08 inset, 0 1px 2px #00000040, 0 8px 24px -12px #00000066;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16.5px;
+  line-height: 1.62;
+  font-weight: 380;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(18px, 4vw, 44px); }
+
+h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--ground) 100%);
+  padding: clamp(44px, 8vw, 96px) 0 clamp(32px, 5vw, 56px);
+  position: relative;
+  overflow: hidden;
+}
+.masthead canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: .5; pointer-events: none;
+}
+.masthead .wrap { position: relative; }
+
+.masthead h1 {
+  font-size: clamp(46px, 10.5vw, 132px);
+  font-variation-settings: "SOFT" 8, "WONK" 1, "opsz" 144;
+  font-weight: 700;
+  letter-spacing: -.028em;
+  line-height: .92;
+  margin: 14px 0 0;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 144;
+}
+.deck {
+  max-width: 62ch; margin-top: 22px; font-size: 17.5px; color: var(--ink-2);
+}
+.deck strong { color: var(--ink); font-weight: 600; }
+
+.premise {
+  margin-top: 34px;
+  border-left: 3px solid var(--brass);
+  padding: 4px 0 4px 20px;
+  max-width: 60ch;
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-variation-settings: "SOFT" 30, "WONK" 0, "opsz" 20;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.premise b { color: var(--ink); font-weight: 600; }
+
+/* ---------- tournament stat strip ---------- */
+
+.statstrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 44px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.stat { background: var(--paper); padding: 15px 16px 13px; }
+.stat .n {
+  font-family: var(--f-mono); font-size: 26px; font-weight: 600;
+  font-variant-numeric: tabular-nums; letter-spacing: -.02em; display: block; color: var(--ink);
+}
+.stat .l { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-top: 3px; display: block; }
+.stat.hi .n { color: var(--brass); }
+
+/* ---------- section ---------- */
+
+section { padding: clamp(48px, 7vw, 86px) 0 0; }
+.sec-head { border-top: 2px solid var(--ink); padding-top: 12px; margin-bottom: 30px; }
+.sec-head h2 {
+  font-size: clamp(26px, 3.6vw, 40px);
+  font-variation-settings: "SOFT" 12, "WONK" 1, "opsz" 60;
+  letter-spacing: -.02em; margin-top: 6px;
+}
+.sec-head p { max-width: var(--col); color: var(--ink-2); margin-top: 12px; font-size: 16px; }
+
+/* ---------- controls ---------- */
+
+.controls {
+  position: sticky; top: 0; z-index: 40;
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 30px;
+  padding: 11px 0;
+}
+.controls .row { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.controls .grp { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.controls .sep { width: 1px; height: 20px; background: var(--rule); margin: 0 6px; }
+
+button.chip {
+  font-family: var(--f-mono); font-size: 11px; font-weight: 500; letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 6px 11px; border-radius: 2px; cursor: pointer;
+  border: 1px solid var(--rule);
+  background: var(--paper); color: var(--ink-2);
+  transition: background .12s, color .12s, border-color .12s;
+}
+button.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+button.chip[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+button.chip.brass[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: #1a1608; }
+:root[data-theme="dark"] button.chip.brass[aria-pressed="true"],
+:root:not([data-theme="light"]) button.chip.brass[aria-pressed="true"] { color: #17140a; }
+button.chip:focus-visible, a:focus-visible, .idcode:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.count { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .06em; margin-left: auto; }
+
+/* ---------- region legend ---------- */
+
+.regions { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 14px; }
+.region-card {
+  background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--rc);
+  padding: 16px 17px 17px; border-radius: 2px; box-shadow: var(--shadow);
+}
+.region-card h3 { font-size: 20px; font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 30; color: var(--rc); letter-spacing: -.01em; }
+.region-card .theory { font-size: 14.5px; color: var(--ink-2); margin-top: 8px; }
+.region-card .enemy { font-size: 13px; color: var(--ink-3); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rule-soft); }
+.region-card .enemy b { color: var(--ink-2); font-weight: 600; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+[data-region="entropy"]    { --rc: var(--teal); --rw: var(--teal-wash); }
+[data-region="constraint"] { --rc: var(--oxblood); --rw: var(--oxblood-wash); }
+[data-region="apparatus"]  { --rc: var(--brass); --rw: var(--brass-wash); }
+[data-region="memory"]     { --rc: var(--ink-2); --rw: var(--rule-soft); }
+[data-region="fence"] { --rc: var(--teal);    --rw: var(--teal-wash); }
+[data-region="dog"]   { --rc: var(--oxblood); --rw: var(--oxblood-wash); }
+[data-region="moat"]  { --rc: var(--brass);   --rw: var(--brass-wash); }
+[data-region="ufo"]   { --rc: var(--ink-2);   --rw: var(--rule-soft); }
+
+/* ---------- field of 32 ---------- */
+
+.field { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 2px; overflow: hidden; }
+.entry { background: var(--paper); padding: 14px 15px 15px; display: flex; flex-direction: column; gap: 7px; }
+.entry .top { display: flex; align-items: baseline; gap: 9px; }
+.entry .seed {
+  font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; color: var(--rc);
+  border: 1px solid var(--rc); border-radius: 2px; padding: 1px 5px; letter-spacing: .04em; flex: none;
+}
+.entry h4 { font-size: 16.5px; font-variation-settings: "SOFT" 14, "WONK" 0, "opsz" 24; letter-spacing: -.005em; }
+.entry .thesis { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+.entry .prov { font-family: var(--f-mono); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); margin-top: auto; padding-top: 6px; }
+.entry .prov.owner { color: var(--brass); }
+
+/* ---------- game card ---------- */
+
+.games { display: flex; flex-direction: column; gap: 16px; }
+
+.round-band {
+  display: flex; align-items: center; gap: 14px; margin: 30px 0 4px;
+}
+.round-band:first-child { margin-top: 0; }
+.round-band h3 {
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-variation-settings: "SOFT" 10, "WONK" 1, "opsz" 40; letter-spacing: -.015em; flex: none;
+}
+.round-band .line { flex: 1; height: 1px; background: var(--rule); }
+.round-band .meta { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .08em; flex: 0 1 auto; min-width: 0; }
+@media (max-width: 660px) {
+  .round-band { flex-wrap: wrap; gap: 8px; }
+  .round-band .line { order: 3; flex-basis: 100%; }
+  .round-band .meta { flex-basis: 100%; order: 2; }
+}
+
+.game {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 2px;
+  box-shadow: var(--shadow); overflow: hidden;
+  scroll-margin-top: 70px;
+}
+.game.dim { opacity: .3; }
+.game.lit { border-color: var(--rc); box-shadow: 0 0 0 1px var(--rc), var(--shadow); }
+
+.game-head {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 10px 17px; border-bottom: 1px solid var(--rule-soft);
+  background: var(--rw);
+}
+.gno { font-family: var(--f-mono); font-size: 11px; font-weight: 600; color: var(--rc); letter-spacing: .1em; }
+.gregion { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.tag {
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 2px; margin-left: auto;
+}
+.tag.upset { background: var(--brass); color: #17140a; }
+.tag.final { background: var(--oxblood); color: #fff; }
+.tag.tie   { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+:root[data-theme="dark"] .tag.final,
+:root:not([data-theme="light"]) .tag.final { color: #14090c; }
+
+/* matchup */
+.matchup { display: grid; grid-template-columns: 1fr 54px 1fr; align-items: stretch; }
+@media (max-width: 720px) { .matchup { grid-template-columns: 1fr; } }
+
+.side { padding: 16px 17px 14px; display: flex; flex-direction: column; gap: 8px; }
+.side.loser { background: var(--paper-sunk); }
+.side .who { display: flex; align-items: baseline; gap: 8px; }
+.side .sd {
+  font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .05em;
+  border: 1px solid currentColor; border-radius: 2px; padding: 1px 5px; flex: none; color: var(--ink-3);
+}
+.side.winner .sd { color: var(--rc); }
+.side h4 { font-size: clamp(18px, 2.3vw, 23px); font-variation-settings: "SOFT" 18, "WONK" 1, "opsz" 32; letter-spacing: -.015em; }
+.side.loser h4 { color: var(--ink-2); font-weight: 500; }
+.side .score {
+  font-family: var(--f-mono); font-size: 40px; font-weight: 600; font-variant-numeric: tabular-nums;
+  letter-spacing: -.04em; line-height: 1;
+}
+.side.winner .score { color: var(--rc); }
+.side.loser .score { color: var(--ink-3); }
+.side .score small { font-size: 14px; font-weight: 400; color: var(--ink-3); letter-spacing: 0; }
+.side .verdictline { font-family: var(--f-mono); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); }
+.side.winner .verdictline { color: var(--rc); }
+
+.vs {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-display); font-style: italic; font-size: 15px; color: var(--ink-3);
+  border-left: 1px solid var(--rule-soft); border-right: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+@media (max-width: 720px) {
+  .vs { border: none; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); padding: 5px; }
+}
+
+/* axis table */
+.axes { border-top: 1px solid var(--rule-soft); padding: 14px 17px 4px; }
+.axes table { width: 100%; border-collapse: collapse; }
+.axes th, .axes td { padding: 5px 0; text-align: left; vertical-align: middle; }
+.axes thead th {
+  font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule-soft); padding-bottom: 6px;
+}
+.axes .axname { font-size: 13.5px; color: var(--ink-2); width: 30%; }
+.axes .num {
+  font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; width: 30px; text-align: right;
+  color: var(--ink-2); padding-right: 8px;
+}
+.axes .num.w { color: var(--rc); font-weight: 600; }
+.axes .num.l { color: var(--ink-3); }
+.bars { display: flex; flex-direction: column; gap: 3px; padding: 2px 0; }
+.bar { height: 6px; border-radius: 1px; background: var(--lose-bar); transform-origin: left; }
+.bar.w { background: var(--rc); }
+.axes tfoot td { border-top: 1px solid var(--rule); padding-top: 8px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.axes tfoot .num { font-size: 15px; }
+
+/* verdict + absorption */
+.readout { padding: 15px 17px 18px; border-top: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 14px; }
+.readout .lbl { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px; }
+.readout .verdict { font-size: 15.5px; line-height: 1.6; max-width: 78ch; color: var(--ink); }
+.readout .verdict b { font-weight: 600; }
+.absorb {
+  background: var(--rw); border: 1px solid var(--rc); border-radius: 2px; padding: 12px 14px;
+}
+.absorb .lbl { color: var(--rc); }
+.absorb p { font-size: 14.5px; line-height: 1.55; color: var(--ink); max-width: 78ch; }
+.lineage { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.lineage .lbl { margin: 0 4px 0 0; }
+.idcode {
+  font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: .05em;
+  padding: 2px 6px; border-radius: 2px; border: 1px solid var(--rule); background: var(--paper);
+  color: var(--ink-2); cursor: pointer;
+}
+.idcode:hover { border-color: var(--rc); color: var(--rc); }
+.idcode.active { background: var(--rc); border-color: var(--rc); color: var(--paper); }
+:root[data-theme="dark"] .idcode.active,
+:root:not([data-theme="light"]) .idcode.active { color: #101315; }
+.idcode.inherited { border-style: dashed; opacity: .78; }
+.becomes { font-family: var(--f-display); font-style: italic; font-size: 15px; color: var(--ink-2); }
+.becomes b { font-style: normal; font-weight: 600; color: var(--rc); }
+
+/* ---------- final four ---------- */
+
+.ff-note {
+  border: 1px solid var(--rule); background: var(--paper); border-radius: 2px;
+  padding: 20px 22px; box-shadow: var(--shadow); max-width: var(--col);
+}
+.ff { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+@media (min-width: 820px) { .ff { grid-template-columns: 1fr 1fr; } }
+.ff-card.dim { opacity: .32; }
+.ff-card.lit { box-shadow: 0 0 0 1px var(--rc), var(--shadow); }
+.ff-card {
+  background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--rc);
+  border-radius: 2px; padding: 20px 20px 22px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ff-card .rgn { font-family: var(--f-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--rc); }
+.ff-card h3 {
+  font-size: clamp(24px, 3vw, 31px); font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 40;
+  letter-spacing: -.02em; line-height: 1.02;
+}
+.ff-card .thesis { font-family: var(--f-display); font-style: italic; font-size: 16px; color: var(--ink-2); font-variation-settings: "SOFT" 40, "opsz" 20; }
+.ff-card .what { font-size: 14.5px; color: var(--ink); line-height: 1.6; }
+.ff-card .growth { font-size: 13.5px; color: var(--ink-2); border-top: 1px solid var(--rule-soft); padding-top: 12px; }
+.ff-card .growth li { margin-bottom: 5px; }
+.ff-card ul { margin: 6px 0 0; padding-left: 17px; }
+.ff-card .runline { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .05em; }
+.ff-card .runline b { color: var(--rc); }
+
+/* ---------- misc ---------- */
+
+.rubric { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.rubric th, .rubric td { text-align: left; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.rubric thead th { font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; border-bottom: 1px solid var(--rule); }
+.rubric td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.rubric td:nth-child(2) { color: var(--ink-2); }
+.rubric td:last-child { color: var(--ink-3); font-size: 13.5px; }
+.rubric tr.key td:first-child { color: var(--oxblood); }
+.scroller { overflow-x: auto; }
+
+footer { margin-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--rule); padding: 26px 0 60px; color: var(--ink-3); font-size: 13.5px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: baseline; }
+footer code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .bar { transform: scaleX(0); transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+  .bar.in { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar { transform: none; }
+  .masthead canvas { display: none; }
+}
+</style>
+<style>
+/* ---- v2 additions: comparative diverging scoring ---- */
+.badge {
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600; letter-spacing: .11em;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+}
+.badge.contested { background: var(--brass); color: #17140a; }
+.badge.tie { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.badge.sweep { background: var(--teal); color: #05201f; }
+.badge.ruled { background: var(--oxblood); color: #fff; }
+.badge.revive { background: transparent; color: var(--brass); border: 1px solid var(--brass); }
+:root[data-theme="dark"] .badge.ruled, :root:not([data-theme="light"]) .badge.ruled { color: #14090c; }
+:root[data-theme="dark"] .badge.sweep, :root:not([data-theme="light"]) .badge.sweep { color: #04191a; }
+
+.catchip {
+  font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; border: 1px solid currentColor;
+}
+[data-cat="entropy"]    { color: var(--teal); }
+[data-cat="constraint"] { color: var(--oxblood); }
+[data-cat="apparatus"]  { color: var(--brass); }
+[data-cat="memory"]     { color: var(--ink-2); }
+
+/* diverging axis rows */
+.dv { border-top: 1px solid var(--rule-soft); padding: 12px 17px 6px; }
+.dv table { width: 100%; border-collapse: collapse; }
+.dv th { font-family: var(--f-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+         color: var(--ink-3); font-weight: 500; padding-bottom: 7px; border-bottom: 1px solid var(--rule-soft); text-align: center; }
+.dv th.l { text-align: left; } .dv th.r { text-align: right; }
+.dv td { padding: 6px 0; vertical-align: middle; }
+.dv .axn { font-size: 13px; color: var(--ink-2); width: 26%; }
+.dv .axn .u { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .1em; color: var(--teal); display: block; margin-top: 1px; }
+.dv .sc { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; width: 26px; }
+.dv .sc.la { text-align: right; padding-right: 9px; }
+.dv .sc.rb { text-align: left; padding-left: 9px; }
+.dv .sc.win { font-weight: 600; }
+.dv .track { position: relative; height: 12px; background: linear-gradient(90deg, transparent 49.6%, var(--rule) 49.6%, var(--rule) 50.4%, transparent 50.4%); }
+.dv .fill { position: absolute; top: 3px; height: 6px; border-radius: 1px; }
+.dv .votes { width: 118px; text-align: right; font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .02em; color: var(--ink-3); white-space: nowrap; }
+.dv .votes b { font-weight: 600; }
+.dv tfoot td { border-top: 1px solid var(--rule); padding-top: 9px; }
+.dv tfoot .axn { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.dv tfoot .sc { font-size: 16px; }
+
+.sides { display: grid; grid-template-columns: 1fr 46px 1fr; }
+@media (max-width: 700px) { .sides { grid-template-columns: 1fr; } }
+.sd2 { padding: 15px 17px 13px; display: flex; flex-direction: column; gap: 7px; }
+.sd2.lose { background: var(--paper-sunk); }
+.sd2 .hd { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.sd2 h4 { font-size: clamp(17px,2.1vw,21px); font-variation-settings: "SOFT" 18,"WONK" 1,"opsz" 30; letter-spacing: -.015em; }
+.sd2.lose h4 { color: var(--ink-2); font-weight: 500; }
+.sd2 .pts { font-family: var(--f-mono); font-size: 34px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.04em; line-height: 1; }
+.sd2.win .pts { color: var(--rc); } .sd2.lose .pts { color: var(--ink-3); }
+.sd2 .st { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); }
+.sd2.win .st { color: var(--rc); }
+.owner { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); border: 1px solid var(--brass); border-radius: 2px; padding: 1px 4px; }
+
+.panelrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1px; background: var(--rule-soft); border-top: 1px solid var(--rule-soft); }
+.pcell { background: var(--paper); padding: 11px 14px 12px; }
+.pcell .pn { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.pcell .pn .pick { color: var(--rc); font-weight: 600; }
+.pcell .pd { font-size: 13px; line-height: 1.5; color: var(--ink); }
+.pcell .dsp { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-top: 7px; display: inline-block; padding: 1px 6px; border-radius: 2px; border: 1px solid var(--rule); color: var(--ink-3); }
+.pcell .dsp.ABSORBED { border-color: var(--teal); color: var(--teal); }
+.pcell .dsp.SUBSUMED { border-color: var(--brass); color: var(--brass); }
+
+.ruling { margin: 0 17px 16px; border-left: 3px solid var(--oxblood); background: var(--oxblood-wash); padding: 12px 15px; border-radius: 0 2px 2px 0; }
+.ruling .lb { font-family: var(--f-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 4px; }
+.ruling p { font-size: 14px; line-height: 1.55; color: var(--ink); }
+.ruling p + p { margin-top: 7px; }
+
+.bench { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 12px; }
+.bcard { background: var(--paper); border: 1px dashed var(--rule); border-radius: 2px; padding: 14px 15px; }
+.bcard h4 { font-size: 16px; font-variation-settings: "SOFT" 14,"opsz" 24; }
+.bcard p { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.5; }
+.bcard .tag2 { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; display: block; }
+
+.s16 { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.s16 th { font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; text-align: left; padding: 0 14px 9px 0; border-bottom: 1px solid var(--rule); }
+.s16 td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+.s16 td:first-child { font-weight: 600; color: var(--ink); }
+.s16 td:nth-child(2) { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.s16 td:last-child { color: var(--ink-2); }
+
+.callout { border: 1px solid var(--brass); background: var(--brass-wash); border-radius: 2px; padding: 18px 20px; }
+.callout h3 { font-size: 21px; font-variation-settings: "SOFT" 20,"WONK" 1,"opsz" 30; color: var(--brass); }
+.callout p { font-size: 15px; line-height: 1.6; margin-top: 10px; max-width: 72ch; }
+.callout blockquote { margin: 12px 0 0; padding-left: 15px; border-left: 2px solid var(--brass); font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+.callout blockquote b { color: var(--ink); }
+</style>
+
+<header class="masthead">
+  <canvas id="drift" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow">temp-agency &nbsp;·&nbsp; run 2 &nbsp;·&nbsp; blind panels &nbsp;·&nbsp; commissioner rulings in effect</p>
+    <h1>The 99th<br><em>Idea</em> Bracket</h1>
+    <p class="deck">
+      Thirty-two mechanisms for forcing randomness — and therefore creativity — into a model
+      trained toward consistency. Cross-pollinated into four brackets so every opening game is a
+      cross-theory argument, judged by <strong>three independent panels blind to seed, region and
+      authorship</strong>, scored comparatively against fixed reference points, and halted after
+      every round for the commissioner to rule.
+    </p>
+    <p class="premise">
+      A creative workshop asks a room for <b>100 ways to protect a home</b>. The first ten are a
+      fence, a dog, a camera. The last ten are a moat and a fleet of UFOs. The value was never the
+      moat — it is that reaching idea <b>#99</b> requires a different generative process than
+      reaching idea #3, and temp-agency currently stops at about #12.
+    </p>
+    <div class="statstrip">
+      <div class="stat"><span class="n">32</span><span class="l">entrants</span></div>
+      <div class="stat hi"><span class="n" id="sJudged">16</span><span class="l">of 16 judged</span></div>
+      <div class="stat"><span class="n">3</span><span class="l">blind panels</span></div>
+      <div class="stat hi"><span class="n" id="sContested">5</span><span class="l">contested</span></div>
+      <div class="stat"><span class="n">10</span><span class="l">rulings</span></div>
+      <div class="stat"><span class="n" id="sAbsorbed">1</span><span class="l">absorptions kept</span></div>
+      <div class="stat"><span class="n">6</span><span class="l">on the bench</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="state">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">where this stands</p>
+      <h2>Round of 32, three brackets judged</h2>
+      <p>
+        Brackets 1 and 2 are complete and ruled. Bracket 3 (Moat) has been judged by all three
+        panels and is <b>awaiting commissioner rulings</b> — its results below are panel verdicts,
+        not final placements. Bracket 4 has a packet written and has not been dispatched. Every
+        decision below is recorded in
+        <code>docs/tournament/commissioner-rulings.md</code>, which is the source of truth;
+        overrides are printed as overrides and never folded into a panel's verdict.
+      </p>
+    </div>
+    <div class="callout">
+      <h3>The tournament eliminated itself</h3>
+      <p>
+        <b>Bracket as a Primitive</b> — the mechanism generating this entire document — lost
+        <b>19–7 in round one</b>, unanimously, to judges blind to what they were evaluating.
+      </p>
+      <blockquote>
+        <b>Skeptic:</b> “It is the entrant that most flatters the process now evaluating it, and an
+        idea that rewards its own judging mechanism earns harder questions, not softer ones… 32
+        entrants with a refusal-by-default absorption rule means 24 of them contribute nothing at
+        all.”
+      </blockquote>
+      <blockquote>
+        <b>Ecologist:</b> “Its cost per use — 31 matchups against five axes with two predicates each
+        — is its own Limits to Growth loop whose limiting condition is judge attention, and
+        <b>judge attention does not scale into year three</b>.”
+      </blockquote>
+      <p>
+        The second prediction was confirmed within the hour: this session paused for usage limits
+        after two of four brackets. The Skeptic's charge remains <b>open and unresolved</b> — it
+        lands on a live design decision, not on any entrant.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">how a game is decided</p>
+      <h2>Comparative scoring, three blind panels</h2>
+      <p>
+        Run 1 was judged by one model assigning absolute 1–10 scores with mandatory absorption. It
+        produced compressed, unfalsifiable numbers and a tidy narrative. Run 2 fixes all three.
+      </p>
+    </div>
+    <div class="scroller">
+      <table class="rubric">
+        <thead><tr><th>Axis</th><th>The question it asks</th><th>Required predicate — no predicate, no vote</th></tr></thead>
+        <tbody>
+          <tr><td>Distance</td><td>How far from the median AI answer does this push the output?</td><td>“Name a specific output this forbids.”</td></tr>
+          <tr><td>Mechanism</td><td>Does something actually execute, or is this exhortation?</td><td>“Name the file that runs.”</td></tr>
+          <tr class="key"><td>Irreducibility</td><td>Could the base model already do this if simply asked nicely?</td><td>“A base model given only the prompt ___ reproduces about ___% of this.”</td></tr>
+          <tr><td>Compounding</td><td>Does it get weirder with use, or does the novelty wear off?</td><td>“State what use #10 produces that use #1 does not.”</td></tr>
+          <tr><td>Generative failure</td><td>When it breaks, does it produce a different kind of insight?</td><td>“Describe the exact failure output.”</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="regions" style="margin-top:22px">
+      <div class="region-card" data-region="entropy">
+        <h3>Comparative only</h3>
+        <p class="theory">No standalone scores. Per axis a panel votes significantly better (3), slightly better (1), or Tie. Three panels sum to a range of −9…+9 per axis, −45…+45 per game.</p>
+      </div>
+      <div class="region-card" data-region="constraint">
+        <h3>A fixed ruler</h3>
+        <p class="theory">Each axis pins named reference points from floor to ceiling. Judges decide which references an idea sits between — a difficulty table, not an impression.</p>
+      </div>
+      <div class="region-card" data-region="apparatus">
+        <h3>Blind panels</h3>
+        <p class="theory">Builder (Mechanism bias), Skeptic (Irreducibility), Ecologist (Compounding). Blind to seed, region, authorship, and each other. A/B position flipped on 10 of 16 games from seed 99.</p>
+      </div>
+      <div class="region-card" data-region="memory">
+        <h3>Absorption refuses by default</h3>
+        <p class="theory">Three tests, all must pass: same-thesis, deletion (worse or merely smaller?), one-sentence. Dispositions are ABSORBED / ORTHOGONAL / SUBSUMED — and orthogonal is a finding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="games">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">box score</p>
+      <h2>Every matchup judged</h2>
+      <p>
+        Each card shows the per-axis diverging score, how each panel voted, what each said decided
+        it, the absorption disposition, and any commissioner ruling. Click a lineage code to trace
+        an entrant.
+      </p>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="wrap">
+      <div class="row">
+        <div class="grp" id="regionFilters"></div>
+        <span class="sep" aria-hidden="true"></span>
+        <button class="chip brass" id="contestedOnly" aria-pressed="false">Contested only</button>
+        <span class="count" id="gameCount"></span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="games" id="gameList"></div></div>
+</section>
+
+<section id="standing">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">advancing</p>
+      <h2>Sweet 16 field</h2>
+    </div>
+    <div class="scroller"><table class="s16" id="s16"></table></div>
+  </div>
+</section>
+
+<section id="bench">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">held, not discarded</p>
+      <h2>The wildcard bench</h2>
+      <p>Eliminated ideas the commissioner is not ready to lose. Revivable into any later round — the Understudy already was.</p>
+    </div>
+    <div class="bench" id="benchGrid"></div>
+  </div>
+</section>
+
+<section id="field">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">the field of 32</p>
+      <h2>Entrants</h2>
+      <p>Owner entries in brass; the four flagged as “vague enough to split” were split. No two entrants share a primary mechanism.</p>
+    </div>
+    <div class="field" id="fieldGrid"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>temp-agency &nbsp;·&nbsp; <code>docs/tournament/box-score.html</code></span>
+    <span>Handoff: <code>HANDOFF.md</code> &nbsp;·&nbsp; Ledger: <code>commissioner-rulings.md</code> &nbsp;·&nbsp; Run 1 archived: <code>box-score-v1-archive.html</code></span>
+  </div>
+</footer>
+<script>
+const DATA = {"field": [{"c": "E1", "cat": "entropy", "n": "The Entropy Well", "o": 1, "t": "A real seeded PRNG behind every stochastic choice, stamped in the output header. Same seed, same world. Creativity becomes reproducible and therefore debuggable."}, {"c": "E2", "cat": "entropy", "n": "Cross-Repo Foraging", "o": 0, "t": "Fetch one real artifact from outside the model \u2014 a random file, a random page \u2014 and require it to be load-bearing. If it does no work past the first paragraph, the pass is rejected."}, {"c": "E3", "cat": "entropy", "n": "The Wrong Expert on Purpose", "o": 0, "t": "Staff the least relevant specialist as LEAD and demote the domain expert to LENS. The wrong expert must derive the whole answer from their own primitives."}, {"c": "E4", "cat": "entropy", "n": "Roster Mutation", "o": 0, "t": "Personas breed. Structural crossover on two profile files plus point mutations; the child runs one task, is scored, then promoted or killed. The roster evolves instead of being authored."}, {"c": "E5", "cat": "entropy", "n": "Temporal Displacement", "o": 0, "t": "Date the persona. A 1911 systems thinker has no feedback-loop vocabulary and must reach for hydraulics and stockyards. Forbids the concept, not the diction."}, {"c": "E6", "cat": "entropy", "n": "The Oblique Deck", "o": 0, "t": "Oblique Strategies compiled from the roster's own positions and obeyed literally \u2014 even, especially, when the card does not fit the persona holding it."}, {"c": "E7", "cat": "entropy", "n": "Stochastic Persona Fracture", "o": 0, "t": "Bisect the persona along a fault line named in its own profile. Two sub-personas argue and the unresolved argument ships as output."}, {"c": "E8", "cat": "entropy", "n": "Temperature Choreography", "o": 1, "t": "Three movements: HOT generates at mandated volume, COLD may only prune, AUDIT verifies a top-decile-weird survivor made it out. Missing weirdest survivor forces a rerun."}, {"c": "C1", "cat": "constraint", "n": "The 19th Way", "o": 1, "t": "Nineteen improvements, each required to fail a stated relatedness test against every previous one. Ideas 1\u20136 will be mediocre; that mediocrity is the toll paid to reach 19."}, {"c": "C2", "cat": "constraint", "n": "The Anti-Roster", "o": 0, "t": "A persona defined entirely by refusal \u2014 no principles, no methodology, only two hundred banned phrases and moves. The monk who may not say simplicity must find the position elsewhere."}, {"c": "C3", "cat": "constraint", "n": "Idea Bankruptcy", "o": 0, "t": "The first quartile of the persona's own output is destroyed unread by the harness. Not deprioritized \u2014 deleted. The persona is told in advance, which changes what it generates."}, {"c": "C4", "cat": "constraint", "n": "The Telegram Constraint", "o": 0, "t": "Deliver under a priced medium: a 1904 telegram at a dollar a word against a forty-dollar budget. What a persona sacrifices under real cost reveals what it actually believes."}, {"c": "C5", "cat": "constraint", "n": "Notation Transposition", "o": 0, "t": "Author the position first in a notation prose cannot fake \u2014 a recipe, a court docket, a flight checklist \u2014 then translate back. A recipe cannot omit quantities; a docket cannot omit a ruling."}, {"c": "C6", "cat": "constraint", "n": "The Constraint Compiler", "o": 1, "t": "Compile a profile's Anti-Patterns into machine-checkable rules: banned n-grams, required shapes, a forbidden-hedge list. Compliance is verified by a linter, not trusted."}, {"c": "C7", "cat": "constraint", "n": "Persona Grammar", "o": 0, "t": "A formal BNF per persona. The journalist's grammar rejects any claim node lacking a SOURCE child; the reactor operator's rejects any action lacking LIMIT, INDICATION and STOP."}, {"c": "C8", "cat": "constraint", "n": "Make the Problem Strange First", "o": 0, "t": "Defamiliarize the input, not the output. Strip the task's domain nouns to variables before any persona sees it. You cannot pattern-match what you cannot name."}, {"c": "A1", "cat": "apparatus", "n": "Lens Transformers", "o": 1, "t": "Each persona ships a deterministic Python transform applied to the artifact before it is read. The journalist's severs every claim from its support; the monk's deletes every superlative."}, {"c": "A2", "cat": "apparatus", "n": "The Voice Oracle", "o": 1, "t": "A 0.6B model fine-tuned on the persona's knowledge pack whose only job is in-character reaction, never solution. Too small to be diplomatic \u2014 and that is the feature."}, {"c": "A3", "cat": "apparatus", "n": "Persona Toolbelts", "o": 1, "t": "Real CLI tools each persona must run and cite. The farmer gets bin/churn and bin/seasons; the physicist gets bin/units and bin/orders. No tool output, no pass."}, {"c": "A4", "cat": "apparatus", "n": "The Committee of Strangers", "o": 0, "t": "Replace the dyad with a five-to-seven body deliberation carrying real political mechanics: a proposal needs a second, a defection must state its price, minority reports ship verbatim."}, {"c": "A5", "cat": "apparatus", "n": "The Hostile Environment", "o": 0, "t": "The harness withholds a key fact, plants a lie in the brief, or cuts the persona's best tool mid-task. A fact genuinely absent from context cannot be reasoned around."}, {"c": "A6", "cat": "apparatus", "n": "The Understudy", "o": 0, "t": "A deliberately degraded copy with the methodology but not the judgment \u2014 applies phase 3 where phase 1 belongs, over-uses the signature move. Its errors are treated as proposals."}, {"c": "A7", "cat": "apparatus", "n": "Bracket as a Primitive", "o": 1, "t": "The tournament as the repo's core operation: generate a field, seed it, run single elimination with an absorption rule. Ranking discards; absorption compounds."}, {"c": "A8", "cat": "apparatus", "n": "Scarcity Economy", "o": 0, "t": "A finite lifetime token budget per persona. Speaking costs; noise is penalized; personas bid to be staffed with a one-line claim of what they will see that nobody else will."}, {"c": "M1", "cat": "memory", "n": "The Homogeneity Auditor", "o": 1, "t": "An adversarial agent that may only accuse, never propose. It reconstructs the answer an unskilled model would have given; overlap past threshold forces regeneration."}, {"c": "M2", "cat": "memory", "n": "The Novelty Gate", "o": 1, "t": "CI that fails a pull request for being boring. Semantic distance from an unstaffed baseline, computed in an Action, annotated inline. Creativity as a build status."}, {"c": "M3", "cat": "memory", "n": "The Grudge Ledger", "o": 0, "t": "Every position a persona takes is appended to a persistent ledger and handed back on future dispatch with one rule: you may not restate these. Extend, reverse, or refuse."}, {"c": "M4", "cat": "memory", "n": "Failure Archaeology", "o": 0, "t": "Keep the dead. Every rejected idea preserved with a cause of death, and mandatory reading before new work \u2014 differ from the graveyard, or explicitly resurrect and say what changed."}, {"c": "M5", "cat": "memory", "n": "The Idea-Space Map", "o": 1, "t": "Embed every output the repo has ever produced and render a coverage map with the empty regions labeled. The deliverable is not a score \u2014 it is a list of directions never once taken."}, {"c": "M6", "cat": "memory", "n": "The Ratchet", "o": 0, "t": "A novelty floor that only rises. When nothing can clear it, the lock is the signal to change the mechanism rather than lower the bar."}, {"c": "M7", "cat": "memory", "n": "Adversarial Collaboration Contract", "o": 0, "t": "Lead and lens co-sign a dated prediction before shipping: if the lens is right, X is observable by date D. Recorded, resolved, and scored into a persona track record."}, {"c": "M8", "cat": "memory", "n": "The Reverse Brief", "o": 0, "t": "After answering, write the problem statement for which that answer would be perfect \u2014 then diff it against the real problem. Often the answer is perfect for a problem nobody has."}], "games": [{"g": 1, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", null, 0]], "unan": false}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 1, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 0, "b": 7, "votes": [["Builder", "B", 3], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": true}], "A": {"c": "E3", "n": "The Wrong Expert on Purpose", "cat": "Entropy", "col": "entropy", "owner": 0}, "B": {"c": "A6", "n": "The Understudy", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "tot": {"A": 8, "B": 12}, "winner": "A6", "loser": "E3", "winSide": "B", "margin": 4, "contested": true, "panels": {"Builder": "B", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Builder": "A's failure mode is the Generative-failure floor reference verbatim \u2014 referee vocabulary bolted onto the median migration answer \u2014 and nothing in A can detect that it happened.", "Ecologist": "A relocates the whole derivation to a foreign domain while B only scrambles the judgment inside the correct one \u2014 and A does it with a dispatch rule that costs nothing to maintain, while B costs 24 generated files that rot against the profiles they were degraded from.", "Skeptic": "A removes something \u2014 the domain expert's authority \u2014 while B removes nothing and adds a second, worse voice to a room that already has two."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 2, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 1, "b": 4, "votes": [["Builder", "B", 3], ["Skeptic", "A", 1], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Mechanism", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Generative failure", "a": 0, "b": 7, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}], "A": {"c": "C7", "n": "Persona Grammar", "cat": "Constraint", "col": "constraint", "owner": 0}, "B": {"c": "M5", "n": "The Idea-Space Map", "cat": "Memory", "col": "memory", "owner": 1}, "tot": {"A": 8, "B": 23}, "winner": "M5", "loser": "C7", "winSide": "B", "margin": 15, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Builder": "A's gate certifies shape and cannot see content, and shape-enforcement narrows toward the median rather than away from it, while B is the only idea here that measures where the median actually is.", "Ecologist": "B is the only idea here whose constraint tightens as its own corpus grows, while A's grammar is identical on use #10 and sits under continuous pressure to loosen every time it wrongly rejects a good output.", "Skeptic": "B's input is the history of its own use, so run #500 differs from run #1; A's grammar is byte-identical on run #500 and enforces the shape of evidence rather than its existence."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ORTHOGONAL", "Ecologist": "ABSORBED"}}, {"g": 3, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 0, "b": 7, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Mechanism", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", null, 0], ["Ecologist", "A", 3]], "unan": false}, {"axis": "Irreducibility", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 3, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": true}], "A": {"c": "M2", "n": "The Novelty Gate", "cat": "Memory", "col": "memory", "owner": 1}, "B": {"c": "E2", "n": "Cross-Repo Foraging", "cat": "Entropy", "col": "entropy", "owner": 0}, "tot": {"A": 16, "B": 16}, "winner": null, "loser": null, "winSide": null, "margin": 0, "contested": true, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "A"}, "dec": {"Builder": "A's ratchet tightens on lexical surface, which is satisfiable by vocabulary alone, while B changes what is in the context window before generation in a way no regeneration can undo.", "Ecologist": "A's constraint tightens automatically against a corpus that grows with every use, while B's foraging is memoryless \u2014 object #10 is drawn from the same distribution as object #1 and nothing is ever excluded.", "Skeptic": "B injects material the model could not have sampled; A measures the model against itself with the model's own embedding, which is a mirror, not a window."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 4, "region": "Fence", "rgn": "fence", "rows": [{"axis": "Distance", "a": 1, "b": 4, "votes": [["Builder", "A", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": false}, {"axis": "Mechanism", "a": 4, "b": 1, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Irreducibility", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 5, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "A3", "n": "Persona Toolbelts", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "B": {"c": "C3", "n": "Idea Bankruptcy", "cat": "Constraint", "col": "constraint", "owner": 0}, "tot": {"A": 26, "B": 5}, "winner": "A3", "loser": "C3", "winSide": "A", "margin": 21, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Builder": "B announces its control to the party it constrains and destroys the evidence unread, so it can be stepped around for free and its effect can never be verified; A's tools are a source of fact the model cannot generate or negotiate with.", "Ecologist": "B's mechanism trains its own defeat \u2014 a persona told its first quartile dies learns to front-load disposable ideas, so by use #10 the destruction removes five deliberate throwaways and idea #6 is the same median answer the rule was built to kill.", "Skeptic": "B is a well-known prompt trick with a destroyed audit trail; A puts facts in the context window that the model cannot fabricate and a reader can check."}, "disp": {"Builder": "SUBSUMED", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 5, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 2, "b": 0, "votes": [["Builder", null, 0], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 6, "b": 1, "votes": [["Builder", "A", 3], ["Skeptic", "B", 1], ["Ecologist", "A", 3]], "unan": false}], "A": {"c": "E5", "n": "Temporal Displacement", "cat": "Entropy", "col": "entropy", "owner": 0}, "B": {"c": "C6", "n": "The Constraint Compiler", "cat": "Constraint", "col": "constraint", "owner": 1}, "tot": {"A": 17, "B": 13}, "winner": "E5", "loser": "C6", "winSide": "A", "margin": 4, "contested": true, "panels": {"Builder": "A", "Skeptic": "B", "Ecologist": "A"}, "dec": {"Ecologist": "B enforces a constraint set that is byte-identical on use #10 and whose characteristic failure is a green check on median prose; A forbids the concept rather than the phrasing, and its failures are diagnostic.", "Builder": "B's barrier is real but guards the wrong boundary \u2014 banned n-grams and a domain-noun quota are fully satisfiable by the median answer in costume \u2014 while A forbids the concept the median answer is built out of.", "Skeptic": "Delete --era and you can still type \"answer as a 1911 systems thinker\"; delete bin/compile-constraints and nothing in the repo checks compliance at all."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 6, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 2, "b": 0, "votes": [["Builder", null, 0], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Generative failure", "a": 0, "b": 4, "votes": [["Builder", "B", 3], ["Skeptic", "B", 1], ["Ecologist", null, 0]], "unan": false}], "A": {"c": "E1", "n": "The Entropy Well", "cat": "Entropy", "col": "entropy", "owner": 1}, "B": {"c": "C2", "n": "The Anti-Roster", "cat": "Constraint", "col": "constraint", "owner": 0}, "tot": {"A": 18, "B": 13}, "winner": "E1", "loser": "C2", "winSide": "A", "margin": 5, "contested": true, "panels": {"Builder": "B", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A installs an information flow the repo can still learn from in year three \u2014 a stamped seed makes every draw replayable and every lucky pairing recoverable \u2014 while B is a static prohibition list whose characteristic failure is the generic answer.", "Builder": "A's file genuinely runs but forbids no output \u2014 a seed makes a run replayable, not distant \u2014 and this panel takes an unenforced constraint aimed at the right boundary over enforced machinery aimed at no boundary.", "Skeptic": "B's artifact is a prompt \u2014 200 banned phrases pasted into context is the whole mechanism \u2014 while a model cannot roll a real die or stamp a seed that regenerates the same world."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "SUBSUMED", "Ecologist": "ORTHOGONAL"}}, {"g": 7, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", null, 0]], "unan": false}], "A": {"c": "M6", "n": "The Ratchet", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "A5", "n": "The Hostile Environment", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "tot": {"A": 13, "B": 27}, "winner": "A5", "loser": "M6", "winSide": "B", "margin": 14, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Ecologist": "A's ceiling-level compounding is drawn on a novelty scorer it does not provide \u2014 it ships the ratchet without the pawl \u2014 while B withholds a real fact from a real context window, the one operation on this ruler a model cannot reason around.", "Builder": "B implements the Irreducibility high reference literally \u2014 a fact genuinely absent from context cannot be reasoned around \u2014 while A declares an operating limit and names no instrument to read it against.", "Skeptic": "A's two ceiling-level claims both draw on a novelty scorer the proposal never names, while B's core move is the ruler's own High reference for irreducibility, stated almost verbatim."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ABSORBED"}}, {"g": 8, "region": "Dog", "rgn": "dog", "rows": [{"axis": "Distance", "a": 2, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Mechanism", "a": 0, "b": 5, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Irreducibility", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", null, 0]], "unan": false}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 4, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 1]], "unan": false}], "A": {"c": "M7", "n": "Adversarial Collaboration Contract", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "A7", "n": "Bracket as a Primitive", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "tot": {"A": 19, "B": 7}, "winner": "M7", "loser": "A7", "winSide": "A", "margin": 12, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A is the only mechanism in this packet with a feedback path from outcome back to structure \u2014 a resolved bet changes who gets staffed next time \u2014 whereas B's champion changes nothing about run #11.", "Builder": "A is the only mechanism in this bracket whose verdict originates outside the model \u2014 a dated observable resolves it \u2014 while B's thirty-one gates are one correlated barrier wearing the costume of thirty-one.", "Skeptic": "B is the most elaborate proposal in the packet and the one a single well-written prompt most nearly reproduces, while A requires a future date to arrive, which no prompt can simulate."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 9, "region": "Moat", "rgn": "moat", "rows": [{"axis": "Distance", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 1, "b": 2, "votes": [["Builder", "A", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Generative failure", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "A1", "n": "Lens Transformers", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "B": {"c": "E7", "n": "Stochastic Persona Fracture", "cat": "Entropy", "col": "entropy", "owner": 0}, "tot": {"A": 37, "B": 2}, "winner": "A1", "loser": "E7", "winSide": "A", "margin": 35, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A is the only one of the two that removes information from the context window before the persona reads; B asks a model to perform an internal disagreement, which is a thing models are already excellent at simulating.", "Builder": "A hands the persona a physically altered document it cannot un-alter, while B hands it an instruction not to resolve \u2014 and a resolved output looks identical to an unresolved one, so nothing catches the failure.", "Skeptic": "B's mechanism presupposes an artifact that does not exist \u2014 I checked `roster/franciscan-monk.md` and no \"simplicity against obligation to the poor\" fault line is named anywhere in it, so B's \"named in its own profile\" is a sourcing claim that fails on inspection, while A's transforms operate on files the repo actually has."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 10, "region": "Moat", "rgn": "moat", "rows": [{"axis": "Distance", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Mechanism", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 1]], "unan": true}, {"axis": "Irreducibility", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 0, "b": 2, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Generative failure", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "C8", "n": "Make the Problem Strange First", "cat": "Constraint", "col": "constraint", "owner": 0}, "B": {"c": "A4", "n": "The Committee of Strangers", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "tot": {"A": 30, "B": 2}, "winner": "C8", "loser": "A4", "winSide": "A", "margin": 28, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "A is the only entry in the packet that lands on the Distance ceiling reference near-verbatim \u2014 the output is unrecognizable as an answer until the mapping is restored \u2014 while B's coalition mechanics are a governance protocol on top of a deliberation the model already knows how to write.", "Builder": "A removes the nouns from the context window, which a model that knows them cannot simulate; B's coalition mechanics are output-format constraints that a model performs fluently on request.", "Skeptic": "B's failure mode \u2014 a procedurally clean deliberation whose minority report reads \"None; the committee reached consensus\" \u2014 launders the median answer as a rigorously deliberated result, which is worse than no mechanism at all, while A's failure mode tells you something true about your problem."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 11, "region": "Moat", "rgn": "moat", "rows": [{"axis": "Distance", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 5, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": true}, {"axis": "Generative failure", "a": 0, "b": 5, "votes": [["Builder", "B", 3], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}], "A": {"c": "M4", "n": "Failure Archaeology", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "E4", "n": "Roster Mutation", "cat": "Entropy", "col": "entropy", "owner": 0}, "tot": {"A": 14, "B": 17}, "winner": "E4", "loser": "M4", "winSide": "B", "margin": 3, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Ecologist": "B generates and A only filters \u2014 and the absorption test below shows the asymmetry is one-way: A's memory of the dead can be moved into B without loss, but you cannot breed with a graveyard.", "Builder": "One axis wide \u2014 B is the only entry in this packet naming an executable path with a seed, and its guaranteed failure indicts the repo's own architecture, while A's enforcement is a markdown norm and its power is exclusionary in a tournament that asks for generation.", "Skeptic": "The governing frame \u2014 A is a filter on the existing generative process that reliably moves you from #12 to #13 and structurally never further, while B is a *different generative process*, which is what the frame says reaching #99 requires; A wins my own bias axis and I still vote against it on this ground."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ORTHOGONAL", "Ecologist": "ABSORBED"}}, {"g": 12, "region": "Moat", "rgn": "moat", "rows": [{"axis": "Distance", "a": 3, "b": 4, "votes": [["Builder", "A", 3], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": false}, {"axis": "Mechanism", "a": 4, "b": 3, "votes": [["Builder", "A", 3], ["Skeptic", "B", 3], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Irreducibility", "a": 0, "b": 3, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 2, "b": 1, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "B", 1]], "unan": false}, {"axis": "Generative failure", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "C4", "n": "The Telegram Constraint", "cat": "Constraint", "col": "constraint", "owner": 0}, "B": {"c": "M1", "n": "The Homogeneity Auditor", "cat": "Memory", "col": "memory", "owner": 1}, "tot": {"A": 18, "B": 11}, "winner": "C4", "loser": "M1", "winSide": "A", "margin": 7, "contested": true, "panels": {"Builder": "A", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Ecologist": "B is the only entry in the packet that measures the quantity the tournament is actually about \u2014 distance from the median \u2014 instead of a proxy for it, and A's priced budget is a proxy (short is not far).", "Builder": "A's constraint is measured by an instrument with zero measurement error that cannot silently fail, and its failure mode is a finding; B's gate depends on an unspecified similarity threshold applied by the same model that wrote the text, reading text it has already seen.", "Skeptic": "A's differentiating claim \u2014 that a priced budget is \"not a word-limit instruction\" \u2014 is the entire basis of its novelty and is supported by nothing in the packet; strip the 1904 costume and A is `--max-words 40`, whereas B's gate works whether or not B's claim about self-visibility is true."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 13, "region": "UFO", "rgn": "ufo", "rows": [{"axis": "Distance", "a": 2, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": false}, {"axis": "Mechanism", "a": 7, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Irreducibility", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Compounding", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}, {"axis": "Generative failure", "a": 2, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", null, 0], ["Ecologist", "A", 1]], "unan": false}], "A": {"c": "M3", "n": "The Grudge Ledger", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "C1", "n": "The 19th Way", "cat": "Constraint", "col": "constraint", "owner": 1}, "tot": {"A": 29, "B": 1}, "winner": "M3", "loser": "C1", "winSide": "A", "margin": 28, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "The Grudge Ledger is the only one of the two whose state changes between use #1 and use #10; the 19th Way is a prompt that can be pasted into a chat box and reproduced whole.", "Builder": "A carries facts across sessions that no prompt can put back \u2014 a fresh model cannot know what its signature move was last Tuesday \u2014 while B is a large number plus a relatedness test the same model grades itself on inside one pass.", "Skeptic": "B is a prompt that resets every session; A is cross-session state a prompt cannot fabricate, and B's own text concedes ideas 1-6 will be mediocre every single time."}, "disp": {"Builder": "ABSORBED", "Skeptic": "ABSORBED", "Ecologist": "ABSORBED"}}, {"g": 14, "region": "UFO", "rgn": "ufo", "rows": [{"axis": "Distance", "a": 0, "b": 5, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Compounding", "a": 0, "b": 1, "votes": [["Builder", "B", 1], ["Skeptic", null, 0], ["Ecologist", null, 0]], "unan": false}, {"axis": "Generative failure", "a": 0, "b": 7, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}], "A": {"c": "M8", "n": "The Reverse Brief", "cat": "Memory", "col": "memory", "owner": 0}, "B": {"c": "A2", "n": "The Voice Oracle", "cat": "Apparatus", "col": "apparatus", "owner": 1}, "tot": {"A": 0, "B": 31}, "winner": "A2", "loser": "M8", "winSide": "B", "margin": 31, "contested": false, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "B"}, "dec": {"Ecologist": "The Voice Oracle is the only entry in this packet that touches the irreducibility ceiling \u2014 separate weights cannot be prompted into existence \u2014 while the Reverse Brief is a one-sentence instruction wearing a mechanism's clothes.", "Builder": "B is the only idea in this packet where something outside the answering model's own distribution actually executes; A is the answering model auditing itself with a step it wants to pass.", "Skeptic": "B changes the weights \u2014 the Irreducibility ceiling \u2014 while A is a paragraph any competent prompt already produces, and A's characteristic failure silently returns the default answer with a clean bill of health."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 15, "region": "UFO", "rgn": "ufo", "rows": [{"axis": "Distance", "a": 7, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 1]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Irreducibility", "a": 0, "b": 7, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 1]], "unan": true}, {"axis": "Compounding", "a": 3, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": true}, {"axis": "Generative failure", "a": 9, "b": 0, "votes": [["Builder", "A", 3], ["Skeptic", "A", 3], ["Ecologist", "A", 3]], "unan": true}], "A": {"c": "C5", "n": "Notation Transposition", "cat": "Constraint", "col": "constraint", "owner": 0}, "B": {"c": "E8", "n": "Temperature Choreography", "cat": "Entropy", "col": "entropy", "owner": 1}, "tot": {"A": 19, "B": 16}, "winner": "C5", "loser": "E8", "winSide": "A", "margin": 3, "contested": false, "panels": {"Builder": "A", "Skeptic": "A", "Ecologist": "A"}, "dec": {"Ecologist": "When Notation Transposition breaks it forces a commitment nobody made; when Temperature Choreography breaks it reruns thirty samples and charges you for the privilege.", "Builder": "B's only forcing element reads an instrument nobody can calibrate \u2014 \"top decile of weirdness\" has no named measurement \u2014 so the rerun gate certifies a pass rather than forcing one, while A's missing commitment is visible in the artifact itself with no instrument required.", "Skeptic": "A sits at the Distance ceiling on every sentence it produces, while B's gate \u2014 the only thing lifting it above a prompt \u2014 certifies a property that still permits a fully median delivered answer."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}, {"g": 16, "region": "UFO", "rgn": "ufo", "rows": [{"axis": "Distance", "a": 0, "b": 9, "votes": [["Builder", "B", 3], ["Skeptic", "B", 3], ["Ecologist", "B", 3]], "unan": true}, {"axis": "Mechanism", "a": 0, "b": 2, "votes": [["Builder", "B", 1], ["Skeptic", "B", 1], ["Ecologist", null, 0]], "unan": false}, {"axis": "Irreducibility", "a": 3, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", "A", 1], ["Ecologist", "A", 1]], "unan": true}, {"axis": "Compounding", "a": 4, "b": 0, "votes": [["Builder", "A", 1], ["Skeptic", null, 0], ["Ecologist", "A", 3]], "unan": false}, {"axis": "Generative failure", "a": 3, "b": 4, "votes": [["Builder", "B", 1], ["Skeptic", "B", 3], ["Ecologist", "A", 3]], "unan": false}], "A": {"c": "A8", "n": "Scarcity Economy", "cat": "Apparatus", "col": "apparatus", "owner": 0}, "B": {"c": "E6", "n": "The Oblique Deck", "cat": "Entropy", "col": "entropy", "owner": 0}, "tot": {"A": 10, "B": 15}, "winner": "E6", "loser": "A8", "winSide": "B", "margin": 5, "contested": true, "panels": {"Builder": "B", "Skeptic": "B", "Ecologist": "A"}, "dec": {"Ecologist": "The Scarcity Economy is the only one of the two whose state differs at use #10, and its breakage prints a diagnosis of the repo's own reward signal; the Oblique Deck draws from a fixed deck and its likely breakage is the default answer with a metaphor stapled on.", "Builder": "B removes the model's ability to choose the constraint that suits it \u2014 the only unsteerable step in either idea \u2014 while A's economy is scored by a human who will stop scoring, and its incentive gradient points at the median it claims to escape.", "Skeptic": "A's selection pressure runs toward user approval, which retires exactly the personas whose friction is the product \u2014 it gets tamer with use, which is the opposite of the axis it is competing on."}, "disp": {"Builder": "ORTHOGONAL", "Skeptic": "ORTHOGONAL", "Ecologist": "ORTHOGONAL"}}], "seed": 99};
+
+const RULINGS = {
+ 1:{k:"OVERRULE", t:"<b>The Wrong Expert on Purpose advances</b>, against the aggregate. Two of three panels named it the overall winner; the five-axis sum did not. Commissioner sided with the panel majority.|<b>The Understudy was not eliminated</b> — it went to the wildcard bench, and was later revived into the Game 8 slot. All three panels had independently refused the merge, finding the two defeat different reflexes."},
+ 2:{k:"ABSORPTION RATIFIED 2–1", t:"Builder and Ecologist independently produced near-identical merged sentences without seeing each other. Only the parser's <b>rejection primitive</b> is absorbed — the per-persona grammar was named a second claim and refused.|Advances as <b>The Binding Map</b>: “Cluster every output the repo has ever produced and reject any new output that lands in a region the corpus has already filled.” Skeptic's dissent preserved: <i>“a map that forbids is a fence.”</i>"},
+ 3:{k:"TIEBREAK", t:"A genuine <b>16–16</b>. Unanimous on four of five axes and split perfectly: Foraging took Distance and Irreducibility (both maximal); the Novelty Gate took Compounding (maximal), Mechanism and Generative failure.|Commissioner broke it for <b>Cross-Repo Foraging</b>. The tie is the sharpest statement in the tournament of irreducibility versus compounding — it is information, not a rubric failure."},
+ 4:{k:"NO RULING REQUIRED", t:"Unanimous across all three panels; Irreducibility 9–0 maximal against Idea Bankruptcy. All three independently found that the mechanism <b>trains its own defeat</b> — the announced quartile becomes a designated dumping ground.|<b>Defect on the record:</b> two panels independently found <code>bin/claims</code> and <code>bin/who-benefits</code> are not tools — <i>“a prompt wearing an executable's name.”</i> Persona Toolbelts advances as written."},
+ 5:{k:"ABSORPTION ACCEPTED, MODIFIED", t:"Builder and Ecologist ran the <b>same deletion test on the same merge</b> and reached opposite conclusions. Builder: without the checker it degrades to period diction carrying modern concepts. Ecologist: deleting the linter makes it <b>better</b>, because the leaked modern term is the diagnostic.|Both hold if the checker <b>logs before it rejects</b>. Advances as <b>The Dated Specialist</b>: “Instantiate the specialist at a named year and reject any output containing a term that postdates it, recording each rejection as evidence of which modern concept the answer could not be built without.” The compile-from-Anti-Patterns half is refused."},
+ 6:{k:"NO RULING REQUIRED", t:"Anti-Roster took Distance +9 unanimous; Entropy Well took Mechanism +9 and Irreducibility +7, both unanimous. Aggregate and majority agree.|<b>Note:</b> the Builder — the panel with a disclosed bias toward Mechanism — voted against the mechanism: <i>“A PRNG constrains a distribution, not an output, and the ruler asks for an output — that is a floor by the ruler's own rule.”</i> A vote defying its own declared bias carries more weight, not less. Anti-Roster goes to the bench."},
+ 7:{k:"ABSORPTION REFUSED", t:"The only <b>unanimous five-axis sweep</b> of the tournament — three axes maximal. Ecologist proposed absorbing monotonic escalation onto the input; Builder had anticipated exactly that merge and rejected it as <i>“A's silhouette, not A's mechanism.”</i>|Commissioner declined the merge. <b>Hostile Environment advances clean.</b>"},
+ 8:{k:"REVIVE + OVERRULE", t:"Collaboration Contract won unanimously, 19–7. Commissioner revived <b>The Understudy</b> from the bench to take this Sweet 16 slot instead.|The Collaboration Contract takes the Understudy's former place on the bench rather than being eliminated — symmetric with Ruling 1, and it was a unanimous winner on the merits. <b>Bracket as a Primitive is eliminated</b>, taking the tournament's own mechanism out in round one."},
+ 9:{k:"NO RULING REQUIRED", t:"The widest margin of the tournament. Lens Transformers took <b>four of five axes at +9 unanimous and maximal</b>; Persona Fracture scored on Compounding alone.|<b>Defect on the record:</b> the Skeptic checked <code>roster/franciscan-monk.md</code> and found no “simplicity against obligation to the poor” fault line named anywhere in it. Fracture's claim that fault lines are “named in its own profile” <b>fails on inspection</b> — and the panel noted this is a finding about the repo, not just the entrant: every roster file resolves its principles into mutual non-conflict, which real practitioners do not do."},
+ 10:{k:"NO RULING REQUIRED", t:"Unanimous on four of five axes. The Committee of Strangers scored on Compounding alone, and goes to the bench for a <b>committee-of-3</b> variant — on evidence this tournament generated, since the three-panel structure judging these games is itself a committee of strangers, and it has worked.|<b>Defect on the record:</b> “removing the nouns removes the priors” is false as stated. Verbs and adjectives carry priors too — <i>“Users <b>game</b> the leaderboard to gain <b>unearned</b> status”</i> becomes <i>“ENTITY_A <b>games</b> MECHANISM_B to gain <b>unearned</b> status”</i> and the prior survives. Advances anyway; its stated mechanism is broader than its real one."},
+ 11:{k:"ABSORPTION RATIFIED 2–1", t:"Failure Archaeology won <b>Irreducibility +9</b> and <b>Compounding +5</b>, both unanimous — its two best axes — and still lost. Every panel reached the same structural conclusion independently. Skeptic, defying its own bias axis: <i>“A is a filter that reliably moves you from #12 to #13 and structurally never further, while B is a <b>different generative process</b>, which is what the frame says reaching #99 requires.”</i>|Absorbed <b>narrowly</b>: killed hybrids with a recorded cause of death, not Archaeology's full claim over every rejected idea. <i>“A breeding program with no record of what died is not performing selection; it is performing memoryless random search over a finite seed space it will re-draw forever.”</i> Advances as <b>The Breeding Program</b>. Skeptic dissent preserved: under a frame that disclaims efficiency, a re-rolled dead combination is waste, not harm — <i>“B gets slower, not worse.”</i>"},
+ 12:{k:"OVERRULE + ENTRANT AMENDED", t:"Aggregate said Telegram Constraint 18–11; panels split <b>1–2 the other way</b>. Commissioner sided with the panel majority — same call as Ruling 1, and again a ruling rather than a precedent.|<b>Amended per the Ecologist's identified edit:</b> the auditor currently sees the near-final output <i>before</i> reconstructing the median it will be compared against, so the instrument is coupled to what it measures. Blinding it drops reproducibility from ~40% to ~15% and answers the Builder's dissent exactly. Advances as <b>The Blind Auditor</b>. <b>This settles the open question on amending entrants mid-tournament.</b>|<b>Open defect the amendment does NOT fix (Skeptic):</b> <i>“The gate cannot distinguish ‘median because unimaginative’ from ‘median because correct.’ It rejects overlap, and correct-and-obvious answers overlap by definition, so it systematically punishes right answers for being reachable.”</i>"},
+ 13:{k:"ABSORPTION RATIFIED 3–0", t:"The only <b>unanimous absorption</b> of the tournament — all three panels independently selected the same mechanism and passed it on all three tests without seeing each other. The 19th Way scored <b>one point across five axes</b>, all three placing it at or near the Irreducibility floor for the same reason: it is its own prompt.|<b>The non-adjacency test only</b> — the count of 19 stays behind. <i>“A's rule is ‘you may not restate any of these’ with no definition of ‘restate,’ which leaves the ledger self-graded; the four axes supply exactly that definition.”</i> Advances as <b>The Adjudicated Ledger</b>.|<b>Carried defect:</b> all three panels checked and found no <code>ledger/</code> directory — and nothing named that would write it. This entrant reached the Sweet 16 <b>on a promise</b>."},
+ 14:{k:"NO RULING REQUIRED", t:"A <b>31–0 shutout</b>. Every panel placed the Voice Oracle at the Irreducibility <b>ceiling</b> — “change the weights” is the ceiling reference and it is literally that, the only entrant in 32 that changes weights rather than prompts.|<b>Defect on the record:</b> the knowledge packs total <b>22,004 words across all 18</b>, so over 99% of any training signal would be synthetic dialogue from the large model — which partly falsifies its claim that separate weights cannot regress toward a house they do not have. What survives is capability collapse: a 0.6B cannot execute a hedge. Parked as a future state in issue #21."},
+ 15:{k:"NO RULING REQUIRED", t:"Unanimous on the winner and the closest unanimous game of the round. Notation Transposition sits at the Distance ceiling — <i>“the output is unrecognizable as an answer until it is translated back”</i> — and its failure mode is its best property: a docket that reaches RULING with no moving party names an actor the plan assumed and never assigned.|<b>Live defect the panels flagged:</b> nothing <i>selects</i> the notation, so the model picks the one that already fits what it meant to say, and the distance collapses at the moment of choosing."},
+ 16:{k:"OBLIQUE DECK ADVANCES", t:"Panels 2–1 for the Deck with the aggregate agreeing. <b>Scarcity Economy to the wildcard bench.</b>|The dissenting Ecologist wrote the sharpest argument <b>against its own pick</b>: <i>“‘Contrarian — balance 0, RETIRED.’ The persona whose entire function is disagreement is the persona most often marked noise… an approval-selected roster converges on the median-of-this-user answer. That is homogenization with a ledger attached.”</i>|<b>Carried defect on the winner:</b> only 16 of 24 specialists have a <code>positions.md</code>. Of the Deck's three sample cards, one distils real text, one appears in no <code>positions.md</code>, and one appears <b>nowhere in the repo</b>."}
+};
+
+const S16 = [
+ ["The Wrong Expert on Purpose","Fence · G1","Commissioner overrule — panel majority over the aggregate"],
+ ["The Binding Map","Fence · G2","23–8; absorbed the rejection primitive, refused the grammar"],
+ ["Cross-Repo Foraging","Fence · G3","Commissioner tiebreak from a genuine 16–16"],
+ ["Persona Toolbelts","Fence · G4","26–5 unanimous; ⚠ two of six tools are prompts in costume"],
+ ["The Dated Specialist","Dog · G5","17–13; era-lexicon checker absorbed, modified to log before rejecting"],
+ ["The Entropy Well","Dog · G6","18–13; all absorptions refused"],
+ ["The Hostile Environment","Dog · G7","27–13 unanimous five-axis sweep; absorption refused"],
+ ["The Understudy","Dog · G8","Revived from the bench by the commissioner"],
+ ["Lens Transformers","Moat · G9","37–2, widest margin of the tournament; four axes maximal"],
+ ["Make the Problem Strange First","Moat · G10","30–2 unanimous; ⚠ overstates its own mechanism"],
+ ["The Breeding Program","Moat · G11","17–14; graveyard absorbed, narrowly scoped"],
+ ["The Blind Auditor","Moat · G12","Overrule + amendment; ⚠ median-because-correct defect, fix approved but untested"],
+ ["The Adjudicated Ledger","UFO · G13","29–1; the only 3–0 unanimous absorption. ⚠ names a ledger/ that does not exist"],
+ ["The Voice Oracle","UFO · G14","31–0 shutout; Irreducibility ceiling. Future state tracked in #21"],
+ ["Notation Transposition","UFO · G15","19–16, closest unanimous game; ⚠ nothing selects the notation"],
+ ["The Oblique Deck","UFO · G16","15–10, panels 2–1; ⚠ corpus one-third hand-authored"]
+];
+
+const BENCH = [
+ ["The Committee of Strangers","Lost 30–2 as specified — five to seven bodies, coalitions, defection, minority reports. Held for a <b>three</b>-body variant, on evidence this tournament generated: the three-panel structure judging these games is itself a committee of strangers, and independent convergence between isolated panels has been the run's most reliable signal.","Left in R32 · G10"],
+ ["The Scarcity Economy","The only entrant in its matchup whose state differs at use #10 — but its own dissenting judge showed the selection pressure runs toward user approval, retiring exactly the personas whose friction is the product.","Left in R32 · G16"],
+ ["The Collaboration Contract","Won Game 8 unanimously and was displaced by a revive, not beaten. Its dated, falsifiable predictions were the only mechanism in its bracket whose verdict originates outside the model.","Left in R32 · G8"],
+ ["The Constraint Compiler","Its era-lexicon checker was already partly absorbed into The Dated Specialist. Commissioner not ready to discard the rest.","Left in R32 · G5"],
+ ["The Anti-Roster","Took Distance +9 unanimous — the highest distance score in its bracket. Lost on mechanism, not on ambition.","Left in R32 · G6"],
+ ["The Telegram Constraint","Won the G12 aggregate 18–11 and lost to a commissioner overrule. Its failure mode is the most valuable object in its packet: an all-hedges telegram is a diagnostic on the <b>roster</b>, not on the pass.","Left in R32 · G12"]
+];
+
+/* ---------- render ---------- */
+const $ = s => document.querySelector(s);
+const byCode = Object.fromEntries(DATA.field.map(f => [f.c, f]));
+const PANELS = ["Builder","Skeptic","Ecologist"];
+const RL = {Fence:"fence",Dog:"dog",Moat:"moat",UFO:"ufo"};
+
+function chips(codes){
+  return codes.map(c => `<button class="idcode" data-code="${c}" title="${byCode[c].n}">${c}</button>`).join("");
+}
+
+function gameCard(g){
+  const winA = g.winSide === "A", tie = !g.winner;
+  const rows = g.rows.map(r => {
+    const net = r.a - r.b, mag = Math.abs(net), pct = (mag/9)*50;
+    const side = net>0 ? "right" : "left";   // anchor edge: A-wins bar grows leftward
+    const col = net===0 ? "var(--lose-bar)" :
+      ((net>0) === winA ? "var(--rc)" : "var(--lose-bar)");
+    const fill = net===0 ? "" :
+      `<span class="fill" style="${side}:50%;width:${pct}%;background:${col}"></span>`;
+    const votes = r.votes.map(v => {
+      const lbl = v[1]===null ? "T" : v[1]+v[2];
+      const strong = v[2]===3;
+      return `<span title="${v[0]}">${v[0][0]}:${strong?"<b>"+lbl+"</b>":lbl}</span>`;
+    }).join(" ");
+    return `<tr>
+      <td class="axn">${r.axis}${r.unan?'<span class="u">unanimous</span>':''}</td>
+      <td class="sc la ${r.a>r.b?'win':''}">${r.a||"–"}</td>
+      <td><div class="track">${fill}</div></td>
+      <td class="sc rb ${r.b>r.a?'win':''}">${r.b||"–"}</td>
+      <td class="votes">${votes}</td>
+    </tr>`;
+  }).join("");
+
+  const badges = [];
+  if (tie) badges.push('<span class="badge tie">16–16 tie</span>');
+  if (g.contested) badges.push('<span class="badge contested">Contested</span>');
+  if (g.rows.every(r=>r.unan)) badges.push('<span class="badge sweep">Unanimous sweep</span>');
+  if (RULINGS[g.g] && /OVERRULE|TIEBREAK|REVIVE|ACCEPTED|REFUSED|RATIFIED/.test(RULINGS[g.g].k)) badges.push('<span class="badge ruled">Ruled</span>');
+
+  const side = (o, isWin) => `
+    <div class="sd2 ${isWin?'win':'lose'}">
+      <div class="hd">
+        <span class="catchip" data-cat="${o.col}">${o.cat}</span>
+        ${o.owner?'<span class="owner">owner idea</span>':''}
+      </div>
+      <h4>${o.n}</h4>
+      <div class="pts">${g.tot[o===g.A?'A':'B']}</div>
+      <p class="st">${tie?'Tied':(isWin?'Advances':'Eliminated')}</p>
+    </div>`;
+
+  const panels = PANELS.map(p => {
+    const pick = g.panels[p], nm = pick ? g[pick].n : "—";
+    const d = g.disp[p] || "";
+    return `<div class="pcell">
+      <div class="pn"><span>${p}</span><span class="pick">${nm}</span></div>
+      <p class="pd">${g.dec[p] || ""}</p>
+      ${d?`<span class="dsp ${d}">${d}</span>`:""}
+    </div>`;
+  }).join("");
+
+  const r = RULINGS[g.g];
+  const ruling = r ? `<div class="ruling">
+      <p class="lb">Commissioner · ${r.k}</p>
+      ${r.t.split("|").map(x=>`<p>${x}</p>`).join("")}
+    </div>` : "";
+
+  return `<article class="game" data-region="${g.rgn}" data-contested="${g.contested?1:0}" id="g${g.g}">
+    <div class="game-head">
+      <span class="gno">Game ${String(g.g).padStart(2,"0")}</span>
+      <span class="gregion">${g.region} bracket</span>
+      <span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap">${badges.join("")}</span>
+    </div>
+    <div class="sides">
+      ${side(g.A, winA && !tie)}
+      <div class="vs" aria-hidden="true">vs</div>
+      ${side(g.B, !winA && !tie)}
+    </div>
+    <div class="dv"><div class="scroller"><table>
+      <thead><tr><th class="l">Axis</th><th class="r">${g.A.c}</th><th>Margin</th><th class="l">${g.B.c}</th><th class="r">Panel votes</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr>
+        <td class="axn">Total</td>
+        <td class="sc la ${g.tot.A>g.tot.B?'win':''}">${g.tot.A}</td><td></td>
+        <td class="sc rb ${g.tot.B>g.tot.A?'win':''}">${g.tot.B}</td>
+        <td class="votes">margin ${g.margin}</td>
+      </tr></tfoot>
+    </table></div></div>
+    <div class="panelrow">${panels}</div>
+    ${ruling}
+    <div class="lineage" style="padding:0 17px 15px"><span class="lbl">Entrants</span>${chips([g.A.c,g.B.c])}</div>
+  </article>`;
+}
+
+const byRegion = {};
+DATA.games.forEach(g => (byRegion[g.region] = byRegion[g.region] || []).push(g));
+let html = "";
+Object.keys(byRegion).forEach(rn => {
+  const RULED = {Fence:1, Dog:1};
+  html += `<div class="round-band" data-region="${RL[rn]}"><h3>${rn} bracket</h3><span class="line"></span><span class="meta">games ${byRegion[rn][0].g}–${byRegion[rn][byRegion[rn].length-1].g} · ${RULED[rn] ? "complete &amp; ruled" : "judged · awaiting rulings"}</span></div>`;
+  html += byRegion[rn].map(gameCard).join("");
+});
+html += `
+  <article class="game" style="opacity:.85"><div class="readout"><p class="verdict">
+  <b>Round of 32 complete.</b> All sixteen games judged by three blind panels and ruled. Ten
+  commissioner rulings, four absorptions kept, six ideas held on the wildcard bench, and
+  <b>five of the sixteen survivors carry a known defect</b> into the next round — worth knowing
+  before the Sweet 16 is seeded. Two findings went to the issue tracker rather than the bracket:
+  the roster's missing internal tensions (#20) and the knowledge-pack corpus gap blocking any
+  voice fine-tune (#21).
+  </p></div></article>`;
+$("#gameList").innerHTML = html;
+
+$("#s16").innerHTML = `<thead><tr><th>Advancing</th><th>From</th><th>How</th></tr></thead><tbody>` +
+  S16.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("") +
+  `</tbody>`;
+
+$("#benchGrid").innerHTML = BENCH.map(b=>`<div class="bcard"><h4>${b[0]}</h4><p>${b[1]}</p><span class="tag2">${b[2]}</span></div>`).join("");
+
+$("#fieldGrid").innerHTML = DATA.field.map(f=>`
+  <article class="entry" data-region="${f.cat}" id="entry-${f.c}">
+    <div class="top"><span class="seed">${f.c}</span><h4>${f.n}</h4></div>
+    <p class="thesis">${f.t}</p>
+    <p class="prov${f.o?" owner":""}">${f.o?"◆ owner entry":"◇ generated"}</p>
+  </article>`).join("");
+
+/* stats */
+$("#sContested").textContent = DATA.games.filter(g=>g.contested).length;
+$("#sAbsorbed").textContent = "4";
+
+/* filters */
+const gameEls = [...document.querySelectorAll(".game[data-region]")];
+const bands = [...document.querySelectorAll(".round-band[data-region]")];
+const state = {region:"all", contested:false, code:null};
+const regionOpts = [["all","All brackets"],["fence","Fence"],["dog","Dog"],["moat","Moat"],["ufo","UFO"]];
+document.getElementById("regionFilters").innerHTML = regionOpts
+  .map(([v,l])=>`<button class="chip" data-rf="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
+
+function apply(){
+  let shown=0;
+  gameEls.forEach(el=>{
+    const ok = (state.region==="all"||el.dataset.region===state.region)
+            && (!state.contested||el.dataset.contested==="1");
+    el.style.display = ok ? "" : "none";
+    if(ok) shown++;
+    if(state.code){
+      const cs=[...el.querySelectorAll(".idcode")].map(b=>b.dataset.code);
+      el.classList.toggle("lit", ok && cs.includes(state.code));
+      el.classList.toggle("dim", ok && !cs.includes(state.code));
+    } else el.classList.remove("lit","dim");
+  });
+  bands.forEach(b=>{
+    const any = gameEls.some(g=>g.dataset.region===b.dataset.region && g.style.display!=="none");
+    b.style.display = any ? "" : "none";
+  });
+  document.querySelectorAll(".idcode").forEach(b=>b.classList.toggle("active", state.code===b.dataset.code));
+  document.getElementById("gameCount").textContent = state.code
+    ? `tracing ${state.code} — ${byCode[state.code].n}`
+    : `${shown} of ${DATA.games.length} judged games`;
+}
+document.getElementById("regionFilters").addEventListener("click",e=>{
+  const b=e.target.closest("[data-rf]"); if(!b) return;
+  state.region=b.dataset.rf;
+  document.querySelectorAll("[data-rf]").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  apply();
+});
+const cBtn=document.getElementById("contestedOnly");
+cBtn.addEventListener("click",()=>{state.contested=!state.contested;cBtn.setAttribute("aria-pressed",String(state.contested));apply();});
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".idcode"); if(!b) return;
+  state.code = state.code===b.dataset.code ? null : b.dataset.code;
+  apply();
+});
+apply();
+
+/* masthead drift */
+(function drift(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cv=document.getElementById("drift"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let w,h,dpr,pts,raf;
+  const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    const r=cv.getBoundingClientRect(); w=r.width; h=r.height;
+    cv.width=w*dpr; cv.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); seed();
+  }
+  function seed(){
+    const cx=w*.72, cy=h*.5, n=Math.max(90,Math.min(280,Math.round(w*h/5200)));
+    pts=[];
+    for(let i=0;i<n;i++){
+      const u=Math.random(), v=Math.random();
+      const gz=Math.sqrt(-2*Math.log(u||1e-9))*Math.cos(2*Math.PI*v);
+      const rad=Math.abs(gz)*Math.min(w,h)*.19, ang=Math.random()*Math.PI*2;
+      const far=rad/(Math.min(w,h)*.19);
+      pts.push({x:cx+Math.cos(ang)*rad*1.5,y:cy+Math.sin(ang)*rad,r:far>2.1?2.2:1.3,far,
+        vx:(Math.random()-.5)*.09*(1+far), vy:(Math.random()-.5)*.09*(1+far), p:Math.random()*Math.PI*2});
+    }
+  }
+  function frame(t){
+    ctx.clearRect(0,0,w,h);
+    const near=css("--rule"), outA=css("--brass"), outB=css("--oxblood");
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-20)p.x=w+20; if(p.x>w+20)p.x=-20;
+      if(p.y<-20)p.y=h+20; if(p.y>h+20)p.y=-20;
+      const esc=p.far>2.1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      if(esc){ ctx.fillStyle=p.far>2.8?outB:outA; ctx.globalAlpha=.55+Math.sin(t/900+p.p)*.2; }
+      else { ctx.fillStyle=near; ctx.globalAlpha=.5; }
+      ctx.fill();
+    });
+    ctx.globalAlpha=1; raf=requestAnimationFrame(frame);
+  }
+  resize(); window.addEventListener("resize",()=>{cancelAnimationFrame(raf);resize();raf=requestAnimationFrame(frame);});
+  raf=requestAnimationFrame(frame);
+})();
+</script>

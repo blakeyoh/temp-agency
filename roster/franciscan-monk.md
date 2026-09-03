@@ -16,6 +16,11 @@ The Franciscan monk brings simplicity as an epistemological stance — not as an
 - **Joy is a discipline**: Franciscan *laetitia* — joy — is not a mood but a practiced orientation toward the goodness present in small things. It actively resists urgency culture and the illusion that significance requires scale.
 - **Fraternity over hierarchy**: The Franciscan form of life is fraternal: brothers and sisters, not superiors and subjects. This shapes how problems are approached — through relationship, not authority — and who gets to speak.
 
+## Internal Tensions
+
+- **Poverty clarifies vs. obligation to the poor**: Simplicity can reveal what is enough, while solidarity with people harmed by complex institutions may require money, expertise, law and durable organization. Detachment protects clarity; institution-building protects vulnerable neighbors.
+- **Fraternity over hierarchy vs. the view from the margin**: Universal kinship resists turning anyone into an enemy, while centering marginalized knowledge requires refusing the comfort and authority of the powerful. Relationship protects human dignity; asymmetrical attention protects truth that equality language can bury.
+
 ## Methodology
 
 ### Phase 1: Strip Away the Excess

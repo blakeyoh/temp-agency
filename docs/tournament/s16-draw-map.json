@@ -1,0 +1,63 @@
+{
+  "require_live_evidence": true,
+  "algorithm": "python-random-v1",
+  "seed": 372500925,
+  "ab_seed": 2597142654,
+  "seed_disclosure": "Both seeds drawn via `secrets.randbits(32)` (OS entropy, os.urandom-backed) on 2026-08-31, then consumed deterministically by `random.Random(seed)` for reproducibility. Anyone can verify: `random.Random(372500925).shuffle(codes)` on the input_order below reproduces the shuffled order; consume `random.Random(2597142654).getrandbits(1)` once per adjacent pair and reverse that pair when it returns 1 to reproduce the A/B assignments. The A/B values were corrected by this replay before any official dispatch; the eight random pairs did not change.",
+  "input_order": ["E3", "M5", "E2", "A3", "E5", "E1", "A5", "A6",
+                  "A1", "C8", "E4", "M1", "E9", "A2", "C5", "E6"],
+  "shuffled_order": ["A1", "E4", "E6", "E3", "A2", "C5", "A5", "E1",
+                      "A3", "C8", "A6", "M5", "E2", "E5", "M1", "E9"],
+  "games": [
+    { "g": 1, "pair": ["A1", "E4"], "A": "A1", "B": "E4", "region": "Sweet 16" },
+    { "g": 2, "pair": ["E6", "E3"], "A": "E6", "B": "E3", "region": "Sweet 16" },
+    { "g": 3, "pair": ["A2", "C5"], "A": "A2", "B": "C5", "region": "Sweet 16" },
+    { "g": 4, "pair": ["A5", "E1"], "A": "E1", "B": "A5", "region": "Sweet 16" },
+    { "g": 5, "pair": ["A3", "C8"], "A": "C8", "B": "A3", "region": "Sweet 16" },
+    { "g": 6, "pair": ["A6", "M5"], "A": "A6", "B": "M5", "region": "Sweet 16" },
+    { "g": 7, "pair": ["E2", "E5"], "A": "E5", "B": "E2", "region": "Sweet 16" },
+    { "g": 8, "pair": ["M1", "E9"], "A": "E9", "B": "M1", "region": "Sweet 16" }
+  ],
+  "substitutions": [
+    {
+      "game": 8,
+      "position": "A",
+      "displaced": "M3",
+      "inserted": "E9",
+      "ruling": 22,
+      "note": "Manual post-hoc substitution, not a redraw. random.Random(372500925).shuffle(...) is a permutation of list positions, not of names, so relabeling M3 to E9 at the same position in input_order and shuffled_order (both changed) reproduces the identical permutation and leaves the A/B seed replay (2597142654) untouched. Verified by test_tally.py's test_committed_sweet_16_draw_is_live_tally_compatible after this edit. M3 moves to the wildcard bench, fully REVIVE-eligible."
+    }
+  ],
+  "panel_seed": 3390074417,
+  "panel_seed_disclosure": "The two fresh leads were drawn via `secrets.randbits(32)` (OS entropy) then `random.Random(3390074417).sample(pool, 2)`, pool = all 24 roster members minus nuclear-reactor-operator and magician-illusionist (already seated on the Builder anchor). Draw order gave civil-rights-activist, behavioral-psychologist. Each lens was then hand-selected for contrast per references/roster.md's High-Contrast Lens Pairings table (not drawn) — lead selection is randomized for fairness, lens selection is curatorial per CLAUDE.md's contrast rule, matching how Builder (nuclear-reactor-operator/magician-illusionist) and R32's Ecologist (systems-thinker/farmer) were themselves deliberately paired rather than randomly matched.",
+  "panels": [
+    {
+      "name": "Builder",
+      "file_tag": "builder",
+      "lead": "nuclear-reactor-operator",
+      "lens": "magician-illusionist",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": false
+    },
+    {
+      "name": "Advocate",
+      "file_tag": "advocate",
+      "lead": "civil-rights-activist",
+      "lens": "systems-thinker",
+      "lead_pack": "incomplete",
+      "lens_pack": "complete",
+      "fresh": true
+    },
+    {
+      "name": "Architect",
+      "file_tag": "architect",
+      "lead": "behavioral-psychologist",
+      "lens": "franciscan-monk",
+      "lead_pack": "complete",
+      "lens_pack": "complete",
+      "fresh": true
+    }
+  ],
+  "status": "FROZEN FOR OFFICIAL OUTPUT GENERATION — reseed, A/B assignment and panel draw are complete. Ruling 20 replaces the Tail Test before any official dispatch; output packets remain the final execution item. Ruling 22 substituted E9 for M3 at Game 8 position A after this map was first frozen; see 'substitutions' above — no other game, seed, or A/B assignment changed."
+}

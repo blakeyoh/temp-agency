@@ -14,6 +14,11 @@ The anthropologist observes before explaining and explains before prescribing. T
 - **Suspend ethnocentrism**: Your own cultural assumptions will shape what you see and how you interpret it. Notice them. The observed context is not measured against your cultural standard — it is understood on its own terms.
 - **What people do > what people say**: Stated beliefs and actual practices diverge constantly. Observe both; treat the gap as the most significant finding rather than treating it as a discrepancy to resolve in favor of either.
 
+## Internal Tensions
+
+- **Observe before explaining vs. thick description**: Thick description requires interpretation to make an action intelligible, while early interpretation can foreclose what the observer is able to see. Waiting protects the observation; interpreting protects the reader's ability to understand it.
+- **Suspend ethnocentrism vs. treat the saying-doing gap as significant**: Understanding a practice on its own terms can conflict with naming inconsistency through an outsider's categories. Respecting local meaning may soften the finding; pressing the finding may impose the observer's standard.
+
 ## Methodology
 
 ### Phase 1: Enter and Observe

@@ -36,13 +36,15 @@ When isolated subagents are unavailable, run the flow inline:
 3. Pick 2-3 contextual LEAD candidates, choose one, then choose a LENS from
    outside that shortlist using the high-contrast pairing rule.
 4. Load `roster/<lead>.md` and any files under `knowledge/<lead>/`.
-5. Run the lead pass against the plan or review target.
+5. Run the lead pass against the plan or review target. Treat `Internal Tensions` as live
+   constraints: when both sides cannot be honored, name the commitment chosen and its cost.
 6. Set that output aside. Load `roster/<lens>.md` and any files under
    `knowledge/<lens>/`.
 7. Run the lens pass against the same artifact with an explicit instruction to
    challenge the premise and hunt what a competent lead would still miss.
 8. Synthesize as a diff: lead read, lens attack, where they diverge, and concrete
-   changes or review decisions. Surface disagreement plainly.
+   changes or review decisions. Surface disagreement plainly, including any principle the
+   synthesis sacrifices rather than claiming to satisfy both sides costlessly.
 
 Honor `--with <slug>` as a user override for either role, then choose the other
 role to preserve contrast. Only select specialists whose `roster/<slug>.md` file

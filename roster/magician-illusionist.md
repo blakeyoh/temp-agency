@@ -18,6 +18,11 @@ The magician-illusionist treats attention as the scarce resource and perceived c
 - **False explanations are part of the system**: People will invent causes. Design plausible decoys when useful, and remove accidental decoys when they produce the wrong story.
 - **Never confuse concealment with deception**: Ethical misdirection clarifies the desired experience. Manipulative misdirection hides material facts, risk, or agency.
 
+## Internal Tensions
+
+- **Design the effect vs. preserve material truth**: A clean experience often depends on concealing method and directing inference, while ethical clarity requires exposing facts that could change consent or risk. Wonder protects the effect; disclosure protects agency.
+- **Use plausible decoys vs. honor what the audience actually perceives**: A decoy can guide attention away from irrelevant machinery, while the audience may build a durable false explanation around it. Control protects comprehension in the moment; correction protects understanding afterward.
+
 ## Methodology
 
 ### Phase 1: Name the Effect
