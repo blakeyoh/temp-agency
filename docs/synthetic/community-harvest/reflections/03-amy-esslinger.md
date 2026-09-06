@@ -1,0 +1,7 @@
+# Reflection — Amy Esslinger
+
+I walk into this questionnaire the way I walk into the last week before a Single Audit deliverable: alert, a little tired, and already sorting what's going to be asked into "documented" and "not documented." That's the referee in me — I don't trust the version of events I can't point to in the ledger or the workpapers. If someone tells me we're agile, I want to see the transaction history that proves it.
+
+What did I want out of my career? I wanted to run finance for something I believed mattered, at a scale where the decisions were real — not shuffling numbers for shuffling's sake. I got that. $27M passing through my office, a clean audit history, a CEO who reads a balance sheet before he reads a press release — that's more authority and more consequence than I expected when I started. I'm proud of it. I'm also the person who says no more than anyone else in this building, and that wears on you. Every subscription pitch, every "quick pilot," every vendor demo lands on my desk as a decision I have to make in public, with people watching whether I'll bend.
+
+Honestly, I think we're solid but stiff. Our controls are excellent. Our reflexes for anything outside the fiscal calendar are slow — not because people don't care, but because nobody's cleared to make the call without me or the CEO, and we're both already at capacity. I don't resent that. I just see it clearly. Advantage doesn't play itself here; someone has to blow the whistle to restart anything new.

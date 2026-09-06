@@ -71,14 +71,21 @@ sharper `{{SHAPE_HINT}}` and a richer biography, not a prompt tweak.
 
 ## What this means for reading any panel
 
-1. **A single respondent's group mean is unreliable to roughly ±0.35.** Do not
-   report one simulated person's score as a finding.
-2. **Panel-level patterns are the unit of analysis.** "Every respondent scored
-   Direction above Agility" survives this noise. "The CEO scored 2.25 on
-   Direction" does not.
-3. **For stable per-respondent numbers, run each respondent 3+ times and take
-   the median.** One run is a draw from a distribution, not a measurement.
-4. **Thin biographies produce noisy respondents.** Instability is a signal that
+This is variance, not error. Each run is a real judgment, and a third of them
+landing differently is what thoughtful answering looks like on a 5-point scale.
+
+1. **Individual scores stay in.** They carry the structure underneath the
+   aggregate — who dissents, where the org chart splits, who sits alone on a
+   question. Group means alone discard most of the panel's value.
+2. **A single score is a position, not a measurement.** "Walker is the low
+   outlier on frontline voice" holds. "Walker scored exactly 0.75" over-reports
+   precision the method does not have.
+3. **A pattern counts when it survives ±0.35.** "Every respondent scored
+   Direction above Agility" clears that easily. A 0.1 gap between two
+   respondents does not.
+4. **To rank or threshold respondents, run each 3+ times and take the median.**
+   One run is enough for shape; three is enough for order.
+5. **Thin biographies produce noisy respondents.** Instability is a signal that
    a respondent needs more source material, not a different prompt.
 
 ## Reproducing

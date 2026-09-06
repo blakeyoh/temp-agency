@@ -131,12 +131,26 @@ Measured on this pipeline (see `docs/synthetic/community-harvest/ab/RESULTS.md`)
 **about a third of answers change when you rerun the identical prompt.**
 Per-respondent group means move by up to ±0.35 between identical runs.
 
-So:
+This is variance, not error. The agents are making a genuine judgment each
+time, and a third of those judgments landing differently is what thoughtful
+answering looks like on a 5-point scale. Real respondents do the same thing.
 
-- **Read panel-level patterns, not individual scores.** "Every respondent scored
-  Direction above Agility" survives that noise. "The CEO scored 2.25" does not.
-- **For stable per-respondent numbers, run each respondent 3+ times and take the
-  median.** A single run is a draw from a distribution, not a measurement.
+What it changes is how much weight a single number carries:
+
+- **Keep computing individual scores.** They are the texture underneath the
+  aggregate — which respondent dissents, where the org chart splits, who sits
+  alone on a question. A panel reduced to group means throws away most of what
+  makes it useful, and every visualization worth building needs the per-person
+  layer.
+- **Treat one score as a position, not a measurement.** "Walker is the low
+  outlier on frontline voice" is a finding. "Walker scored exactly 0.75" is a
+  draw from a distribution reported to two decimals.
+- **A pattern needs to survive the noise to count.** "Every respondent scored
+  Direction above Agility" clears ±0.35 easily, so it is real. A 0.1 gap between
+  two respondents is not.
+- **For per-respondent numbers you intend to rank or threshold, run each
+  respondent 3+ times and take the median.** One run is enough for shape;
+  three is enough for order.
 - **A noisy respondent means a thin biography.** Instability tracks how little
   source material the person has, not the prompt. Fix the inputs, not the wording.
 - **Before believing any prompt change, rerun the unchanged prompt first.** The
