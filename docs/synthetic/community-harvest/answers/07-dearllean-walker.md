@@ -1,38 +1,38 @@
 # Dearllean Walker — Warehouse Operations Manager
 **Persona:** Michelin-Star Chef
-**Persona fit (2 sentences):** Dearllean runs the floor like a service line — a rotating volunteer brigade that has to hit the same standard every single day with zero shared history and one minute of training. She thinks in stations, prep, and the gap between a demo that worked once and a line that survives real volume.
-**Answering posture (2 sentences):** She's blunt about how far the floor sits from strategy conversations — she scores those items low and unapologetically, because that's the honest read from where she stands. On anything about process discipline, consistency, and whether frontline reality reaches decision-makers, she answers with the specificity of someone who runs the actual pass every day.
+**Persona fit (2 sentences):** Dearllean runs a brigade where nobody knew the recipe yesterday and everybody's gone by Friday — mise en place isn't a philosophy for her, it's the only way a volunteer floor produces identical SeniorPaks under time pressure. She tastes the actual output — did the pallet move, did the scanner get used right — not the plan on paper.
+**Answering posture (2 sentences):** She's answering from the floor looking up, not from the boardroom looking down, so she scores the organization on what she can actually watch happen during service. She gives credit where the line runs clean and marks down anywhere the org talks a better game than it cooks.
 
-## Check Assessment (6)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS1 | 2 | Periodically step back on stakeholder needs, not systematic | We notice things change, but nobody's tracking it upstairs |
-| DC1 | 1 | Mission is general guidance, referenced when convenient | Mission talk doesn't touch what I decide on the floor |
-| AS3 | 1 | A few individuals experimenting, no org strategy | Somebody's playing with an app; nobody told the floor |
-| AC1 | 1 | Slow repetitive review cycles, months to approve | A new scanner takes forever to get approved here |
-| XT1 | 1 | Thorough before committing, deliberate over quick | I'd rather test it twice before it hits my line |
-| TX1 | 3 | Strong mission and strategy filters new opportunities | Leadership picks direction; I just execute it clean |
+| DS1 | 2 | Step back periodically, not systematically | We check in on clients sometimes, not every week |
+| DC1 | 2 | Mission matters but money can outrank it | Values get a seat, budget still runs the kitchen |
+| AS3 | 1 | A few people experimenting, no real strategy | Nobody's told my floor what the plan even is |
+| AC1 | 1 | Slow, repetitive review cycles before approval | Months to greenlight what I could pilot in a week |
+| XT1 | 1 | Thorough before committing, more deliberate than quick | We'd rather be right than fast, mostly |
+| TX1 | 3 | Lead with mission, evaluate new stuff through it | Mission's the head chef here, opportunities audition to it |
 
-## Full Assessment (20)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS2 | 3 | Consistent practice of asking why to find root cause | If a pallet's wrong twice, I trace it back |
-| DS3 | 2 | Mix of incremental fixes and occasional rethink | Mostly I tighten the line, sometimes I redesign the station |
-| DS4 | 1 | Responsive — we listen to complaints and requests | Agencies call when something's off; that's the loop |
-| DC2 | 2 | Heard respectfully but probably wouldn't change the decision | Values get a nod, budget still wins upstairs |
-| DC3 | 1 | Intend to serve all, but financial pressure dominates | Money's tight, so tradeoffs usually go one way |
-| DC4 | 1 | Reluctantly reassess, only when forced by crisis | We don't touch a process till it breaks |
-| AS1 | 1 | Notices eventually, struggles to evaluate what it means | New tech shows up on my desk with no context |
-| AS2 | 0 | If it isn't broken, we don't revisit it | My line runs the same way it did last year |
-| AS4 | 1 | Can share observations, no clear channel to influence | I mention things up the chain; rarely hear back |
-| AC2 | 1 | Six months to a year with real negotiation | Shifting staff or budget here takes forever |
-| AC3 | 1 | Some delegation, but people default to seeking approval | I decide floor stuff, everything bigger goes up |
-| AC4 | 0 | IT/compliance function as gatekeepers, adopt slowly and safely | New hardware gets slow-walked till it's proven safe |
-| DT1 | 3 | Execute the plan as drafted, revisit only if it breaks | Once the line's set, we run it, don't tinker |
-| DT2 | 0 | Look for ways to speed up current processes | I want tools that make my line faster, period |
-| AT1 | 1 | Discuss thoroughly, struggle to move resources quickly | We talk it through, but moving fast isn't us |
-| AT2 | 0 | Observe and gather data before committing to changes | I watch how it plays out before I touch my line |
-| TS1 | 3 | Clear direction, needs real planning effort to adapt | We know our lane; changing it takes real work |
-| TS2 | 1 | Quickly investigate why to fix the implementation | Find what broke, fix that station, keep moving |
-| TC1 | 4 | Protecting and optimizing what's already working wins | Keep what works running clean, that's the whole job |
-| TC2 | 3 | Protective of investments, keep them unless clearly failing | I don't cut a line unless it's truly not working |
+| DS2 | 1 | Investigate root causes sometimes, time pressure wins | Truck's here, I fix the jam and move on |
+| DS3 | 2 | Mix of incremental fixes and occasional rethink | We patch the line more than we redesign it |
+| DS4 | 2 | Engaged; gather feedback and fold it into planning | Client-choice pantry means we do listen some |
+| DC2 | 2 | Heard respectfully, probably doesn't change the decision | They'll nod at the concern, ship the plan anyway |
+| DC3 | 1 | Intend to serve everyone, budget pressure dominates | Good intentions, but the ledger seats itself first |
+| DC4 | 2 | Occasionally, when leadership spots clear misalignment | We revisit process when someone upstairs flags it |
+| AS1 | 2 | Monitor trends via industry news and peer talk | We hear about it at the Feeding America meetings |
+| AS2 | 2 | Occasionally step back and question current methods | Every so often we ask if the old way's still good |
+| AS4 | 2 | Open door, but insights filter through management | I can say it, it just climbs slow |
+| AC2 | 1 | Six months to a year, heavy negotiation | Nonprofit budgets don't turn on a dime, ever |
+| AC3 | 1 | Some delegation, but people default to asking up | Floor calls get made, big ones still go up top |
+| AC4 | 1 | Supportive in principle, processes aren't built for speed | IT means well, it just moves like cold syrup |
+| DT1 | 3 | Execute the plan, revisit only if it breaks | Once the line's set, we run it, not tinker |
+| DT2 | 1 | Find our pain points, see if tech helps | Scanner's got to solve a real problem, not chase shiny |
+| AT1 | 2 | Balance analysis with willingness to run small tests | We'll pilot one line before betting the whole floor |
+| AT2 | 1 | Analyze the shift, understand the why first | We ask why demand moved before we change course |
+| TS1 | 3 | Clear direction, but slow to adapt when path shifts | We know where we're headed, turning takes real effort |
+| TS2 | 1 | Investigate quickly, fix the implementation | Find what broke on the line, correct it fast |
+| TC1 | 3 | Clarifying or reinforcing strategic direction wins | Money follows the mission, not the shiny new thing |
+| TC2 | 3 | Protective of investments unless clearly underperforming long-term | We don't pull a station unless it's truly failing |

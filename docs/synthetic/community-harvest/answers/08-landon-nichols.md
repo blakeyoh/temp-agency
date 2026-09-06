@@ -1,38 +1,39 @@
 # Landon Nichols — Transportation Supervisor
 **Persona:** Systems Thinker
-**Persona fit (2 sentences):** Landon watches the same seasonal delays recur across fuel, maintenance, driver hours, and distribution schedules, and he's stopped blaming any one link in that chain. He can already name the upstream decision that causes each downstream breakdown — he just has no lever to touch it from where he sits.
-**Answering posture (2 sentences):** He scores the organization's actual behavior honestly low on agility and reach, because seeing the structure clearly hasn't given him authority over it. On the tradeoff questions he answers by what the org visibly is, not what he'd wish it were — a mission-anchored, risk-averse food bank that protects what already runs.
+**Persona fit (2 sentences):** Landon already reasons in loops and delays because the fleet forces it on him — defer maintenance now, pay for it in February with a doubled route and a missed pantry day. The lens just gives him vocabulary for what he's watched the org do to itself for years.
+**Answering posture (2 sentences):** He's not cynical, he's precise — he wants credit for what genuinely works (cold chain, the drivers, the mission) without inflating what doesn't (budget cycles that eat preventive maintenance, approvals that outlive the opportunity). He picks the option that matches an ordinary Tuesday, not the postmortem language leadership uses after a bad quarter.
 
-## Check Assessment (6)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS1 | 1 | Gather feedback, mostly refine existing offerings | Routes get tweaked, not rethought, every season |
-| DC1 | 2 | Meaningful input, sometimes backseat to financial pressure | Mission matters until the budget line says otherwise |
-| AS3 | 1 | A few individuals experimenting, no strategy | Dispatch software talk happens, nothing coordinated moves it |
-| AC1 | 1 | Slow, repetitive review cycles, months to approve | Watched a routing fix sit in review for months |
-| XT1 | 1 | Thorough before committing; deliberate over quick | We plan hard before we touch a truck |
-| TX1 | 3 | Lead with mission; opportunities filtered through it | Every new route idea gets weighed against mission fit |
+| DS1 | 2 | Periodic stepping back, not systematic | We ask sometimes, not on a loop |
+| DC1 | 2 | Meaningful input, backseat to financial pressure | Budget wins the tiebreak, every time |
+| AS3 | 1 | A few people experimenting, no strategy | No slack for pilots out here |
+| AC1 | 1 | Slow repetitive review, months to decide | Proving cost recovery first kills momentum |
+| XT1 | 1 | Deliberate over quick, thorough before committing | We plan longer than the problem waits |
+| TX1 | 3 | Mission-led, opportunities filtered through strategy | Mission's the filter, not the trend |
 
-## Full Assessment (20)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS2 | 1 | Occasionally dig for root cause, time pressure wins | Same delay, same patch, every quarter without fail |
-| DS3 | 1 | Fix what's obviously broken, keep the approach | Nobody asks why the route still runs this way |
-| DS4 | 2 | Engaged; gather feedback, fold it into planning | Client-choice pantries listen more than my dock does |
-| DC2 | 2 | Heard respectfully, decision usually stands anyway | Concerns get a hearing, rarely change the plan |
-| DC3 | 1 | Intend to serve everyone, finances dominate decisions | Fuel and payroll numbers decide before mission does |
-| DC4 | 2 | Occasionally, when leadership spots clear misalignment | Reviews happen when someone above notices a gap |
-| AS1 | 1 | Notices shifts eventually, struggles to size them up | We hear about it after it's already a problem |
-| AS2 | 1 | Reconsider only once results clearly decline | Nobody revisits a route until it's failing outright |
-| AS4 | 1 | Can share observations, no real channel up | I can name the cause, no one asks me |
-| AC2 | 1 | Six months to a year, heavy negotiation | Fleet and grant dollars don't move that fast |
-| AC3 | 1 | Delegated a little, still default to approval-seeking | I flag it, someone above still signs off |
-| AC4 | 1 | Supportive in principle, processes aren't built for speed | Compliance means well but adds another delay loop |
-| DT1 | 3 | Execute plan as drafted, revisit if something breaks | We follow the schedule until it visibly fails |
-| DT2 | 1 | Find pain points, see if tech can fix them | We want tech to patch dispatch, not reinvent it |
-| AT1 | 1 | Discuss thoroughly, struggle to move resources fast | Talk moves quick, trucks and budgets do not |
-| AT2 | 1 | Analyze the shift, understand why before responding | We study a change before we ever react |
-| TS1 | 3 | Clear direction, heavy planning effort to adapt | We know our lane, changing it takes forever |
-| TS2 | 1 | Investigate quickly, fix the implementation | We troubleshoot the run before we question the goal |
-| TC1 | 4 | Protecting and optimizing what's already working | Keeping the fleet running beats chasing something new |
-| TC2 | 3 | Protective of investments, unless clearly underperforming long-term | We don't kill a program without years of proof |
+| DS2 | 1 | Occasional root-cause work, time pressure usually wins | We chase the symptom when it's urgent |
+| DS3 | 1 | Fix what's obviously broken, keep the approach | Nobody asks if the process should exist |
+| DS4 | 2 | Engaged — gather feedback, fold into planning | Advisory council exists, doesn't drive routes yet |
+| DC2 | 2 | Heard respectfully, rarely changes the decision | Values get a hearing, not a veto |
+| DC3 | 1 | Intend to serve all, financial pressure dominates | Cash position decides more than mission does |
+| DC4 | 2 | Occasionally, when leadership spots a misalignment | Only revisited after something breaks visibly |
+| AS1 | 2 | Monitors trends via publications, peer talk | We hear about it after everyone else |
+| AS2 | 1 | Only reconsider approach after results decline | We wait for the loop to hurt |
+| AS4 | 2 | Open door, but filtered through management layers | My dispatch notes flatten by the third relay |
+| AC2 | 1 | Six months to a year to reallocate | Budget's locked before the season even starts |
+| AC3 | 1 | Most decisions need senior leadership approval | I can't reroute a truck without sign-off |
+| AC4 | 1 | Supportive in principle, process too slow | Legal and IT gate speed, not risk |
+| DT1 | 3 | Execute plan as drafted, revisit if it breaks | We follow the plan till a truck stops |
+| DT2 | 1 | Look for ways to automate current process | We ask "faster," never "what's now possible" |
+| AT1 | 1 | Discuss thoroughly, struggle to move resources fast | Talk moves quick, the truck doesn't |
+| AT2 | 1 | Analyze the why before responding at all | We diagnose long after the window closes |
+| TS1 | 3 | Clear direction, heavy planning effort to shift | We know where we're going, slowly turning |
+| TS2 | 1 | Quickly investigate why, fix the implementation | We patch the route, not the root cause |
+| TC1 | 3 | Clarifying or reinforcing our strategic direction | Direction wins the budget argument, mostly |
+| TC2 | 3 | Protective of investments unless clearly underperforming | We keep programs running past their useful life |
+

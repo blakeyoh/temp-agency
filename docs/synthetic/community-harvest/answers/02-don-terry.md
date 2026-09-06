@@ -1,40 +1,38 @@
 # Don Terry — Director of Operations
 **Persona:** Nuclear Reactor Operator
-**Persona fit (2 sentences):** Don runs cold chain, fleet, and a blast-freeze line where a bad call is measured in tens of thousands of spoiled pounds, not a bad quarter — that's a plant-state, not a project-management, problem. He already thinks in operating envelopes, credited barriers, and known-safe conditions; the reactor operator lens just names what he was doing anyway.
-**Answering posture (2 sentences):** He answers from the warehouse floor and the truck cab, not the boardroom — every question gets filtered through "what's my failure mode here" before "what's our ambition." He scores discipline and containment high, speed and open-ended experimentation low, and treats the tradeoff questions as a description of his temperament, not a grade.
+**Persona fit (2 sentences):** Don already runs the blast-freeze and cold-chain lines like credited safety systems — redundant compressors, backup generators, logged temps — because the failure mode is tens of thousands of pounds of spoiled food. The reactor-operator lens sharpens what he already does: name the plant state, distrust a single barrier, and hold rather than push when the floor doesn't match the plan.
+**Answering posture (2 sentences):** He's answering about the whole organization from the loading dock looking up, not from the boardroom — so he grades strategy and agility questions the way he'd grade an unverified indication: real, but not something he'd act on without more checking. He picks the option that matches an ordinary Tuesday on the floor, not the aspirational version leadership tells donors.
 
-## Check Assessment (6)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS1 | 2 | Periodically step back on stakeholder needs, not systematic | We audit loads and complaints, not real discovery cycles |
-| DC1 | 2 | Mission is meaningful input, sometimes loses to money | Cold-chain integrity wins arguments; budget still wins more |
-| AS3 | 1 | A few individuals experimenting, no org strategy | Telematics exist; nobody's piloting AI on my floor |
-| AC1 | 2 | Defined path to test exists but it's burdensome | Anything touching product safety gets slow-walked, correctly |
-| XT1 | 1 | Thorough before committing; move deliberately, not fast | I'd rather be right than first, always |
-| TX1 | 4 | Stay focused on what works and aligns with direction | Known-safe beats novel every single shift |
+| DS1 | 2 | Periodically step back, not systematic | We notice shifts in gleanings volume, don't track it formally |
+| DC1 | 2 | Meaningful input, sometimes loses to financial pressure | Mission holds until the budget memo lands |
+| AS3 | 1 | A few individuals experimenting, no strategy | Telematics guy plays with it, nobody's coordinating |
+| AC1 | 1 | Slow, repetitive review cycles, months to approve | Any capital ask crawls through finance twice |
+| XT1 | 1 | Thorough before committing, deliberate over quick | Cold chain doesn't reward moving fast and breaking things |
+| TX1 | 3 | Lead with mission, evaluate opportunities through it | Weinberg Center only happened because it fit the mission |
 
-## Full Assessment (20)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS2 | 3 | Consistent practice of asking "why" multiple times | Every near-miss report gets a real root cause |
-| DS3 | 2 | Mix of incremental improvement and occasional rethink | Mostly tune the line; rarely tear it up |
-| DS4 | 1 | Responsive; we listen to complaints and requests | Agencies call when there's a problem, not before |
-| DC2 | 2 | Heard respectfully, probably wouldn't change the decision | Safety flags get a hearing, not always a veto |
-| DC3 | 1 | Intend to serve all stakeholders, money dominates | Lean budget means the ledger usually decides |
-| DC4 | 2 | Occasionally, when leadership spots clear misalignment | We don't self-audit purpose unless it's forced |
-| AS1 | 2 | Monitor trends via industry publications, peer network | Feeding America network tells me what's coming |
-| AS2 | 2 | Occasionally step back, question current methods | I revisit procedure after incidents, not on schedule |
-| AS4 | 3 | Active feedback loops escalate frontline observations | My crew reports anomalies; that's non-negotiable here |
-| AC2 | 1 | Six months to a year, heavy negotiation | Trucks and freezers aren't reallocated by memo |
-| AC3 | 2 | Reasonably distributed, could push further down | My supervisors decide; big calls still come to me |
-| AC4 | 1 | Supportive in principle, processes not built for speed | I am that gatekeeper; slow is the point |
-| DT1 | 3 | Execute the plan, revisit only if something breaks | A vetted plan doesn't need daily second-guessing |
-| DT2 | 0 | Look for ways to speed up current processes | Show me the tool that keeps product colder, faster |
-| AT1 | 1 | Discuss thoroughly, struggle to move resources quickly | Capital equipment doesn't pivot on a hunch |
-| AT2 | 1 | Analyze the shift, understand the why first | I want the cause before I touch the line |
-| TS1 | 3 | Clear direction, needs real planning effort to adapt | We know our lane; changing it takes work |
-| TS2 | 1 | Quickly investigate why, fix the implementation | Find the failure mode before you try again |
-| TC1 | 4 | Protecting and optimizing what's already working | Optimize the freezer line, don't chase shiny objects |
-| TC2 | 3 | Protective of investments, retire only if clearly failing | Equipment earns its keep over a long horizon |
-
-done: 02-don-terry.md
+| DS2 | 2 | Try to find root cause, don't always succeed | I chase root cause on the floor, not everywhere else |
+| DS3 | 2 | Mix of incremental fixes and occasional rethink | We patch routes until one truly breaks |
+| DS4 | 1 | Responsive; we listen to complaints and requests | Agencies call when something's wrong, that's the loop |
+| DC2 | 2 | Heard respectfully, probably wouldn't change the decision | Concerns get airtime, rarely change the outcome |
+| DC3 | 1 | Intend to serve everyone, finances dominate decisions | Audited unit economics win the argument every time |
+| DC4 | 2 | Occasionally, when leadership spots clear misalignment | Nobody reviews process fit unless something's obviously off |
+| AS1 | 2 | Monitor trends via publications and peer conversations | I hear about it from other food bank ops guys |
+| AS2 | 2 | Occasionally step back and question our methods | We ask "still the best way" once in a while |
+| AS4 | 2 | Open door, but insights filter through management | Coordinators tell me things that stop at my desk |
+| AC2 | 2 | A quarter, with executive intervention and disruption | Reallocating trucks or freezer space takes real arm-twisting |
+| AC3 | 1 | Some delegation, people still default to seeking approval | My team still checks with me on calls they could own |
+| AC4 | 1 | Supportive in principle, processes not built for speed | IT means well, nothing moves fast through them |
+| DT1 | 3 | Execute the plan, revisit only if something breaks | Once the route plan's set, we run it as written |
+| DT2 | 0 | Look for ways to automate current processes | I want the forklift telematics to do what it does, faster |
+| AT1 | 1 | Discuss thoroughly, struggle to move resources quickly | We talk it out longer than we redeploy anything |
+| AT2 | 1 | Analyze the shift, understand why before responding | We're not chasing anybody, we watch and figure out why |
+| TS1 | 3 | Clear direction, heavy planning needed to adapt | We know where we're headed, changing course takes real work |
+| TS2 | 1 | Investigate quickly, fix the implementation | Find what broke on the floor, correct it, keep going |
+| TC1 | 4 | Protecting and optimizing what's already working | Keep the freezer line and routes running, don't chase shiny |
+| TC2 | 3 | Protective of investments, keep unless clearly failing long-term | We don't kill a program without years of bad numbers |

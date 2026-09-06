@@ -1,38 +1,38 @@
 # Greg White — Community Cupboard Manager
 **Persona:** Franciscan Monk
-**Persona fit (2 sentences):** Greg's whole job is watching who hesitates at the door, who's embarrassed by the voucher, who never comes back — that's the "who is excluded" question lived daily, not theorized. He strips proposals down to what the person in line actually needs, and he's allergic to anything abstract that floats above the shelf, the scale, and the intake desk.
-**Answering posture (2 sentences):** He scores stakeholder closeness and mission-as-constraint high because that's the one thing the Cupboard does well — client choice and weight allowances exist because someone insisted the box-standard model was excluding people. He scores institutional speed, tech readiness, and reallocation flexibility low, not out of pessimism but because he's watched the accounting-led culture and the volunteer floor make those things genuinely hard, and he'd rather say so plainly than dress it up.
+**Persona fit (2 sentences):** He already watches for who hesitates at the door and who gets turned away by a form, so the monk's question — who is excluded? — is his daily reality, not an exercise. He is less at home with fraternity-over-hierarchy, since he knows exactly how much of what he sees never travels upward.
+**Answering posture (2 sentences):** He answers from the intake desk, not the boardroom — suspicious of any option that sounds tidy or aggregate and drawn to whichever one names the actual person in line. He picks the ordinary-week answer, not the mission-statement answer.
 
-## Check Assessment (6)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS1 | 3 | Ongoing mechanisms to understand underlying problems | I watch the intake desk every single day |
-| DC1 | 2 | Meaningful input, but takes back seat to money sometimes | Mission matters here but the ledger still wins some days |
-| AS3 | 1 | A few experiment, no real strategy | Volunteers can't learn a new system by Tuesday |
-| AC1 | 1 | Slow, repetitive review cycles, months for approval | Simple ideas die slow deaths upstairs |
-| XT1 | 1 | Thorough before committing; deliberate over quick | We'd rather be careful than sorry with people's food |
-| TX1 | 3 | Lead with mission; opportunities filtered through it | We know who we serve — that anchors us |
+| DS1 | 2 | Periodically step back, not systematic | We adjusted for choice, but not everywhere, not always |
+| DC1 | 2 | Meaningful input, sometimes back seat to money | Mission guides us till the budget conversation starts |
+| AS3 | 1 | A few individuals experimenting, no strategy | A few tinker with it; no plan, no time |
+| AC1 | 1 | Slow repetitive review, months for approval | Good ideas stall in review for months, not weeks |
+| XT1 | 1 | Thorough before committing, more deliberate than quick | We plan carefully — sometimes too carefully — before moving |
+| TX1 | 3 | Lead with mission, evaluate opportunities through that lens | We lead with mission; new things pass through that filter |
 
-## Full Assessment (20)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS2 | 2 | Try root causes, don't always succeed | I ask why, then the line gets long again |
-| DS3 | 2 | Mix of incremental fixes and occasional rethink | We tinker with the process, rarely burn it down |
-| DS4 | 3 | Collaborative; stakeholders shape our direction | People shop for their own needs here, not our guess |
-| DC2 | 2 | Heard respectfully, probably doesn't change the decision | It gets a hearing, not always a change |
-| DC3 | 1 | Intend to serve everyone, money pressure dominates | The audit matters more than the extra person some weeks |
-| DC4 | 2 | Occasionally, when leadership sees clear misalignment | We wait for someone upstairs to notice |
-| AS1 | 2 | Monitor trends through peer conversations | I hear things through the network, not a report |
-| AS2 | 2 | Occasionally step back and question our methods | We ask sometimes, mostly when something's already creaking |
-| AS4 | 2 | Open door, but filtered through management layers | I can say it, whether it climbs is another matter |
-| AC2 | 1 | Six months to a year, heavy negotiation | Nothing moves fast with money already promised elsewhere |
-| AC3 | 2 | Reasonably distributed, could push further down | I run my floor, bigger calls go up |
-| AC4 | 1 | Supportive in principle, not built for speed | Compliance means well but it means slow |
-| DT1 | 2 | Execution with intentional reflection built in | We move, but we still look up and check |
-| DT2 | 1 | Look for our biggest pain points first | Fix what actually hurts before dreaming bigger |
-| AT1 | 1 | Thorough discussion, hard to move resources quickly | We talk it through, moving money is the hard part |
-| AT2 | 1 | Analyze the why before responding | We're not chasing anyone, we're minding our own door |
-| TS1 | 3 | Clear direction, real effort needed to adapt | We know our purpose, changing course takes real work |
-| TS2 | 1 | Investigate quickly, fix the implementation | Find what broke and mend it, don't abandon people |
-| TC1 | 3 | Clarifying or reinforcing our strategic direction | We circle back to why we're here first |
-| TC2 | 3 | Protective of investments unless clearly underperforming | We don't prune a program lightly, people depend on it |
+| DS2 | 1 | Occasionally investigate causes, time pressure usually wins | We patch the intake rule and move to the next line |
+| DS3 | 2 | Mix of incremental improvement, occasional rethink | Mostly small fixes; the weight system was a real rethink |
+| DS4 | 2 | Engaged, gather feedback, incorporate into planning | Inside the door it's engaged; the voucher gate is transactional |
+| DC2 | 2 | Heard respectfully, probably wouldn't change decision | It gets heard respectfully, then the budget usually still wins |
+| DC3 | 1 | Intend all stakeholders, financial pressure dominates | We mean well, but funder metrics crowd out client voice |
+| DC4 | 2 | Occasionally, when leadership sees clear misalignment | Leadership revisits things when misalignment gets too obvious to ignore |
+| AS1 | 1 | Notices eventually, struggles to evaluate meaning | We notice late, usually after a partner agency complains |
+| AS2 | 1 | Reconsider only when results decline significantly | If it isn't visibly broken, nobody asks us to fix it |
+| AS4 | 2 | Open door, but filtered through management layers | I can raise it, but it climbs through several hands first |
+| AC2 | 1 | Six months to a year, significant negotiation | That kind of shift takes a year of careful negotiation |
+| AC3 | 2 | Reasonably distributed, could push further down | Day-to-day I decide; anything bigger climbs back upstairs |
+| AC4 | 1 | Supportive in principle, processes not built for speed | Compliance keeps us safe, but slow, on anything new |
+| DT1 | 2 | Execution rhythm with intentional reflection built in | We execute, but we build in real checkpoints to adjust |
+| DT2 | 1 | Identify pain points, see if tech addresses them | We ask if it can speed the form, not reshape the work |
+| AT1 | 1 | Discuss thoroughly, hard to move resources quickly | We talk it through carefully before we move any resources |
+| AT2 | 1 | Analyze the shift, understand why before responding | We watch and study before adjusting anything we're doing |
+| TS1 | 3 | Clear direction, needs planning effort to adapt | Clear about where we're headed, slow to bend the path |
+| TS2 | 1 | Quickly investigate why, fix the implementation | We dig in fast to fix what went wrong, keep going |
+| TC1 | 4 | Protecting and optimizing what's already working | What's already proven and funded usually wins the argument |
+| TC2 | 3 | Protective of investments, keep unless clearly underperforming | We hang onto programs unless they clearly stop working |

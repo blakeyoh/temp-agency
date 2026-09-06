@@ -1,38 +1,39 @@
 # Linda Hansen — Farm Wagon Manager
 **Persona:** Farmer
-**Persona fit (2 sentences):** Linda runs on the agricultural calendar — gleanings, wholesale gluts, weather, and what won't keep in a truck — and she reads conditions before she moves a route. She's suspicious of anyone who wants to treat nine counties of rural sites as interchangeable dots on a map instead of places with their own soil and season.
-**Answering posture (2 sentences):** She answers close to the ground: strong on knowing her stakeholders because she personally knows who stopped coming and why, weak on institutional speed because reallocating budget or piloting new tech isn't a decision she gets to make quickly, or at all. On the tradeoff questions she doesn't reach for the "best" answer — she answers as someone who reads the field before she plants, even when headquarters wants faster.
+**Persona fit (2 sentences):** Linda's whole job runs on the agricultural calendar — gluts, frost, what will and won't keep in a truck — so the farmer's patience-with-conditions lens is just how she already thinks. She distrusts forcing a system, and she reads that same distrust into how CHFB handles budgets, approvals, and new tools.
 
-## Check Assessment (6)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
-|---|---|---|---|
-| DS1 | 3 | Ongoing mechanisms to understand underlying problems | I know which sites are dying before HQ notices |
-| DC1 | 2 | Meaningful input, but takes a back seat to money | No-barrier intake holds until the budget conversation starts |
-| AS3 | 1 | A few individuals experimenting, no org strategy | Cell dead zones eat any app I'd trial |
-| AC1 | 1 | Slow, repetitive review cycles, months to approve | A new site takes a season of paperwork first |
-| XT1 | 1 | Thorough before committing; deliberate over fast | You don't plant before you've read the ground |
-| TX1 | 3 | Strong mission and strategy filter new opportunities | Feeding people comes before chasing anything shiny |
+**Answering posture (2 sentences):** I'm reading these the way I'd read a field — what's actually growing here on an ordinary week, not what the strategic plan says should be growing. I picked the option that matches the truck on the road, not the mission statement on the wall.
 
-## Full Assessment (20)
-| Code | Score | Option chosen (short paraphrase) | Why (max 10 words) |
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
 |---|---|---|---|
-| DS2 | 3 | Consistent practice of asking "why" repeatedly | A missed stop is a symptom, I dig for the cause |
-| DS3 | 2 | Mix of incremental improvement and occasional rethinking | Some routes just need tweaking, others need rebuilding |
-| DS4 | 3 | Collaborative; stakeholders shape our direction | Site coordinators tell me what their township actually needs |
-| DC2 | 2 | Heard respectfully, but rarely changes the decision | Values get a hearing, the ledger still wins |
-| DC3 | 2 | Balance stakeholder interests, some weighted more | Donors and the budget outweigh the rural client, usually |
-| DC4 | 2 | Occasionally, when leadership spots clear misalignment | We revisit routes when something's obviously gone wrong |
-| AS1 | 1 | Notices eventually, struggles to know what it means | We're not scanning the horizon out here |
-| AS2 | 2 | Occasionally step back and question current methods | Every off-season I ask if this route still works |
-| AS4 | 2 | Open-door, but insight gets filtered by layers | I report what I see; it slows going up |
-| AC2 | 1 | Six months to a year to shift resources | Trucks and routes are committed, not loose cash |
-| AC3 | 2 | Reasonably distributed, could push further down | I decide the road, not the budget |
-| AC4 | 1 | Supportive in principle, too slow for speed | Compliance moves like winter, one careful step |
-| DT1 | 2 | Execute with intentional reflection and adjustment built in | Plan the planting, but watch the weather daily |
-| DT2 | 1 | Look for our biggest pain points, see if tech helps | Fix the cold chain gaps before dreaming bigger |
-| AT1 | 1 | Discuss thoroughly, struggle to move fast | We talk about the frost after it's already hit |
-| AT2 | 1 | Analyze the shift, understand why before responding | Understand the season's turn before you replant |
-| TS1 | 3 | Clear direction, heavy planning needed to adapt | We know our fields, changing course takes real work |
-| TS2 | 2 | Treat failure as data, stay resilient, reevaluate | A bad harvest still teaches you something real |
-| TC1 | 4 | Protecting and optimizing what's already working | Don't abandon good soil chasing the next trend |
-| TC2 | 3 | Protective of investments unless clearly underperforming long-term | You don't plow under a field after one bad year |
+| DS1 | 2 | We periodically step back, not systematically | I know my sites, but nobody's asking me on a schedule |
+| DC1 | 2 | Meaningful input, sometimes back seat to money | Mission's real till the budget meeting starts |
+| AS3 | 1 | A few people experimenting, no real strategy | Dead zones out there, and nobody's built for that yet |
+| AC1 | 1 | Slow, repetitive review, months to approve | Anything new sits waiting on somebody's signature |
+| XT1 | 1 | Thorough before committing, move deliberately | You don't plant before you know the ground's ready |
+| TX1 | 3 | Lead with mission, evaluate new things through it | We don't chase every shiny truck upgrade that comes along |
+
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
+|---|---|---|---|
+| DS2 | 1 | Occasionally dig for root cause, time pressure wins | Truck's late, you fix today, not the whole system |
+| DS3 | 2 | Mix of incremental fixes and occasional rethink | We tightened routes some, never rebuilt the whole calendar |
+| DS4 | 2 | Engaged — gather feedback, fold into planning | I notice who stopped coming, that feeds the route plan |
+| DC2 | 2 | Heard respectfully, probably wouldn't change the decision | They'll listen, then the numbers still decide |
+| DC3 | 1 | Intend to serve everyone, money pressure dominates | Good intentions don't drive a truck on empty fuel budget |
+| DC4 | 2 | Occasionally, when leadership sees clear misalignment | We reassess a program when it's plainly not working |
+| AS1 | 2 | Monitor trends through industry news, peer talk | We hear things through Feeding America, not our own scanning |
+| AS2 | 2 | Occasionally step back and question our methods | We ask sometimes, mostly when a season goes rough |
+| AS4 | 2 | Open door, but filtered through management layers | I can say something, doesn't mean it moves fast |
+| AC2 | 1 | Six months to a year, heavy negotiation | Nothing shifts here without a long, careful fight |
+| AC3 | 1 | Delegated some, still default to asking above | Even route calls sometimes wait on somebody's approval |
+| AC4 | 1 | Supportive in principle, not built for speed | They mean well, the process still crawls |
+| DT1 | 2 | Execute with a rhythm of reflection built in | We run the route, then adjust it next season |
+| DT2 | 1 | Look for the biggest pain point, see if tech helps | We want the SMS to fix what's already broken, mostly |
+| AT1 | 2 | Balance careful analysis with small experiments | We think first, then try something small on the ground |
+| AT2 | 1 | Analyze the why before responding to shifts | We're not racing anybody, we're just tending our own fields |
+| TS1 | 3 | Clear direction, needs real effort to adapt | We know where we're headed, turning is slow work |
+| TS2 | 1 | Quickly investigate why, fix the implementation | Something failed, you look at what went wrong first |
+| TC1 | 2 | Genuine mix of committed and exploring | We hold our ground and still test a little |
+| TC2 | 3 | Protective of investments unless clearly failing | You don't pull up a crop just because it's slow |
