@@ -1,0 +1,14 @@
+{
+  "title": "Community Harvest Synthetic Panel",
+  "eyebrow": "Synthetic assessment data · Temp Agency roster",
+  "headline": "Ten voices from\nCommunity Harvest",
+  "lede": "Every named paid staff member at Community Harvest Food Bank of Northeast Indiana, matched to a Temp Agency specialist persona, then simulated answering the full Future Ready assessment — the 6-question Check and the 20 questions that only appear in the Full.",
+  "notice_lead": "These answers are fabricated.",
+  "notice": "Real people hold these jobs at a real food bank. Nothing here reflects anything they have said, believe, or would score. This panel exists to stress-test the assessment instrument with plausible, differentiated synthetic respondents.",
+  "panel_note": "Board members were excluded — they are unpaid governance, not employees. Volunteer-operations staff Elan Williams and Ethan Horan fall outside the ten-person limit. Each person drew a different persona, so no two respondents reason the same way.",
+  "footer": [
+    "Source documents: Community Harvest Organizational Analysis; Future Ready Check (6 questions); Future Ready Full (20 additional questions).",
+    "Personas drawn from the Temp Agency roster — 24 built specialist profiles.",
+    "Synthetic data. Not real respondent data."
+  ]
+}

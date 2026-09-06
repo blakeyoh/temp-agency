@@ -9,132 +9,132 @@
   "rows": {
    "DS1": {
     "score": 2,
-    "opt": "We periodically step back, not systematically",
+    "option": "We periodically step back, not systematically",
     "why": "Volunteer floor and 300 agencies limit real sensing infrastructure"
    },
    "DC1": {
     "score": 3,
-    "opt": "Mission is a consistent filter on decisions",
+    "option": "Mission is a consistent filter on decisions",
     "why": "I'm the last signature \u2014 mission has to hold"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy",
+    "option": "A few individuals experimenting, no org strategy",
     "why": "No slack in a 59-FTE shop for AI pilots yet"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive review cycles, months to approve",
+    "option": "Slow, repetitive review cycles, months to approve",
     "why": "Auditability requirement is a real gate, not theater"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing; deliberate over quick",
+    "option": "Thorough before committing; deliberate over quick",
     "why": "Logistics discipline means I check supply lines first"
    },
    "TX1": {
     "score": 3,
-    "opt": "Mission-led; opportunities filtered through strategy",
+    "option": "Mission-led; opportunities filtered through strategy",
     "why": "New ideas get vetted against the mission first"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" multiple times",
+    "option": "Consistent practice of asking \"why\" multiple times",
     "why": "Auditor training \u2014 symptom fixes don't survive my review"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental fixes and occasional rethink",
+    "option": "Mix of incremental fixes and occasional rethink",
     "why": "We improve the wagon route before we reinvent it"
    },
    "DS4": {
     "score": 2,
-    "opt": "Engaged \u2014 feedback gathered and folded into planning",
+    "option": "Engaged \u2014 feedback gathered and folded into planning",
     "why": "Client-choice pantry model listens, but isn't co-design"
    },
    "DC2": {
     "score": 3,
-    "opt": "Would trigger genuine reconsideration of the initiative",
+    "option": "Would trigger genuine reconsideration of the initiative",
     "why": "Values concerns get real airtime, not a courtesy nod"
    },
    "DC3": {
     "score": 1,
-    "opt": "Intend to serve all, financial pressure dominates",
+    "option": "Intend to serve all, financial pressure dominates",
     "why": "Restricted funding and thin margins force hard tradeoffs"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership sees clear misalignment",
+    "option": "Occasionally, when leadership sees clear misalignment",
     "why": "We course-correct when the gap is obvious, not before"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends via FIsH, Feeding America network",
+    "option": "Monitor trends via FIsH, Feeding America network",
     "why": "Peer network is my early-warning picket line"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back to question current methods",
+    "option": "Occasionally step back to question current methods",
     "why": "Single Audit cycle forces a look, not a habit"
    },
    "AS4": {
     "score": 1,
-    "opt": "Frontline can share, but no clear channel up",
+    "option": "Frontline can share, but no clear channel up",
     "why": "Volunteers rotate too fast to build a reporting line"
    },
    "AC2": {
     "score": 2,
-    "opt": "A quarter, with executive intervention and disruption",
+    "option": "A quarter, with executive intervention and disruption",
     "why": "Restricted grants mean reallocation isn't a light switch"
    },
    "AC3": {
     "score": 1,
-    "opt": "Delegated some, but default is seeking my approval",
+    "option": "Delegated some, but default is seeking my approval",
     "why": "I'm the final institutional signatory \u2014 that's by design"
    },
    "AC4": {
     "score": 0,
-    "opt": "Compliance functions gate adoption for safety, gradually",
+    "option": "Compliance functions gate adoption for safety, gradually",
     "why": "Auditability and compliance come before speed, full stop"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execution rhythm with intentional reflection built in",
+    "option": "Execution rhythm with intentional reflection built in",
     "why": "Rehearse, execute, assess \u2014 that's just operating tempo"
    },
    "DT2": {
     "score": 1,
-    "opt": "Identify pain points, see if tech solves them",
+    "option": "Identify pain points, see if tech solves them",
     "why": "Prove the ROI on the problem we already have"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources fast",
+    "option": "Discuss thoroughly, struggle to move resources fast",
     "why": "Reserves are thin \u2014 I don't commit them lightly"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the shift, understand why before reacting",
+    "option": "Analyze the shift, understand why before reacting",
     "why": "I want the estimate of the situation first"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, real effort required to adapt path",
+    "option": "Clear direction, real effort required to adapt path",
     "why": "We know our lane; changing it takes planning"
    },
    "TS2": {
     "score": 1,
-    "opt": "Quickly investigate why, fix the implementation",
+    "option": "Quickly investigate why, fix the implementation",
     "why": "Root-cause it, then execute the correction cleanly"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working wins",
+    "option": "Protecting and optimizing what's already working wins",
     "why": "Proven cost recovery beats an unproven bright idea"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments unless clearly underperforming long-term",
+    "option": "Protective of investments unless clearly underperforming long-term",
     "why": "We don't retire a program on a bad quarter"
    }
   }
@@ -149,132 +149,132 @@
   "rows": {
    "DS1": {
     "score": 2,
-    "opt": "Periodically step back on stakeholder needs, not systematic",
+    "option": "Periodically step back on stakeholder needs, not systematic",
     "why": "We audit loads and complaints, not real discovery cycles"
    },
    "DC1": {
     "score": 2,
-    "opt": "Mission is meaningful input, sometimes loses to money",
+    "option": "Mission is meaningful input, sometimes loses to money",
     "why": "Cold-chain integrity wins arguments; budget still wins more"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy",
+    "option": "A few individuals experimenting, no org strategy",
     "why": "Telematics exist; nobody's piloting AI on my floor"
    },
    "AC1": {
     "score": 2,
-    "opt": "Defined path to test exists but it's burdensome",
+    "option": "Defined path to test exists but it's burdensome",
     "why": "Anything touching product safety gets slow-walked, correctly"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing; move deliberately, not fast",
+    "option": "Thorough before committing; move deliberately, not fast",
     "why": "I'd rather be right than first, always"
    },
    "TX1": {
     "score": 4,
-    "opt": "Stay focused on what works and aligns with direction",
+    "option": "Stay focused on what works and aligns with direction",
     "why": "Known-safe beats novel every single shift"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" multiple times",
+    "option": "Consistent practice of asking \"why\" multiple times",
     "why": "Every near-miss report gets a real root cause"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental improvement and occasional rethink",
+    "option": "Mix of incremental improvement and occasional rethink",
     "why": "Mostly tune the line; rarely tear it up"
    },
    "DS4": {
     "score": 1,
-    "opt": "Responsive; we listen to complaints and requests",
+    "option": "Responsive; we listen to complaints and requests",
     "why": "Agencies call when there's a problem, not before"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully, probably wouldn't change the decision",
+    "option": "Heard respectfully, probably wouldn't change the decision",
     "why": "Safety flags get a hearing, not always a veto"
    },
    "DC3": {
     "score": 1,
-    "opt": "Intend to serve all stakeholders, money dominates",
+    "option": "Intend to serve all stakeholders, money dominates",
     "why": "Lean budget means the ledger usually decides"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership spots clear misalignment",
+    "option": "Occasionally, when leadership spots clear misalignment",
     "why": "We don't self-audit purpose unless it's forced"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends via industry publications, peer network",
+    "option": "Monitor trends via industry publications, peer network",
     "why": "Feeding America network tells me what's coming"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back, question current methods",
+    "option": "Occasionally step back, question current methods",
     "why": "I revisit procedure after incidents, not on schedule"
    },
    "AS4": {
     "score": 3,
-    "opt": "Active feedback loops escalate frontline observations",
+    "option": "Active feedback loops escalate frontline observations",
     "why": "My crew reports anomalies; that's non-negotiable here"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year, heavy negotiation",
+    "option": "Six months to a year, heavy negotiation",
     "why": "Trucks and freezers aren't reallocated by memo"
    },
    "AC3": {
     "score": 2,
-    "opt": "Reasonably distributed, could push further down",
+    "option": "Reasonably distributed, could push further down",
     "why": "My supervisors decide; big calls still come to me"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive in principle, processes not built for speed",
+    "option": "Supportive in principle, processes not built for speed",
     "why": "I am that gatekeeper; slow is the point"
    },
    "DT1": {
     "score": 3,
-    "opt": "Execute the plan, revisit only if something breaks",
+    "option": "Execute the plan, revisit only if something breaks",
     "why": "A vetted plan doesn't need daily second-guessing"
    },
    "DT2": {
     "score": 0,
-    "opt": "Look for ways to speed up current processes",
+    "option": "Look for ways to speed up current processes",
     "why": "Show me the tool that keeps product colder, faster"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources quickly",
+    "option": "Discuss thoroughly, struggle to move resources quickly",
     "why": "Capital equipment doesn't pivot on a hunch"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the shift, understand the why first",
+    "option": "Analyze the shift, understand the why first",
     "why": "I want the cause before I touch the line"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, needs real planning effort to adapt",
+    "option": "Clear direction, needs real planning effort to adapt",
     "why": "We know our lane; changing it takes work"
    },
    "TS2": {
     "score": 1,
-    "opt": "Quickly investigate why, fix the implementation",
+    "option": "Quickly investigate why, fix the implementation",
     "why": "Find the failure mode before you try again"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working",
+    "option": "Protecting and optimizing what's already working",
     "why": "Optimize the freezer line, don't chase shiny objects"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments, retire only if clearly failing",
+    "option": "Protective of investments, retire only if clearly failing",
     "why": "Equipment earns its keep over a long horizon"
    }
   }
@@ -289,132 +289,132 @@
   "rows": {
    "DS1": {
     "score": 2,
-    "opt": "Periodically step back on stakeholder needs, not systematic",
+    "option": "Periodically step back on stakeholder needs, not systematic",
     "why": "I see the ledger, not the client's face"
    },
    "DC1": {
     "score": 3,
-    "opt": "Mission is a consistent filter shaping pursued/declined initiatives",
+    "option": "Mission is a consistent filter shaping pursued/declined initiatives",
     "why": "I've declined vendor deals that failed the mission test"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org AI strategy",
+    "option": "A few individuals experimenting, no org AI strategy",
     "why": "No slack for pilots on a 59-FTE floor"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow repetitive review cycles, approvals take months",
+    "option": "Slow repetitive review cycles, approvals take months",
     "why": "Every dollar and license routes through my desk"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing, deliberate over fast",
+    "option": "Thorough before committing, deliberate over fast",
     "why": "I'd rather be right than first off the whistle"
    },
    "TX1": {
     "score": 3,
-    "opt": "Lead with mission/strategy, evaluate new opportunities through it",
+    "option": "Lead with mission/strategy, evaluate new opportunities through it",
     "why": "Opportunities get vetted against the budget and the mission"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" to find root issue",
+    "option": "Consistent practice of asking \"why\" to find root issue",
     "why": "Single Audit trains you to trace root cause, always"
    },
    "DS3": {
     "score": 1,
-    "opt": "Fix what's obviously broken, preserve overall approach",
+    "option": "Fix what's obviously broken, preserve overall approach",
     "why": "Macola and our procedures work; I patch, don't rebuild"
    },
    "DS4": {
     "score": 1,
-    "opt": "Responsive; we listen when clients complain or request",
+    "option": "Responsive; we listen when clients complain or request",
     "why": "I'm two layers removed from the pantry floor"
    },
    "DC2": {
     "score": 3,
-    "opt": "Values concern would trigger genuine reconsideration",
+    "option": "Values concern would trigger genuine reconsideration",
     "why": "Reputational and audit risk make me listen hard"
    },
    "DC3": {
     "score": 2,
-    "opt": "Balance stakeholder interests, though some weighted more",
+    "option": "Balance stakeholder interests, though some weighted more",
     "why": "Donors, board, and clients all pull on one budget"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership flags a clear misalignment",
+    "option": "Occasionally, when leadership flags a clear misalignment",
     "why": "We reassess when something forces the question, not before"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends via industry publications, peer conversations",
+    "option": "Monitor trends via industry publications, peer conversations",
     "why": "Feeding America and CPA peer networks are my radar"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back, ask if methods still hold",
+    "option": "Occasionally step back, ask if methods still hold",
     "why": "The annual audit is my forced retrospective, nothing more"
    },
    "AS4": {
     "score": 1,
-    "opt": "Frontline can share, but no clear channel up",
+    "option": "Frontline can share, but no clear channel up",
     "why": "Volunteers and agencies rarely reach my desk directly"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year to shift 20% of budget",
+    "option": "Six months to a year to shift 20% of budget",
     "why": "Restricted funds and grants don't move on a whim"
    },
    "AC3": {
     "score": 1,
-    "opt": "Delegated some, but people default to seeking approval",
+    "option": "Delegated some, but people default to seeking approval",
     "why": "Every recurring expenditure still needs my signature"
    },
    "AC4": {
     "score": 0,
-    "opt": "Finance/compliance function as gatekeepers for gradual, safe adoption",
+    "option": "Finance/compliance function as gatekeepers for gradual, safe adoption",
     "why": "I'm the one who says no to the subscription"
    },
    "DT1": {
     "score": 3,
-    "opt": "Execute the plan as drafted, revisit only on clear error",
+    "option": "Execute the plan as drafted, revisit only on clear error",
     "why": "I don't overturn a call without clear and obvious cause"
    },
    "DT2": {
     "score": 1,
-    "opt": "Identify pain points, see if tech can address them",
+    "option": "Identify pain points, see if tech can address them",
     "why": "Show me the pain point and the cost recovery"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources quickly",
+    "option": "Discuss thoroughly, struggle to move resources quickly",
     "why": "We talk it through before we touch the budget"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the \"why\" before deciding on any response",
+    "option": "Analyze the \"why\" before deciding on any response",
     "why": "I want the numbers before I want the reaction"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, needs real planning effort to adapt",
+    "option": "Clear direction, needs real planning effort to adapt",
     "why": "We know where we're going; pivoting takes a process"
    },
    "TS2": {
     "score": 1,
-    "opt": "Quickly investigate why, fix the implementation",
+    "option": "Quickly investigate why, fix the implementation",
     "why": "Find the variance, correct it, don't abandon the plan"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working wins out",
+    "option": "Protecting and optimizing what's already working wins out",
     "why": "Proven, auditable ways beat untested new ones here"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of established initiatives unless clearly underperforming long-term",
+    "option": "Protective of established initiatives unless clearly underperforming long-term",
     "why": "I don't sunset a program on one bad quarter"
    }
   }
@@ -429,132 +429,132 @@
   "rows": {
    "DS1": {
     "score": 3,
-    "opt": "Ongoing mechanisms to understand stakeholders' underlying problems",
+    "option": "Ongoing mechanisms to understand stakeholders' underlying problems",
     "why": "Discovery on donor motive is literally my job"
    },
    "DC1": {
     "score": 2,
-    "opt": "Meaningful input, but backseat to financial pressure sometimes",
+    "option": "Meaningful input, but backseat to financial pressure sometimes",
     "why": "Mission holds until a grant deadline says otherwise"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy yet",
+    "option": "A few individuals experimenting, no org strategy yet",
     "why": "I'm the workaround, not the organizational muscle"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow repetitive review cycles, approvals take months",
+    "option": "Slow repetitive review cycles, approvals take months",
     "why": "Sponsors move faster than our own approval chain"
    },
    "XT1": {
     "score": 3,
-    "opt": "Lean toward action, build in reflection as we go",
+    "option": "Lean toward action, build in reflection as we go",
     "why": "Campaigns don't wait for a perfect plan"
    },
    "TX1": {
     "score": 3,
-    "opt": "Lead with mission and strategy, filter new opportunities through it",
+    "option": "Lead with mission and strategy, filter new opportunities through it",
     "why": "Every sponsor pitch gets run through mission fit"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" to find underlying issue",
+    "option": "Consistent practice of asking \"why\" to find underlying issue",
     "why": "I diagnose problem economics before I write the ask"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental improvement and occasional rethinking",
+    "option": "Mix of incremental improvement and occasional rethinking",
     "why": "Grant process gets patched more than redesigned"
    },
    "DS4": {
     "score": 3,
-    "opt": "Collaborative; stakeholders have meaningful input into direction",
+    "option": "Collaborative; stakeholders have meaningful input into direction",
     "why": "Partner Advisory Council actually shapes what we fund"
    },
    "DC2": {
     "score": 3,
-    "opt": "Would trigger genuine reconsideration of the initiative",
+    "option": "Would trigger genuine reconsideration of the initiative",
     "why": "I'd walk from a sponsor that costs us trust"
    },
    "DC3": {
     "score": 2,
-    "opt": "Balance stakeholder interests, though some groups weigh more",
+    "option": "Balance stakeholder interests, though some groups weigh more",
     "why": "Donors, clients, agencies all matter, budget still wins ties"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership spots a clear misalignment",
+    "option": "Occasionally, when leadership spots a clear misalignment",
     "why": "We revisit purpose when someone forces the question"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends through industry publications and peer conversations",
+    "option": "Monitor trends through industry publications and peer conversations",
     "why": "I hear it first from Feeding America peers"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back to question current methods",
+    "option": "Occasionally step back to question current methods",
     "why": "We ask if it still works, not often enough"
    },
    "AS4": {
     "score": 2,
-    "opt": "Open-door, but insights get filtered through management layers",
+    "option": "Open-door, but insights get filtered through management layers",
     "why": "My team's field intel climbs slower than it should"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year, needs real negotiation",
+    "option": "Six months to a year, needs real negotiation",
     "why": "Reallocating budget here is its own capital campaign"
    },
    "AC3": {
     "score": 2,
-    "opt": "Reasonably distributed, could push further down",
+    "option": "Reasonably distributed, could push further down",
     "why": "My team decides tactics, not the top-line ask"
    },
    "AC4": {
     "score": 1,
-    "opt": "Gatekeepers ensuring gradual, safe adoption",
+    "option": "Gatekeepers ensuring gradual, safe adoption",
     "why": "IT and finance meter every new tool's risk"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execution rhythm with intentional reflection and adjustment",
+    "option": "Execution rhythm with intentional reflection and adjustment",
     "why": "We run the plan and course-correct in real time"
    },
    "DT2": {
     "score": 1,
-    "opt": "Identify biggest pain points, see if tech solves them",
+    "option": "Identify biggest pain points, see if tech solves them",
     "why": "I sell tech asks as fixes, not moonshots"
    },
    "AT1": {
     "score": 2,
-    "opt": "Balance careful analysis with small experiments before certainty",
+    "option": "Balance careful analysis with small experiments before certainty",
     "why": "Pilot the sponsor relationship before we scale it"
    },
    "AT2": {
     "score": 2,
-    "opt": "Assess and experiment, weigh info, launch small tests",
+    "option": "Assess and experiment, weigh info, launch small tests",
     "why": "Test the ask before betting the whole campaign"
    },
    "TS1": {
     "score": 2,
-    "opt": "Combine what's worked before with the emerging environment",
+    "option": "Combine what's worked before with the emerging environment",
     "why": "We remix proven asks for the current climate"
    },
    "TS2": {
     "score": 2,
-    "opt": "Genuine review, resilient but willing to reevaluate approach",
+    "option": "Genuine review, resilient but willing to reevaluate approach",
     "why": "A dead deal gets a post-mortem, not a redo"
    },
    "TC1": {
     "score": 1,
-    "opt": "Pursuing new opportunities and staying ahead of change",
+    "option": "Pursuing new opportunities and staying ahead of change",
     "why": "I'm always chasing the next funder relationship"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments unless clearly underperforming long-term",
+    "option": "Protective of investments unless clearly underperforming long-term",
     "why": "Endowments and galas earn patience, not quick cuts"
    }
   }
@@ -569,132 +569,132 @@
   "rows": {
    "DS1": {
     "score": 3,
-    "opt": "Ongoing mechanisms to understand underlying stakeholder problems",
+    "option": "Ongoing mechanisms to understand underlying stakeholder problems",
     "why": "LaGrange isn't Fort Wayne; we listen to each context"
    },
    "DC1": {
     "score": 2,
-    "opt": "Meaningful input, sometimes back seat to financial pressure",
+    "option": "Meaningful input, sometimes back seat to financial pressure",
     "why": "Mission matters, but the CPA vets it against the ledger"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy",
+    "option": "A few individuals experimenting, no org strategy",
     "why": "I pilot dispatch apps alone; no org-wide strategy yet"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive review cycles, months for approval",
+    "option": "Slow, repetitive review cycles, months for approval",
     "why": "Months of review before any small pilot ships"
    },
    "XT1": {
     "score": 2,
-    "opt": "Move between planning and action fluidly",
+    "option": "Move between planning and action fluidly",
     "why": "Fleet routes force us to plan and act together"
    },
    "TX1": {
     "score": 3,
-    "opt": "Lead with mission and strategy; opportunities evaluated through it",
+    "option": "Lead with mission and strategy; opportunities evaluated through it",
     "why": "Mission is the filter; opportunities earn their way in"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" to find root issue",
+    "option": "Consistent practice of asking \"why\" to find root issue",
     "why": "I ask why repeatedly before redesigning a broken route"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental improvement and occasional rethinking",
+    "option": "Mix of incremental improvement and occasional rethinking",
     "why": "Sometimes we patch, sometimes we rethink the whole model"
    },
    "DS4": {
     "score": 2,
-    "opt": "Engaged; regularly gather feedback and incorporate into planning",
+    "option": "Engaged; regularly gather feedback and incorporate into planning",
     "why": "We gather feedback, but full co-design isn't there yet"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully but probably wouldn't change the decision",
+    "option": "Heard respectfully but probably wouldn't change the decision",
     "why": "Values concerns get a respectful hearing, rarely a reversal"
    },
    "DC3": {
     "score": 2,
-    "opt": "Balance stakeholder interests, though some groups weighted more",
+    "option": "Balance stakeholder interests, though some groups weighted more",
     "why": "Clients matter, but donors and board carry more weight"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership identifies clear misalignment",
+    "option": "Occasionally, when leadership identifies clear misalignment",
     "why": "We reassess purpose-fit when leadership spots real misalignment"
    },
    "AS1": {
     "score": 3,
-    "opt": "Designated people or processes scanning for relevant shifts",
+    "option": "Designated people or processes scanning for relevant shifts",
     "why": "I'm the designated scout for CRM and dispatch shifts"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back and ask if methods still work",
+    "option": "Occasionally step back and ask if methods still work",
     "why": "We step back occasionally, not on any fixed rhythm"
    },
    "AS4": {
     "score": 3,
-    "opt": "Active feedback loops escalate frontline insight to leadership",
+    "option": "Active feedback loops escalate frontline insight to leadership",
     "why": "Affiliate and frontline signals reach me and get escalated"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year, significant organizational negotiation",
+    "option": "Six months to a year, significant organizational negotiation",
     "why": "Reallocating budget takes negotiation, six months to a year"
    },
    "AC3": {
     "score": 2,
-    "opt": "Reasonably distributed but could be pushed further down",
+    "option": "Reasonably distributed but could be pushed further down",
     "why": "I own program calls; bigger bets still climb upward"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive in principle, processes not built for speed",
+    "option": "Supportive in principle, processes not built for speed",
     "why": "Compliance means well but wasn't built for our speed"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execution rhythm that includes intentional reflection and adjustment",
+    "option": "Execution rhythm that includes intentional reflection and adjustment",
     "why": "We execute, then build reflection into the working rhythm"
    },
    "DT2": {
     "score": 1,
-    "opt": "Identify biggest pain points, see if tech addresses them",
+    "option": "Identify biggest pain points, see if tech addresses them",
     "why": "I chase our real pain points before chasing new capability"
    },
    "AT1": {
     "score": 2,
-    "opt": "Balance careful analysis with willingness to run small experiments",
+    "option": "Balance careful analysis with willingness to run small experiments",
     "why": "I'll analyze, but I'll also run the small pilot"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the shift; prioritize understanding \"why\" before responding",
+    "option": "Analyze the shift; prioritize understanding \"why\" before responding",
     "why": "I want to understand why before we change our approach"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear sense of direction, needs planning effort to adapt",
+    "option": "Clear sense of direction, needs planning effort to adapt",
     "why": "Clear direction, but shifts cost us real planning effort"
    },
    "TS2": {
     "score": 1,
-    "opt": "Quickly investigate why, fix what went wrong",
+    "option": "Quickly investigate why, fix what went wrong",
     "why": "When something fails, I dig into fixing the execution"
    },
    "TC1": {
     "score": 3,
-    "opt": "Clarifying or reinforcing our strategic direction",
+    "option": "Clarifying or reinforcing our strategic direction",
     "why": "Investment follows mission clarity, not the shiny new thing"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments; maintain unless clearly underperforming",
+    "option": "Protective of investments; maintain unless clearly underperforming",
     "why": "I protect proven programs unless they clearly stop working"
    }
   }
@@ -709,132 +709,132 @@
   "rows": {
    "DS1": {
     "score": 2,
-    "opt": "Periodically step back on evolving stakeholder needs",
+    "option": "Periodically step back on evolving stakeholder needs",
     "why": "We check in but it's not built into a rhythm"
    },
    "DC1": {
     "score": 2,
-    "opt": "Mission is meaningful input, sometimes loses to money",
+    "option": "Mission is meaningful input, sometimes loses to money",
     "why": "Values matter until the budget conversation gets tense"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few people experimenting, no org strategy",
+    "option": "A few people experimenting, no org strategy",
     "why": "Volunteers can't absorb another tool, so we stall"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive approval cycles, months to decide",
+    "option": "Slow, repetitive approval cycles, months to decide",
     "why": "Nothing moves fast when finance requires proven payback"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing, deliberate over quick",
+    "option": "Thorough before committing, deliberate over quick",
     "why": "My people have no margin for a bad rollout"
    },
    "TX1": {
     "score": 3,
-    "opt": "Mission and strategy filter new opportunities",
+    "option": "Mission and strategy filter new opportunities",
     "why": "We say yes carefully \u2014 staff can't absorb whiplash"
    },
    "DS2": {
     "score": 1,
-    "opt": "Occasionally dig into root cause, time usually wins",
+    "option": "Occasionally dig into root cause, time usually wins",
     "why": "Short-staffed means we patch and move to the next fire"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental fixes and occasional rethinking",
+    "option": "Mix of incremental fixes and occasional rethinking",
     "why": "We tweak workflows more than we question them"
    },
    "DS4": {
     "score": 2,
-    "opt": "Engaged \u2014 gather feedback, fold into planning",
+    "option": "Engaged \u2014 gather feedback, fold into planning",
     "why": "Agencies tell us things; whether it lands varies"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully, probably doesn't change the decision",
+    "option": "Heard respectfully, probably doesn't change the decision",
     "why": "People will say it, but expect little movement"
    },
    "DC3": {
     "score": 2,
-    "opt": "Balance stakeholders, some carry more weight",
+    "option": "Balance stakeholders, some carry more weight",
     "why": "Donors and cash flow still outweigh staff wellbeing"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership spots clear misalignment",
+    "option": "Occasionally, when leadership spots clear misalignment",
     "why": "We wait for a visible problem before we look"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends through publications and peer talk",
+    "option": "Monitor trends through publications and peer talk",
     "why": "Nobody's paid to watch the horizon full-time"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back and question our methods",
+    "option": "Occasionally step back and question our methods",
     "why": "We ask \"still working?\" only when something creaks"
    },
    "AS4": {
     "score": 2,
-    "opt": "Open door, but filtered through management layers",
+    "option": "Open door, but filtered through management layers",
     "why": "Drivers and warehouse staff get heard, eventually, maybe"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year to reallocate 20%",
+    "option": "Six months to a year to reallocate 20%",
     "why": "Budgets are locked; moving people takes real negotiation"
    },
    "AC3": {
     "score": 1,
-    "opt": "Delegated some, but people default to asking up",
+    "option": "Delegated some, but people default to asking up",
     "why": "Risk-averse culture means everyone still checks with me first"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive, but not built for speed",
+    "option": "Supportive, but not built for speed",
     "why": "Safety and compliance rightly slow everything, including good ideas"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execute with built-in rhythm of reflection",
+    "option": "Execute with built-in rhythm of reflection",
     "why": "We adjust as we go \u2014 nobody has bandwidth to redo it"
    },
    "DT2": {
     "score": 1,
-    "opt": "Look at pain points, see if tech helps",
+    "option": "Look at pain points, see if tech helps",
     "why": "Tech has to lighten load, not add a new burden"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources fast",
+    "option": "Discuss thoroughly, struggle to move resources fast",
     "why": "I'd rather stall than overload people who are already stretched"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the \"why\" before deciding how to respond",
+    "option": "Analyze the \"why\" before deciding how to respond",
     "why": "We don't chase competitors, we protect our own people"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, real effort needed to adapt",
+    "option": "Clear direction, real effort needed to adapt",
     "why": "Steady course matters more than chasing every shift"
    },
    "TS2": {
     "score": 1,
-    "opt": "Investigate quickly, fix the implementation",
+    "option": "Investigate quickly, fix the implementation",
     "why": "We owe it to staff to understand what broke"
    },
    "TC1": {
     "score": 3,
-    "opt": "Clarifying and reinforcing our strategic direction",
+    "option": "Clarifying and reinforcing our strategic direction",
     "why": "Focus keeps staff from drowning in competing priorities"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments unless clearly failing long-term",
+    "option": "Protective of investments unless clearly failing long-term",
     "why": "Ripping things out mid-stream costs people, not just money"
    }
   }
@@ -849,132 +849,132 @@
   "rows": {
    "DS1": {
     "score": 2,
-    "opt": "Periodically step back on stakeholder needs, not systematic",
+    "option": "Periodically step back on stakeholder needs, not systematic",
     "why": "We notice things change, but nobody's tracking it upstairs"
    },
    "DC1": {
     "score": 1,
-    "opt": "Mission is general guidance, referenced when convenient",
+    "option": "Mission is general guidance, referenced when convenient",
     "why": "Mission talk doesn't touch what I decide on the floor"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy",
+    "option": "A few individuals experimenting, no org strategy",
     "why": "Somebody's playing with an app; nobody told the floor"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow repetitive review cycles, months to approve",
+    "option": "Slow repetitive review cycles, months to approve",
     "why": "A new scanner takes forever to get approved here"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing, deliberate over quick",
+    "option": "Thorough before committing, deliberate over quick",
     "why": "I'd rather test it twice before it hits my line"
    },
    "TX1": {
     "score": 3,
-    "opt": "Strong mission and strategy filters new opportunities",
+    "option": "Strong mission and strategy filters new opportunities",
     "why": "Leadership picks direction; I just execute it clean"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking why to find root cause",
+    "option": "Consistent practice of asking why to find root cause",
     "why": "If a pallet's wrong twice, I trace it back"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental fixes and occasional rethink",
+    "option": "Mix of incremental fixes and occasional rethink",
     "why": "Mostly I tighten the line, sometimes I redesign the station"
    },
    "DS4": {
     "score": 1,
-    "opt": "Responsive \u2014 we listen to complaints and requests",
+    "option": "Responsive \u2014 we listen to complaints and requests",
     "why": "Agencies call when something's off; that's the loop"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully but probably wouldn't change the decision",
+    "option": "Heard respectfully but probably wouldn't change the decision",
     "why": "Values get a nod, budget still wins upstairs"
    },
    "DC3": {
     "score": 1,
-    "opt": "Intend to serve all, but financial pressure dominates",
+    "option": "Intend to serve all, but financial pressure dominates",
     "why": "Money's tight, so tradeoffs usually go one way"
    },
    "DC4": {
     "score": 1,
-    "opt": "Reluctantly reassess, only when forced by crisis",
+    "option": "Reluctantly reassess, only when forced by crisis",
     "why": "We don't touch a process till it breaks"
    },
    "AS1": {
     "score": 1,
-    "opt": "Notices eventually, struggles to evaluate what it means",
+    "option": "Notices eventually, struggles to evaluate what it means",
     "why": "New tech shows up on my desk with no context"
    },
    "AS2": {
     "score": 0,
-    "opt": "If it isn't broken, we don't revisit it",
+    "option": "If it isn't broken, we don't revisit it",
     "why": "My line runs the same way it did last year"
    },
    "AS4": {
     "score": 1,
-    "opt": "Can share observations, no clear channel to influence",
+    "option": "Can share observations, no clear channel to influence",
     "why": "I mention things up the chain; rarely hear back"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year with real negotiation",
+    "option": "Six months to a year with real negotiation",
     "why": "Shifting staff or budget here takes forever"
    },
    "AC3": {
     "score": 1,
-    "opt": "Some delegation, but people default to seeking approval",
+    "option": "Some delegation, but people default to seeking approval",
     "why": "I decide floor stuff, everything bigger goes up"
    },
    "AC4": {
     "score": 0,
-    "opt": "IT/compliance function as gatekeepers, adopt slowly and safely",
+    "option": "IT/compliance function as gatekeepers, adopt slowly and safely",
     "why": "New hardware gets slow-walked till it's proven safe"
    },
    "DT1": {
     "score": 3,
-    "opt": "Execute the plan as drafted, revisit only if it breaks",
+    "option": "Execute the plan as drafted, revisit only if it breaks",
     "why": "Once the line's set, we run it, don't tinker"
    },
    "DT2": {
     "score": 0,
-    "opt": "Look for ways to speed up current processes",
+    "option": "Look for ways to speed up current processes",
     "why": "I want tools that make my line faster, period"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources quickly",
+    "option": "Discuss thoroughly, struggle to move resources quickly",
     "why": "We talk it through, but moving fast isn't us"
    },
    "AT2": {
     "score": 0,
-    "opt": "Observe and gather data before committing to changes",
+    "option": "Observe and gather data before committing to changes",
     "why": "I watch how it plays out before I touch my line"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, needs real planning effort to adapt",
+    "option": "Clear direction, needs real planning effort to adapt",
     "why": "We know our lane; changing it takes real work"
    },
    "TS2": {
     "score": 1,
-    "opt": "Quickly investigate why to fix the implementation",
+    "option": "Quickly investigate why to fix the implementation",
     "why": "Find what broke, fix that station, keep moving"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working wins",
+    "option": "Protecting and optimizing what's already working wins",
     "why": "Keep what works running clean, that's the whole job"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments, keep them unless clearly failing",
+    "option": "Protective of investments, keep them unless clearly failing",
     "why": "I don't cut a line unless it's truly not working"
    }
   }
@@ -989,132 +989,132 @@
   "rows": {
    "DS1": {
     "score": 1,
-    "opt": "Gather feedback, mostly refine existing offerings",
+    "option": "Gather feedback, mostly refine existing offerings",
     "why": "Routes get tweaked, not rethought, every season"
    },
    "DC1": {
     "score": 2,
-    "opt": "Meaningful input, sometimes backseat to financial pressure",
+    "option": "Meaningful input, sometimes backseat to financial pressure",
     "why": "Mission matters until the budget line says otherwise"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no strategy",
+    "option": "A few individuals experimenting, no strategy",
     "why": "Dispatch software talk happens, nothing coordinated moves it"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive review cycles, months to approve",
+    "option": "Slow, repetitive review cycles, months to approve",
     "why": "Watched a routing fix sit in review for months"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing; deliberate over quick",
+    "option": "Thorough before committing; deliberate over quick",
     "why": "We plan hard before we touch a truck"
    },
    "TX1": {
     "score": 3,
-    "opt": "Lead with mission; opportunities filtered through it",
+    "option": "Lead with mission; opportunities filtered through it",
     "why": "Every new route idea gets weighed against mission fit"
    },
    "DS2": {
     "score": 1,
-    "opt": "Occasionally dig for root cause, time pressure wins",
+    "option": "Occasionally dig for root cause, time pressure wins",
     "why": "Same delay, same patch, every quarter without fail"
    },
    "DS3": {
     "score": 1,
-    "opt": "Fix what's obviously broken, keep the approach",
+    "option": "Fix what's obviously broken, keep the approach",
     "why": "Nobody asks why the route still runs this way"
    },
    "DS4": {
     "score": 2,
-    "opt": "Engaged; gather feedback, fold it into planning",
+    "option": "Engaged; gather feedback, fold it into planning",
     "why": "Client-choice pantries listen more than my dock does"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully, decision usually stands anyway",
+    "option": "Heard respectfully, decision usually stands anyway",
     "why": "Concerns get a hearing, rarely change the plan"
    },
    "DC3": {
     "score": 1,
-    "opt": "Intend to serve everyone, finances dominate decisions",
+    "option": "Intend to serve everyone, finances dominate decisions",
     "why": "Fuel and payroll numbers decide before mission does"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership spots clear misalignment",
+    "option": "Occasionally, when leadership spots clear misalignment",
     "why": "Reviews happen when someone above notices a gap"
    },
    "AS1": {
     "score": 1,
-    "opt": "Notices shifts eventually, struggles to size them up",
+    "option": "Notices shifts eventually, struggles to size them up",
     "why": "We hear about it after it's already a problem"
    },
    "AS2": {
     "score": 1,
-    "opt": "Reconsider only once results clearly decline",
+    "option": "Reconsider only once results clearly decline",
     "why": "Nobody revisits a route until it's failing outright"
    },
    "AS4": {
     "score": 1,
-    "opt": "Can share observations, no real channel up",
+    "option": "Can share observations, no real channel up",
     "why": "I can name the cause, no one asks me"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year, heavy negotiation",
+    "option": "Six months to a year, heavy negotiation",
     "why": "Fleet and grant dollars don't move that fast"
    },
    "AC3": {
     "score": 1,
-    "opt": "Delegated a little, still default to approval-seeking",
+    "option": "Delegated a little, still default to approval-seeking",
     "why": "I flag it, someone above still signs off"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive in principle, processes aren't built for speed",
+    "option": "Supportive in principle, processes aren't built for speed",
     "why": "Compliance means well but adds another delay loop"
    },
    "DT1": {
     "score": 3,
-    "opt": "Execute plan as drafted, revisit if something breaks",
+    "option": "Execute plan as drafted, revisit if something breaks",
     "why": "We follow the schedule until it visibly fails"
    },
    "DT2": {
     "score": 1,
-    "opt": "Find pain points, see if tech can fix them",
+    "option": "Find pain points, see if tech can fix them",
     "why": "We want tech to patch dispatch, not reinvent it"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move resources fast",
+    "option": "Discuss thoroughly, struggle to move resources fast",
     "why": "Talk moves quick, trucks and budgets do not"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the shift, understand why before responding",
+    "option": "Analyze the shift, understand why before responding",
     "why": "We study a change before we ever react"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, heavy planning effort to adapt",
+    "option": "Clear direction, heavy planning effort to adapt",
     "why": "We know our lane, changing it takes forever"
    },
    "TS2": {
     "score": 1,
-    "opt": "Investigate quickly, fix the implementation",
+    "option": "Investigate quickly, fix the implementation",
     "why": "We troubleshoot the run before we question the goal"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working",
+    "option": "Protecting and optimizing what's already working",
     "why": "Keeping the fleet running beats chasing something new"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments, unless clearly underperforming long-term",
+    "option": "Protective of investments, unless clearly underperforming long-term",
     "why": "We don't kill a program without years of proof"
    }
   }
@@ -1129,132 +1129,132 @@
   "rows": {
    "DS1": {
     "score": 3,
-    "opt": "Ongoing mechanisms to understand underlying problems",
+    "option": "Ongoing mechanisms to understand underlying problems",
     "why": "I know which sites are dying before HQ notices"
    },
    "DC1": {
     "score": 2,
-    "opt": "Meaningful input, but takes a back seat to money",
+    "option": "Meaningful input, but takes a back seat to money",
     "why": "No-barrier intake holds until the budget conversation starts"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few individuals experimenting, no org strategy",
+    "option": "A few individuals experimenting, no org strategy",
     "why": "Cell dead zones eat any app I'd trial"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive review cycles, months to approve",
+    "option": "Slow, repetitive review cycles, months to approve",
     "why": "A new site takes a season of paperwork first"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing; deliberate over fast",
+    "option": "Thorough before committing; deliberate over fast",
     "why": "You don't plant before you've read the ground"
    },
    "TX1": {
     "score": 3,
-    "opt": "Strong mission and strategy filter new opportunities",
+    "option": "Strong mission and strategy filter new opportunities",
     "why": "Feeding people comes before chasing anything shiny"
    },
    "DS2": {
     "score": 3,
-    "opt": "Consistent practice of asking \"why\" repeatedly",
+    "option": "Consistent practice of asking \"why\" repeatedly",
     "why": "A missed stop is a symptom, I dig for the cause"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental improvement and occasional rethinking",
+    "option": "Mix of incremental improvement and occasional rethinking",
     "why": "Some routes just need tweaking, others need rebuilding"
    },
    "DS4": {
     "score": 3,
-    "opt": "Collaborative; stakeholders shape our direction",
+    "option": "Collaborative; stakeholders shape our direction",
     "why": "Site coordinators tell me what their township actually needs"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully, but rarely changes the decision",
+    "option": "Heard respectfully, but rarely changes the decision",
     "why": "Values get a hearing, the ledger still wins"
    },
    "DC3": {
     "score": 2,
-    "opt": "Balance stakeholder interests, some weighted more",
+    "option": "Balance stakeholder interests, some weighted more",
     "why": "Donors and the budget outweigh the rural client, usually"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership spots clear misalignment",
+    "option": "Occasionally, when leadership spots clear misalignment",
     "why": "We revisit routes when something's obviously gone wrong"
    },
    "AS1": {
     "score": 1,
-    "opt": "Notices eventually, struggles to know what it means",
+    "option": "Notices eventually, struggles to know what it means",
     "why": "We're not scanning the horizon out here"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back and question current methods",
+    "option": "Occasionally step back and question current methods",
     "why": "Every off-season I ask if this route still works"
    },
    "AS4": {
     "score": 2,
-    "opt": "Open-door, but insight gets filtered by layers",
+    "option": "Open-door, but insight gets filtered by layers",
     "why": "I report what I see; it slows going up"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year to shift resources",
+    "option": "Six months to a year to shift resources",
     "why": "Trucks and routes are committed, not loose cash"
    },
    "AC3": {
     "score": 2,
-    "opt": "Reasonably distributed, could push further down",
+    "option": "Reasonably distributed, could push further down",
     "why": "I decide the road, not the budget"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive in principle, too slow for speed",
+    "option": "Supportive in principle, too slow for speed",
     "why": "Compliance moves like winter, one careful step"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execute with intentional reflection and adjustment built in",
+    "option": "Execute with intentional reflection and adjustment built in",
     "why": "Plan the planting, but watch the weather daily"
    },
    "DT2": {
     "score": 1,
-    "opt": "Look for our biggest pain points, see if tech helps",
+    "option": "Look for our biggest pain points, see if tech helps",
     "why": "Fix the cold chain gaps before dreaming bigger"
    },
    "AT1": {
     "score": 1,
-    "opt": "Discuss thoroughly, struggle to move fast",
+    "option": "Discuss thoroughly, struggle to move fast",
     "why": "We talk about the frost after it's already hit"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the shift, understand why before responding",
+    "option": "Analyze the shift, understand why before responding",
     "why": "Understand the season's turn before you replant"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, heavy planning needed to adapt",
+    "option": "Clear direction, heavy planning needed to adapt",
     "why": "We know our fields, changing course takes real work"
    },
    "TS2": {
     "score": 2,
-    "opt": "Treat failure as data, stay resilient, reevaluate",
+    "option": "Treat failure as data, stay resilient, reevaluate",
     "why": "A bad harvest still teaches you something real"
    },
    "TC1": {
     "score": 4,
-    "opt": "Protecting and optimizing what's already working",
+    "option": "Protecting and optimizing what's already working",
     "why": "Don't abandon good soil chasing the next trend"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments unless clearly underperforming long-term",
+    "option": "Protective of investments unless clearly underperforming long-term",
     "why": "You don't plow under a field after one bad year"
    }
   }
@@ -1269,132 +1269,132 @@
   "rows": {
    "DS1": {
     "score": 3,
-    "opt": "Ongoing mechanisms to understand underlying problems",
+    "option": "Ongoing mechanisms to understand underlying problems",
     "why": "I watch the intake desk every single day"
    },
    "DC1": {
     "score": 2,
-    "opt": "Meaningful input, but takes back seat to money sometimes",
+    "option": "Meaningful input, but takes back seat to money sometimes",
     "why": "Mission matters here but the ledger still wins some days"
    },
    "AS3": {
     "score": 1,
-    "opt": "A few experiment, no real strategy",
+    "option": "A few experiment, no real strategy",
     "why": "Volunteers can't learn a new system by Tuesday"
    },
    "AC1": {
     "score": 1,
-    "opt": "Slow, repetitive review cycles, months for approval",
+    "option": "Slow, repetitive review cycles, months for approval",
     "why": "Simple ideas die slow deaths upstairs"
    },
    "XT1": {
     "score": 1,
-    "opt": "Thorough before committing; deliberate over quick",
+    "option": "Thorough before committing; deliberate over quick",
     "why": "We'd rather be careful than sorry with people's food"
    },
    "TX1": {
     "score": 3,
-    "opt": "Lead with mission; opportunities filtered through it",
+    "option": "Lead with mission; opportunities filtered through it",
     "why": "We know who we serve \u2014 that anchors us"
    },
    "DS2": {
     "score": 2,
-    "opt": "Try root causes, don't always succeed",
+    "option": "Try root causes, don't always succeed",
     "why": "I ask why, then the line gets long again"
    },
    "DS3": {
     "score": 2,
-    "opt": "Mix of incremental fixes and occasional rethink",
+    "option": "Mix of incremental fixes and occasional rethink",
     "why": "We tinker with the process, rarely burn it down"
    },
    "DS4": {
     "score": 3,
-    "opt": "Collaborative; stakeholders shape our direction",
+    "option": "Collaborative; stakeholders shape our direction",
     "why": "People shop for their own needs here, not our guess"
    },
    "DC2": {
     "score": 2,
-    "opt": "Heard respectfully, probably doesn't change the decision",
+    "option": "Heard respectfully, probably doesn't change the decision",
     "why": "It gets a hearing, not always a change"
    },
    "DC3": {
     "score": 1,
-    "opt": "Intend to serve everyone, money pressure dominates",
+    "option": "Intend to serve everyone, money pressure dominates",
     "why": "The audit matters more than the extra person some weeks"
    },
    "DC4": {
     "score": 2,
-    "opt": "Occasionally, when leadership sees clear misalignment",
+    "option": "Occasionally, when leadership sees clear misalignment",
     "why": "We wait for someone upstairs to notice"
    },
    "AS1": {
     "score": 2,
-    "opt": "Monitor trends through peer conversations",
+    "option": "Monitor trends through peer conversations",
     "why": "I hear things through the network, not a report"
    },
    "AS2": {
     "score": 2,
-    "opt": "Occasionally step back and question our methods",
+    "option": "Occasionally step back and question our methods",
     "why": "We ask sometimes, mostly when something's already creaking"
    },
    "AS4": {
     "score": 2,
-    "opt": "Open door, but filtered through management layers",
+    "option": "Open door, but filtered through management layers",
     "why": "I can say it, whether it climbs is another matter"
    },
    "AC2": {
     "score": 1,
-    "opt": "Six months to a year, heavy negotiation",
+    "option": "Six months to a year, heavy negotiation",
     "why": "Nothing moves fast with money already promised elsewhere"
    },
    "AC3": {
     "score": 2,
-    "opt": "Reasonably distributed, could push further down",
+    "option": "Reasonably distributed, could push further down",
     "why": "I run my floor, bigger calls go up"
    },
    "AC4": {
     "score": 1,
-    "opt": "Supportive in principle, not built for speed",
+    "option": "Supportive in principle, not built for speed",
     "why": "Compliance means well but it means slow"
    },
    "DT1": {
     "score": 2,
-    "opt": "Execution with intentional reflection built in",
+    "option": "Execution with intentional reflection built in",
     "why": "We move, but we still look up and check"
    },
    "DT2": {
     "score": 1,
-    "opt": "Look for our biggest pain points first",
+    "option": "Look for our biggest pain points first",
     "why": "Fix what actually hurts before dreaming bigger"
    },
    "AT1": {
     "score": 1,
-    "opt": "Thorough discussion, hard to move resources quickly",
+    "option": "Thorough discussion, hard to move resources quickly",
     "why": "We talk it through, moving money is the hard part"
    },
    "AT2": {
     "score": 1,
-    "opt": "Analyze the why before responding",
+    "option": "Analyze the why before responding",
     "why": "We're not chasing anyone, we're minding our own door"
    },
    "TS1": {
     "score": 3,
-    "opt": "Clear direction, real effort needed to adapt",
+    "option": "Clear direction, real effort needed to adapt",
     "why": "We know our purpose, changing course takes real work"
    },
    "TS2": {
     "score": 1,
-    "opt": "Investigate quickly, fix the implementation",
+    "option": "Investigate quickly, fix the implementation",
     "why": "Find what broke and mend it, don't abandon people"
    },
    "TC1": {
     "score": 3,
-    "opt": "Clarifying or reinforcing our strategic direction",
+    "option": "Clarifying or reinforcing our strategic direction",
     "why": "We circle back to why we're here first"
    },
    "TC2": {
     "score": 3,
-    "opt": "Protective of investments unless clearly underperforming",
+    "option": "Protective of investments unless clearly underperforming",
     "why": "We don't prune a program lightly, people depend on it"
    }
   }

@@ -1,0 +1,35 @@
+## Check (6 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
+|---|---|---|---|
+| DS1 |  |  |  |
+| DC1 |  |  |  |
+| AS3 |  |  |  |
+| AC1 |  |  |  |
+| XT1 |  |  |  |
+| TX1 |  |  |  |
+
+## Full (20 questions)
+| Code | Score | Option chosen (short paraphrase) | Why |
+|---|---|---|---|
+| DS2 |  |  |  |
+| DS3 |  |  |  |
+| DS4 |  |  |  |
+| DC2 |  |  |  |
+| DC3 |  |  |  |
+| DC4 |  |  |  |
+| AS1 |  |  |  |
+| AS2 |  |  |  |
+| AS4 |  |  |  |
+| AC2 |  |  |  |
+| AC3 |  |  |  |
+| AC4 |  |  |  |
+| DT1 |  |  |  |
+| DT2 |  |  |  |
+| AT1 |  |  |  |
+| AT2 |  |  |  |
+| TS1 |  |  |  |
+| TS2 |  |  |  |
+| TC1 |  |  |  |
+| TC2 |  |  |  |
+
+Score is a single whole number from 0 to 4. Fill every row.
