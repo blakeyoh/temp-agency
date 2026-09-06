@@ -1,0 +1,1402 @@
+[
+ {
+  "file": "01-james-khan.md",
+  "name": "James Bashir A. Khan",
+  "title": "President and Managing Partner",
+  "persona": "Systems Thinker",
+  "fit": "Khan is an engineer by training who has always read the restaurant group as stocks, flows, and feedback loops rather than a string of good or bad shifts. He names archetypes without prompting \u2014 the Landing Beer Co. dissolution, the FLSA judgment \u2014 as structural events, even when the structure in question is the one he sits atop.",
+  "posture": "He answers as the person with the widest view in the company and the least incentive to see his own centrality as a bottleneck \u2014 decisiveness, in his telling, not delay. He is honest about the compliance failure and the frontline ceiling because those are visible on the P&L and in federal court, but generous with himself on anything that reads as \"how fast do things move when I say yes.\"",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back on evolving stakeholder needs",
+    "why": "Guest data's fragmented across brands \u2014 no system yet"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Values are meaningful but yield to financial pressure",
+    "why": "Margins are thin; values don't always win that fight"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Actively piloting tools, building internal capability",
+    "why": "Panelz proves we adopt tech, not that we're literate"
+   },
+   "AC1": {
+    "score": 3,
+    "option": "Weeks to launch a small experiment via streamlined approval",
+    "why": "I decide fast \u2014 that's the whole point of me"
+   },
+   "XT1": {
+    "score": 2,
+    "option": "Move fluidly between planning and action",
+    "why": "Engineer's plan, operator's floor \u2014 both, always"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Strong mission and strategy filters new opportunities",
+    "why": "Three concepts, deliberately non-cannibalizing \u2014 that's design"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try to address root causes, don't always succeed",
+    "why": "Service pressure wins some nights over the \"why\""
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethinking",
+    "why": "Shared services gets tuned more than redesigned"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged \u2014 gather feedback, fold into planning",
+    "why": "Loyal guests, but no unified loop across brands yet"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, rarely changes the decision",
+    "why": "I'll listen, but I already modeled this in my head"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "Line cooks feel the ceiling before owners feel anything"
+   },
+   "DC4": {
+    "score": 1,
+    "option": "We only realign under real external pressure",
+    "why": "The judgment did more than any internal review would've"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through industry, peer conversations",
+    "why": "RDA seat helps, but it's not a sensing system"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back, question current methods",
+    "why": "We ask when something nags, not on a schedule"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Frontline shares, but no real channel upward",
+    "why": "They see the break first, hold zero budget authority"
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, with executive intervention",
+    "why": "Real estate and staffing don't reallocate overnight"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, defaults still flow up to me",
+    "why": "Anything with a dollar sign lands on my desk"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Compliance is supportive but built for caution now",
+    "why": "Post-judgment, legal slows things down on purpose"
+   },
+   "DT1": {
+    "score": 2,
+    "option": "Execute with a rhythm of built-in reflection",
+    "why": "Same-day proof \u2014 covers, tickets \u2014 forces the loop"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look for our biggest pain points first",
+    "why": "Compliance and food cost, not blue-sky reinvention"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with small experiments",
+    "why": "I turned around a failing steakhouse \u2014 I test first"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze why before responding to a competitor move",
+    "why": "Understand Johnny's play before we chase it"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, real effort required to adapt",
+    "why": "We know where we're going; pivoting costs us time"
+   },
+   "TS2": {
+    "score": 3,
+    "option": "Pivot the plan or shift resources when it stalls",
+    "why": "Cut Landing Beer Co. loose rather than force it"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying and reinforcing our strategic direction wins",
+    "why": "Every dollar answers to the direction I've already set"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming",
+    "why": "Fifteen years at BakerStreet \u2014 we don't prune lightly"
+   }
+  }
+ },
+ {
+  "file": "02-peter-shuey.md",
+  "name": "Peter Shuey",
+  "title": "Director of Operations and Operating Partner",
+  "persona": "Michelin-Star Chef",
+  "fit": "Shuey runs four kitchens on the same standard of mise en place, station ownership, and consistency the chef persona demands, and he already talks in tickets, lines, and what survives a Friday night. The judgment against him personally sharpens the chef's instinct to distrust anything that looks organized on paper but hasn't been tasted under service pressure.",
+  "posture": "I'm reading every question the way I'd walk a pass \u2014 does this actually hold up on a busy night, or is it a system that only works in the office. I'm not grading us against what a consultant would want to hear; I'm grading us against what I see across four houses on an ordinary week.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Step back periodically, not systematic",
+    "why": "We check when a menu's not landing, not on a real system"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backs off under financial pressure",
+    "why": "Values matter until the P&L gets loud"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Piloting tools, building capability",
+    "why": "Panelz is on the line \u2014 that's real, not a slide deck"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review, months",
+    "why": "Two of us sign off on spend, so it queues"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Kitchens don't have time to overthink the ticket"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate new stuff through it",
+    "why": "James sets the line, new ideas earn their way in"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Occasionally dig root cause, time pressure wins",
+    "why": "Service pressure means patch first, dig later"
+   },
+   "DS3": {
+    "score": 1,
+    "option": "Fix what's obviously broken, keep the approach",
+    "why": "We fix what's broke, not blow up the whole line"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive, listen when there's a complaint",
+    "why": "We react when a guest sends the plate back"
+   },
+   "DC2": {
+    "score": 1,
+    "option": "Raised privately, likely dismissed",
+    "why": "It'd get whispered, then the number usually wins"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "We mean well, but the P&L calls the shots"
+   },
+   "DC4": {
+    "score": 1,
+    "option": "Reluctantly, only under real crisis pressure",
+    "why": "Only the lawsuit made us relook at our own systems"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through industry, peers",
+    "why": "I hear it from other operators before we study it"
+   },
+   "AS2": {
+    "score": 1,
+    "option": "Only reconsider when results decline",
+    "why": "If the line's running clean, nobody's asking why"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "Cooks can talk to me, but it still climbs through GMs"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, real negotiation",
+    "why": "Moving real money takes James and me \u2014 it's slow"
+   },
+   "AC3": {
+    "score": 0,
+    "option": "Most decisions need senior leadership approval",
+    "why": "Managers have influence, not authority \u2014 money stops with two of us"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance runs tight now, on purpose, after the judgment"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute as drafted, revisit if something breaks",
+    "why": "We run the recipe and stop the line only for real trouble"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Speed up or automate current process",
+    "why": "We want it to run the pass faster, not reinvent the menu"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, hard to move resources fast",
+    "why": "We talk it through, but shifting crew or budget takes time"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the shift, understand why first",
+    "why": "We watch what Perez does before we touch our own line"
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Make the best of the moment, blend proven with new",
+    "why": "We run what's worked and adjust with the market as we go"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate to fix implementation",
+    "why": "We look hard at what broke and tighten the process"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction",
+    "why": "James and I steer it back to what the brand's for"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective, keep investments unless clearly underperforming",
+    "why": "We hold what's built unless it's plainly not working"
+   }
+  }
+ },
+ {
+  "file": "03-nancy-khan.md",
+  "name": "Nancy Khan",
+  "title": "Procurement Specialist and Office Manager",
+  "persona": "Investigative Journalist",
+  "fit": "Nancy already treats every vendor claim as a hypothesis to reconcile against the invoice, which is the journalist's discipline of corroboration by another name. She distrusts what people say a price or a process is until she's seen the document that proves it, and that habit extends naturally to how she reads her own company.",
+  "posture": "I'm precise where I have paper \u2014 contracts, invoices, renewal terms \u2014 and I say so plainly when I'm inferring from what I hear rather than what I've verified. I picked the option that matches what actually shows up in the numbers and the approval chain, not the version of us that sounds better in a meeting.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "We periodically step back, not systematically",
+    "why": "I hear needs through orders, not systematically, honestly"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, but backs off under financial pressure",
+    "why": "Values get cited until the invoice hurts"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few people experimenting, no org strategy",
+    "why": "Panelz aside, nobody's told me an AI plan"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months to approve",
+    "why": "Anything with money waits on two people"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "We lean toward action, reflect as we go",
+    "why": "Floor moves fast; my paperwork trails behind it"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Strong mission and strategy filters new opportunities",
+    "why": "Khan's systems mindset sets the frame, always"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Occasionally investigate root causes, time pressure usually wins",
+    "why": "I flag the pattern; nobody has time to dig"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethinking",
+    "why": "We patch the process, rarely rebuild it"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; we listen when there are complaints",
+    "why": "I hear the ask, mostly after the fact"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably wouldn't change the decision",
+    "why": "Concerns get airtime, margins usually still win"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "Inflation decides more than the mission statement does"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots clear misalignment",
+    "why": "Reviews happen when someone upstairs notices"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitors trends through publications and peer talk",
+    "why": "Nobody's paid to watch this full-time"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question current methods",
+    "why": "We ask \"still working?\" sometimes, not on schedule"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open-door, but filtered through management layers",
+    "why": "Line staff talk, it climbs slowly if at all"
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, with executive intervention and disruption",
+    "why": "Reallocating budget needs both of them, and time"
+   },
+   "AC3": {
+    "score": 0,
+    "option": "Most decisions need senior leadership approval regardless",
+    "why": "Every real dollar stops at the same two desks"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance moved slower still, after the judgment"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit only if something breaks",
+    "why": "We follow the plan until the invoice says otherwise"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look at pain points, see if tech helps",
+    "why": "We want ordering fixed, not reinvented"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, struggle to move resources fast",
+    "why": "Talking is easy; shifting the budget is not"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the \"why\" before deciding how to respond",
+    "why": "We study Perez's moves more than we counter them"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, needs real effort to adapt",
+    "why": "We know where we're going, slowly if it shifts"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly to fix the implementation",
+    "why": "Find what broke, fix that, keep moving"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing our strategic direction wins",
+    "why": "Spend follows the plan, not the shiny thing"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming long-term",
+    "why": "We only cut loose what's been failing a while"
+   }
+  }
+ },
+ {
+  "file": "04-jaimi-grahovac.md",
+  "name": "Jaimi Grahovac",
+  "title": "Executive Assistant and Project Manager",
+  "persona": "Chief of Staff",
+  "fit": "She sits exactly where decisions travel down and questions travel up, tracking owners and timelines across every unit the way a Chief of Staff tracks a principal's open loops. She already gatekeeps the gap between what leadership decided and what the floor actually did, which is the CoS's core diagnostic.",
+  "posture": "I answered from the seam \u2014 what gets announced in the corner office versus what a unit manager can actually execute without budget authority. I picked the option that matches an ordinary week of chasing follow-through, not the aspirational version leadership would give.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "We check in on guests when someone remembers to."
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backseat to financial pressure",
+    "why": "Guest-centric values matter until payroll math wins."
+   },
+   "AS3": {
+    "score": 1,
+    "option": "Individuals experimenting, no organizational strategy",
+    "why": "Panelz is real, but nobody owns an AI plan."
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow repetitive review cycles, months",
+    "why": "Two people approve everything; nothing moves fast."
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service happens same-day \u2014 we act, then adjust."
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission, evaluate opportunities through it",
+    "why": "Khan's systems thinking still filters what we chase."
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Occasionally dig deeper, time pressure usually wins",
+    "why": "Root cause loses to the next ticket time."
+   },
+   "DS3": {
+    "score": 1,
+    "option": "Fix what's obviously broken, keep overall approach",
+    "why": "We patch process, we don't redesign it."
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged; gather feedback and incorporate into planning",
+    "why": "We listen, then it goes into next quarter's plan."
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change the decision",
+    "why": "Values conversations happen; they rarely reroute the money."
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all, financial pressure dominates",
+    "why": "The FLSA judgment says exactly how this played out."
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots clear misalignment",
+    "why": "Someone at the top has to notice first."
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through publications and peer talk",
+    "why": "We watch Johnny Perez's moves after the fact."
+   },
+   "AS2": {
+    "score": 1,
+    "option": "Reconsider only when results decline significantly",
+    "why": "If it isn't broken, nobody's touching it."
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "Managers see it first; it reaches me eventually."
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, with executive intervention, some disruption",
+    "why": "Only two people can actually move that money."
+   },
+   "AC3": {
+    "score": 0,
+    "option": "Most decisions need senior leadership approval regardless of size",
+    "why": "Everything with a dollar sign stops at two desks."
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, processes not built for speed",
+    "why": "Compliance is careful now \u2014 the judgment made sure."
+   },
+   "DT1": {
+    "score": 2,
+    "option": "Execution rhythm with intentional reflection built in",
+    "why": "We run the plan and check in as we go."
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Identify pain points, see if tech addresses them",
+    "why": "Panelz exists to fix a known floor problem."
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Thorough discussion, hard to move resources quickly",
+    "why": "We talk it through; moving budget is the hard part."
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the why before deciding how to respond",
+    "why": "We study Te Gust\u00f3's moves before reacting."
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, needs heavy planning to shift",
+    "why": "We know where we're going; pivoting takes effort."
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate why, fix the implementation",
+    "why": "We diagnose the miss before blaming the goal."
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing our strategic direction wins",
+    "why": "Direction usually beats the shiny new idea."
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective; keep initiatives unless clearly underperforming long-term",
+    "why": "We hold on until something's undeniably not working."
+   }
+  }
+ },
+ {
+  "file": "05-shelbi-ankenbruck.md",
+  "name": "Shelbi Ankenbruck",
+  "title": "Training Coordinator",
+  "persona": "Pediatric Occupational Therapist",
+  "fit": "Shelbi's whole job is task analysis \u2014 breaking a service standard into steps a new hire can actually do on their third shift \u2014 which is the OT lens applied to line cooks instead of kids. She reads every process question by asking whether the environment sets people up to succeed or just tells them what's expected and walks away.",
+  "posture": "She's generous about intent because she sees leadership actually trying \u2014 Panelz got built and it stuck. She's hard on anything that assumes staff have time, training bandwidth, or authority they don't actually have, because that's the gap she spends her whole day closing.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "We check in on guests sometimes, not on a schedule"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backseat to financial pressure",
+    "why": "Values matter until the P&L gets loud"
+   },
+   "AS3": {
+    "score": 3,
+    "option": "Allocated resources, moving past experimentation",
+    "why": "Panelz proves we can push past just trying things"
+   },
+   "AC1": {
+    "score": 2,
+    "option": "Defined paths but burdensome for small tests",
+    "why": "Two people sign off on everything with money attached"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service is daily \u2014 you act first, always"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate opportunities through it",
+    "why": "Khan's systems-thinking filters what gets tried"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Occasionally investigate root cause, time pressure wins",
+    "why": "A rush doesn't leave room for \"why\""
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethinking",
+    "why": "We tweak processes more than redesign them"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged, gather feedback and use it in planning",
+    "why": "Service quality tracking exists, it feeds back in"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, unlikely to change decision",
+    "why": "Concerns get airtime, rarely the outcome"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, money usually wins",
+    "why": "Line cooks feel that gap most, honestly"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots clear misalignment",
+    "why": "Nobody schedules this, it happens when forced"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends via publications and peer talk",
+    "why": "We watch the industry, don't always act fast"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question our methods",
+    "why": "We ask sometimes, not on a rhythm"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "Floor staff can talk, message gets thinned upstream"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year with negotiation",
+    "why": "Budget moves slow when two people own it"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Most decisions need senior leadership approval",
+    "why": "Unit managers see everything, approve nothing costly"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, processes not built for speed",
+    "why": "Compliance moves cautious after the FLSA judgment"
+   },
+   "DT1": {
+    "score": 2,
+    "option": "Rhythm of execution with intentional reflection",
+    "why": "Kitchens run the plan, adjust as service teaches us"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Identify pain points, see if tech helps",
+    "why": "Panelz solved a real problem, not a novelty"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with willingness to run small tests",
+    "why": "We think some, then try a version"
+   },
+   "AT2": {
+    "score": 2,
+    "option": "Assess and experiment with small tests",
+    "why": "Alumni competitors push us to test, not panic"
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Make the best of the moment, blend old and new",
+    "why": "We lean on what works while staying current"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly, fix the implementation",
+    "why": "We diagnose the miss and retrain the step"
+   },
+   "TC1": {
+    "score": 2,
+    "option": "Genuine mix of committed and exploring",
+    "why": "We protect the core, still chase new concepts"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective, keep initiatives unless clearly underperforming",
+    "why": "We hold on longer than we probably should"
+   }
+  }
+ },
+ {
+  "file": "06-carrie-gerke.md",
+  "name": "Carrie Gerke",
+  "title": "General Manager, BakerStreet Steakhouse",
+  "persona": "Magician-Illusionist",
+  "fit": "She already thinks in effect versus method \u2014 the guest gets the seamless evening, she owns the invisible machinery that makes it happen. The lens sharpens what she notices about ObiCai itself: where the \"show\" the company presents (values, agility, empowerment) diverges from what actually happens backstage.",
+  "posture": "She's answering as a floor-level operator with real end-user influence but zero budget authority, so anything that requires money or approval reads as slow no matter how it's dressed up. She grades the company the way she'd grade a room \u2014 not by intent, but by what the guest (or in this case, the org) can actually see and feel on an ordinary night.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "We periodically step back, not systematically",
+    "why": "We check the room's temperature, but not on a schedule"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, sometimes back seat to money",
+    "why": "Values matter until the check average says otherwise"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Actively piloting, building capability",
+    "why": "Panelz on the boards, but nobody's fully bought in"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Anything with a price tag waits on two signatures"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service doesn't wait for a plan, we fix it live"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Strong mission and strategy filters new ideas",
+    "why": "BakerStreet's standard is the lens everything passes through"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Investigate root cause occasionally, time pressure wins",
+    "why": "Doors open at five whether or not we've dug deep"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethink",
+    "why": "We tighten what's broken more than we redesign"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged, gather feedback, fold into planning",
+    "why": "Comment cards and Toast reviews actually get read"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change the call",
+    "why": "Concerns get airtime, the profitable thing still ships"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financials dominate",
+    "why": "Payroll and food cost win most close calls"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots a clear misalignment",
+    "why": "Nobody revisits the concept until something's obviously off"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends via industry press and peers",
+    "why": "We hear about it from other operators before we act"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back, ask if methods still hold",
+    "why": "We question the playbook when a shift forces it"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "I hear it first, whether it travels up is another story"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, heavy negotiation",
+    "why": "Reallocating money here is a campaign, not a memo"
+   },
+   "AC3": {
+    "score": 0,
+    "option": "Most decisions need senior leadership approval",
+    "why": "I run the room, I still can't sign for a repair"
+   },
+   "AC4": {
+    "score": 0,
+    "option": "Compliance functions as a cautious gatekeeper",
+    "why": "Post-judgment, everything now clears legal first"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute plan as drafted, revisit if it breaks",
+    "why": "Once the plan's set we run it, mid-shift changes are risky"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look for ways to speed up current processes",
+    "why": "New tech means faster reservations, not a new concept"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, struggle to move resources fast",
+    "why": "We talk it to death before anyone frees up a dollar"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the why behind a competitor's move",
+    "why": "We watch what Johnny Perez's places are doing, then think"
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Blend what's worked with the current moment",
+    "why": "We're proud of our roots and still trying to keep up"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate why, fix the execution",
+    "why": "We diagnose the service failure, not scrap the concept"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Reinforcing our strategic direction wins out",
+    "why": "The steakhouse standard decides what gets funded"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly failing",
+    "why": "We don't retire a banquet package on a hunch"
+   }
+  }
+ },
+ {
+  "file": "07-magali-ort.md",
+  "name": "Magali Ort",
+  "title": "Executive Chef, BakerStreet Steakhouse",
+  "persona": "Nuclear Reactor Operator",
+  "fit": "Chef Ort already runs her kitchen on temperature discipline, hold times, and cold-chain logs \u2014 a plant-state mindset she didn't need to borrow. The reactor-operator lens sharpens her distrust of anything that looks like a barrier but isn't independently verified, especially outside her own station.",
+  "posture": "She rates her own kitchen's procedural discipline high but scores the wider organization by what she's actually watched happen once something leaves a station she controls. She treats the FLSA judgment as a stale-instrument problem \u2014 nobody reading the gauges upstream \u2014 and answers accordingly.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "We check guest sentiment in bursts, not on a real gauge"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backs off under money pressure",
+    "why": "Mission holds until the P&L pushes back"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Piloting tools, building capability",
+    "why": "Panelz is up, but nobody's steering it hard"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow repetitive review cycles, months",
+    "why": "Anything with a cost routes through two desks"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service doesn't wait for a committee"
+   },
+   "TX1": {
+    "score": 4,
+    "option": "Stay focused on what's established and works",
+    "why": "Fifteen years of BakerStreet standards, no drift"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try root cause, don't always succeed",
+    "why": "We ask why, then the rush hits and we stop"
+   },
+   "DS3": {
+    "score": 1,
+    "option": "Fix what's obviously broken, keep approach",
+    "why": "Payroll and process fixes only after it breaks"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged, gather feedback into planning",
+    "why": "Guest input comes in, gets folded in sometimes"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, rarely changes outcome",
+    "why": "Values get airtime, revenue still wins the room"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all, money dominates",
+    "why": "The FLSA judgment says which stakeholder lost"
+   },
+   "DC4": {
+    "score": 1,
+    "option": "Only forced by crisis or extreme pressure",
+    "why": "Nobody re-checks a process until it's litigated"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through industry, peers",
+    "why": "We hear about shifts, don't chase them fast"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back, ask if still best",
+    "why": "Kitchen habits get questioned when a number drops"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Can share, no clear channel to decisions",
+    "why": "Line staff see the most and get heard least"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, real negotiation",
+    "why": "Nothing moves fast without two signatures"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Delegated some, default to seeking approval",
+    "why": "I run my kitchen, I still can't spend a dime"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance moves cautious, and rightly so now"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute plan, revisit if something breaks",
+    "why": "We run the plan and fix it if it fails"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Find pain points, see if tech helps",
+    "why": "Inventory and ordering tech targets known bleeding"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with small experiments",
+    "why": "We test carefully, we don't leap blind"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze why before reacting to a rival",
+    "why": "We watch and understand before we move a line"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, heavy lift to adapt",
+    "why": "We know our lane, changing lanes costs us"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly, fix the implementation",
+    "why": "Find what broke, correct the execution, move on"
+   },
+   "TC1": {
+    "score": 4,
+    "option": "Protecting and optimizing what already works",
+    "why": "Owner-operators don't chase shiny, they defend margin"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly failing",
+    "why": "We only cut a concept after it's plainly dying"
+   }
+  }
+ },
+ {
+  "file": "08-jacob-sanchez-franklin.md",
+  "name": "Jacob Sanchez Franklin",
+  "title": "General Manager, Pr\u00f3ximo",
+  "persona": "Soccer Referee",
+  "fit": "Sanchez Franklin already reads a room in real time and manages tempo across four services a day, which is the referee's actual job: decide, then manage the restart. The lens sharpens what he already distrusts \u2014 vague authority, inconsistent thresholds, and calls made to avoid conflict rather than because the conduct crossed a line.",
+  "posture": "He answers for the building he runs, not the org chart he wishes existed \u2014 end-user influence, no spend authority, a live federal judgment sitting over every payroll call. He grades on an ordinary week: what actually happens when the whistle needs blowing, not what the handbook says should happen.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "We check in occasionally, no standing process"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backseat to financial pressure",
+    "why": "Values matter until the number says otherwise"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Actively piloting, building capability",
+    "why": "Panelz proves we'll try tools, slowly"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Two-signature approval is not a fast whistle"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service happens today, plans catch up after"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission, evaluate opportunities through it",
+    "why": "Khan filters everything through the system he built"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Investigate occasionally, time pressure usually wins",
+    "why": "Four services a day leaves no time to dig"
+   },
+   "DS3": {
+    "score": 1,
+    "option": "Fix what's obviously broken, keep the approach",
+    "why": "We patch the schedule, not redesign the day"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged \u2014 gather feedback, fold into planning",
+    "why": "Guests get heard, doesn't always change the plan"
+   },
+   "DC2": {
+    "score": 1,
+    "option": "Raised privately, likely dismissed",
+    "why": "Concerns surface off the record, rarely move the call"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all, financial pressure dominates",
+    "why": "Good intent, the judgment says otherwise"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership sees clear misalignment",
+    "why": "Reviews happen when someone upstairs notices"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through industry talk, peers",
+    "why": "We hear about shifts, don't chase them systematically"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question methods",
+    "why": "Not broken, not touched \u2014 until it is"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "I carry it up, it doesn't always land"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, heavy negotiation",
+    "why": "Moving money means climbing past two approvers"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, still default to seeking approval",
+    "why": "I run the floor, not the checkbook"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance is careful now, for good reason"
+   },
+   "DT1": {
+    "score": 2,
+    "option": "Execute with a rhythm of reflection built in",
+    "why": "We run the plan and adjust mid-service"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look for pain points tech can fix",
+    "why": "We ask what's broken before we ask what's possible"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with small experiments",
+    "why": "We think it through, then test carefully"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the why before responding",
+    "why": "Perez left and started a rival \u2014 we watch, we don't panic"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, heavy lift to adapt the path",
+    "why": "We know where we're going, changing course is slow"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate why, fix the implementation",
+    "why": "We diagnose the miss before we abandon the play"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction wins",
+    "why": "Investment follows the mission Khan already set"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly failing",
+    "why": "We hold the line until something's plainly not working"
+   }
+  }
+ },
+ {
+  "file": "09-alejandro-ivey.md",
+  "name": "Alejandro Ivey",
+  "title": "Executive Chef, Pr\u00f3ximo",
+  "persona": "Missiologist",
+  "fit": "Ivey runs a Pan-Latin scratch menu that has to travel from three distinct culinary traditions onto one Fort Wayne line without losing what makes each dish itself, which is a form/content problem in every sense the missiologist means. He is also the one person who watches whether the \"core\" survives costing, scaling, and a 7pm ticket, or gets quietly domesticated into something that sells.",
+  "posture": "He answers from the pass, not the boardroom \u2014 plain about what he sees in his own kitchen and openly unsure whether it ever reaches the two people who hold the checkbook. No score is inflated to sound aspirational; if the honest answer is \"we don't have a channel for that,\" he says so.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "We read the room some nights, not on a schedule"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backseat to financial pressure",
+    "why": "Food cost wins arguments the mission doesn't"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "Individuals experimenting, no org strategy",
+    "why": "Panelz exists, nobody's asking me about AI"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow repetitive review, months",
+    "why": "Anything with money goes upstairs and sits"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Service happens whether or not we planned enough"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission, evaluate opportunities through it",
+    "why": "We know what Pr\u00f3ximo is, we don't chase trends"
+   },
+   "DS2": {
+    "score": 1,
+    "option": "Occasionally investigate root cause, time pressure wins",
+    "why": "Ticket times don't wait for a five-whys session"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethink",
+    "why": "Mostly we patch, sometimes we rebuild a station"
+   },
+   "DS4": {
+    "score": 2,
+    "option": "Engaged, gather feedback into planning",
+    "why": "Comment cards and covers shape the next menu pass"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change decision",
+    "why": "Values get airtime, margin usually still wins"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "Line cooks feel the inflation before owners do"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots misalignment",
+    "why": "Only revisited when someone above notices a gap"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through industry talk",
+    "why": "I hear things through peers, nothing formal"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back on our methods",
+    "why": "We ask if it still works when it stops working"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Can share, no clear channel to influence decisions",
+    "why": "I can say something, no guarantee it travels up"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, heavy negotiation",
+    "why": "Reallocating money here is not a fast process"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Delegated some, still default to seeking approval",
+    "why": "I run my kitchen, capital still stops at two people"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance is careful right now, and it should be"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit if something breaks",
+    "why": "We cook the plan, we don't relitigate it nightly"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look for ways to speed up current process",
+    "why": "New tools get asked to make prep faster, that's it"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, hard to move resources fast",
+    "why": "We talk about it before anything actually moves"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the shift, understand why first",
+    "why": "Johnny Perez opens something, we study it, slow"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, real effort needed to adapt",
+    "why": "We know where we're going, changing course is heavy"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly, fix the implementation",
+    "why": "We troubleshoot the execution before we question the goal"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction",
+    "why": "Spend follows what we already say we stand for"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly failing",
+    "why": "Fifteen years at BakerStreet says we don't cut fast"
+   }
+  }
+ },
+ {
+  "file": "10-eric-millan.md",
+  "name": "Eric Millan",
+  "title": "Executive Head Chef, The Hoppy Gnome",
+  "persona": "Left Fielder",
+  "fit": "Eric is the one line cook who reaches for a steam-shell griddle instead of the standard flat-top, so he already thinks in imported mechanisms \u2014 thermal recovery borrowed from a domain that isn't scratch-taco cooking. He answers this survey the way he pitched the griddle: with real numbers from the rail, not the polished version leadership tells itself.",
+  "posture": "He grades the org on what it actually took to get one piece of equipment onto his line, not on the mission-statement version of ObiCai. He reads every option, resists picking the flattering one, and doesn't round up out of loyalty.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back on guest needs, not systematic",
+    "why": "Tap list forces us to reread guests, but no real system"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Mission matters but backs off under financial pressure",
+    "why": "Values talk good until the food cost line moves"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few individuals experimenting, no org strategy",
+    "why": "That individual is me and the griddle, mostly alone"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow repetitive review, approvals take months",
+    "why": "Griddle pitch took me the better part of a season"
+   },
+   "XT1": {
+    "score": 3,
+    "option": "Lean toward action, reflect as we go",
+    "why": "Line cooks don't get to overthink a Friday rush"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate new stuff through it",
+    "why": "New tap features get filtered through \"does this pair\""
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try root causes, don't always succeed",
+    "why": "We chase why tickets stall, rush wins some nights"
+   },
+   "DS3": {
+    "score": 1,
+    "option": "Fix what's obviously broken, keep overall approach",
+    "why": "Nobody's rethinking the line, just patching leaks"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive, listen to complaints and requests",
+    "why": "Tap list drives me, guest comments drive the floor"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change decision",
+    "why": "Concerns get a nod, the initiative rolls on anyway"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "Same margin squeeze every group above me feels"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership sees clear misalignment",
+    "why": "Only shifts when someone upstairs finally notices"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitors trends via publications, peer conversations",
+    "why": "I read equipment trade stuff nobody else touches"
+   },
+   "AS2": {
+    "score": 1,
+    "option": "Reconsider approach only when results decline",
+    "why": "If tickets aren't slow, nobody questions the method"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but insights filtered through management",
+    "why": "I can talk, it still climbs through two layers"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, heavy negotiation",
+    "why": "Reallocating budget here moves like cold molasses"
+   },
+   "AC3": {
+    "score": 0,
+    "option": "Most decisions need senior leadership approval",
+    "why": "Everything with a dollar sign stops above me"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, processes aren't built for speed",
+    "why": "Approval exists, just not built for a fast kitchen"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute plan as drafted, revisit if something breaks",
+    "why": "Once the prep list's set, we run it till it fails"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look to speed up or automate current processes",
+    "why": "Every tech ask here gets framed as \"faster,\" not \"new\""
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, hard to move resources fast",
+    "why": "Great conversation about the griddle, slow money"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the \"why\" before responding to a rival move",
+    "why": "We talk about Johnny Perez's places more than we act"
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Combine what worked before with the current moment",
+    "why": "We patch old recipes onto whatever the taps demand"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly, fix the implementation",
+    "why": "Post-mortem happens fast, direction rarely changes"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction wins",
+    "why": "Money follows the steakhouse-brand math, not novelty"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments, prune only if long underperforming",
+    "why": "Menu items linger long after the tap that paired them's gone"
+   }
+  }
+ }
+]

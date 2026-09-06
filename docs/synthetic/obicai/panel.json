@@ -1,0 +1,16 @@
+{
+  "title": "ObiCai Synthetic Panel",
+  "eyebrow": "Synthetic assessment data \u00b7 Temp Agency roster",
+  "headline": "Ten voices from\nObiCai",
+  "lede": "Ten named leaders at ObiCai Restaurant Group \u2014 the Fort Wayne hospitality company behind BakerStreet Steakhouse, The Hoppy Gnome, Gnometown Brewing, and Pr\u00f3ximo \u2014 matched to a Temp Agency specialist persona, then simulated answering the full Future Ready assessment: the 6-question Check and the 20 questions that only appear in the Full.",
+  "notice_lead": "These answers are fabricated.",
+  "notice": "Real people hold these jobs at a real restaurant group. Nothing here reflects anything they have said, believe, or would score, and nothing here should be read as a claim about any individual's conduct or views. This panel exists to stress-test the assessment instrument with plausible, differentiated synthetic respondents.",
+  "panel_note": "Twelve people are named in the source research; the ten with actual biographies are simulated here. Alyssa Gross and David Khan appear only as names in an org chart, so there was nothing to build a respondent from. This is the first panel with real frontline depth \u2014 five of the ten run a dining room or a kitchen, hold end-user authority, and hold no budget authority at all. Each person drew a different persona, so no two respondents reason the same way.",
+  "footer": [
+    "Source documents: ObiCai Restaurant Group: Organizational Profile, SWOT Analysis, and Product-Market Fit Assessment; Future Ready Check (6 questions); Future Ready Full (20 additional questions).",
+    "Third run of the same pipeline. questions.json parsed from the source documents is byte-identical to the Community Harvest and Pyromation panels, so differences between panels come from respondents rather than the instrument.",
+    "Personas drawn from the Temp Agency roster \u2014 24 built specialist profiles.",
+    "Each respondent wrote an in-character reflection before seeing any question, and was given no information about how the scale is scored.",
+    "Synthetic data. Not real respondent data."
+  ]
+}
