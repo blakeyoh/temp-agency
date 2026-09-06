@@ -1,0 +1,982 @@
+[
+ {
+  "file": "01-eric-sawyer.md",
+  "name": "Eric Sawyer",
+  "title": "Senior Managing Director / General Manager",
+  "persona": "Military Three-Star General",
+  "fit": "Sawyer runs the widest span of command on site \u2014 P&L, operations, and capital planning \u2014 and since the TASI acquisition he sits exactly on the seam between theater execution and higher-command strategy. The general lens sharpens what he already watches for: command relationships, sustainment, tempo, and how much freedom of action the plant retains under the new two-tier gate.",
+  "posture": "I answer for an ordinary week on the floor, not the best week or the aspirational one \u2014 proof here is physical and documented, so I score what we can point to, not what we intend. Where the two-tier approval since November '22 has slowed something down, I say so plainly; that's the seam I live in now.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "We periodically step back to understand evolving customer needs, not systematically",
+    "why": "Distributors sit between us and the plant floor."
+   },
+   "DC1": {
+    "score": 3,
+    "option": "Mission/values are a consistent filter shaping what we pursue or decline",
+    "why": "Four-day guarantee overrules a lot of tempting distractions."
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few individuals experimenting with AI, no org strategy",
+    "why": "We machine parts, we don't write algorithms \u2014 yet."
+   },
+   "AC1": {
+    "score": 2,
+    "option": "Defined implementation paths exist but are burdensome for small tests",
+    "why": "The gate exists for good reason, but it's slow."
+   },
+   "XT1": {
+    "score": 3,
+    "option": "We lean toward action, build in reflection as we go",
+    "why": "Shop floor culture \u2014 you fix it while it runs."
+   },
+   "TX1": {
+    "score": 3,
+    "option": "We lead with strong mission/strategy; new opportunities pass through it",
+    "why": "Speed is the mission; everything else gets tested against it."
+   },
+   "DS2": {
+    "score": 2,
+    "option": "We try to understand root causes, though we don't always succeed",
+    "why": "Time pressure on a four-day clock wins sometimes."
+   },
+   "DS3": {
+    "score": 2,
+    "option": "A mix of incremental improvement and occasional rethinking",
+    "why": "We tune the machine before we redesign the machine."
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive \u2014 we listen when there are complaints or requests",
+    "why": "Distributors carry the relationship; we rarely see it direct."
+   },
+   "DC2": {
+    "score": 2,
+    "option": "A values concern would be heard respectfully but rarely change the call",
+    "why": "Financial pressure under new ownership still carries real weight."
+   },
+   "DC3": {
+    "score": 1,
+    "option": "We intend to serve all stakeholders but financial pressure dominates",
+    "why": "Quotas and comp friction since the acquisition prove it."
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally \u2014 when leadership spots a clear misalignment",
+    "why": "Full reviews happen when capital's on the table, not always."
+   },
+   "AS1": {
+    "score": 2,
+    "option": "We monitor shifts through trade publications and peer conversations",
+    "why": "No standing watch officer for the market \u2014 should have one."
+   },
+   "AS2": {
+    "score": 2,
+    "option": "We occasionally step back and question current methods",
+    "why": "ISO audits force some of this; not a constant habit."
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open-door policy exists, but insights still filter through management",
+    "why": "Good floor observations exist; the channel up isn't clean."
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, with significant organizational negotiation",
+    "why": "Corporate justification is now required \u2014 that costs time."
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, but people still default to seeking approval above",
+    "why": "The new gate trained everyone to look upward first."
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Compliance functions are supportive but not built for speed",
+    "why": "ISO and NVLAP protect quality, not tempo."
+   },
+   "DT1": {
+    "score": 3,
+    "option": "We execute the plan as drafted, revisit only if something breaks",
+    "why": "A documented plan gets run, not endlessly re-litigated."
+   },
+   "DT2": {
+    "score": 1,
+    "option": "We look for our biggest pain points, then see if tech fits",
+    "why": "Capacity and wage gaps drive where automation dollars go."
+   },
+   "AT1": {
+    "score": 2,
+    "option": "We balance careful analysis with running small experiments",
+    "why": "Engineering rigor plus shop-floor willingness to just try it."
+   },
+   "AT2": {
+    "score": 1,
+    "option": "We analyze the why before committing to a response",
+    "why": "Insulated by distributors, so we're slower to feel the hit."
+   },
+   "TS1": {
+    "score": 2,
+    "option": "We combine what's worked before with the emerging environment",
+    "why": "Decentralized model \u2014 hold the core, adapt at the edges."
+   },
+   "TS2": {
+    "score": 2,
+    "option": "We treat failure as data, review genuinely, stay resilient",
+    "why": "Documented review, not blind persistence or panic pivots."
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction usually wins the resource fight",
+    "why": "Everything gets measured against the four-day promise."
+   },
+   "TC2": {
+    "score": 3,
+    "option": "We're protective of investments unless clearly underperforming long-term",
+    "why": "Sixty years deep \u2014 we don't retire things lightly."
+   }
+  }
+ },
+ {
+  "file": "02-mark-beckman.md",
+  "name": "Mark Beckman",
+  "title": "Chief Financial Officer",
+  "persona": "Soccer Referee",
+  "fit": "Beckman already runs decisions like a referee runs a match \u2014 apply the rulebook (TASI's reporting standards) consistently, and don't blow the whistle without a documented threshold crossed. He reads the whole field before calling a play dead, which is exactly how he treats an \"opportunity\" that hasn't cleared the two-tier approval gate.",
+  "posture": "He answers for the organization he actually sees from the finance office \u2014 distributor-insulated, cost-disciplined, still adjusting to a parent company's whistle. He picks the option closest to what would survive an audit, not the aspirational one.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "Reps and distributors sit between us and the plant floor"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, sometimes loses to financial pressure",
+    "why": "Margins on metals don't leave much room for aspiration"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few individuals experimenting, no strategy",
+    "why": "We're a hardware shop, not a software one"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Two-tier approval exists precisely to slow undocumented ideas"
+   },
+   "XT1": {
+    "score": 1,
+    "option": "Thorough before committing, deliberate over quick",
+    "why": "I don't sign off on plans without a number"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate new things through it",
+    "why": "Nothing clears the gate without a documented return"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try to find root causes, don't always succeed",
+    "why": "Variance analysis gets us partway, deadlines interrupt the rest"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental improvement and occasional rethinking",
+    "why": "We tighten what's broken more than we redesign it"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; we listen to complaints and requests",
+    "why": "Distributors sit between us and the actual plant engineer"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change the decision",
+    "why": "Concerns get a hearing, the P&L still speaks loudest"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Financial pressures dominate despite good intentions",
+    "why": "TASI's reporting standards are new and non-negotiable"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership sees a clear misalignment",
+    "why": "We don't audit purpose on a schedule, only on cause"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through publications and peer conversations",
+    "why": "I watch platinum and nickel, not much beyond that"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back to question current methods",
+    "why": "Cost models get revisited when the numbers stop working"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Shared, but no clear channel to influence decisions",
+    "why": "Machining and assembly voices don't reach my desk directly"
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, with executive intervention and disruption",
+    "why": "Capital moves after corporate signs off, not before"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Most decisions still need senior approval",
+    "why": "Two-tier gate means Fort Wayne and TASI both sign"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Gatekeepers ensuring adoption is gradual and safe",
+    "why": "Compliance alignment with TASI standards is mine to enforce"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit only if something breaks",
+    "why": "A plan without a documented return doesn't get revised, it gets built"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look for ways to automate current processes",
+    "why": "I cost what exists before I dream about what's new"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Thorough discussion, resources hard to move quickly",
+    "why": "Reallocating capital fast isn't how the approval gate works"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the shift, understand the why first",
+    "why": "I don't move budget on a competitor's headline alone"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, needs real planning effort to adapt",
+    "why": "We know where we're going, pivoting costs real effort"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly to fix the implementation",
+    "why": "Find the variance, fix the execution, don't abandon the plan"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing our strategic direction",
+    "why": "Investment decisions get filtered through documented strategic fit"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming long-term",
+    "why": "We don't prune what's still carrying its own weight"
+   }
+  }
+ },
+ {
+  "file": "03-john-norris.md",
+  "name": "John Norris",
+  "title": "Chief Executive Officer, TASI Measurement",
+  "persona": "Business Development Director",
+  "fit": "Norris governs a portfolio thesis \u2014 cross-selling Pyromation into SignalFire and AW-Lake \u2014 and gatekeeps capital on documented return, synergy, and risk, which is exactly the BD lens of asset exchange over enthusiasm. He reads Pyromation the way a BD director reads a channel: distributor-insulated, high-integrity product, weak direct signal from the field.",
+  "posture": "He answers at the enterprise level \u2014 deliberate, ROI-first, comfortable with the two-tier gate because he built it \u2014 and stays candid that he is reconstructing shop-floor reality secondhand rather than claiming to have lived it. Where the org shows friction from the acquisition, he doesn't smooth it over; he names it as the cost of the discipline he imposes.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodic step-back via reps/distributors, not systematic",
+    "why": "Distributor layer blocks direct, continuous signal"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backseat to financial pressure",
+    "why": "Capital gate runs on returns, not sentiment"
+   },
+   "AS3": {
+    "score": 2,
+    "option": "Actively piloting, building capability",
+    "why": "Digitizing calibration traceability is early-stage"
+   },
+   "AC1": {
+    "score": 2,
+    "option": "Defined paths exist but burdensome for small tests",
+    "why": "Two-tier approval was built by me for rigor"
+   },
+   "XT1": {
+    "score": 1,
+    "option": "Deliberate, thorough before committing",
+    "why": "Capital allocator instinct, not a bias-to-action shop"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Mission and strategy filter new opportunities",
+    "why": "Every acquisition evaluated through the platform thesis"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try to find root causes, don't always succeed",
+    "why": "Plant-level diagnosis, I only see the summary"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental improvement and occasional rethink",
+    "why": "Processes get reviewed at capital-request cadence"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; listen when issues surface",
+    "why": "Distributors sit between us and the plant engineer"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, unlikely to change decision",
+    "why": "Values matter, returns still carry the vote"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all, financial pressure dominates",
+    "why": "I'm the one holding the ROI line"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership sees clear misalignment",
+    "why": "Strategic reviews trigger it, not a fixed rhythm"
+   },
+   "AS1": {
+    "score": 3,
+    "option": "Designated people/processes scanning for shifts",
+    "why": "M&A and roadmap function exists for exactly this"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question methods",
+    "why": "Not a scheduled discipline, more opportunistic"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Can share, but no clear channel upward",
+    "why": "Rep network filters what actually reaches me"
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, with executive intervention",
+    "why": "Reallocation needs my sign-off, that takes time"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Delegated some, still default to seeking approval",
+    "why": "Two-tier gate exists because that's the pattern"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Compliance and corporate review slow the pace"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute plan as drafted, revisit if something breaks",
+    "why": "I fund plans expecting discipline in execution"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look for pain points tech can address",
+    "why": "We're a hardware firm without our own software"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with small experiments",
+    "why": "I want proof before committing real capital"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the shift, understand why first",
+    "why": "I don't react to a competitor without the data"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, real effort needed to adapt",
+    "why": "The platform thesis is set, pivoting it is heavy"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate quickly, fix the implementation",
+    "why": "Diagnose the miss before abandoning the thesis"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction",
+    "why": "Capital follows the roadmap I set, not novelty"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming",
+    "why": "Acquisitions get time to prove out before I prune"
+   }
+  }
+ },
+ {
+  "file": "04-chris-moritz.md",
+  "name": "Chris Moritz",
+  "title": "Director of IT and Quality",
+  "persona": "Nuclear Reactor Operator",
+  "fit": "Moritz already thinks in barriers, revision control, and auditable evidence, which maps directly onto the reactor operator's distrust of anything that isn't logged. He treats an undocumented process the way an operator treats an unverified indication \u2014 not trustworthy until it's on the record.",
+  "posture": "I score what's written down and provable, not what people say happens in the hallway. If a process runs on institutional memory rather than a procedure or a gate, it reads low to me regardless of whether the shop actually gets the part out the door.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "Distributors sit between us and the plant engineer."
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, sometimes back seat to financial pressure",
+    "why": "Two-tier gate wants documented ROI, not a mission slide."
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few individuals experimenting, no org strategy",
+    "why": "I built the CAD/CAM bridge alone; that's not a program."
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Nothing clears the new gate without a paper trail."
+   },
+   "XT1": {
+    "score": 1,
+    "option": "Thorough before committing, more deliberate than quick",
+    "why": "I'd rather verify twice than reverse a bad change."
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate new opportunities through it",
+    "why": "Strategy is the filter; the gate enforces it now."
+   },
+   "DS2": {
+    "score": 3,
+    "option": "Consistent practice of asking why to find root cause",
+    "why": "CAPA under ISO 9001 requires it, not a hunch."
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental improvement and occasional rethink",
+    "why": "We fix what's flagged; full redesign is rare."
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; we listen when they complain or request",
+    "why": "Reps and distributors filter most of the signal out."
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably wouldn't change the decision",
+    "why": "Values get a hearing, financials still close the case."
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all stakeholders, financial pressure dominates",
+    "why": "TASI's numbers set the ceiling on good intentions."
+   },
+   "DC4": {
+    "score": 3,
+    "option": "Regular practice via ongoing strategic reviews",
+    "why": "The two-tier approval forces the review whether we like it or not."
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends through publications and peer conversations",
+    "why": "No dedicated scanning function that I can point to."
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question current methods",
+    "why": "We revisit calibration and process specs on schedule, not sentiment."
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "Floor concerns reach me eventually, rarely straight to leadership."
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, significant negotiation",
+    "why": "Corporate approval on top of ours slows any real reallocation."
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Most decisions still require senior leadership approval",
+    "why": "Two-tier since 2022 \u2014 Fort Wayne and TASI both sign."
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, processes not built for speed",
+    "why": "I gatekeep for a reason; audits don't move fast."
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit only if something breaks",
+    "why": "A documented plan gets followed, not re-litigated daily."
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look for ways to automate current processes",
+    "why": "We integrate transmitters; we don't write the algorithms."
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, struggle to move resources quickly",
+    "why": "Talking is easy, reallocating machine time is not."
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the shift, understand why before responding",
+    "why": "I want the indication verified before I trust it."
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Combine what's worked with the emerging environment",
+    "why": "Four-day builds are proven; we adapt around that core."
+   },
+   "TS2": {
+    "score": 2,
+    "option": "Genuine review, stay resilient, willing to reevaluate",
+    "why": "That's a root-cause investigation, logged, not a shrug."
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing our strategic direction wins out",
+    "why": "The gate makes us justify spend against strategy, on paper."
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming long-term",
+    "why": "We don't retire a qualified process without documented cause."
+   }
+  }
+ },
+ {
+  "file": "05-michael-lackey.md",
+  "name": "Michael Lackey",
+  "title": "Engineering Manager",
+  "persona": "Physics Professor",
+  "fit": "Lackey is the one person here who actually runs a derivation before a part ships \u2014 wake frequency, thermal shock, hazardous-area compliance \u2014 so the physics-professor habit of demanding the deciding measurement is already his job, not a lens applied on top. Where he differs from a pure academic is scope: he checks the physics obsessively within his own department and stays honestly uncertain about claims made everywhere else in the company.",
+  "posture": "He is answering for the organization as a whole, not just engineering, and refuses to let his own department's rigor flatter the company-wide score. He reads every option before choosing, distrusts anything that sounds like decimal theater about speed or AI, and answers to the ordinary week, not the aspiration.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "Periodically step back, not systematic",
+    "why": "Distributors sit between us and the plant engineer"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, backs off under financial pressure",
+    "why": "Two-tier approval means money usually wins"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "Few individuals experimenting, no strategy",
+    "why": "We're a hardware shop, not a software one"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Nothing clears the two-tier gate fast"
+   },
+   "XT1": {
+    "score": 1,
+    "option": "Thorough before committing, deliberate",
+    "why": "A rushed wake-frequency calc drops a sensor in"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Lead with mission/strategy, evaluate opportunities through it",
+    "why": "Speed within our lane is the whole strategy"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try root causes, don't always succeed",
+    "why": "My group does; not everyone does"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fix and occasional rethink",
+    "why": "Machining and assembly get tweaked, not redesigned"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive, listen when complaints arise",
+    "why": "Reps and distributors filter the real feedback"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably doesn't change decision",
+    "why": "Profitable initiatives usually survive the objection"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve all, financial pressure dominates",
+    "why": "TASI corporate has a number it needs"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots misalignment",
+    "why": "Not on a schedule, only when it's obvious"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends via publications, peer conversations",
+    "why": "That's literally what MCAA meetings are for"
+   },
+   "AS2": {
+    "score": 1,
+    "option": "Reconsider only when results decline",
+    "why": "If it isn't broken, nobody touches it"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Can share, but no clear channel upward",
+    "why": "Shop floor observations rarely reach Fort Wayne leadership fast"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year, real negotiation",
+    "why": "Commitments and headcount are locked in tight"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, default to seeking approval",
+    "why": "Two signatures now beat one, every time"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Certification bodies don't move at four-day speed"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit if something breaks",
+    "why": "Once the calc converges we build to it"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look to speed up or automate current process",
+    "why": "We integrate transmitters, we don't write software"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, struggle to move resources fast",
+    "why": "Machinists and certs are the bottleneck, not willpower"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the why before responding",
+    "why": "I don't move until I understand the mechanism"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, heavy planning effort to adapt",
+    "why": "We know our lane, pivoting takes real work"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Investigate why, fix the implementation",
+    "why": "Find the broken assumption, don't just retry harder"
+   },
+   "TC1": {
+    "score": 3,
+    "option": "Clarifying or reinforcing strategic direction",
+    "why": "Speed and fabrication depth is what we protect"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective, keep it unless clearly underperforming",
+    "why": "We don't prune investments on a hunch"
+   }
+  }
+ },
+ {
+  "file": "06-kimberly-trygg.md",
+  "name": "Kimberly A. Trygg",
+  "title": "Human Resources Manager",
+  "persona": "Trauma-Informed Practitioner",
+  "fit": "Trygg gatekeeps whether the floor believes leadership is telling the truth about the acquisition, which is exactly the safety-and-trust lens the trauma-informed frame demands. She reads every process question as \"does this rebuild predictability and voice, or does it just look fine from the top.\"",
+  "posture": "I answer as the person who hears what doesn't make it into the leadership deck \u2014 quota friction, quiet compliance, who got asked and who didn't. I'm picking the option that matches an ordinary Tuesday on the machining floor, not the mission statement.",
+  "rows": {
+   "DS1": {
+    "score": 2,
+    "option": "We step back periodically, not systematically",
+    "why": "Reps and distributors sit between us and the plant floor pain"
+   },
+   "DC1": {
+    "score": 2,
+    "option": "Meaningful input, but takes a back seat to money",
+    "why": "Two-tier approval means TASI's numbers usually win the room"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few people experimenting, no real strategy",
+    "why": "We're a hardware shop; nobody's built an AI plan yet"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review, approvals take months",
+    "why": "Fort Wayne and TASI corporate both have to sign off"
+   },
+   "XT1": {
+    "score": 2,
+    "option": "We move between planning and doing fluidly",
+    "why": "Floor moves fast; anything strategic waits on two approvals"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Strong mission and strategy filter new opportunities",
+    "why": "Engineering identity and proof-first culture still lead here"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "We try for root cause, don't always succeed",
+    "why": "Documentation culture helps, but deadlines still win sometimes"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethinking",
+    "why": "Nobody's tearing up the process without a documented reason"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; we listen when they complain",
+    "why": "Distributors insulate us from what plant engineers actually feel"
+   },
+   "DC2": {
+    "score": 1,
+    "option": "Raised privately, probably dismissed",
+    "why": "Quota and comp concerns get heard, rarely change the call"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "We intend to serve everyone, money usually dominates",
+    "why": "TASI's financial pressure outweighs employee and community voice"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership sees clear misalignment",
+    "why": "It happens, but it's not built into a rhythm yet"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "We monitor trends through publications and peers",
+    "why": "We're often the last to see the shift, not first"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "We occasionally step back and question our methods",
+    "why": "\"If it isn't broken\" still runs deep on this floor"
+   },
+   "AS4": {
+    "score": 2,
+    "option": "Open door, but filtered through management layers",
+    "why": "I hear things that never make it past a supervisor"
+   },
+   "AC2": {
+    "score": 2,
+    "option": "A quarter, needs executive intervention and disruption",
+    "why": "Nothing moves fast without corporate sign-off first"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, people still default to asking up",
+    "why": "Two-tier approval trained everyone to check before acting"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Nothing abstract clears the gate without documented payback"
+   },
+   "DT1": {
+    "score": 3,
+    "option": "Execute the plan, revisit only if it breaks",
+    "why": "Proof-first culture; we don't like reopening a signed-off plan"
+   },
+   "DT2": {
+    "score": 1,
+    "option": "Look for ways to automate what we already do",
+    "why": "We integrate other people's tech, we don't reinvent value"
+   },
+   "AT1": {
+    "score": 2,
+    "option": "Balance analysis with small experiments before certainty",
+    "why": "Careful by nature, but the floor will test something small"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze the why before deciding how to respond",
+    "why": "We think it through before we touch pricing or process"
+   },
+   "TS1": {
+    "score": 2,
+    "option": "Blending what's worked with the emerging environment",
+    "why": "Decentralized model tries to hold old strengths, new pressure"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate why, fix the implementation",
+    "why": "We diagnose fast, we don't abandon things easily"
+   },
+   "TC1": {
+    "score": 4,
+    "option": "Protecting and optimizing what already works",
+    "why": "Speed and craftsmanship are the moat; we guard it fiercely"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective of investments unless clearly underperforming",
+    "why": "Multigenerational habits don't get sunset without a long look"
+   }
+  }
+ },
+ {
+  "file": "07-greg-craghead.md",
+  "name": "Greg Craghead",
+  "title": "Marketing Manager",
+  "persona": "Anthropologist",
+  "fit": "Craghead already lives the anthropologist's core discomfort \u2014 he writes the catalog partly on inference because distributors stand between him and the plant engineer he's describing. The lens sharpens what he already suspects: the gap between the company's stated customer intimacy and what he can actually observe is the most important data point, not a footnote.",
+  "posture": "Generous and specific about anything physical, documented, or engineering-driven \u2014 the four-day build, the NVLAP lab, the mission-as-filter \u2014 because he's watched those things happen firsthand for twenty years. Unusually harsh on anything claiming direct knowledge of the customer, because that's the one thing he knows the company is largely guessing about.",
+  "rows": {
+   "DS1": {
+    "score": 1,
+    "option": "Feedback mostly refines existing offerings",
+    "why": "Distributors sit between us and the plant engineer"
+   },
+   "DC1": {
+    "score": 3,
+    "option": "Mission/values visibly shape what we pursue",
+    "why": "The three true things actually gate decisions"
+   },
+   "AS3": {
+    "score": 1,
+    "option": "A few individuals experimenting, no strategy",
+    "why": "We're a hardware shop, not a digital one"
+   },
+   "AC1": {
+    "score": 1,
+    "option": "Slow, repetitive review cycles, months",
+    "why": "Two-tier gate since 2022 stalls everything"
+   },
+   "XT1": {
+    "score": 1,
+    "option": "Thorough before committing, deliberate over fast",
+    "why": "Proof has to be physical and documented first"
+   },
+   "TX1": {
+    "score": 3,
+    "option": "Mission leads, opportunities filtered through it",
+    "why": "Speed, metrology, custom design decide the pitch"
+   },
+   "DS2": {
+    "score": 2,
+    "option": "Try root causes, don't always succeed",
+    "why": "Shop floor tries; marketing infers under deadline"
+   },
+   "DS3": {
+    "score": 2,
+    "option": "Mix of incremental fixes and occasional rethink",
+    "why": "Catalog gets patched more than reimagined"
+   },
+   "DS4": {
+    "score": 1,
+    "option": "Responsive; we listen to complaints and requests",
+    "why": "I rarely watch an engineer actually use it"
+   },
+   "DC2": {
+    "score": 2,
+    "option": "Heard respectfully, probably wouldn't change outcome",
+    "why": "Two-tier gate hears values, financials still win"
+   },
+   "DC3": {
+    "score": 1,
+    "option": "Intend to serve everyone, financial pressure dominates",
+    "why": "Post-TASI, quotas and margin drive most calls"
+   },
+   "DC4": {
+    "score": 2,
+    "option": "Occasionally, when leadership spots misalignment",
+    "why": "No standing rhythm, just triggered reviews"
+   },
+   "AS1": {
+    "score": 2,
+    "option": "Monitor trends via publications, peer conversation",
+    "why": "Trade shows are our listening post, not the plant"
+   },
+   "AS2": {
+    "score": 2,
+    "option": "Occasionally step back and question methods",
+    "why": "Engineering habit, not a scheduled practice"
+   },
+   "AS4": {
+    "score": 1,
+    "option": "Can share, but no clear channel upward",
+    "why": "Reps hear the plant, floor rarely does"
+   },
+   "AC2": {
+    "score": 1,
+    "option": "Six months to a year with negotiation",
+    "why": "Two approval layers make reallocation slow"
+   },
+   "AC3": {
+    "score": 1,
+    "option": "Some delegation, still default to seeking approval",
+    "why": "Sawyer and Beckman, now Norris too, sign off"
+   },
+   "AC4": {
+    "score": 1,
+    "option": "Supportive in principle, not built for speed",
+    "why": "Legal/compliance weren't sized for fast pivots"
+   },
+   "DT1": {
+    "score": 2,
+    "option": "Execute with a rhythm of built-in reflection",
+    "why": "We check the plan, we don't just chase it"
+   },
+   "DT2": {
+    "score": 0,
+    "option": "Look for ways to speed up current processes",
+    "why": "We integrate transmitters, we don't write software"
+   },
+   "AT1": {
+    "score": 1,
+    "option": "Discuss thoroughly, struggle to move resources fast",
+    "why": "Good instincts, slow hands under the new gate"
+   },
+   "AT2": {
+    "score": 1,
+    "option": "Analyze why before deciding how to respond",
+    "why": "We want the reasoning before we touch the pitch"
+   },
+   "TS1": {
+    "score": 3,
+    "option": "Clear direction, real effort needed to adapt",
+    "why": "Speed is the strategy; pivoting it is heavy lifting"
+   },
+   "TS2": {
+    "score": 1,
+    "option": "Quickly investigate to fix the implementation",
+    "why": "We assume the plan was right, the execution wasn't"
+   },
+   "TC1": {
+    "score": 4,
+    "option": "Protecting and optimizing what already works",
+    "why": "Metrology, machining, speed \u2014 we defend those"
+   },
+   "TC2": {
+    "score": 3,
+    "option": "Protective; keep initiatives unless clearly failing",
+    "why": "Twenty years of catalog inertia proves it"
+   }
+  }
+ }
+]

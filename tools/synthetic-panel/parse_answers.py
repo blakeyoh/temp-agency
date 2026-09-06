@@ -12,7 +12,11 @@ import argparse, html, json, re, sys
 from pathlib import Path
 
 HEAD_RE = re.compile(r'^#\s+(.+?)\s+[—–-]\s+(.+?)\s*$', re.M)
-FIELD_RE = r'^\*\*{label}[^:]*:\*\*\s*(.+?)\s*$'
+# The label may carry a parenthetical suffix ("Persona fit (2 sentences):"), but
+# nothing else — an open-ended [^:]* here lets the "Persona" pattern swallow the
+# "Persona fit" line, so a missing "**Persona:**" parses as success instead of
+# failing loudly.
+FIELD_RE = r'^\*\*{label}(?:\s*\([^)]*\))?\s*:\*\*\s*(.+?)\s*$'
 ROW_RE = re.compile(r'^\|\s*([A-Za-z]{1,4}\d{1,3})\s*\|\s*(\d{1,2})\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|\s*$', re.M)
 
 

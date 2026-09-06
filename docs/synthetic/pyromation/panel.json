@@ -1,0 +1,16 @@
+{
+  "title": "Pyromation Synthetic Panel",
+  "eyebrow": "Synthetic assessment data \u00b7 Temp Agency roster",
+  "headline": "Seven voices from\nPyromation",
+  "lede": "Every named leader at Pyromation, Inc. \u2014 the Fort Wayne temperature-sensor manufacturer acquired by TASI Group in November 2022 \u2014 matched to a Temp Agency specialist persona, then simulated answering the full Future Ready assessment: the 6-question Check and the 20 questions that only appear in the Full.",
+  "notice_lead": "These answers are fabricated.",
+  "notice": "Real people hold these jobs at a real manufacturer. Nothing here reflects anything they have said, believe, or would score. This panel exists to stress-test the assessment instrument with plausible, differentiated synthetic respondents.",
+  "panel_note": "Seven named leaders appear in the source research; all seven are included, so no one was cut. Founders and the retired owner are historical, and the Director of Sales and Marketing is named only by title, so none of them could be simulated. John Norris sits at the corporate parent and answers about Pyromation as a business unit he governs but does not run. Each person drew a different persona, so no two respondents reason the same way.",
+  "footer": [
+    "Source documents: Strategic Profile, SWOT Analysis, and Leadership Architecture of Pyromation, Inc.; Future Ready Check (6 questions); Future Ready Full (20 additional questions).",
+    "Same instrument and same pipeline as the Community Harvest panel \u2014 questions.json parsed from the source documents is byte-identical.",
+    "Personas drawn from the Temp Agency roster \u2014 24 built specialist profiles.",
+    "Each respondent wrote an in-character reflection before seeing any question, and was given no information about how the scale is scored.",
+    "Synthetic data. Not real respondent data."
+  ]
+}
