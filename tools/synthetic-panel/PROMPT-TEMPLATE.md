@@ -93,6 +93,10 @@ could print on its cover page. The reflection step carries the rest of the
 load — a respondent who just wrote about being three drivers short does not
 then claim they can test a new idea in days.
 
+This was tested rather than assumed: removing the key moved spectrum answers
+by −0.07, while rerunning the *unchanged* prompt moved them +0.07. The effect
+is smaller than the noise. See `docs/synthetic/community-harvest/ab/RESULTS.md`.
+
 **Never tell the agent the scale's direction, the axis names, or which
 questions pair up.** Every one of those is knowledge the real respondent lacks,
 and every one of them shows up as a suspiciously coherent answer set.

@@ -124,3 +124,21 @@ Two scale kinds are colored differently and must not be averaged together:
   not lower down. Averaging these produces a number that means nothing.
 
 `render.py` only computes group means for ladder groups, for this reason.
+
+## How much to trust a number
+
+Measured on this pipeline (see `docs/synthetic/community-harvest/ab/RESULTS.md`):
+**about a third of answers change when you rerun the identical prompt.**
+Per-respondent group means move by up to ±0.35 between identical runs.
+
+So:
+
+- **Read panel-level patterns, not individual scores.** "Every respondent scored
+  Direction above Agility" survives that noise. "The CEO scored 2.25" does not.
+- **For stable per-respondent numbers, run each respondent 3+ times and take the
+  median.** A single run is a draw from a distribution, not a measurement.
+- **A noisy respondent means a thin biography.** Instability tracks how little
+  source material the person has, not the prompt. Fix the inputs, not the wording.
+- **Before believing any prompt change, rerun the unchanged prompt first.** The
+  noise floor is larger than most prompt effects, and without that control you
+  will read sampling as signal.
