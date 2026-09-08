@@ -2,7 +2,7 @@
   "artifact_sha256": "5aaa4aab9545d54c6e297a63bd7fd79e18f687b76bcc6335b98ff78a00a33044",
   "binding_rule": "lib.bindings.draw",
   "bound_span": "draw header verbatim; per-item labels equal the drawn options; counterfactual replay is item k's own opener and differs materially when two draw receipts are cited",
-  "checked_utc": "2026-09-08T04:04:27Z",
+  "checked_utc": "2026-09-08T04:17:10Z",
   "checks": [
     {
       "expected": "draw header present verbatim",
@@ -11,10 +11,10 @@
       "pass": true
     },
     {
-      "expected": "10 item lines labeled with their drawn options",
-      "found": "all items labeled",
+      "expected": "10 item lines opening with their exact drawn label triple",
+      "found": "item 1: labels favor-ask / casual / question != drawn opener / tone / form; item 2: labels comparison / playful / statement != drawn opener / tone / form; item 3: labels program/session / playful / observation != drawn opener / tone / form; item 4: labels observed object / casual / question != drawn opener / tone / form; item 5: labels shared context / casual / observation != drawn opener / tone / form; item 6: labels logistics / formal / question != drawn opener / tone / form; item 7: labels compliment / formal / question != drawn opener / tone / form; item 8: labels professional curiosity / casual / statement != drawn opener / tone / form; item 9: labels humor / playful / statement != drawn opener / tone / form; item 10: labels callback / casual / question != drawn opener / tone / form",
       "name": "item_labels",
-      "pass": true
+      "pass": false
     },
     {
       "expected": "replayed item labeled by this receipt's draw and materially different prose",
@@ -25,6 +25,6 @@
   ],
   "receipt_id": "7355abdd45ac",
   "record_path": "docs/tournament/harness-fixtures/e1-forger.md",
-  "result": "pass",
-  "verifier_commit": "bebe86e4d3b335d83a1e509dde261d977abd6834"
+  "result": "fail",
+  "verifier_commit": "33eb27c6b5cc8129d36a37a6a7f0c3c11a6b73b8"
 }

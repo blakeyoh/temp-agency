@@ -91,14 +91,22 @@ def test_failed_receipt_is_not_a_replay_failure(repo):
     assert "n/a (failed)" in proc.stdout
 
 
-def test_hash_attested_without_attestation_fails(repo):
+def test_claimed_class_must_match_the_tool_declaration(repo):
+    """A receipt cannot opt out of replay: the class comes from the tool's rule.
+
+    This replaces the old `test_hash_attested_without_attestation_fails`, which only
+    required an attestation dict. `lib/bindings/echo_tool.py` declares replay-exact,
+    so the claim itself is now the failure. The attestation requirement still applies
+    to a tool that really declares hash-attested — see tests/test_forger_holes.py.
+    """
     receipt, path = issue_one(repo)
-    edited = {**receipt, "verification_class": "hash-attested"}
+    edited = {**receipt, "verification_class": "hash-attested",
+              "external_attestation": {"source": "invented"}}
     path.write_text(json.dumps(edited, indent=2, sort_keys=True))
     repo.write_record("s16-e1.md", "E1", [receipt["receipt_id"]], receipt["output"])
     proc = repo.verify("all")
     assert proc.returncode == 1
-    assert "lacks external_attestation" in proc.stdout
+    assert "receipt claims hash-attested, tool declares replay-exact" in proc.stdout
     assert "does not recompute" in proc.stdout
 
 

@@ -1,7 +1,9 @@
 """Binding rules: per-tool checks that a source record derives from a receipt's output.
 
 A rule is a module `lib.bindings.<tool name with '-' as '_'>` exposing
-`check(record_text: str, receipt: dict) -> BindResult`.
+`check(record_text: str, receipt: dict) -> BindResult` and a `VERIFICATION_CLASS`
+string. The class is declared here, in code, so a receipt cannot claim a weaker
+class than its tool actually supports (plan v4 section 11, hole 4).
 """
 from __future__ import annotations
 
@@ -44,6 +46,9 @@ def load_rule(tool_name: str) -> ModuleType:
         raise VerifyError(f"no binding rule for tool {tool_name!r} (expected module {name})") from exc
     if not callable(getattr(module, "check", None)):
         raise VerifyError(f"binding rule {name} does not expose check(record_text, receipt)")
+    declared = getattr(module, "VERIFICATION_CLASS", None)
+    if not isinstance(declared, str) or not declared:
+        raise VerifyError(f"binding rule {name} does not declare VERIFICATION_CLASS")
     return module
 
 

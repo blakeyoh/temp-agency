@@ -9,6 +9,8 @@ from lib.bindings import BindResult, Check, cited_receipt_ids
 from lib.paths import repo_root
 from lib.receipt import list_receipts, load
 
+VERIFICATION_CLASS = "replay-exact"
+
 BOUND_SPAN = (
     "draw header verbatim; per-item labels equal the drawn options; "
     "counterfactual replay is item k's own opener and differs materially when two draw receipts are cited"
@@ -20,6 +22,7 @@ HEADER = re.compile(r"^DRAW seed=(-?\d+) source=(\S+) pools=(.*) draws=(\d+)$")
 POOL_LINE = re.compile(r"^(.*) \((\d+)\): (.*)$")
 INDEX_LINE = re.compile(r"^(.*): \[(.*)\]$")
 OPTION = re.compile(r"^(\d+) (.*)$")
+BOLD_TRIPLE = re.compile(r"^\s*\d+\.\s+\*\*(.+?)\*\*")
 COUNTERFACTUAL = re.compile(r"^##\s+Counterfactual replay\s*$")
 H2 = re.compile(r"^## ")
 
@@ -80,6 +83,16 @@ def drawn_labels(parsed: Dict[str, Any], item: int) -> List[str]:
     return labels
 
 
+def _item_triple(line: str) -> Optional[List[str]]:
+    """The bold `**a / b / c**` label triple opening an item line, lowercased."""
+    match = BOLD_TRIPLE.match(line)
+    if match is None:
+        return None
+    text = match.group(1).strip()
+    text = text[:-1] if text.endswith(":") else text
+    return [part.strip().lower() for part in text.split(" / ")]
+
+
 def _item_line(record_text: str, item: int) -> Optional[str]:
     pattern = re.compile(r"^\s*%d\.\s" % item)
     for line in record_text.splitlines():
@@ -88,18 +101,25 @@ def _item_line(record_text: str, item: int) -> Optional[str]:
     return None
 
 
+def _item_label_problem(record_text: str, parsed: Dict[str, Any], item: int) -> Optional[str]:
+    """Item `item` must open with the exact bold triple its draw produced."""
+    line = _item_line(record_text, item)
+    if line is None:
+        return f"item {item}: no line"
+    found = _item_triple(line)
+    if found is None:
+        return f"item {item}: no bold label triple"
+    drawn = [label.strip().lower() for label in drawn_labels(parsed, item)]
+    if found != drawn:
+        return "item %d: labels %s != drawn %s" % (item, " / ".join(found), " / ".join(drawn))
+    return None
+
+
 def _check_item_labels(record_text: str, parsed: Dict[str, Any]) -> Check:
-    missing: List[str] = []
-    for item in range(1, parsed["draws"] + 1):
-        line = _item_line(record_text, item)
-        if line is None:
-            missing = missing + [f"item {item}: no line"]
-            continue
-        lowered = line.lower()
-        absent = [l for l in drawn_labels(parsed, item) if l.lower() not in lowered]
-        if absent:
-            missing = missing + [f"item {item}: missing {', '.join(absent)}"]
-    expected = f"{parsed['draws']} item lines labeled with their drawn options"
+    problems = [_item_label_problem(record_text, parsed, item)
+                for item in range(1, parsed["draws"] + 1)]
+    missing = [problem for problem in problems if problem is not None]
+    expected = f"{parsed['draws']} item lines opening with their exact drawn label triple"
     found = "all items labeled" if not missing else "; ".join(missing)
     return Check("item_labels", expected, found, not missing)
 

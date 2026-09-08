@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -12,6 +13,8 @@ from typing import Any, List, Optional
 from lib.errors import HarnessError
 
 GIT_TIMEOUT_SECONDS = 60
+RECEIPTS_DIR_ENV = "HARNESS_RECEIPTS_DIR"
+DEFAULT_RECEIPTS_DIR = "docs/tournament/receipts"
 
 
 def git_output(root: Optional[Path], *args: str) -> str:
@@ -34,20 +37,6 @@ def git_output(root: Optional[Path], *args: str) -> str:
     return proc.stdout
 
 
-def git_show_bytes(root: Path, commit: str, rel_path: str) -> bytes:
-    """Return the bytes of `rel_path` as committed at `commit`."""
-    cmd = ["git", "show", f"{commit}:{rel_path}"]
-    try:
-        proc = subprocess.run(
-            cmd, cwd=str(root), capture_output=True, check=True,
-            timeout=GIT_TIMEOUT_SECONDS,
-        )
-    except subprocess.CalledProcessError as exc:
-        detail = exc.stderr.decode("utf-8", "replace").strip()
-        raise HarnessError(f"git show {commit}:{rel_path} failed: {detail}") from exc
-    return proc.stdout
-
-
 def repo_root() -> Path:
     """Return the git top-level directory for the current working directory."""
     try:
@@ -58,7 +47,13 @@ def repo_root() -> Path:
 
 
 def receipts_dir(root: Path) -> Path:
-    return Path(root) / "docs" / "tournament" / "receipts"
+    """The receipts directory: `HARNESS_RECEIPTS_DIR` (relative to root) or the default.
+
+    Fixtures point the env var at their own tree so the live directory stays
+    reserved for the official round.
+    """
+    relative = os.environ.get(RECEIPTS_DIR_ENV) or DEFAULT_RECEIPTS_DIR
+    return Path(root) / relative
 
 
 def head_commit(root: Path) -> str:

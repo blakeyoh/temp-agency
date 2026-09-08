@@ -32,24 +32,34 @@ def test_edited_seed_fails_chain_and_replay(repo):
     assert "FAIL replay output differs" in replay.stdout
 
 
-def test_modified_committed_input_fails_replay(repo):
+def test_input_changed_in_a_later_commit_still_replays(repo):
+    """Replay reads `git archive <repo_commit>`, not the working tree.
+
+    This reverses the old `test_modified_committed_input_fails_replay`. Editing the
+    input after the receipt used to fail; it now passes, because the archive holds
+    the input as it stood at `repo_commit`. The check that matters — the archived
+    input's hash equals the receipt's — is unaffected by later commits.
+    """
     path = run_once(repo)
     repo.write(INPUT_PATH, "changed after the receipt\n")
     repo.commit_all("change input")
     proc = repo.verify("replay", str(path))
-    assert proc.returncode == 1
-    assert f"FAIL input changed in working tree: {INPUT_PATH}" in proc.stdout
-    assert "not attempted" in proc.stdout
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "PASS input pinned at" in proc.stdout and INPUT_PATH in proc.stdout
+    assert "PASS replay output byte-equal to receipt output" in proc.stdout
 
 
-def test_modified_tool_fails_replay(repo):
+def test_modified_tool_warns_and_replays_the_committed_version(repo):
+    """A working-tree tool that has since changed is a WARN, not a FAIL."""
     path = run_once(repo)
     tool = repo.root / "bin/echo-tool"
     tool.write_text(tool.read_text() + "\n# touched\n")
     repo.commit_all("touch tool")
     proc = repo.verify("replay", str(path))
-    assert proc.returncode == 1
-    assert "FAIL tool changed since receipt" in proc.stdout
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "WARN bin/echo-tool has changed since this receipt" in proc.stdout
+    assert "replay ran the committed version" in proc.stdout
+    assert "PASS replay output byte-equal to receipt output" in proc.stdout
 
 
 def test_failed_receipt_is_reported_not_replayed(repo):

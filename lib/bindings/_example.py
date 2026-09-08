@@ -5,6 +5,7 @@ from typing import Any, Dict
 
 from lib.bindings import BindResult, Check
 
+VERIFICATION_CLASS = "replay-exact"
 BOUND_SPAN = "receipt output appears verbatim in the record"
 
 

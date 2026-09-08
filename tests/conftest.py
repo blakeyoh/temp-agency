@@ -78,7 +78,16 @@ if __name__ == "__main__":
     tools.exit_on_error(main)
 '''
 
-ECHO_RULE = '"""Binding rule for the test tool: the example verbatim rule."""\nfrom lib.bindings._example import check  # noqa: F401\n'
+ECHO_RULE = (
+    '"""Binding rule for the test tool: the example verbatim rule."""\n'
+    'from lib.bindings._example import check  # noqa: F401\n\n'
+    'VERIFICATION_CLASS = "replay-exact"\n'
+)
+ATTEST_RULE = (
+    '"""Binding rule for a hypothetical hash-attested tool, used only by tests."""\n'
+    'from lib.bindings._example import check  # noqa: F401\n\n'
+    'VERIFICATION_CLASS = "hash-attested"\n'
+)
 
 
 def record_text(entrant: str, receipt_ids: Sequence[str], body: str) -> str:
@@ -152,6 +161,7 @@ def repo(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Repo:
     handle.write(".gitignore", "__pycache__/\n")
     handle.write("bin/echo-tool", ECHO_TOOL).chmod(0o755)
     handle.write("lib/bindings/echo_tool.py", ECHO_RULE)
+    handle.write("lib/bindings/attest_tool.py", ATTEST_RULE)
     handle.write(INPUT_PATH, INPUT_TEXT)
     handle.commit_all("harness under test")
     monkeypatch.chdir(root)

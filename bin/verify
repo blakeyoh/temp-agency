@@ -81,7 +81,8 @@ def build_parser():
     everything.add_argument("--records", default=DEFAULT_RECORDS_GLOB,
                             help=f"record glob relative to the repo root (default: {DEFAULT_RECORDS_GLOB})")
     everything.add_argument("--dispatch-log", metavar="PATH",
-                            help="committed seed log relative to the repo root; makes os-entropy seeds fail")
+                            help="committed seed and input log relative to the repo root; "
+                                 "makes os-entropy seeds fail and pins each receipt's inputs")
     everything.set_defaults(func=cmd_all)
     return parser
 

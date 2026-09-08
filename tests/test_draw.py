@@ -149,7 +149,10 @@ def test_bind_fails_on_mislabeled_item(repo):
                         build_record("E1", [receipt["receipt_id"]], body))
     result = repo.verify("bind", str(record), str(path))
     assert result.returncode == 1
-    assert "FAIL item_labels" in result.stdout and "item 3: missing favor-ask" in result.stdout
+    assert "FAIL item_labels" in result.stdout
+    # The rule now compares the bold triple exactly, so a swapped label reports the
+    # whole triple rather than the one word it could not find as a substring.
+    assert "item 3: labels logistics /" in result.stdout and "!= drawn favor-ask /" in result.stdout
 
 
 def test_bind_fails_without_the_header(repo):

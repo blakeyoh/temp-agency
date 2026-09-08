@@ -59,8 +59,8 @@ def validate_pool(index, pool):
     if not isinstance(name, str) or not name.strip():
         raise ValueError(f"pool {index} must have a non-empty name")
     options = pool.get("options")
-    if not isinstance(options, list) or not options:
-        raise ValueError(f"pool {name!r} must have at least one option")
+    if not isinstance(options, list) or len(options) < 2:
+        raise ValueError(f"pool {name!r} must have at least two options")
     return (name, [str(option) for option in options])
 
 

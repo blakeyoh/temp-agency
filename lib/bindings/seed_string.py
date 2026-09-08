@@ -58,6 +58,7 @@ POOL_ITEM_RE = re.compile(r"^\s*(?:[-*]\s+)?(\d+):\s*(.+?)\s*$")
 TABLE_SEP_RE = re.compile(r"^\s*\|?[\s:|-]+\|[\s:|-]*\|?\s*$")
 BACKTICK_RE = re.compile(r"^`(.*)`$")
 CHECK_NAMES = ("strings_verbatim", "pool_parsed", "derivation_rows", "item_labels")
+VERIFICATION_CLASS = "replay-exact"
 
 
 def parse_output(output: str) -> Optional[Dict[str, Any]]:

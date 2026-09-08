@@ -5,10 +5,10 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple, Optional, Tuple
 
-from lib.bindings import cited_receipt_ids
-from lib.errors import HarnessError
+from lib.bindings import cited_receipt_ids, load_rule
+from lib.errors import HarnessError, VerifyError
 from lib.paths import receipts_dir, relative_to_root
-from lib.receipt import list_receipts, load, verify_chain
+from lib.receipt import RECEIPT_NAME, list_receipts, load, verify_chain
 from lib.verify import Line
 from lib.verify.bind import bind
 from lib.verify.dispatch import DispatchLog, check_seed, load_dispatch_log
@@ -17,6 +17,7 @@ from lib.verify.replay import check_replay
 DEFAULT_RECORDS_GLOB = "docs/tournament/official-runs/s16-*.md"
 ENTRANT_LINE = re.compile(r"^-\s+\*\*Entrant code:\*\*\s*(\S+)", re.MULTILINE)
 COLUMNS = ("receipt_id", "entrant", "tool", "class", "replay", "bind", "cited", "seed")
+SIDECAR_NAME = re.compile(r"^(\d{3}-[0-9a-f]{12})\.bind\.json$")
 
 
 class Record(NamedTuple):
@@ -59,13 +60,18 @@ def citing_records(records: List[Record], receipt_id: str) -> List[Record]:
 
 
 def _check_class(receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
+    """The class the receipt claims must be the class its tool declares in code."""
     klass = str(receipt.get("verification_class"))
-    if klass == "hash-attested":
+    try:
+        declared = str(getattr(load_rule(str(receipt.get("tool"))), "VERIFICATION_CLASS"))
+    except VerifyError as exc:
+        return klass, [Line("FAIL", f"{tag}: {exc}")]
+    if klass != declared:
+        return klass, [Line("FAIL", f"{tag}: receipt claims {klass}, tool declares {declared}")]
+    if declared == "hash-attested":
         attestation = receipt.get("external_attestation")
         if not isinstance(attestation, dict) or not attestation:
             return klass, [Line("FAIL", f"{tag}: hash-attested receipt lacks external_attestation")]
-    elif klass != "replay-exact":
-        return klass, [Line("FAIL", f"{tag}: unknown verification_class {klass!r}")]
     return klass, []
 
 
@@ -128,6 +134,19 @@ def _entrant_dirs(root: Path) -> List[Path]:
     return sorted(p for p in base.iterdir() if p.is_dir() and not p.name.startswith("."))
 
 
+def _check_directory(entrant_dir: Path) -> List[Line]:
+    """A receipts directory holds receipts and their sidecars, and nothing else."""
+    names = sorted(p.name for p in entrant_dir.iterdir() if p.is_file())
+    lines: List[Line] = []
+    for name in names:
+        sidecar = SIDECAR_NAME.match(name)
+        if not sidecar and not RECEIPT_NAME.match(name):
+            lines = lines + [Line("FAIL", f"foreign file in receipts dir: {name}")]
+        elif sidecar and sidecar.group(1) + ".json" not in names:
+            lines = lines + [Line("FAIL", f"orphan sidecar: {name}")]
+    return lines
+
+
 def run_gate(root: Path, glob: str = DEFAULT_RECORDS_GLOB,
              dispatch_log: Optional[str] = None) -> GateReport:
     """Check every entrant chain and every receipt against the cited records."""
@@ -137,6 +156,7 @@ def run_gate(root: Path, glob: str = DEFAULT_RECORDS_GLOB,
     lines: List[Line] = list(log.lines)
     for entrant_dir in _entrant_dirs(root):
         entrant = entrant_dir.name
+        lines = lines + _check_directory(entrant_dir)
         chain = verify_chain(root, entrant)
         lines = lines + [Line("FAIL", f"chain {entrant}: {p}") for p in chain]
         if not chain:

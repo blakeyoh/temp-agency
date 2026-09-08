@@ -16,7 +16,7 @@ from lib import receipt as receipt_lib
 from lib.errors import HarnessError, ReceiptError, ToolError
 from lib.paths import (
     canonical_json, git_output, head_commit, python_version, relative_to_root,
-    repo_root, sha256_bytes, sha256_file, utc_now,
+    sha256_bytes, sha256_file, utc_now,
 )
 
 GUARDED_PATHS: Tuple[str, ...] = ("bin", "lib")
@@ -34,9 +34,13 @@ class ToolContext(NamedTuple):
 
 
 def make_context(tool_file: str) -> ToolContext:
-    """Build a ToolContext from the tool's own `__file__`."""
+    """Build a ToolContext from the tool's own `__file__`.
+
+    The root is the tool's grandparent directory, never `git rev-parse`: a replay
+    runs the tool inside a `git archive` extraction that has no `.git`.
+    """
     tool_path = Path(tool_file).resolve()
-    return ToolContext(repo_root(), tool_path.name, tool_path, utc_now())
+    return ToolContext(tool_path.parents[1], tool_path.name, tool_path, utc_now())
 
 
 def _relative_paths(root: Path, paths: Sequence[str]) -> List[str]:
@@ -72,6 +76,29 @@ def hash_inputs(root: Path, paths: Sequence[str]) -> Dict[str, str]:
             raise ToolError(f"input {rel} is not a file")
         hashes = {**hashes, rel: sha256_file(target)}
     return hashes
+
+
+def argv_file_tokens(root: Path, argv: Sequence[str]) -> List[str]:
+    """Every argv token that resolves, relative to `root`, to an existing file."""
+    found: List[str] = []
+    for token in argv:
+        text = str(token)
+        candidate = Path(text) if Path(text).is_absolute() else Path(root) / text
+        if not candidate.is_file():
+            continue
+        try:
+            found = found + [relative_to_root(root, candidate)]
+        except HarnessError:
+            found = found + [text]
+    return found
+
+
+def require_declared_argv(root: Path, argv: Sequence[str], declared: Sequence[str]) -> None:
+    """Refuse an argv that names a file the receipt does not declare as an input."""
+    known = set(declared)
+    for rel in argv_file_tokens(root, argv):
+        if rel not in known:
+            raise ToolError(f"argv names a file not declared as an input: {rel}")
 
 
 def draw_seed(arg: Optional[int]) -> Dict[str, Any]:
@@ -131,6 +158,7 @@ def run_tool(
 ) -> Tuple[str, Path]:
     """Standard lifecycle. Returns (output, receipt_path). Prints nothing."""
     rel_inputs = _relative_paths(ctx.root, inputs)
+    require_declared_argv(ctx.root, argv, rel_inputs)
     require_clean(ctx.root, list(GUARDED_PATHS) + rel_inputs)
     hashes = hash_inputs(ctx.root, rel_inputs)
     base = _base_fields(ctx, entrant, argv, hashes, seed, verification_class,
