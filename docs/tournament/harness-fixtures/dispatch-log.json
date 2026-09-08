@@ -1,0 +1,54 @@
+{
+  "note": "Fixture seeds for plan v4 Phase 1. Drawn by the orchestrator with secrets.randbits(32) and committed BEFORE any fixture subagent was dispatched (plan \u00a74, commit-before-reveal). Each seed is passed to its subagent as --seed; bin/verify all --dispatch-log requires every ok receipt's seed to appear here for its entrant.",
+  "entries": [
+    {
+      "entrant": "E1",
+      "seed": 3583731875,
+      "purpose": "draw primary",
+      "record": "harness-fixtures/e1-honest.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E1",
+      "seed": 3220602189,
+      "purpose": "draw counterfactual (Amendment 4)",
+      "record": "harness-fixtures/e1-honest.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E1",
+      "seed": 2803385608,
+      "purpose": "draw primary",
+      "record": "harness-fixtures/e1-forger.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E1",
+      "seed": 2079449367,
+      "purpose": "draw counterfactual (Amendment 4)",
+      "record": "harness-fixtures/e1-forger.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E1",
+      "seed": 279662096,
+      "purpose": "draw primary",
+      "record": "harness-fixtures/e1-tamper.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E1",
+      "seed": 1555356886,
+      "purpose": "draw counterfactual (Amendment 4)",
+      "record": "harness-fixtures/e1-tamper.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    },
+    {
+      "entrant": "E9",
+      "seed": 2832500688,
+      "purpose": "seed-string",
+      "record": "harness-fixtures/e9-honest.md",
+      "issued_utc": "2026-09-08T03:22:31Z"
+    }
+  ]
+}
