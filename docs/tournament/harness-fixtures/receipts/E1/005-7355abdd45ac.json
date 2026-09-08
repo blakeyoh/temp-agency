@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "--entrant",
+    "E1",
+    "--pools",
+    "docs/tournament/receipts/E1/e1-forger-pools-primary.json",
+    "--seed",
+    "2803385608"
+  ],
+  "chain_hash": "840d5bdf086bad759a5209042cc7f178ebed2217326ab4511d1ef94b4d53ec13",
+  "chain_prev": "b649025d0b478783b3c16080579560a012212ae5c768dad8d5ae26ec7ae91a27",
+  "completed_utc": "2026-09-08T04:05:12Z",
+  "entrant": "E1",
+  "error": null,
+  "external_attestation": null,
+  "input_sha256": "bea5be44970eea5ee27e5a32e3c6554d7a31b8deb53b8778133a7711ac0b0365",
+  "inputs": {
+    "docs/tournament/harness-fixtures/e1-pools-scrimmage.json": "fe104057d7bd6d0e6de8659dfb4e0880afdcbe7b6e2b0bf5d904fd28a5ded974"
+  },
+  "output": "DRAW seed=2803385608 source=argument pools=docs/tournament/receipts/E1/e1-forger-pools-primary.json draws=10\nangle (1): 0 opener\nregister (1): 0 tone\ndevice (1): 0 form\nangle: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\nregister: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\ndevice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n",
+  "output_sha256": "5c90fdcaaed9ceba31d898ebb2fb8e71cdda6b74713b0f562dfb30eb543b218c",
+  "python_version": "3.9.6",
+  "receipt_id": "7355abdd45ac",
+  "repo_commit": "bebe86e4d3b335d83a1e509dde261d977abd6834",
+  "seed": {
+    "source": "argument",
+    "value": 2803385608
+  },
+  "started_utc": "2026-09-08T04:05:12Z",
+  "status": "ok",
+  "tool": "draw",
+  "tool_sha256": "84e657fa38b9ce780ac24dce1fbd7250f86db185d27ea63d90dd0c79d34831dd",
+  "verification_class": "replay-exact"
+}

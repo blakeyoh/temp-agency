@@ -1,0 +1,11 @@
+{
+  "entrant": "E1",
+  "brief_id": "s16-brief-1",
+  "brief_sha256": "4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a",
+  "draws": 10,
+  "pools": [
+    {"name": "angle", "options": ["callback"]},
+    {"name": "register", "options": ["playful"]},
+    {"name": "device", "options": ["observation"]}
+  ]
+}
