@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "--entrant",
+    "E1",
+    "--pools",
+    "docs/tournament/harness-fixtures/e1-pools-scrimmage.json",
+    "--seed",
+    "3220602189"
+  ],
+  "chain_hash": "df31b23012eb3d5af12c090ac3d843cbff4dac7bc118fa26e53b9811d658e9c7",
+  "chain_prev": "6f4628bd5cf95afbf5c0fbc44813bf261307728e84f81278fc8fcbc4f30c0a4d",
+  "completed_utc": "2026-09-08T03:50:21Z",
+  "entrant": "E1",
+  "error": null,
+  "external_attestation": null,
+  "input_sha256": "bea5be44970eea5ee27e5a32e3c6554d7a31b8deb53b8778133a7711ac0b0365",
+  "inputs": {
+    "docs/tournament/harness-fixtures/e1-pools-scrimmage.json": "fe104057d7bd6d0e6de8659dfb4e0880afdcbe7b6e2b0bf5d904fd28a5ded974"
+  },
+  "output": "DRAW seed=3220602189 source=argument pools=docs/tournament/harness-fixtures/e1-pools-scrimmage.json draws=10\nangle (10): 0 shared context | 1 observed object | 2 program/session | 3 professional curiosity | 4 logistics | 5 humor | 6 compliment | 7 favor-ask | 8 comparison | 9 callback\nregister (3): 0 formal | 1 casual | 2 playful\ndevice (3): 0 question | 1 statement | 2 observation\nangle: [9, 7, 6, 4, 5, 9, 0, 6, 2, 2]\nregister: [2, 0, 1, 0, 0, 1, 1, 2, 2, 1]\ndevice: [2, 2, 0, 1, 1, 2, 2, 0, 1, 1]\n",
+  "output_sha256": "b7993b6c9827d62472e94ed1db8746ec216dcc33d32732f0add441c560bb7eb2",
+  "python_version": "3.9.6",
+  "receipt_id": "4c35b0bb2991",
+  "repo_commit": "5e0b4ce600e99b82e47fd7c96f5b0a1bbda30b7b",
+  "seed": {
+    "source": "argument",
+    "value": 3220602189
+  },
+  "started_utc": "2026-09-08T03:50:21Z",
+  "status": "ok",
+  "tool": "draw",
+  "tool_sha256": "84e657fa38b9ce780ac24dce1fbd7250f86db185d27ea63d90dd0c79d34831dd",
+  "verification_class": "replay-exact"
+}

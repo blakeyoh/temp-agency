@@ -1,0 +1,30 @@
+{
+  "artifact_sha256": "341f81c50737417d797b91413e56f1e316e156d7165664a585ea84aa643e637b",
+  "binding_rule": "lib.bindings.draw",
+  "bound_span": "draw header verbatim; per-item labels equal the drawn options; counterfactual replay is item k's own opener and differs materially when two draw receipts are cited",
+  "checked_utc": "2026-09-08T03:54:06Z",
+  "checks": [
+    {
+      "expected": "draw header present verbatim",
+      "found": "present",
+      "name": "header_verbatim",
+      "pass": true
+    },
+    {
+      "expected": "10 item lines labeled with their drawn options",
+      "found": "all items labeled",
+      "name": "item_labels",
+      "pass": true
+    },
+    {
+      "expected": "replayed item labeled by this receipt's draw and materially different prose",
+      "found": "primary draw; counterfactual checked on the second receipt",
+      "name": "counterfactual",
+      "pass": true
+    }
+  ],
+  "receipt_id": "e4e3f9d77bc7",
+  "record_path": "docs/tournament/harness-fixtures/e1-honest.md",
+  "result": "pass",
+  "verifier_commit": "c410fe08d23a63859c1a9e4f4e39166398bb7e31"
+}
