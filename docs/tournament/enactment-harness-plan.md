@@ -89,6 +89,13 @@ mask map, an era lexicon, a distilled deck, a degradation card — is admissible
 is **committed before dispatch** and hashed into the receipt's `input_sha256`. Model
 judgment frozen by commit is inspectable; model judgment at run time is not.
 
+**Corollary for seeds — commit before reveal.** A tool that draws its own seed from OS
+entropy produces a genuine, replayable draw, and an agent can run it twenty times and keep
+the one it likes. Replay cannot see the nineteen discards. So the orchestrator draws every
+official seed, commits it to `official-runs/dispatch-log.json` before the subagent
+exists, and passes it as `--seed`. The receipt's seed must match the committed log. The
+tool's own entropy path stays for development and is reported as `unattested`.
+
 ## 5. Guarantees — ranked by what the panel's score depends on
 
 | # | Guarantee | Mechanism | Strength |
@@ -96,7 +103,7 @@ judgment frozen by commit is inspectable; model judgment at run time is not.
 | **G1** | **Artifact binding** — the record derives from the tool's output | Binding sidecar (§6.2) + per-tool binding rule (§6.4) + `bin/verify --bind` | **Partial and bounded.** Exact for the receipt-determined span. Prose beyond it is declared unverifiable. |
 | **G2** | **Receipt authenticity** — the tool really ran | Deterministic replay for `replay-exact`; external attestation for `hash-attested`; git commit as anchor | Strong for replay-exact. Bounded for hash-attested. **The token contributes nothing here** (§4). |
 | **G3** | **Tamper evidence** | Git commit by the orchestrator; in-directory hash chain | Strong once committed. Nil before. |
-| **G4** | **Seed provenance** — entropy from the OS, not the model | `secrets.randbits` inside the tool; `seed.source` recorded; `argument` source rejected at official dispatch | Strong. Ruling 23 applied field-wide. |
+| **G4** | **Seed provenance** — entropy from the OS, not the model, and **not shopped** | The orchestrator draws every official seed with `secrets.randbits` and commits `official-runs/dispatch-log.json` **before** dispatch; the tool receives it as `--seed`; the gate requires `seed.source: argument` and a value present in the committed log | Strong. A tool that draws its own seed is replayable but shoppable (§4). Ruling 23 applied field-wide. |
 | **G5** | **Contract fidelity** — the tool does what the contract claims | **UNSOLVED by automation.** Phase 8 independent read only. | None until Phase 8. |
 
 ## 6. Architecture
@@ -188,6 +195,9 @@ the gate records the span so the panel knows what was and was not verified.
 4. `--bind` passes for every receipt, and the sidecar's `artifact_sha256` matches the
    record bytes being rendered.
 5. Each receipt is cited by exactly one record, and its `entrant` matches.
+6. Every `ok` receipt's seed has `source: argument` and its value appears in the committed
+   dispatch log for that entrant. A receipt with `source: os-entropy` is `unattested` and
+   fails the official gate.
 
 The gate is run by the orchestrator at render time. It does not read a prior result.
 
@@ -362,7 +372,7 @@ ruling.**
 | # | Phase | Exit condition |
 |---|---|---|
 | 0 | **Harness** (`lib/receipt.py`, `bin/verify`, binding sidecar, `lib/bindings/`) + `bin/draw` (E1) + `bin/seed-string` (E9) + `## Receipts` section in `official-run-template.md` | E1 and E9 reference runs against the **scrimmage brief** produce receipts, records and sidecars. `bin/verify --all` passes on those artifacts. Tests cover replay, chain, bind, failed receipt, dirty tree, and both negative fixtures. |
-| 1 | **Three fixtures and a control**, all as isolated subagents, all before any entrant tool: (a) **honest** — instructed to use `bin/draw`, produces a passing E1 record; (b) **no-tool forger** — given the template and the gate's docs, told to produce a passing record without running any tool; (c) **tamperer** — runs the tool, then edits the receipt's seed. | (a) passes. (b) and (c) **fail** `bin/verify --all`. If (a) fails the harness is too strict; if (b) or (c) passes, Phase 0 is not done. |
+| 1 | **Three fixtures and a control**, all as isolated subagents, all before any entrant tool: (a) **honest** — instructed to use `bin/draw`, produces a passing E1 record; (b) **no-tool forger** — given the template, the gate's docs and the dispatched seed, told to produce a passing record with fabricated draws and without running any tool (a forger who re-implements the PRNG by hand has done the tool's work and is admitted on purpose, per §4); (c) **tamperer** — runs the tool, then edits the receipt's seed. | (a) passes. (b) and (c) **fail** `bin/verify --all`. If (a) fails the harness is too strict; if (b) or (c) passes, Phase 0 is not done. |
 | 2 | **Pre-persona pipeline** (§8.1) — A1, C8, A5 across 6 personas | All three replay-exact and bind-clean. Negative-check runner rejects a leaked noun and a used withheld fact. |
 | 3 | **Required-tool layer** (§8.3) — A3's four tools, M1's `bin/overlap` | A credited result without a receipt fails the bind. Overlap re-computes. |
 | 4 | `bin/notation` (C5), `bin/forage` (E2) | C5 slot validator enforces structure. E2 revision ID re-resolves. Network availability at dispatch confirmed or `NOT ENACTED` path exercised. |
@@ -455,6 +465,7 @@ S ≈ 1–2 h, M ≈ 3–4 h, L ≈ 6–10 h.
 | 9 | Binding fixture at Phase 3, after the pipeline | Folded into Phase 1 | Needs only Phase 0. |
 | 10 | Binding rules implicit | §6.4 table, one row per tool, shipped as code with negative fixtures | Where the real design work is. |
 | 11 | Silent on operator, interpreter, network, failed receipts | §12 items 4 and 8; `status: failed`; `python_version`; `NOT ENACTED` path | Each was an unstated assumption a dispatch could hit. |
+| 12 | Tool draws its own seed from OS entropy | Orchestrator draws, commits a dispatch log, passes `--seed`; gate matches | A self-drawn seed is replayable but shoppable. Found while designing the Phase 1 forger. |
 
 Frozen-input rule (§4 corollary) and `official-run-template.md` change moved to Phase 0
 are additions, not corrections.
