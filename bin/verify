@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""bin/verify: replay a receipt, validate a chain, bind a record, or gate everything.
+
+Uses subprocess for git and tool execution; never imports a tool module.
+"""
+import sys
+
+sys.dont_write_bytecode = True
+
+import argparse  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib.errors import HarnessError  # noqa: E402
+from lib.paths import repo_root  # noqa: E402
+from lib.receipt import verify_chain  # noqa: E402
+from lib.verify.bind import bind  # noqa: E402
+from lib.verify.gate import DEFAULT_RECORDS_GLOB, format_table, run_gate  # noqa: E402
+from lib.verify.replay import check_replay  # noqa: E402
+
+
+def say(level, message):
+    sys.stdout.write(f"{level} {message}\n")
+
+
+def cmd_replay(root, args):
+    receipt_path = Path(args.receipt).resolve()
+    report = check_replay(root, receipt_path)
+    for line in report.lines:
+        say(line.level, line.message)
+    verdict = "PASS" if report.passed else "FAIL"
+    say(verdict, f"replay {receipt_path.name}" + ("" if report.attempted else " (not attempted)"))
+    return 0 if report.passed else 1
+
+
+def cmd_chain(root, args):
+    problems = verify_chain(root, args.entrant)
+    for problem in problems:
+        say("FAIL", problem)
+    say("FAIL" if problems else "PASS", f"chain {args.entrant}")
+    return 1 if problems else 0
+
+
+def cmd_bind(root, args):
+    outcome = bind(root, Path(args.record).resolve(), Path(args.receipt).resolve())
+    for check in outcome.result.checks:
+        say("PASS" if check.passed else "FAIL",
+            f"{check.name}: expected {check.expected}, found {check.found}")
+    say("PASS" if outcome.result.passed else "FAIL",
+        f"bind {outcome.sidecar['receipt_id']} -> {outcome.sidecar_path}")
+    return 0 if outcome.result.passed else 1
+
+
+def cmd_all(root, args):
+    report = run_gate(root, args.records, args.dispatch_log)
+    for line in report.lines:
+        say(line.level, line.message)
+    if not report.rows:
+        say("PASS", "0 receipts")
+        return 0
+    sys.stdout.write(format_table(report.rows) + "\n")
+    say("PASS" if report.passed else "FAIL", f"{len(report.rows)} receipts")
+    return 0 if report.passed else 1
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(prog="bin/verify", description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    replay = sub.add_parser("replay", help="re-run a receipt's tool and byte-compare its output")
+    replay.add_argument("receipt")
+    replay.set_defaults(func=cmd_replay)
+    chain = sub.add_parser("chain", help="validate one entrant's receipt chain")
+    chain.add_argument("entrant")
+    chain.set_defaults(func=cmd_chain)
+    bind_cmd = sub.add_parser("bind", help="run the binding rule and write the sidecar")
+    bind_cmd.add_argument("record")
+    bind_cmd.add_argument("receipt")
+    bind_cmd.set_defaults(func=cmd_bind)
+    everything = sub.add_parser("all", help="gate every receipt against the cited records")
+    everything.add_argument("--records", default=DEFAULT_RECORDS_GLOB,
+                            help=f"record glob relative to the repo root (default: {DEFAULT_RECORDS_GLOB})")
+    everything.add_argument("--dispatch-log", metavar="PATH",
+                            help="committed seed log relative to the repo root; makes os-entropy seeds fail")
+    everything.set_defaults(func=cmd_all)
+    return parser
+
+
+def main(argv):
+    args = build_parser().parse_args(argv)
+    try:
+        return args.func(repo_root(), args)
+    except HarnessError as exc:
+        sys.stderr.write(f"error: {exc}\n")
+        return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
