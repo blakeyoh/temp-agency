@@ -210,6 +210,14 @@ def test_counterfactual_fails_when_original_is_not_item_line(repo):
     assert result.returncode == 1 and "Original does not match item 1" in result.stdout
 
 
+def test_unparseable_output_fails_every_check(repo):
+    record, primary_path, _other = counterfactual_record(repo)
+    receipt = json.loads(primary_path.read_text())
+    primary_path.write_text(json.dumps({**receipt, "output": "not a draw header\n"}, indent=2))
+    result = repo.verify("bind", str(record), str(primary_path))
+    assert result.returncode == 1 and result.stdout.count("unparseable output") == 3
+
+
 def test_verify_all_passes_on_the_honest_record(repo):
     counterfactual_record(repo)
     proc = repo.verify("all", "--records", f"{RECORDS}/s16-*.md")

@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""bin/seed-string: emit generator-produced seed strings for E9 (String Seed of Thought).
+
+Ruling 23 requires the seed string to come from a real random-number generator,
+never from the model. This tool draws a harness seed (`lib.tools.draw_seed`),
+seeds `random.Random` with it, and emits `--count` strings of `--length`
+characters each. It performs no arithmetic on the strings it emits: the model
+does that work later, in the record, and `lib/bindings/seed_string.py`
+re-checks it.
+"""
+import argparse
+import random
+import string
+import sys
+
+sys.dont_write_bytecode = True
+
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+
+ALPHABETS = {
+    "lower-digits": string.ascii_lowercase + string.digits,
+    "lower": string.ascii_lowercase,
+    "alnum": string.ascii_letters + string.digits,
+}
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(prog="seed-string")
+    tools.add_common_args(parser)
+    parser.add_argument("--count", type=int, default=10, help="how many strings to emit")
+    parser.add_argument("--length", type=int, default=8, help="characters per string")
+    parser.add_argument("--alphabet", choices=sorted(ALPHABETS), default="lower-digits",
+                        help="character set to draw from")
+    return parser
+
+
+def validate_params(count, length):
+    """Raise ValueError for out-of-range params; run_tool turns this into a failed receipt."""
+    if count < 1:
+        raise ValueError(f"--count must be >= 1, got {count}")
+    if length < 1:
+        raise ValueError(f"--length must be >= 1, got {length}")
+
+
+def generate_strings(seed_value, count, length, alphabet_name):
+    """Deterministic strings from a seeded random.Random. No arithmetic on the result."""
+    validate_params(count, length)
+    alphabet = ALPHABETS[alphabet_name]
+    rng = random.Random(seed_value)
+    return ["".join(rng.choice(alphabet) for _ in range(length)) for _ in range(count)]
+
+
+def render(seed, count, length, alphabet_name):
+    strings = generate_strings(seed["value"], count, length, alphabet_name)
+    header = (
+        f"SEED-STRINGS seed={seed['value']} source={seed['source']} "
+        f"alphabet={alphabet_name} length={length} count={count}\n"
+    )
+    body = "\n".join(f"{i}: {s}" for i, s in enumerate(strings, start=1))
+    return header + body + "\n"
+
+
+def main(argv):
+    parser = build_parser()
+    replay = tools.maybe_replay(parser, argv)
+    ctx = tools.make_context(__file__)
+    if replay:
+        args = parser.parse_args(tools.replay_args(replay))
+        tools.emit(render(replay["seed"], args.count, args.length, args.alphabet))
+        return 0
+    args = parser.parse_args(argv)
+    entrant = tools.require_entrant(parser, args)
+    seed = tools.draw_seed(args.seed)
+    output, path = tools.run_tool(
+        ctx, entrant, argv, [], seed, "replay-exact", None,
+        lambda: render(seed, args.count, args.length, args.alphabet),
+    )
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)
