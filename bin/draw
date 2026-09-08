@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""bin/draw (E1, The Entropy Well): draw seeded indices from committed option pools."""
+import argparse
+import json
+import random
+import sys
+
+sys.dont_write_bytecode = True
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+from lib.errors import ToolError  # noqa: E402
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(prog="draw")
+    tools.add_common_args(parser)
+    parser.add_argument("--pools", help="pools JSON file, relative to the repo root")
+    return parser
+
+
+def require_pools(parser, args):
+    """Return the pools path as given, or raise (the arg cannot be argparse-required)."""
+    if not args.pools:
+        raise ToolError(f"{parser.prog}: --pools is required")
+    return args.pools
+
+
+def read_spec(root, rel):
+    """Load and validate the pools file. ValueError becomes a failed receipt."""
+    path = Path(rel)
+    path = path if path.is_absolute() else root / rel
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"cannot read pools file {rel}: {exc}")
+    return validate_spec(data)
+
+
+def validate_spec(data):
+    """Return (draws, [(name, options), ...]) or raise ValueError."""
+    if not isinstance(data, dict):
+        raise ValueError("pools file must be a JSON object")
+    draws = data.get("draws")
+    if not isinstance(draws, int) or isinstance(draws, bool) or draws < 1:
+        raise ValueError("draws must be an integer >= 1")
+    pools = data.get("pools")
+    if not isinstance(pools, list) or not pools:
+        raise ValueError("pools must be a non-empty list")
+    return draws, [validate_pool(index, pool) for index, pool in enumerate(pools)]
+
+
+def validate_pool(index, pool):
+    if not isinstance(pool, dict):
+        raise ValueError(f"pool {index} must be a JSON object")
+    name = pool.get("name")
+    if not isinstance(name, str) or not name.strip():
+        raise ValueError(f"pool {index} must have a non-empty name")
+    options = pool.get("options")
+    if not isinstance(options, list) or not options:
+        raise ValueError(f"pool {name!r} must have at least one option")
+    return (name, [str(option) for option in options])
+
+
+def draw_indices(draws, pools, seed_value):
+    """All draws for the first pool, then all for the second, and so on."""
+    generator = random.Random(seed_value)
+    return [
+        [generator.choice(range(len(options))) for _ in range(draws)]
+        for _name, options in pools
+    ]
+
+
+def render(args, seed, root):
+    rel = args.pools
+    draws, pools = read_spec(root, rel)
+    indices = draw_indices(draws, pools, seed["value"])
+    header = "DRAW seed=%s source=%s pools=%s draws=%d" % (
+        seed["value"], seed["source"], rel, draws)
+    legend = [
+        "%s (%d): %s" % (name, len(options),
+                         " | ".join("%d %s" % (i, o) for i, o in enumerate(options)))
+        for name, options in pools
+    ]
+    drawn = ["%s: %s" % (name, picks) for (name, _o), picks in zip(pools, indices)]
+    return "\n".join([header] + legend + drawn) + "\n"
+
+
+def main(argv):
+    parser = build_parser()
+    replay = tools.maybe_replay(parser, argv)
+    ctx = tools.make_context(__file__)
+    if replay:
+        args = parser.parse_args(tools.replay_args(replay))
+        tools.emit(render(args, replay["seed"], ctx.root))
+        return 0
+    args = parser.parse_args(argv)
+    entrant = tools.require_entrant(parser, args)
+    pools = require_pools(parser, args)
+    seed = tools.draw_seed(args.seed)
+    output, path = tools.run_tool(
+        ctx, entrant, argv, [pools], seed, "replay-exact", None,
+        lambda: render(args, seed, ctx.root),
+    )
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)
