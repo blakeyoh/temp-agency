@@ -690,3 +690,170 @@ unchanged; Game 1 is `A1 × E4` and Game 8 is `M3 × M1` under the corrected A/B
 **Scope:** correction occurred before any official entrant dispatch, output packet, panel
 assignment, or verdict. It changes no field membership or matchup and introduces no
 commissioner preference into the bracket.
+
+---
+
+## Late entrant · 2026-09-03
+
+### Ruling 22 — LATE-ENTRANT SUBSTITUTION: STRING SEED OF THOUGHT FOR THE ADJUDICATED LEDGER
+
+**Ruling:** **Bench M3 (The Adjudicated Ledger).** Insert a new Entropy-region entrant,
+**E9 · String Seed of Thought (SSoT)**, into its vacated Sweet 16 slot — Game 8, position A,
+against **M1** The Blind Auditor, position B. M3 moves to the wildcard bench with full
+REVIVE eligibility under `rules-v2.md` §4; this is a substitution, not an elimination.
+
+**Source.** Owner-proposed, sourced from a real external publication: Kou Misaki and Takuya
+Akiba, Sakana AI, *"String Seed of Thought: Prompting LLMs for Distribution-Faithful and
+Diverse Generation"* (`pub.sakana.ai/ssot`, arXiv, April 2026). This is the tournament's
+first entrant whose "Not native" claim is backed by published, repeated, cross-model
+measurement (Jensen–Shannon divergence against a real-PRNG baseline, and NoveltyBench
+diversity scores) rather than argued from analogy.
+
+**Why M3 is the entry being displaced, not any other survivor.** M3 carries the field's
+thinnest live-evidence position of the sixteen: **PROMISE, DEFECT UNRESOLVED** in
+`evidence-contracts-s16.md` — no writer, no extractor, no `ledger/` directory, and no gate
+existed when it advanced 29–1 "on a promise" (see "Open items carried into the Sweet 16,"
+item 2, and `HANDOFF.md`'s verified-defect note on M3). E9 is the opposite case: its
+evidence contract (below) is the only **RUNNABLE** one in the field — the entire mechanism
+is two sentences appended to a prompt, with nothing left to build. Trading the field's
+weakest live-evidence position for its strongest is defensible on the tournament's own
+terms. The M3 ledger bootstrap work (`docs/tournament/ledger/m3.jsonl` and its two dispatch
+records) is preserved untouched — it remains live evidence for M3 if the commissioner later
+revives it.
+
+**Distinctness ruling — checked against E1, not merged.** E9 and E1 (The Entropy Well) both
+attack the same target: a model cannot be trusted to sample or vary genuinely on its own.
+Run against `rules-v2.md` §1's three-test absorption standard as a rival-vs-merge question:
+
+- *Same-thesis test* — **fails, deliberately.** E1's thesis is *go outside the model*: a
+  real external PRNG (`bin/draw`) determines every stochastic choice. E9's thesis is *you
+  do not have to go outside the model*: a specific two-step generate-a-string-then-do-
+  arithmetic-on-it prompt gets close to PRNG-quality output using only the model's own
+  generated entropy, and — per the paper's own head-to-head results — beats every other
+  prompting trick tested (high-temperature sampling, few-shot, prompt ensembling,
+  sequential sampling) across action spaces from 2 to 64 choices. These are incompatible
+  answers to the identical question, not one mechanism strengthening the other.
+- *Deletion test* — moot; there is nothing of E1's to delete from E9 or vice versa, since
+  neither is built from the other's parts.
+- *One-sentence test* — both state cleanly and separately; combining them would need an
+  "and also," which `rules-v2.md` treats as proof of two ideas wearing one name.
+
+Per §1, this is **ORTHOGONAL by construction**, not a merge candidate — the field is meant
+to hold both rather than absorb one into the other. E9 is therefore entered as its own
+entrant.
+
+**New standing procedure required.** None of the five existing commissioner powers
+(OVERRULE, FORCE ABSORPTION, BLOCK ABSORPTION, REVIVE, RESEED) covers inserting an entrant
+that did not exist at the Round of 32 into an already-frozen bracket. This ruling settles a
+standing procedure, not just this one substitution, and is promoted to `rules-v2.md` §4 as
+**Amendment 8**.
+
+**Effect on frozen artifacts.** `s16-draw-map.json` Game 8's `pair`/`A` value changes from
+`M3` to `E9`; `B` (`M1`) is unchanged. `random.Random(372500925).shuffle(...)` permutes list
+*positions*, not names, so relabeling `M3` to `E9` at its one position in both `input_order`
+and `shuffled_order` reproduces the identical permutation — the seed is replayed, not
+re-drawn. The A/B seed (`2597142654`) and its assignment for Game 8 are unchanged. This is a
+disclosed manual substitution at one already-drawn position, recorded in the map's new
+`substitutions` field rather than laundered into the seeded draw. `tally.py`'s
+`S16_SURVIVOR_ORDER` / `S16_SURVIVORS` are updated to swap `M3` for `E9` in place, and
+`test_tally.py`'s `test_committed_sweet_16_draw_is_live_tally_compatible` passes against the
+edited map.
+
+**Evidentiary parity.** E9 owes the same unscored scrimmage the other fifteen ran, against
+the same frozen neutral brief (SHA-256 `4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a`).
+Recorded in `scrimmages/s16-e9.md`.
+
+**Disclosed methodology difference.** The original fifteen scrimmages were enacted by an
+isolated `codex:codex-rescue` operator on `gpt-5.6-luna`, `--effort xhigh`. No matched
+external operator was available for this late entrant, so E9's scrimmage was enacted
+directly in this Claude Code session (model: `claude-sonnet-5`) instead. This is a real,
+disclosed difference in operator and base model, not a hidden one — the same standard this
+repo applies to every other simulation substitution — and should be weighed accordingly if
+E9 reaches an official panel.
+
+---
+
+### Ruling 23 — AMENDMENT: E9's SEED STRING MUST COME FROM A REAL GENERATOR
+
+**Ruling:** Amend E9 (String Seed of Thought). The seed string is no longer invented by the
+model. It must be produced by a real, external random-number generator — Python's `secrets`
+or `random` modules, or equivalent — before the model ever sees it. The model's role stays
+exactly what it always was for the *manipulation* half of the mechanism: derive the answer
+only by doing visible arithmetic on the string it is handed, never by picking directly and
+never by inventing the string itself.
+
+**Source.** Follow-up testing run live in this session, after E9's original scrimmage was
+already on the record. Not a formal isolated-operator scrimmage like the original sixteen —
+disclosed as informal, interactive evidence, same as Ruling 22's own late-entrant caveat.
+Three findings drove this:
+
+1. **Eight independent, context-isolated Sonnet subagents**, each asked once for "one complex
+   random string," produced an **exact duplicate** — two separate calls, no shared context,
+   both returned `jK9xR2mQ`. With 62⁸ (≈218 trillion) possible 8-character strings, that is
+   strong direct evidence the model's unaided idea of "random" occupies a far smaller space
+   than the paper's own coin-flip experiment already implied.
+2. **One Haiku call asked for a 250-character random string** returned something that
+   *looked* random at a glance but, checked character by character, was **the alphabet
+   cited in strict a-b-c-d order, repeated, 100% of 214 letters matching**, with digits and
+   case changes sprinkled in only for camouflage. A compression check confirmed it: 0.649
+   compression ratio versus ~0.88 for genuine randomness of the same length. Under length
+   pressure, the model didn't even attempt variation — it fell back to the single cheapest,
+   most predictable continuation available.
+3. **A 250-character string supplied by the commissioner**, and a second one generated live
+   in this session via `secrets.choice(string.ascii_lowercase + string.digits)` (fully
+   reproducible, shown inline, see `scrimmages/s16-e9.md`), both passed every check the model's
+   own strings failed: no sequential pattern (~6% coincidental match versus Haiku's 100%),
+   full use of the 36-character alphabet, and compression ratios (0.760, 0.764) close to the
+   real-random baseline. Both, run through the scrimmage's own opener-writing exercise, beat
+   the original model-generated run on category spread (6 of 10 categories versus 4 of 10).
+
+**Three-test check (rules-v2.md §1), run because this could just as easily have been an
+absorption into E1, or grounds to unwind Ruling 22 entirely — both were live options:**
+
+- *Same-thesis test* — **passes as an amendment.** E9's claim was never merely "no external
+  tool is used" as an end in itself; it was "the model derives a decision by legibly
+  manipulating a string, and that trace of manipulation is what makes the decision
+  irreducible." Fixing *where the string comes from* serves that same claim — it does not
+  replace it with E1's claim (a real seed determines a choice by direct, stamped index
+  lookup, with no manipulation step, no arithmetic, no legible derivation at all). The two
+  mechanisms still have different shapes even when both now sit on real entropy.
+- *Deletion test* — **passes.** Delete the amendment (let the model invent the string again)
+  and E9 gets **worse**, not smaller: three independent tests above show the unaided version
+  collapsing, once into outright duplication and once into reciting the alphabet. The fix is
+  load-bearing.
+- *One-sentence test* — **passes.** *"Generate the seed string with a real random-number
+  generator, not the model, and require the model to derive its answer only by visibly
+  manipulating that string."* One claim, no "and also."
+
+**Commissioner's own assessment, on the record rather than smoothed into the ruling:** *"I
+don't think E9 would win in this tournament without the external randomness, but again, this
+is somewhat different than E1. My call is to keep E9 but require the use of a generator. It
+is different than both, but it's better than the original E9 idea."* Recorded verbatim
+because it names the tension directly rather than resolving it quietly — E9 amended is
+plausibly still a weaker Sweet 16 entrant than E1 on the merits, and is kept anyway because
+it is judged to be a distinct mechanism worth having in the field, not a stronger one.
+
+**What this amendment does not fix, on the record.** The manipulation step — the model doing
+arithmetic on the string it's handed to derive its answer — is still entirely unenforced.
+Nothing checks that a model's stated derivation is the real cause of its answer rather than a
+justification invented after the fact, the same gap the original scrimmage already flagged.
+This amendment fixes the string's origin, not the derivation's honesty; the two are separate
+open questions and only the first is resolved here.
+
+**Residual clumping is not a new defect.** Both real-random strings tested above still
+produced 4-of-10 and 2-of-10 category collisions when run through the sum-mod-10 mapping —
+genuinely better than the model-invented run's 5-of-10 and 4-of-10, but still real clumps,
+not a uniform spread. That is expected statistical behavior at this sample size (the same
+birthday-paradox effect that produced clumping in the model-invented strings too), not
+evidence the amendment failed. A perfectly even 1-per-bucket spread across 10 draws would
+itself be the unnatural-looking result.
+
+**Effect on frozen artifacts.** `evidence-contracts-s16.md` § E9: `External operation`
+changes from `none` to a real generator call; `Enactment state` remains `RUNNABLE` — nothing
+new needs to be built, `secrets`/`random` are Python standard library. `field-of-32.md` § E9:
+mechanism description, Enhancements, and Carried defect updated to match. No change to
+`s16-draw-map.json`, `tally.py`, or E9's Game 8 slot — this is a definition amendment, not a
+second substitution.
+
+**Promoted to `rules-v2.md` §4 as Amendment 9,** per the standing rule that a ruling settling
+more than the one game it decided is not itself a rule until folded back into that document.

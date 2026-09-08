@@ -53,7 +53,9 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 - [x] Run sixteen unscored scrimmages using `scrimmage-template.md`. **Records:**
   `docs/tournament/scrimmages/s16-<code>.md` for all 16 (E3, M5, E2, A3, E5, E1, A5, A6,
   A1, C8, E4, M1, M3, A2, C5, E6). 14 propose one amendment candidate each; A2 and M5
-  propose none.
+  propose none. **Plus one late, post-freeze scrimmage** — `s16-e9.md` — run for `E9`
+  (String Seed of Thought) when it was substituted for `M3` under Ruling 22; it proposes
+  one amendment candidate, pending.
 - [x] Rule on at most one scrimmage-derived amendment per entrant. **Rulings:**
   `commissioner-rulings.md` "Post-scrimmage amendment rulings" (Rulings 13–19). Five
   accepted, promoted to `rules-v2.md` §4 as Amendments 3–7 (1: A1/C8/M1, 2: E1, 3: E2/E3,
@@ -72,9 +74,15 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 - [x] Freeze final entrant definitions and official substitutions by commit. **Amended
   definitions:** `field-of-32.md` — A1, C8, M1 (Amendment 3), E1 (Amendment 4), E2, E3
   (Amendment 5), A6 (Amendment 6), E6 (Amendment 7), each folded into that entrant's own
-  `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. No
-  official substitutions were made — all sixteen Sweet 16 entrants play as originally
-  seeded.
+  `Enhancements` field with its scrimmage-gap citation, not copy-pasted rule text. At the
+  time this item closed, no official substitutions had been made — all sixteen Sweet 16
+  entrants played as originally seeded.
+  **Superseded 2026-09-03 [Ruling 22 / Amendment 8]:** one official substitution has since
+  been made — `E9` (String Seed of Thought), a late entrant sourced from a real external
+  publication, replaces `M3` (The Adjudicated Ledger) at Game 8 position A. M3 moves to the
+  wildcard bench. E9 completed its own unscored scrimmage (`scrimmages/s16-e9.md`) under the
+  same frozen neutral brief as the other fifteen; see Ruling 22 for the full reasoning,
+  the distinctness check against `E1`, and the disclosed operator/model difference.
 - [x] Choose and seal the unseen Tail Test brief. **Amended and resealed by Ruling 20 before
   any official dispatch.** The canonical UTF-8 prompt is `tail-test-s16.txt`; it adds concrete
   stakeholder, resource, privacy, retaliation, and burden-allocation constraints so the test

@@ -230,6 +230,36 @@ experiment and triggers commissioner review when theory and output evidence dive
 - **Enactment state:** **MANUAL PROTOTYPE.** Forms can be authored; no notation library,
   independent selector or validator exists.
 
+## E9 · String Seed of Thought (SSoT) — AMENDED
+
+> Late entrant, seated per Ruling 22 / Amendment 8 in place of M3 (now benched). Amended per
+> Ruling 23 / Amendment 9 after its own scrimmage evidence showed the original,
+> model-generates-its-own-string version failing under repetition.
+
+- **Input:** task, plus a seed string produced by a real random-number generator (Python's
+  `secrets` or `random`, or equivalent) before the model ever sees it.
+- **External operation:** **one real generator call** — e.g.
+  `secrets.choice(string.ascii_lowercase + string.digits)` run enough times to produce the
+  seed string — happens *before* the model's reasoning pass and outside its control. This is
+  new as of Amendment 9; the entrant's original contract read "none."
+- **Output:** answer, plus the arithmetic trace that derived the answer from the given
+  string.
+- **Enforcer:** **none exists for the manipulation half.** Nothing checks that a model's
+  stated derivation from the string is the real cause of its answer rather than a backfilled
+  justification. Amendment 9 fixes the string's *origin*, not this gap — it remains open.
+- **Forbidden signature:** a seed string that the model claims to have generated itself, or
+  an answer identical to what the model would have produced without the instruction, with a
+  string-and-arithmetic trace bolted on after the fact.
+- **Useful failure:** confirmed directly in `scrimmages/s16-e9.md` and its follow-up
+  evidence — asked to invent its own string, the model either converged on a near-identical
+  favorite pattern across independent calls (one exact duplicate observed in 8 tries) or, for
+  a longer string, collapsed into reciting the alphabet in order while dressing it up with
+  digits and case changes. A real generator does not exhibit either failure.
+- **Enactment state:** **RUNNABLE.** Nothing needs to be built — `secrets`/`random` are
+  Python standard library, and the amended mechanism has been demonstrated end to end,
+  including a fully reproducible official-style run (command shown inline) in
+  `scrimmages/s16-e9.md`.
+
 ## E6 · The Oblique Deck
 
 - **Input:** grounded imperative deck, task and draw seed.

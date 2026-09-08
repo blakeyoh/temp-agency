@@ -241,6 +241,33 @@ must select both the source packs and the card from that full counted corpus; th
 may not pre-select which packs feed distillation, and a missing requested pack fails the draw
 closed.
 
+**Amendment 8 (2026-09-03, ratified from `commissioner-rulings.md` Ruling 22).** A mechanism
+discovered after the Round of 32 has closed may be substituted into an already-frozen
+bracket only by: **(a)** naming the exact seeded slot it occupies and the entrant it
+displaces; **(b)** passing it against every mechanism sharing its region through the §1
+same-thesis test before entry — a *pass* on that test (a genuine rival thesis) is required
+for entry as a new entrant, while a *fail* (it would in fact strengthen an existing
+entrant's own thesis) routes it to absorption instead, per the existing three tests;
+**(c)** running the same evidence-gathering step (unscored scrimmage, evidence contract)
+already completed by its round's other entrants before it may be judged; and **(d)**
+disclosing, rather than folding into the seeded draw, any difference in operator, base
+model, or method between its evidence-gathering step and the round's other entrants. The
+displaced entrant moves to the wildcard bench with full REVIVE eligibility — a substitution
+is never an elimination.
+
+**Amendment 9 (2026-09-03, ratified from `commissioner-rulings.md` Ruling 23).** E9 (String
+Seed of Thought)'s seed string must be produced by a real, external random-number generator
+(Python's `secrets` or `random` modules, or equivalent) before the model sees it; the model
+may never invent the string itself. The model's role is unchanged for the manipulation half
+of the mechanism — it must still derive its answer only by visible arithmetic on the string
+it is handed, never by picking directly. Checked against the three-test standard in §1 and
+ruled a same-thesis amendment, not an absorption of E1: E1 determines a choice by a direct,
+stamped-index lookup against a real seed, with no manipulation step; E9 still requires the
+model to legibly derive its answer from the string, and that derivation step — not merely
+"no external tool" — was always its actual claim. The amendment fixes where the string
+originates; it does not fix, and does not claim to fix, whether the model's stated derivation
+from that string is honest rather than invented after the fact — that remains open.
+
 ---
 
 ## 5. Cross-pollinated regions

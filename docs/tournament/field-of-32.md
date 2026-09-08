@@ -11,7 +11,9 @@
 > This field is 32 mechanisms for pushing the repo from #12 to #99.
 
 **Provenance:** entries marked ◆ are the owner's, expanded where flagged as vague enough
-to split. Entries marked ◇ are generated to fill the field to 32.
+to split. Entries marked ◇ are generated to fill the field to 32. One entry, marked ✦, is
+external — sourced from a real, cited, published mechanism and seated after the Round of 32
+closed, as a late-entrant substitution (see `E9`, Ruling 22).
 
 **Distinctness rule:** no two entries may share a primary mechanism. Several entries
 attack the same target (the model's prior) but must do so by different means —
@@ -40,7 +42,7 @@ organized around them.
 | Status | Meaning | Count |
 |---|---|---|
 | **ADVANCED** | In the Sweet 16 | 16 |
-| **WILDCARD BENCH** | Eliminated, but held by the commissioner and revivable into any later round | 6 |
+| **WILDCARD BENCH** | Eliminated, but held by the commissioner and revivable into any later round | 7 |
 | **ABSORBED** | Out, but a named mechanism travelled into a winner | 3 |
 | **ELIMINATED** | Out, nothing carried | 7 |
 
@@ -48,6 +50,11 @@ The three absorbed entrants read **ELIMINATED — MECHANISM ABSORBED** on their 
 they are out of the bracket, and are counted here under ABSORBED rather than twice. `C6` is the
 one entrant with a compound status — partially absorbed **and** benched — and is counted once,
 under the bench. `A6` advanced by **revival** from the bench, not by winning its game.
+
+**Late entrant, 2026-09-03 [Ruling 22]:** `E9` (String Seed of Thought) was inserted into
+the Sweet 16 in place of `M3` (The Adjudicated Ledger, now benched), a field mechanic the
+Round of 32 draw did not anticipate. The field is 33 entries as of this substitution, not
+32; the counts above already reflect it.
 
 ### The full field, by outcome
 
@@ -65,11 +72,12 @@ under the bench. `A6` advanced by **revival** from the bench, not by winning its
 | C8 | Make the Problem Strange First | Moat G10 | 30–2 | **ADVANCED** — unanimous, defect noted |
 | E4 | Roster Mutation → **The Breeding Program** | Moat G11 | 17–14 | **ADVANCED** — absorption 2–1 [R7] |
 | M1 | The Homogeneity Auditor → **The Blind Auditor** | Moat G12 | 11–18 | **ADVANCED** — overrule + amendment [R8] |
-| M3 | The Grudge Ledger → **The Adjudicated Ledger** | UFO G13 | 29–1 | **ADVANCED** — absorption 3–0 [R9] |
 | A2 | The Voice Oracle | UFO G14 | 31–0 | **ADVANCED** — shutout |
 | C5 | Notation Transposition | UFO G15 | 19–16 | **ADVANCED** — unanimous |
 | E6 | The Oblique Deck | UFO G16 | 15–10 | **ADVANCED** — 2–1, defect noted [R10] |
+| E9 | String Seed of Thought (SSoT) | Sweet 16 G8 (slot A) | — | **ADVANCED** — late-entrant substitution [R22], never played R32 |
 | M7 | The Adversarial Collaboration Contract | Dog G8 | 19–7 | **BENCH** — won unanimously, displaced by a revive |
+| M3 | The Grudge Ledger → **The Adjudicated Ledger** | UFO G13 | 29–1 | **BENCH** — won its R32 game 3–0 absorption [R9], displaced from the Sweet 16 by a late-entrant substitution [R22] |
 | C6 | The Constraint Compiler | Dog G5 | 13–17 | **BENCH + ABSORBED** — checker half travelled to `E5` |
 | C2 | The Anti-Roster | Dog G6 | 13–18 | **BENCH** — Distance +9 unanimous |
 | A4 | The Committee of Strangers | Moat G10 | 2–30 | **BENCH** — held for a committee-of-3 variant |
@@ -444,6 +452,75 @@ missing instrument that sank `M6` and that `M1` and `M5` still owe.
 checkable part of this entrant — *"role asymmetry that is mechanically checkable as subset
 membership against the generated pool"* — while refusing it as an absorption into a different
 thesis. It is cheap and it survives the loss.
+
+### E9 · String Seed of Thought (SSoT) ✦ — AMENDED
+*(external — Kou Misaki and Takuya Akiba, Sakana AI, "String Seed of Thought," pub.sakana.ai/ssot,
+arXiv, April 2026. Late entrant, seated 2026-09-03 by commissioner ruling in place of `M3`,
+now benched — see Ruling 22 / Amendment 8. Amended 2026-09-03 — see Ruling 23 / Amendment 9.
+Never played a Round-of-32 game.)*
+
+Hand the model a random string from a real generator, then require it to derive its actual
+answer only by doing arithmetic on that string — never by picking directly, and never by
+inventing the string itself. **As published, the paper has the model generate its own
+string; as amended here, a real random-number generator (Python's `secrets` or `random`,
+or equivalent) produces the string first, and the model only ever sees the result.** The
+manipulation half is unchanged: *manipulate the given string to guide any stochastic
+decisions while reasoning, then give the final answer.*
+
+**Not native:** asked directly to "flip a fair coin," frontier models land far from 50/50 —
+one tested model gave Heads 78% of the time. The paper's own fix is a two-sentence
+generate-then-manipulate instruction, model-generated string included, and it beats every
+other prompting trick tested (higher temperature, few-shot, ensembling, sequential
+sampling) across action spaces from 2 to 64 choices. **This repo's own scrimmage testing
+found the model-generated half of that fix does not hold up under repetition** — see Carried
+defect and Amendment history below — which is why the string-generation half was amended
+out.
+
+**Status** · **ADVANCED → Sweet 16 (SUBSTITUTED FOR M3), AMENDED** — Sweet 16 Game 8,
+position A, versus **M1** The Blind Auditor, position B [Ruling 22]. Entered after the
+Round of 32 closed; displaced The Adjudicated Ledger to the wildcard bench. Definition
+amended post-scrimmage [Ruling 23] before any official panel saw it.
+
+**Enhancements** · Not an absorption — an **amendment** [Ruling 23 / Amendment 9]. The seed
+string must now come from a real external generator; the model may never invent it. Checked
+against `E1` under the §1 same-thesis test and ruled a genuine amendment, not an absorption
+of E1's mechanism — E1 looks up a choice directly from a stamped seed index with no
+manipulation step; E9 still requires the model to legibly derive its answer from a given
+string, which is a different mechanism shape even once both sit on real entropy. **Commissioner's
+own words, on the record:** *"I don't think E9 would win in this tournament without the
+external randomness, but again, this is somewhat different than E1. My call is to keep E9
+but require the use of a generator. It is different than both, but it's better than the
+original E9 idea."*
+
+**Gaps** · *Build:* none — `secrets`/`random` are Python standard library. *Wire:* `SKILL.md`
+step 4, anywhere a dispatch needs a stochastic or diversity-facing choice — the same missing
+surface `E1` names, since lead/lens selection today has no stochastic choice to seed at all.
+*Absent:* the manipulation step is still entirely unenforced — nothing checks that a model's
+stated derivation from the string is the real cause of its answer rather than a
+backfilled justification. The amendment fixes the string's origin, not the derivation's
+honesty; that gap is untouched and still open.
+
+**Carried defect, now largely resolved by amendment** · The original scrimmage found the
+model's own by-hand "random" strings collided badly (5 of 10 items landed on the same
+derived category). Two follow-up tests confirmed the *cause*: eight isolated, context-free
+Sonnet calls each asked for one random string produced an **exact duplicate** (`jK9xR2mQ`
+twice, out of 62⁸ possible strings), and a Haiku call asked for a 250-character string
+turned out to be **the alphabet cited in strict order, 100% of 214 letters**, dressed up
+with digits and case changes — confirmed non-random by a compression check (0.649 ratio vs.
+~0.88 for real randomness). Two real-random strings tested after the amendment (one supplied
+by the commissioner, one generated live via `secrets.choice`) both cleared every check the
+model's strings failed and both improved the scrimmage's category spread from 4-of-10 to
+6-of-10. **Residual clumping remains** (4-of-10 and 2-of-10 collisions even on real-random
+input) but this is normal statistical behavior at this sample size, not a defect — a
+perfectly even spread across only 10 draws would itself be the unnatural result. Full
+evidence trail in `scrimmages/s16-e9.md`.
+
+**Note** · E9 still carries the strongest irreducibility evidence in the tournament: every
+other entrant's "Not native" claim is argued from analogy; E9's comes with published,
+repeated, cross-model measurement, and this repo's own follow-up testing is itself now part
+of that evidentiary record — including the failure mode the original paper's own experiments
+would predict (models are worse than they look at generating their own randomness) showing
+up exactly where expected, in this repo's own scrimmage.
 
 ---
 
@@ -1061,10 +1138,17 @@ forever. A persistent ledger makes the signature move unavailable after its firs
 > canonicalises a position into a claim string, and the gate that rejects a restatement —
 > none of which currently exist.
 
-**Status** · **ADVANCED → Sweet 16 as THE ADJUDICATED LEDGER** — UFO G13, 29–1, **absorption
-ratified 3–0** [Ruling 9] — the only unanimous absorption of the tournament, with all three
-panels independently selecting the same mechanism and passing it on all three tests without
-seeing each other.
+**Status** · **BENCH — displaced from the Sweet 16 by a late-entrant substitution**
+[Ruling 22]. Won its Round-of-32 game clean: UFO G13, 29–1, **absorption ratified 3–0**
+[Ruling 9] — the only unanimous absorption of the tournament, with all three panels
+independently selecting the same mechanism and passing it on all three tests without seeing
+each other. It reached the Sweet 16 fairly and was never beaten there; it was traded for
+`E9` (String Seed of Thought) because it carried the field's thinnest live-evidence
+position — **PROMISE, DEFECT UNRESOLVED**, no writer, extractor, `ledger/` directory, or
+gate — while E9's is the only **RUNNABLE** contract in the field. Fully REVIVE-eligible
+under `rules-v2.md` §4. The M3 ledger bootstrap work
+(`ledger/m3.jsonl`, `ledger/m3-dispatch1-record.md`, `ledger/m3-dispatch2-record.md`) is
+preserved untouched as live evidence should the commissioner revive it.
 
 **Enhancements** · Absorbs The 19th Way's **four-axis non-adjacency test** and nothing else.
 The ledger's rule was *"you may not restate any of these"* with no definition of "restate,"

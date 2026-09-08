@@ -530,7 +530,6 @@ footer code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-2)
 .s16 td:first-child { font-weight: 600; color: var(--ink); }
 .s16 td:nth-child(2) { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); white-space: nowrap; }
 .s16 td:last-child { color: var(--ink-2); }
-.s16 tr.pending td { color: var(--ink-3); font-style: italic; }
 
 .callout { border: 1px solid var(--brass); background: var(--brass-wash); border-radius: 2px; padding: 18px 20px; }
 .callout h3 { font-size: 21px; font-variation-settings: "SOFT" 20,"WONK" 1,"opsz" 30; color: var(--brass); }
@@ -883,8 +882,7 @@ $("#gameList").innerHTML = html;
 
 $("#s16").innerHTML = `<thead><tr><th>Advancing</th><th>From</th><th>How</th></tr></thead><tbody>` +
   S16.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("") +
-  `<tr class="pending"><td>4 more</td><td>Moat</td><td>Judged — awaiting commissioner rulings</td></tr>` +
-  `<tr class="pending"><td>4 more</td><td>UFO</td><td>Not yet judged</td></tr></tbody>`;
+  `</tbody>`;
 
 $("#benchGrid").innerHTML = BENCH.map(b=>`<div class="bcard"><h4>${b[0]}</h4><p>${b[1]}</p><span class="tag2">${b[2]}</span></div>`).join("");
 
