@@ -1,0 +1,32 @@
+{
+  "entrant": "E1",
+  "brief_id": "s16-brief-1",
+  "brief_sha256": "4e57b482fac9a7f2c5aacda93b9f4e77f6816b104ddac056c1edc59821a3785a",
+  "draws": 10,
+  "pools": [
+    {
+      "name": "angle",
+      "options": [
+        "shared context",
+        "observed object",
+        "program/session",
+        "professional curiosity",
+        "logistics",
+        "humor",
+        "compliment",
+        "favor-ask",
+        "comparison",
+        "callback"
+      ]
+    },
+    {
+      "name": "register",
+      "options": ["formal", "casual", "playful"]
+    },
+    {
+      "name": "device",
+      "options": ["question", "statement", "observation"]
+    }
+  ],
+  "note": "Reproduces the pools and draw order of scrimmages/s16-e1.md exactly, so bin/draw --seed 20260830 against this file must emit angle [0, 3, 7, 1, 0, 8, 9, 4, 8, 5], register [0, 0, 1, 2, 2, 2, 2, 1, 2, 2], device [2, 2, 0, 2, 1, 0, 2, 0, 0, 2]. Pools are drawn in file order, all draws for one pool before the next, matching the scrimmage's ad hoc command."
+}

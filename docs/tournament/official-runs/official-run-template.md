@@ -50,6 +50,15 @@
 Record the actual operations, any seeds and manifests, required replay/deletion/degradation
 evidence, exact failed or unavailable operation, and the relevant scrimmage substitutions.
 
+## Receipts
+
+One bullet per harness receipt this record cites. The first token is the 12-character
+receipt ID from `docs/tournament/receipts/<CODE>/`. Every external operation in the trace
+above must name its receipt here; a receipt may be cited by exactly one record. Leave the
+section empty only for `PROMISE ONLY` records.
+
+- <receipt_id> — <tool> — <what it decided>
+
 ## Counterfactual mechanism note
 
 Required for `PROMISE ONLY` or `NOT ENACTED`; otherwise write `NOT APPLICABLE`.
