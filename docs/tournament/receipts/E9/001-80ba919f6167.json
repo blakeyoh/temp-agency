@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "--entrant",
+    "E9",
+    "--seed",
+    "2832500688"
+  ],
+  "chain_hash": "d5d988a0a8f1a0c4dd9074c81cdca10e2747a5b732c5b673eb2f24d2575ba9b1",
+  "chain_prev": "genesis",
+  "completed_utc": "2026-09-08T03:50:33Z",
+  "entrant": "E9",
+  "error": null,
+  "external_attestation": null,
+  "input_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "inputs": {},
+  "output": "SEED-STRINGS seed=2832500688 source=argument alphabet=lower-digits length=8 count=10\n1: g99y1c2d\n2: hr4qi20t\n3: 5e42nsh8\n4: q4ilm6mm\n5: h4cc26l8\n6: rxmcrmic\n7: wo5749xf\n8: ptj400fy\n9: hdrjhnio\n10: znhjwzed\n",
+  "output_sha256": "c2ea5397bf0d488686fd0d212c6b2ce9a0fe3786218b361e59b12b18ddb6a5fd",
+  "python_version": "3.9.6",
+  "receipt_id": "80ba919f6167",
+  "repo_commit": "5e0b4ce600e99b82e47fd7c96f5b0a1bbda30b7b",
+  "seed": {
+    "source": "argument",
+    "value": 2832500688
+  },
+  "started_utc": "2026-09-08T03:50:33Z",
+  "status": "ok",
+  "tool": "seed-string",
+  "tool_sha256": "19d68437b499a84524dd2a069c1038764f861b7c58d7337a1cfa05b631298853",
+  "verification_class": "replay-exact"
+}

@@ -1,0 +1,36 @@
+{
+  "artifact_sha256": "6a831ba50e562b1045da12e4c028660c9dd41424a7dd1704e2c31f625a0ecee1",
+  "binding_rule": "lib.bindings.seed_string",
+  "bound_span": "every generated string verbatim; every derivation row's arithmetic re-computes; every item's label equals the derived index's pool entry",
+  "checked_utc": "2026-09-08T03:51:37Z",
+  "checks": [
+    {
+      "expected": "all 10 strings present",
+      "found": "all present",
+      "name": "strings_verbatim",
+      "pass": true
+    },
+    {
+      "expected": "pool section with N >= 2 contiguous indices",
+      "found": "N=10, indices 0..9",
+      "name": "pool_parsed",
+      "pass": true
+    },
+    {
+      "expected": "one row per string; sum and index both recompute",
+      "found": "all rows correct",
+      "name": "derivation_rows",
+      "pass": true
+    },
+    {
+      "expected": "item n's line names pool[recorded index]",
+      "found": "all item lines match",
+      "name": "item_labels",
+      "pass": true
+    }
+  ],
+  "receipt_id": "80ba919f6167",
+  "record_path": "docs/tournament/harness-fixtures/e9-honest.md",
+  "result": "pass",
+  "verifier_commit": "5e0b4ce600e99b82e47fd7c96f5b0a1bbda30b7b"
+}
