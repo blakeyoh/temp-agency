@@ -68,6 +68,26 @@
       "record": "harness-fixtures/e9-honest.md",
       "issued_utc": "2026-09-08T03:22:31Z",
       "inputs": {}
+    },
+    {
+      "entrant": "E1",
+      "seed": 3282422441,
+      "purpose": "draw primary",
+      "record": "harness-fixtures/e1-forger2.md",
+      "issued_utc": "2026-09-08T04:09:49Z",
+      "inputs": {
+        "docs/tournament/harness-fixtures/e1-pools-scrimmage.json": "fe104057d7bd6d0e6de8659dfb4e0880afdcbe7b6e2b0bf5d904fd28a5ded974"
+      }
+    },
+    {
+      "entrant": "E1",
+      "seed": 3975914285,
+      "purpose": "draw counterfactual (Amendment 4)",
+      "record": "harness-fixtures/e1-forger2.md",
+      "issued_utc": "2026-09-08T04:09:49Z",
+      "inputs": {
+        "docs/tournament/harness-fixtures/e1-pools-scrimmage.json": "fe104057d7bd6d0e6de8659dfb4e0880afdcbe7b6e2b0bf5d904fd28a5ded974"
+      }
     }
   ]
 }
