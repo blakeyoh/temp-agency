@@ -253,9 +253,12 @@ Scope to the **six personas already pinned to Sweet 16 panels**: nuclear-reactor
 magician-illusionist, civil-rights-activist, systems-thinker, behavioral-psychologist,
 franciscan-monk.
 
-**Open before build:** A1's scrimmage must be read for the enactment shape. The Tail Test
-brief is the input; A1 transforms an *artifact* the persona reads. Whether the official
-run transforms the brief, or a draft the persona then critiques, changes the adapter.
+**Resolved (2026-09-08):** the pipeline's input is the Tail Test brief in all three
+cases. A1's scrimmage transformed the brief itself (`s16-a1.md`, a word-length
+projection, run as a one-liner with the brief on stdin). C8's masked the brief with a
+three-row noun map (`s16-c8.md`). A5 withholds a fact from the brief. One engine,
+one input, three adapters. The official A1 transforms are per-persona programs over the
+brief text, not over a draft.
 
 **8.2 Frozen wordlist checker** — serves C8 (9) and E5 (5).
 
