@@ -16,7 +16,9 @@ from lib.verify.replay import check_replay
 
 DEFAULT_RECORDS_GLOB = "docs/tournament/official-runs/s16-*.md"
 ENTRANT_LINE = re.compile(r"^-\s+\*\*Entrant code:\*\*\s*(\S+)", re.MULTILINE)
-COLUMNS = ("receipt_id", "entrant", "tool", "class", "replay", "bind", "cited", "seed")
+COLUMNS = ("receipt_id", "entrant", "tool", "class", "status", "replay", "bind", "cited", "seed")
+STATUSES = ("ok", "failed")
+NOT_ENACTED = re.compile(r"NOT ENACTED")
 SIDECAR_NAME = re.compile(r"^(\d{3}-[0-9a-f]{12})\.bind\.json$")
 
 
@@ -32,6 +34,7 @@ class Row(NamedTuple):
     entrant: str
     tool: str
     klass: str
+    status: str
     replay: str
     bind: str
     cited: str
@@ -75,10 +78,27 @@ def _check_class(receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
     return klass, []
 
 
+def _check_status(receipt: Dict[str, Any], citing: List[Record], tag: str) -> Tuple[str, List[Line]]:
+    """`status` is validated here, not trusted: exactly ok or failed, and a failed
+    receipt carries no output and is cited only by a NOT ENACTED record."""
+    status = receipt.get("status")
+    if status not in STATUSES:
+        return str(status), [Line("FAIL", f"{tag}: invalid status {status!r} (must be ok or failed)")]
+    if status == "ok":
+        return "ok", []
+    problems: List[Line] = []
+    if receipt.get("output") != "" or not receipt.get("error"):
+        problems = problems + [Line("FAIL", f"{tag}: failed receipt must have empty output and an error")]
+    for record in citing:
+        if not NOT_ENACTED.search(record.path.read_text(encoding="utf-8")):
+            problems = problems + [Line("FAIL", f"{tag}: {record.rel} cites a failed receipt but is not NOT ENACTED")]
+    return "failed", problems
+
+
 def _check_replay(root: Path, path: Path, receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
     if receipt.get("verification_class") != "replay-exact":
         return "n/a", []
-    if receipt.get("status") != "ok":
+    if receipt.get("status") == "failed":
         return "n/a (failed)", [Line("INFO", f"{tag}: failed receipt (not replayable)")]
     report = check_replay(root, path)
     lines = [Line(l.level, f"{tag}: {l.message}") for l in report.lines]
@@ -98,9 +118,12 @@ def _check_citation(receipt: Dict[str, Any], citing: List[Record], tag: str) -> 
     return "pass", [Line("PASS", f"{tag}: cited once by {record.rel}")]
 
 
-def _check_bind(root: Path, path: Path, citing: List[Record], tag: str) -> Tuple[str, List[Line]]:
+def _check_bind(root: Path, path: Path, receipt: Dict[str, Any], citing: List[Record],
+                tag: str) -> Tuple[str, List[Line]]:
     if len(citing) != 1:
         return "skip", []
+    if receipt.get("status") != "ok":
+        return "skip (failed)", []
     try:
         outcome = bind(root, citing[0].path, path, always_write=False)
     except HarnessError as exc:
@@ -117,14 +140,15 @@ def _gate_receipt(root: Path, path: Path, records: List[Record],
     receipt_id = str(receipt.get("receipt_id", path.stem))
     tag = f"{receipt.get('entrant')}/{path.name}"
     klass, lines = _check_class(receipt, tag)
-    replay, replay_lines = _check_replay(root, path, receipt, tag)
     citing = citing_records(records, receipt_id)
+    status, status_lines = _check_status(receipt, citing, tag)
+    replay, replay_lines = _check_replay(root, path, receipt, tag)
     cited, cite_lines = _check_citation(receipt, citing, tag)
-    bound, bind_lines = _check_bind(root, path, citing, tag)
+    bound, bind_lines = _check_bind(root, path, receipt, citing, tag)
     seed, seed_lines = check_seed(receipt, log, tag)
     row = Row(receipt_id, str(receipt.get("entrant")), str(receipt.get("tool")),
-              klass, replay, bound, cited, seed)
-    return row, lines + replay_lines + cite_lines + bind_lines + seed_lines
+              klass, status, replay, bound, cited, seed)
+    return row, lines + status_lines + replay_lines + cite_lines + bind_lines + seed_lines
 
 
 def _entrant_dirs(root: Path) -> List[Path]:

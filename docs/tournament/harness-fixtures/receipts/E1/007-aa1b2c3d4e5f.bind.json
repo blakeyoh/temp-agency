@@ -1,0 +1,30 @@
+{
+  "artifact_sha256": "83232ca293a2b534932c7092dc38f65a8daf41787e01314b2e5f45c9ddf5fe34",
+  "binding_rule": "lib.bindings.draw",
+  "bound_span": "draw header verbatim; per-item labels equal the drawn options; counterfactual replay is item k's own opener and differs materially when two draw receipts are cited",
+  "checked_utc": "2026-09-08T04:27:52Z",
+  "checks": [
+    {
+      "expected": "draw header present verbatim",
+      "found": "present",
+      "name": "header_verbatim",
+      "pass": true
+    },
+    {
+      "expected": "10 item lines opening with their exact drawn label triple",
+      "found": "all items labeled",
+      "name": "item_labels",
+      "pass": true
+    },
+    {
+      "expected": "replayed item labeled by this receipt's draw and materially different prose",
+      "found": "primary draw; counterfactual checked on the second receipt",
+      "name": "counterfactual",
+      "pass": true
+    }
+  ],
+  "receipt_id": "aa1b2c3d4e5f",
+  "record_path": "docs/tournament/harness-fixtures/e1-forger2.md",
+  "result": "pass",
+  "verifier_commit": "4a6f1ac6ad7b434dba9a5730466917f609d1ecbd"
+}

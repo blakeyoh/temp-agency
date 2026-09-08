@@ -82,7 +82,7 @@ def _seed_under_log(receipt: Dict[str, Any], seed: Dict[str, Any],
 def check_seed(receipt: Dict[str, Any], log: DispatchLog, tag: str) -> Tuple[str, List[Line]]:
     """Seed column value and report lines for one receipt."""
     seed = receipt.get("seed") or {}
-    if receipt.get("status") != "ok" or seed.get("source") == "none":
+    if seed.get("source") == "none":
         return "n/a", []
     if log.given:
         return _seed_under_log(receipt, seed, log, tag)

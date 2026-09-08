@@ -30,7 +30,7 @@ def test_cited_once_passes_and_writes_sidecar(repo):
     assert "PASS 1 receipts" in proc.stdout
     row = [line for line in proc.stdout.splitlines() if line.startswith(receipt["receipt_id"])]
     assert row and row[0].split() == [
-        receipt["receipt_id"], "E1", "echo-tool", "replay-exact", "pass", "pass", "pass", "unattested"]
+        receipt["receipt_id"], "E1", "echo-tool", "replay-exact", "ok", "pass", "pass", "pass", "unattested"]
     assert "WARN" in proc.stdout and "unattested seed (no dispatch log)" in proc.stdout
     assert sidecar_of(path)["artifact_sha256"] == sha256_file(record)
 
@@ -215,11 +215,17 @@ def test_missing_or_malformed_dispatch_log_fails(repo):
     assert proc.returncode == 1 and "integer seed" in proc.stdout
 
 
-def test_failed_receipt_seed_is_not_checked(repo):
-    commit_log(repo, [entry("E1", 123)])
-    repo.tool("--entrant", "E1", "--text", "x", "--fail")
+def test_failed_receipt_still_owes_its_seed(repo):
+    """A failed run must still have used the committed seed; only source=none is exempt.
+    (Reverses the earlier exemption: the second Phase 1 forger used a non-ok status to
+    step around the dispatch check.)"""
+    proc = repo.tool("--entrant", "E1", "--text", "x", "--fail", "--seed", "41")
+    assert proc.returncode == 1
     receipt = repo.receipt()
     repo.write_record("s16-e1.md", "E1", [receipt["receipt_id"]], "NOT ENACTED")
-    proc = repo.verify("all", "--dispatch-log", LOG_PATH)
+    repo.write("docs/tournament/dispatch-log.json",
+               json.dumps({"entries": [{"entrant": "E1", "seed": 41}]}))
+    repo.commit_all("log")
+    proc = repo.verify("all", "--dispatch-log", "docs/tournament/dispatch-log.json")
     assert proc.returncode == 0, proc.stdout + proc.stderr
-    assert proc.stdout.splitlines()[-2].split()[-1] == "n/a"
+    assert "seed 41 in dispatch log for E1; inputs match" in proc.stdout

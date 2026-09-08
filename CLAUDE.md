@@ -54,11 +54,23 @@ temp-agency/
 │       ├── canon.md                # Curated sources with notes on contribution
 │       └── positions.md            # Positions the persona holds
 │
-└── references/                     # Author documentation — not loaded at runtime
-    ├── roster.md                   # Full annotated specialist index (all tiers)
-    ├── author-guide.md             # How to add specialists, manage evals, maintain roster
-    └── RESEARCH-PROMPT.md          # Prompt template + scripts for generating new profiles
+├── references/                     # Author documentation — not loaded at runtime
+│   ├── roster.md                   # Full annotated specialist index (all tiers)
+│   ├── author-guide.md             # How to add specialists, manage evals, maintain roster
+│   └── RESEARCH-PROMPT.md          # Prompt template + scripts for generating new profiles
+│
+├── bin/                            # Tournament enactment harness: bin/verify, bin/draw, bin/seed-string
+├── lib/                            # Harness library (receipt writer, tool lifecycle, verifier, binding rules); lib/README.md is the API
+├── tests/                          # Harness tests: python3 -m pytest tests -q (Python 3.9 floor, stdlib only)
+│
+└── docs/tournament/                # The 99th Idea Bracket; read HANDOFF.md, then enactment-harness-plan.md
 ```
+
+The harness under `bin/`, `lib/` and `tests/` exists for the tournament only. It is not
+part of the skill and is not loaded at runtime. Its rules: Python 3.9, stdlib only, every
+`bin/` tool writes a receipt through `lib/receipt.py`, and `bin/verify` re-executes receipts
+from a `git archive` of the commit they name. Never write into `docs/tournament/receipts/`
+by hand.
 
 -----
 

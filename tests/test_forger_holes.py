@@ -270,3 +270,35 @@ def test_tool_name_must_be_a_plain_bin_name(repo):
     rewrite(path, receipt, tool="../bin/echo-tool")
     proc = repo.verify("replay", str(path))
     assert proc.returncode == 1 and "not a plain bin/ name" in proc.stdout
+
+
+# --- Second forger: status is validated, never trusted ---
+
+def test_status_variant_is_rejected(repo):
+    """`status: "OK"` used to skip replay and the dispatch check as 'not applicable'."""
+    receipt, path = echo_receipt(repo)
+    rewrite(path, receipt, status="OK")
+    repo.write_record("s16-e1.md", "E1", [receipt["receipt_id"]], receipt["output"])
+    proc = repo.verify("all")
+    assert proc.returncode == 1 and "invalid status 'OK'" in proc.stdout
+
+
+def test_failed_receipt_must_be_empty_and_cited_as_not_enacted(repo):
+    receipt, path = echo_receipt(repo)
+    rewrite(path, receipt, status="failed", error="forced")
+    repo.write_record("s16-e1.md", "E1", [receipt["receipt_id"]], receipt["output"])
+    proc = repo.verify("all")
+    assert proc.returncode == 1
+    assert "failed receipt must have empty output" in proc.stdout
+    assert "is not NOT ENACTED" in proc.stdout
+
+
+def test_failed_receipt_still_owes_its_seed_under_a_dispatch_log(repo):
+    proc = repo.tool("--entrant", "E1", "--text", "x", "--fail")
+    assert proc.returncode == 1
+    receipt = repo.receipt()
+    repo.write_record("s16-e1.md", "E1", [receipt["receipt_id"]], "NOT ENACTED")
+    repo.write("docs/tournament/dispatch-log.json", json.dumps({"entries": []}))
+    repo.commit_all("log")
+    proc = repo.verify("all", "--dispatch-log", "docs/tournament/dispatch-log.json")
+    assert proc.returncode == 1 and "unattested under a dispatch log" in proc.stdout

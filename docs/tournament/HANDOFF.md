@@ -61,6 +61,17 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
+**Enactment harness · 2026-09-08 — Phase 0 built, Phase 1 closed twice, Phase 2 not
+started.** The Sweet 16 cannot dispatch until every non-PROMISE entrant has a real
+executable and every source record carries machine-verified receipts. The design is
+`enactment-harness-plan.md` (v4; read §4 first, it defines what "verified" means). Built so
+far: `lib/` (receipt writer, tool lifecycle, verifier), `bin/verify`, `bin/draw` (E1),
+`bin/seed-string` (E9), `tests/` (`python3 -m pytest tests -q`, Python 3.9 floor). Two
+adversarial fixtures each beat the gate once and were closed the same day; the evidence and
+the receipts live under `harness-fixtures/` and the live `receipts/` directory must stay
+empty until official dispatch. Next: Phase 2, the pre-persona pipeline for A1, C8 and A5
+over the Tail Test brief (plan §8.1). Rulings 24 and 25 remain deliberately deferred.
+
 **Before any scrimmage, read five more things after the governing four:**
 
 1. `next-round-protocol.md` — approved preparation order and the Sweet 16/Elite 8 design.
@@ -271,6 +282,10 @@ evidence.
 | `pre-s16-readiness.md` | Preflight gate: completed preparation, commissioner decisions and the final packet execution item. |
 | `tail-test-s16.txt` | Canonical, hashed Sweet 16 Tail Test prompt, amended by Ruling 20 before official dispatch. |
 | `official-runs/README.md` | Official-output conditions, PROMISE treatment, source-record format, and packet release order. |
+| `enactment-harness-plan.md` | **Plan v4 for the enactment harness.** §4 trust boundary, §6 architecture, §11 phases and both Phase 1 results, §13 Ruling 24 skeleton. |
+| `harness-fixtures/` | Phase 1 fixture records (`e1-honest`, `e9-honest`, `e1-tamper`, `e1-forger`, `e1-forger2`), the fixture dispatch log, the E1 pools file, and `receipts/` holding every fixture receipt. Gate them with `HARNESS_RECEIPTS_DIR=docs/tournament/harness-fixtures/receipts python3 bin/verify all --records 'docs/tournament/harness-fixtures/*.md' --dispatch-log docs/tournament/harness-fixtures/dispatch-log.json`. |
+| `receipts/` | Live receipts directory for the official round. **Empty by design until dispatch.** |
+| `../../bin/`, `../../lib/`, `../../tests/` | The harness itself. `lib/README.md` is the API. |
 | `build_s16_packets.py` | Validates the 16 source records and renders the eight isolated output/mechanism packet pairs. `--write` requires `--phase output` or `--phase mechanism` — it refuses to write both phases in one call, so a mechanism packet can never reach disk before every panel has sealed Pass 1. |
 | `amendment-candidates-s16.md` | 7 amendment candidates from the 16 scrimmages, pending commissioner ruling; rule here, then log to `commissioner-rulings.md` and promote accepted text into `rules-v2.md` §4. |
 | `scrimmages/s16-<code>.md` | 16 completed unscored scrimmage records, one per surviving entrant. |

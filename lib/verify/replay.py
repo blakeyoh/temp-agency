@@ -156,7 +156,7 @@ def _not_replayable(receipt: Dict[str, Any]) -> Optional[ReplayReport]:
     if receipt.get("verification_class") != "replay-exact":
         note = f"{receipt.get('verification_class')} receipt (replay does not apply)"
         return ReplayReport([Line("INFO", note)], True, False)
-    if receipt.get("status") != "ok":
+    if receipt.get("status") == "failed":
         return ReplayReport([Line("INFO", "failed receipt (not replayable)")], True, False)
     return None
 
