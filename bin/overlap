@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""Compare committed candidate sections with the isolated, sealed M1 median."""
+import argparse
+import json
+import sys
+
+sys.dont_write_bytecode = True
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+from lib.errors import ToolError  # noqa: E402
+from lib.overlap import compare  # noqa: E402
+from lib.paths import canonical_json  # noqa: E402
+
+INPUTS = ("median", "candidate", "config", "model_manifest")
+
+
+def parser():
+    result = argparse.ArgumentParser(prog="overlap")
+    tools.add_common_args(result)
+    for name in INPUTS:
+        result.add_argument("--" + name.replace("_", "-"))
+    return result
+
+
+def input_paths(args):
+    paths = [getattr(args, name) for name in INPUTS]
+    if any(not path or Path(path).is_absolute() or ".." in Path(path).parts for path in paths):
+        raise ToolError("overlap requires four distinct repo-relative input paths")
+    if len(set(paths)) != len(INPUTS):
+        raise ToolError("overlap input files must be distinct")
+    return paths
+
+
+def render(args, root):
+    if args.entrant != "M1":
+        raise ValueError("overlap is the M1 comparator")
+    paths = input_paths(args)
+    documents = [json.loads((root / path).read_text(encoding="utf-8")) for path in paths]
+    outcome = compare(*documents)
+    return canonical_json({"tool": "overlap", "entrant": "M1",
+                           "inputs": dict(zip(INPUTS, paths)), "comparison": outcome}) + "\n"
+
+
+def main(argv):
+    command = parser()
+    replay = tools.maybe_replay(command, argv)
+    ctx = tools.make_context(__file__)
+    if replay:
+        args = command.parse_args(tools.replay_args(replay))
+        tools.emit(render(args, ctx.root))
+        return 0
+    args = command.parse_args(argv)
+    entrant = tools.require_entrant(command, args)
+    paths = input_paths(args)
+    output, path = tools.run_tool(ctx, entrant, argv, paths, tools.draw_seed(args.seed),
+                                  "replay-exact", None, lambda: render(args, ctx.root))
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)

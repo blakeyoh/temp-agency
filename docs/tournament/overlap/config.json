@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "metric": "bidirectional-entailment-max",
+  "threshold": 0.7,
+  "decimals": 6
+}

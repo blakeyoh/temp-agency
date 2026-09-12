@@ -1,0 +1,6 @@
+{
+  "include_zero_months": true,
+  "schema": "temp-agency.seasons/v1",
+  "window_years": 2
+}
+

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "purpose": "Development calibration and held-out smoke cases; not a broad semantic accuracy benchmark.",
+  "cases": [
+    {
+      "id": "anonymous-reporting",
+      "median": "Submit complaints without names through a shared form.",
+      "candidate": "Report disturbances anonymously using one common questionnaire.",
+      "overlap": true,
+      "split": "calibration"
+    },
+    {
+      "id": "contradictory-reporting",
+      "median": "Submit complaints without names through a shared form.",
+      "candidate": "Publish every complainant name on a public map.",
+      "overlap": false,
+      "split": "calibration"
+    },
+    {
+      "id": "stagger-departures",
+      "median": "Stagger departures from the recreation center.",
+      "candidate": "Have recreation-center visitors leave in several small groups at different times.",
+      "overlap": true,
+      "split": "calibration"
+    },
+    {
+      "id": "different-intervention",
+      "median": "Stagger departures from the recreation center.",
+      "candidate": "Put sound-absorbing curtains around the restaurant patio.",
+      "overlap": false,
+      "split": "calibration"
+    },
+    {
+      "id": "drum-isolation",
+      "median": "Put vibration-absorbing pads under the drum kit.",
+      "candidate": "Place vibration-damping pads beneath the drums.",
+      "overlap": true,
+      "split": "calibration"
+    },
+    {
+      "id": "opposite-cost",
+      "median": "The association pays the full cost.",
+      "candidate": "Renters must pay the entire cost.",
+      "overlap": false,
+      "split": "calibration"
+    },
+    {
+      "id": "aggregate-counts",
+      "median": "Publish only the total number of noise reports.",
+      "candidate": "Release aggregate complaint counts without individual reports.",
+      "overlap": true,
+      "split": "calibration"
+    },
+    {
+      "id": "different-feedback",
+      "median": "Publish only the total number of noise reports.",
+      "candidate": "Ask restaurant staff to move closing tasks indoors.",
+      "overlap": false,
+      "split": "calibration"
+    },
+    {
+      "id": "same-wording",
+      "median": "Volunteers rotate responsibility for the weekly noise log.",
+      "candidate": "Volunteers rotate responsibility for the weekly noise log.",
+      "overlap": true,
+      "split": "holdout"
+    },
+    {
+      "id": "paraphrased-rota",
+      "median": "Volunteers rotate responsibility for the weekly noise log.",
+      "candidate": "Take turns among volunteers to maintain a weekly record of noise.",
+      "overlap": true,
+      "split": "holdout"
+    },
+    {
+      "id": "contradictory-rota",
+      "median": "Volunteers rotate responsibility for the weekly noise log.",
+      "candidate": "The same volunteer is permanently responsible for the weekly noise log.",
+      "overlap": false,
+      "split": "holdout"
+    },
+    {
+      "id": "moving-pickup",
+      "median": "Move rideshare pickup points away from sleeping residents.",
+      "candidate": "Relocate passenger pickup locations farther from residents who are asleep.",
+      "overlap": true,
+      "split": "holdout"
+    },
+    {
+      "id": "unrelated-pickup",
+      "median": "Move rideshare pickup points away from sleeping residents.",
+      "candidate": "Pay musicians to install soundproofing in the garage.",
+      "overlap": false,
+      "split": "holdout"
+    },
+    {
+      "id": "opposite-permission",
+      "median": "Residents can play music without advance permission.",
+      "candidate": "Residents must obtain permission before playing music.",
+      "overlap": false,
+      "split": "holdout"
+    },
+    {
+      "id": "anonymous-synonym",
+      "median": "Protect the identities of people reporting noise.",
+      "candidate": "Keep noise complainants anonymous.",
+      "overlap": true,
+      "split": "holdout"
+    },
+    {
+      "id": "identity-disclosure",
+      "median": "Protect the identities of people reporting noise.",
+      "candidate": "Share the full names of everyone who reports noise.",
+      "overlap": false,
+      "split": "holdout"
+    }
+  ]
+}

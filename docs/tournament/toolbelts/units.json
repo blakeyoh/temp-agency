@@ -1,0 +1,20 @@
+{
+  "operations": [
+    {
+      "from": "kilometer / hour",
+      "id": "walking-speed",
+      "operation": "convert",
+      "to": "meter / second",
+      "value": "5"
+    },
+    {
+      "id": "cadence-dimensions",
+      "left": "1 / month",
+      "operation": "check",
+      "right": "hertz"
+    }
+  ],
+  "pint_version": "0.26.1",
+  "schema": "temp-agency.units/v1"
+}
+

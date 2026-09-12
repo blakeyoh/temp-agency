@@ -1,0 +1,1283 @@
+{
+  "commits": [
+    {
+      "commit": "e8144d19de65a4933476238c790506c29eeb3f26",
+      "committed_utc": "2026-03-29T03:28:13Z",
+      "touched_files": [
+        "LICENSE",
+        "README.md"
+      ]
+    },
+    {
+      "commit": "27fa5e128986c409d4bf34aa3caabcf8dd560f44",
+      "committed_utc": "2026-03-29T03:31:03Z",
+      "touched_files": [
+        "skill.md"
+      ]
+    },
+    {
+      "commit": "15df27fc15d93b4df5885bba434c1f90c46072b8",
+      "committed_utc": "2026-03-29T03:32:33Z",
+      "touched_files": [
+        "roster.md"
+      ]
+    },
+    {
+      "commit": "6cc54dcb433d0f947dc2e46b7c8440661c7a167d",
+      "committed_utc": "2026-03-29T03:33:35Z",
+      "touched_files": [
+        "author-guide.md"
+      ]
+    },
+    {
+      "commit": "6fb2698894d2e269aadcbf3ff2939dea10117194",
+      "committed_utc": "2026-03-29T03:36:08Z",
+      "touched_files": [
+        "README.md"
+      ]
+    },
+    {
+      "commit": "b93aa89748af1a74c89115f42d19af7dc50df260",
+      "committed_utc": "2026-03-29T03:44:50Z",
+      "touched_files": [
+        "Claude.md",
+        "README.md"
+      ]
+    },
+    {
+      "commit": "5937bdf336c445d91982f2a913040b29bd4ba435",
+      "committed_utc": "2026-03-29T03:45:59Z",
+      "touched_files": [
+        "template.md"
+      ]
+    },
+    {
+      "commit": "7632ba671c0677e84b71d82f7180559da22f95bf",
+      "committed_utc": "2026-03-29T03:46:50Z",
+      "touched_files": [
+        "research-prompt.md"
+      ]
+    },
+    {
+      "commit": "ea7781fe8f602e96c13d7c8524ce16fb7a7ccc7e",
+      "committed_utc": "2026-03-29T04:27:05Z",
+      "touched_files": [
+        "knowledge/civil-rights-activist/1960s-us.md",
+        "knowledge/franciscan-monk/franciscan.md",
+        "knowledge/missiologist/evangelical.md",
+        "references/RESEARCH-PROMPT.md",
+        "references/author-guide.md",
+        "references/roster.md",
+        "roster/TEMPLATE.md",
+        "roster/anthropologist.md",
+        "roster/behavioral-psychologist.md",
+        "roster/chief-of-staff.md",
+        "roster/civil-rights-activist.md",
+        "roster/contrarian.md",
+        "roster/executive-coach.md",
+        "roster/farmer.md",
+        "roster/franciscan-monk.md",
+        "roster/investigative-journalist.md",
+        "roster/left-fielder.md",
+        "roster/missiologist.md",
+        "roster/pediatric-occupational-therapist.md",
+        "roster/systems-thinker.md"
+      ]
+    },
+    {
+      "commit": "286d2dbd899aa0cffbf76ecfaeb5fd95d832dfec",
+      "committed_utc": "2026-04-02T03:22:16Z",
+      "touched_files": [
+        "knowledge/civil-rights-activist/1960s-us.md",
+        "knowledge/franciscan-monk/franciscan.md",
+        "knowledge/missiologist/evangelical.md",
+        "references/RESEARCH-PROMPT.md",
+        "references/author-guide.md",
+        "references/roster.md",
+        "roster/TEMPLATE.md",
+        "roster/anthropologist.md",
+        "roster/behavioral-psychologist.md",
+        "roster/chief-of-staff.md",
+        "roster/civil-rights-activist.md",
+        "roster/contrarian.md",
+        "roster/executive-coach.md",
+        "roster/farmer.md",
+        "roster/franciscan-monk.md",
+        "roster/investigative-journalist.md",
+        "roster/left-fielder.md",
+        "roster/missiologist.md",
+        "roster/pediatric-occupational-therapist.md",
+        "roster/systems-thinker.md"
+      ]
+    },
+    {
+      "commit": "c9734b7b4af9b218ae83d20aefef9f87d4e30a0e",
+      "committed_utc": "2026-04-02T03:33:59Z",
+      "touched_files": [
+        "Claude.md",
+        "skill.md"
+      ]
+    },
+    {
+      "commit": "780d80fe000df3c5b77849e04fca4fa35f1b2258",
+      "committed_utc": "2026-07-03T03:38:06Z",
+      "touched_files": [
+        "docs/plan-v2.md"
+      ]
+    },
+    {
+      "commit": "eefce407713c7079ed2ab70b8a8cb98b911e1cb8",
+      "committed_utc": "2026-07-03T03:51:31Z",
+      "touched_files": [
+        "docs/receipts/00-gate-summary.md",
+        "docs/receipts/01-invisible-ink-forged-scores.md",
+        "docs/receipts/02-mycelium-boot-states.md",
+        "docs/receipts/03-mycelium-leaderboard-review.md"
+      ]
+    },
+    {
+      "commit": "4f96cc12946171cd955721025b92c9fd439cc122",
+      "committed_utc": "2026-07-03T03:54:53Z",
+      "touched_files": [
+        "CLAUDE.md",
+        "README.md",
+        "SKILL.md",
+        "skill.md"
+      ]
+    },
+    {
+      "commit": "4bb9dddcae7ce5a144f73b86494245ff01aa7330",
+      "committed_utc": "2026-07-03T03:56:42Z",
+      "touched_files": [
+        "references/RESEARCH-PROMPT.md",
+        "references/roster.md"
+      ]
+    },
+    {
+      "commit": "f2392f32e3e9d13aabb2c071316fe7478d6796d2",
+      "committed_utc": "2026-07-03T04:13:25Z",
+      "touched_files": [
+        "README.md",
+        "commands/temp-agency-plan.md",
+        "commands/temp-agency-review.md",
+        "hooks/exit-plan-mode-offer.md",
+        "skills/temp-agency-plan/SKILL.md",
+        "skills/temp-agency-review/SKILL.md"
+      ]
+    },
+    {
+      "commit": "cdd38ede60c5ff820fb38b4d77032a848c54990d",
+      "committed_utc": "2026-07-03T18:14:07Z",
+      "touched_files": [
+        "CLAUDE.md",
+        "knowledge/behavioral-psychologist/canon.md",
+        "knowledge/behavioral-psychologist/frameworks.md",
+        "knowledge/behavioral-psychologist/positions.md",
+        "knowledge/farmer/canon.md",
+        "knowledge/farmer/frameworks.md",
+        "knowledge/farmer/positions.md",
+        "knowledge/franciscan-monk/canon.md",
+        "knowledge/franciscan-monk/frameworks.md",
+        "knowledge/franciscan-monk/positions.md",
+        "knowledge/investigative-journalist/canon.md",
+        "knowledge/investigative-journalist/frameworks.md",
+        "knowledge/investigative-journalist/positions.md",
+        "knowledge/systems-thinker/canon.md",
+        "knowledge/systems-thinker/frameworks.md",
+        "knowledge/systems-thinker/positions.md",
+        "references/RESEARCH-PROMPT.md",
+        "roster/TEMPLATE.md",
+        "roster/behavioral-psychologist.md",
+        "roster/farmer.md",
+        "roster/franciscan-monk.md",
+        "roster/investigative-journalist.md",
+        "roster/systems-thinker.md"
+      ]
+    },
+    {
+      "commit": "67fe40bf6ade944e03b815a82c986c5fd15bfd84",
+      "committed_utc": "2026-07-03T18:20:12Z",
+      "touched_files": [
+        "commands/roster-add.md",
+        "skills/roster-add/SKILL.md"
+      ]
+    },
+    {
+      "commit": "2f36705f17511df75bfd35de8f003181bc82212a",
+      "committed_utc": "2026-07-03T18:26:07Z",
+      "touched_files": [
+        ".claude-plugin/plugin.json",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md"
+      ]
+    },
+    {
+      "commit": "9c5b1b82955f263afa83e1f8f9bb7196d7fc9b20",
+      "committed_utc": "2026-07-03T18:56:03Z",
+      "touched_files": [
+        ".gitignore",
+        "knowledge/business-development-director/canon.md",
+        "knowledge/business-development-director/frameworks.md",
+        "knowledge/business-development-director/positions.md",
+        "references/roster.md",
+        "roster/business-development-director.md"
+      ]
+    },
+    {
+      "commit": "8aaed3a04ed936da79769a845cc2cd7e55b78c40",
+      "committed_utc": "2026-07-03T19:03:42Z",
+      "touched_files": [
+        "knowledge/trauma-informed-practitioner/canon.md",
+        "knowledge/trauma-informed-practitioner/frameworks.md",
+        "knowledge/trauma-informed-practitioner/positions.md",
+        "references/roster.md",
+        "roster/trauma-informed-practitioner.md"
+      ]
+    },
+    {
+      "commit": "28651fd91618acd54df6546f77c286b5293aa5fc",
+      "committed_utc": "2026-07-03T19:10:38Z",
+      "touched_files": [
+        "knowledge/world-builder/canon.md",
+        "knowledge/world-builder/frameworks.md",
+        "knowledge/world-builder/positions.md",
+        "references/roster.md",
+        "roster/world-builder.md"
+      ]
+    },
+    {
+      "commit": "cbcc868af7167e350afd96ad7bcf6334881e9465",
+      "committed_utc": "2026-07-03T19:17:30Z",
+      "touched_files": [
+        "knowledge/fiction-author/canon.md",
+        "knowledge/fiction-author/frameworks.md",
+        "knowledge/fiction-author/positions.md",
+        "references/roster.md",
+        "roster/fiction-author.md"
+      ]
+    },
+    {
+      "commit": "67d1beff017aa5d8f6662f2cd10a6bf06fe5f4b0",
+      "committed_utc": "2026-07-03T19:25:54Z",
+      "touched_files": [
+        "knowledge/magician-illusionist/canon.md",
+        "knowledge/magician-illusionist/frameworks.md",
+        "knowledge/magician-illusionist/positions.md",
+        "references/roster.md",
+        "roster/magician-illusionist.md"
+      ]
+    },
+    {
+      "commit": "ae85e2652a588b70cc835f39dfc797bb0fecdad7",
+      "committed_utc": "2026-07-03T19:33:34Z",
+      "touched_files": [
+        "knowledge/military-three-star-general/canon.md",
+        "knowledge/military-three-star-general/frameworks.md",
+        "knowledge/military-three-star-general/positions.md",
+        "references/roster.md",
+        "roster/military-three-star-general.md"
+      ]
+    },
+    {
+      "commit": "a4263f95967eaa51c2c1358dcb12959be8e48637",
+      "committed_utc": "2026-07-03T19:40:59Z",
+      "touched_files": [
+        "knowledge/gen-z-expert/canon.md",
+        "knowledge/gen-z-expert/frameworks.md",
+        "knowledge/gen-z-expert/positions.md",
+        "references/roster.md",
+        "roster/gen-z-expert.md"
+      ]
+    },
+    {
+      "commit": "3c6acdf239e80eb107a76af74f494297cfb9554b",
+      "committed_utc": "2026-07-03T19:47:26Z",
+      "touched_files": [
+        "knowledge/soccer-referee/canon.md",
+        "knowledge/soccer-referee/frameworks.md",
+        "knowledge/soccer-referee/positions.md",
+        "references/roster.md",
+        "roster/soccer-referee.md"
+      ]
+    },
+    {
+      "commit": "e7b8904b0fb65e9ec00698fdfeda6ea24005cde7",
+      "committed_utc": "2026-07-03T19:54:13Z",
+      "touched_files": [
+        "knowledge/michelin-star-chef/canon.md",
+        "knowledge/michelin-star-chef/frameworks.md",
+        "knowledge/michelin-star-chef/positions.md",
+        "references/roster.md",
+        "roster/michelin-star-chef.md"
+      ]
+    },
+    {
+      "commit": "7bd47c45b0233fa718eacfd55fb3e4e2f3688813",
+      "committed_utc": "2026-07-03T20:32:07Z",
+      "touched_files": [
+        "knowledge/physics-professor/canon.md",
+        "knowledge/physics-professor/frameworks.md",
+        "knowledge/physics-professor/positions.md",
+        "references/roster.md",
+        "roster/physics-professor.md"
+      ]
+    },
+    {
+      "commit": "c24f7e76d48ff278936a6ea29a52a67aae807aa9",
+      "committed_utc": "2026-07-03T21:04:36Z",
+      "touched_files": [
+        "knowledge/nuclear-reactor-operator/canon.md",
+        "knowledge/nuclear-reactor-operator/frameworks.md",
+        "knowledge/nuclear-reactor-operator/positions.md",
+        "references/roster.md",
+        "roster/nuclear-reactor-operator.md"
+      ]
+    },
+    {
+      "commit": "f7890d366c25446b89741b0630e33d714dbbca57",
+      "committed_utc": "2026-07-03T21:05:21Z",
+      "touched_files": [
+        "CHANGELOG.md",
+        "CLAUDE.md"
+      ]
+    },
+    {
+      "commit": "be09a162afb5c567d00a24ae3b8d4a37270e5709",
+      "committed_utc": "2026-08-25T04:19:38Z",
+      "touched_files": [
+        "docs/tournament/box-score.html",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/rules.md"
+      ]
+    },
+    {
+      "commit": "8fbf565d4470e2258e8ded2fe64d2ef171b001d0",
+      "committed_utc": "2026-08-25T09:57:52Z",
+      "touched_files": [
+        "docs/tournament/rules-v2.md"
+      ]
+    },
+    {
+      "commit": "03ca3eb2cdf39492af51386fb1d23a35a9805b45",
+      "committed_utc": "2026-08-25T10:08:25Z",
+      "touched_files": [
+        "docs/tournament/reference-sets.md"
+      ]
+    },
+    {
+      "commit": "ffdf5212d9a3c8506e12da94342f19d088a00e4f",
+      "committed_utc": "2026-08-25T10:32:28Z",
+      "touched_files": [
+        "docs/tournament/commissioner-rulings.md"
+      ]
+    },
+    {
+      "commit": "985c5f976b75e4c88531fbdc96f286acfd2bf0ef",
+      "committed_utc": "2026-08-25T17:05:44Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score-v1-archive.html",
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/packets/r32-dog.md",
+        "docs/tournament/packets/r32-fence.md",
+        "docs/tournament/packets/r32-moat.md",
+        "docs/tournament/packets/r32-ufo.md",
+        "docs/tournament/r32-draw-map.json",
+        "docs/tournament/r32-results.json",
+        "docs/tournament/tally.py",
+        "docs/tournament/verdicts/r32-dog-builder.md",
+        "docs/tournament/verdicts/r32-dog-ecologist.md",
+        "docs/tournament/verdicts/r32-dog-skeptic.md",
+        "docs/tournament/verdicts/r32-fence-builder.md",
+        "docs/tournament/verdicts/r32-fence-ecologist.md",
+        "docs/tournament/verdicts/r32-fence-skeptic.md"
+      ]
+    },
+    {
+      "commit": "d4e68dc2efc3a07de1fab57a8ba28f4e2681ec00",
+      "committed_utc": "2026-08-25T17:17:06Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md"
+      ]
+    },
+    {
+      "commit": "c25d850d1d5ca3deb678915032ebf86dd4c9cc1b",
+      "committed_utc": "2026-08-25T17:26:41Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "bd006c63549dabebcbf331fe9daf9276e6ae6dca",
+      "committed_utc": "2026-08-25T17:27:52Z",
+      "touched_files": [
+        "docs/tournament/box-score.html",
+        "docs/tournament/build_box_score.py"
+      ]
+    },
+    {
+      "commit": "82e6e48c9812202e89e5a50367535f987fcd6aef",
+      "committed_utc": "2026-08-25T17:38:41Z",
+      "touched_files": [
+        "docs/tournament/r32-results.json",
+        "docs/tournament/verdicts/r32-moat-builder.md",
+        "docs/tournament/verdicts/r32-moat-ecologist.md",
+        "docs/tournament/verdicts/r32-moat-skeptic.md"
+      ]
+    },
+    {
+      "commit": "8d8d3b8f64549a6b5beb69b5a257105e76de8d1e",
+      "committed_utc": "2026-08-25T17:39:36Z",
+      "touched_files": [
+        "docs/tournament/box-score.html"
+      ]
+    },
+    {
+      "commit": "ce4828ced35b52b3797bb86842b6679362b9c16d",
+      "committed_utc": "2026-08-25T17:43:42Z",
+      "touched_files": [
+        ".gitignore",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html"
+      ]
+    },
+    {
+      "commit": "4215d6da06408ad2080151ff65e824d3f824eaec",
+      "committed_utc": "2026-08-25T18:02:56Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md"
+      ]
+    },
+    {
+      "commit": "e17fa8053524b28e6c253371fb98af51cb5edceb",
+      "committed_utc": "2026-08-25T20:38:32Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md"
+      ]
+    },
+    {
+      "commit": "64503fc39441cb0f7c91a413848121eb32cd1686",
+      "committed_utc": "2026-08-25T22:41:03Z",
+      "touched_files": [
+        "docs/tournament/commissioner-rulings.md"
+      ]
+    },
+    {
+      "commit": "450eb90a7f7927fcb0e420eaea3d5233e4e511a9",
+      "committed_utc": "2026-08-25T22:52:23Z",
+      "touched_files": [
+        "docs/tournament/r32-results.json",
+        "docs/tournament/verdicts/r32-ufo-builder.md",
+        "docs/tournament/verdicts/r32-ufo-ecologist.md",
+        "docs/tournament/verdicts/r32-ufo-skeptic.md"
+      ]
+    },
+    {
+      "commit": "fab401fb7af23911b7f025c457553b3b3fe7e9e7",
+      "committed_utc": "2026-08-26T00:52:48Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md"
+      ]
+    },
+    {
+      "commit": "8ea0d31b9f5cdd238dbc68af9491232ba5dfe725",
+      "committed_utc": "2026-08-26T01:45:12Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md"
+      ]
+    },
+    {
+      "commit": "e148a8141e4b0e655d445e43f1f2b19b18791047",
+      "committed_utc": "2026-08-26T03:37:20Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/field-of-32.md"
+      ]
+    },
+    {
+      "commit": "85935ac0ff5a1dd9292f0205f1c92b05a0b9a502",
+      "committed_utc": "2026-08-26T04:35:24Z",
+      "touched_files": [
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md"
+      ]
+    },
+    {
+      "commit": "2c6aa6f6d02b56c60f54243bc41e95537b419ef4",
+      "committed_utc": "2026-08-26T04:38:26Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md"
+      ]
+    },
+    {
+      "commit": "ed8e40f97ad9200750832310eff1d0c9a2be18bf",
+      "committed_utc": "2026-08-26T04:53:47Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "5d4a3b09dc9faab135fc5285ee653c5c65e88e1b",
+      "committed_utc": "2026-08-26T04:53:56Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md"
+      ]
+    },
+    {
+      "commit": "fc8bbd5e2b920929967ec4f434f2ca7b39312a32",
+      "committed_utc": "2026-08-26T04:54:03Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md"
+      ]
+    },
+    {
+      "commit": "d30f29cb73ab4e31ffd746b8e0614b818af67de5",
+      "committed_utc": "2026-08-27T05:15:13Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "e80bf562ce83de02643b4aa14c2a47e9c6983da0",
+      "committed_utc": "2026-08-27T10:36:39Z",
+      "touched_files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "SKILL.md",
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/collision-residue.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/evidence-contracts-s16.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/parallel-track.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/scrimmage-template.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/verdict-template-s16.md",
+        "references/RESEARCH-PROMPT.md",
+        "references/author-guide.md",
+        "references/roster.md",
+        "roster/TEMPLATE.md",
+        "roster/anthropologist.md",
+        "roster/behavioral-psychologist.md",
+        "roster/business-development-director.md",
+        "roster/chief-of-staff.md",
+        "roster/civil-rights-activist.md",
+        "roster/contrarian.md",
+        "roster/executive-coach.md",
+        "roster/farmer.md",
+        "roster/fiction-author.md",
+        "roster/franciscan-monk.md",
+        "roster/gen-z-expert.md",
+        "roster/investigative-journalist.md",
+        "roster/left-fielder.md",
+        "roster/magician-illusionist.md",
+        "roster/michelin-star-chef.md",
+        "roster/military-three-star-general.md",
+        "roster/missiologist.md",
+        "roster/nuclear-reactor-operator.md",
+        "roster/pediatric-occupational-therapist.md",
+        "roster/physics-professor.md",
+        "roster/soccer-referee.md",
+        "roster/systems-thinker.md",
+        "roster/trauma-informed-practitioner.md",
+        "roster/world-builder.md",
+        "skills/roster-add/SKILL.md"
+      ]
+    },
+    {
+      "commit": "d9c688598fb8cc53bf594e1e63f809ffddff09ab",
+      "committed_utc": "2026-08-27T11:53:49Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "882323ad93c4e21a318310a6eade417422470034",
+      "committed_utc": "2026-08-27T12:26:22Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py",
+        "docs/tournament/verdict-template-s16.md"
+      ]
+    },
+    {
+      "commit": "2e85cd6de5597c8b0d9b12967fd4168b1242e426",
+      "committed_utc": "2026-08-27T12:39:10Z",
+      "touched_files": [
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "c775439f8dacabd771e84ef8808ac9e13bdbe71a",
+      "committed_utc": "2026-08-30T02:52:52Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "8e4f55c93af808de703c5e465d702eb1f63135d6",
+      "committed_utc": "2026-08-30T02:52:58Z",
+      "touched_files": [
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "e957503a381c7500284a9994d06f28a8b007ec56",
+      "committed_utc": "2026-08-30T03:09:00Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "314a6b2c96486cadd52bba577b951e27ec6cb02c",
+      "committed_utc": "2026-08-30T03:09:06Z",
+      "touched_files": [
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "468ba20fe06713bd24b8cfd2b02b1d6dc6db61d9",
+      "committed_utc": "2026-08-30T03:20:57Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "19ec7bf7481c97b3f70b2bfec6a33099366425f3",
+      "committed_utc": "2026-08-30T03:21:03Z",
+      "touched_files": [
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "f58db13ae72f3ef20d57a53d7238e084414049be",
+      "committed_utc": "2026-08-30T03:21:10Z",
+      "touched_files": [
+        "docs/tournament/next-round-protocol.md"
+      ]
+    },
+    {
+      "commit": "05eaadbef1cc750ba140bd4903f52065c4c29614",
+      "committed_utc": "2026-08-30T03:21:16Z",
+      "touched_files": [
+        "docs/tournament/verdict-template-s16.md"
+      ]
+    },
+    {
+      "commit": "5d740ba30a0f74e049d55e2c94d47eb3382ac732",
+      "committed_utc": "2026-08-30T07:17:13Z",
+      "touched_files": [
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py",
+        "docs/tournament/verdict-template-s16.md"
+      ]
+    },
+    {
+      "commit": "120bb2692fffa823867909c9712b84611e5fbf08",
+      "committed_utc": "2026-08-30T12:08:20Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "2e66bccb11dd6359f0b6a111914d43a5f84cdb17",
+      "committed_utc": "2026-08-30T12:08:26Z",
+      "touched_files": [
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "9d1f7575c23fb3c677afa53417d6b04c39a1f340",
+      "committed_utc": "2026-08-30T12:20:47Z",
+      "touched_files": [
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "a93c49b16328f26625c66dc065931b3c009cf05a",
+      "committed_utc": "2026-08-30T12:28:34Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "6c7550ae2437ef79942e9155190783926be113b7",
+      "committed_utc": "2026-08-30T12:28:48Z",
+      "touched_files": [
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "4952a5dd0d3b33d894fb929ad5657897b56652b9",
+      "committed_utc": "2026-08-30T12:29:01Z",
+      "touched_files": [
+        "docs/tournament/next-round-protocol.md"
+      ]
+    },
+    {
+      "commit": "a04f390b679709ffc3ff3e48fb4b4cf0c8b006eb",
+      "committed_utc": "2026-08-30T12:56:04Z",
+      "touched_files": [
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "a48aff11c24adb5e949efe32eeb7b54698d4424a",
+      "committed_utc": "2026-08-30T15:48:42Z",
+      "touched_files": [
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "9fc47ecc1a23925f16b7a9ca94381920983b15f4",
+      "committed_utc": "2026-08-30T16:04:04Z",
+      "touched_files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "SKILL.md",
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/collision-residue.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/evidence-contracts-s16.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/parallel-track.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/scrimmage-template.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py",
+        "docs/tournament/verdict-template-s16.md",
+        "references/RESEARCH-PROMPT.md",
+        "references/author-guide.md",
+        "references/roster.md",
+        "roster/TEMPLATE.md",
+        "roster/anthropologist.md",
+        "roster/behavioral-psychologist.md",
+        "roster/business-development-director.md",
+        "roster/chief-of-staff.md",
+        "roster/civil-rights-activist.md",
+        "roster/contrarian.md",
+        "roster/executive-coach.md",
+        "roster/farmer.md",
+        "roster/fiction-author.md",
+        "roster/franciscan-monk.md",
+        "roster/gen-z-expert.md",
+        "roster/investigative-journalist.md",
+        "roster/left-fielder.md",
+        "roster/magician-illusionist.md",
+        "roster/michelin-star-chef.md",
+        "roster/military-three-star-general.md",
+        "roster/missiologist.md",
+        "roster/nuclear-reactor-operator.md",
+        "roster/pediatric-occupational-therapist.md",
+        "roster/physics-professor.md",
+        "roster/soccer-referee.md",
+        "roster/systems-thinker.md",
+        "roster/trauma-informed-practitioner.md",
+        "roster/world-builder.md",
+        "skills/roster-add/SKILL.md"
+      ]
+    },
+    {
+      "commit": "1c9a960d91f9a386634fbfd80e63acb5d8d5203b",
+      "committed_utc": "2026-08-31T01:40:16Z",
+      "touched_files": [
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "f4288edab6346e04de63e66adb83afd028238f15",
+      "committed_utc": "2026-08-31T01:40:22Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/rules-v2.md"
+      ]
+    },
+    {
+      "commit": "4066eee03b2cba6c32f643e0af312bb6f9a31f1d",
+      "committed_utc": "2026-08-31T02:45:34Z",
+      "touched_files": [
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/scrimmages/s16-a3.md",
+        "docs/tournament/scrimmages/s16-e2.md",
+        "docs/tournament/scrimmages/s16-e3.md",
+        "docs/tournament/scrimmages/s16-m5.md"
+      ]
+    },
+    {
+      "commit": "75bc097e1f5274a3aceccc3e64cb8916a6477e5f",
+      "committed_utc": "2026-08-31T02:55:10Z",
+      "touched_files": [
+        "docs/tournament/scrimmages/s16-a5.md",
+        "docs/tournament/scrimmages/s16-a6.md",
+        "docs/tournament/scrimmages/s16-e1.md",
+        "docs/tournament/scrimmages/s16-e5.md"
+      ]
+    },
+    {
+      "commit": "13d45e3ea88e7fc6e9e933647ca343897b8abebd",
+      "committed_utc": "2026-08-31T03:05:56Z",
+      "touched_files": [
+        "docs/tournament/scrimmages/s16-a1.md",
+        "docs/tournament/scrimmages/s16-c8.md",
+        "docs/tournament/scrimmages/s16-e4.md",
+        "docs/tournament/scrimmages/s16-m1.md"
+      ]
+    },
+    {
+      "commit": "cdf09826abe417738a80997923aae47d8d006e88",
+      "committed_utc": "2026-08-31T04:44:48Z",
+      "touched_files": [
+        "docs/tournament/scrimmages/s16-a2.md",
+        "docs/tournament/scrimmages/s16-c5.md",
+        "docs/tournament/scrimmages/s16-e6.md",
+        "docs/tournament/scrimmages/s16-m3.md"
+      ]
+    },
+    {
+      "commit": "5888930159c72e3aba05c4de86d5f751a055000e",
+      "committed_utc": "2026-08-31T04:44:55Z",
+      "touched_files": [
+        "docs/tournament/pre-s16-readiness.md"
+      ]
+    },
+    {
+      "commit": "633998cfe801e290b5dd8f4f7b6a542bd5bbf0dc",
+      "committed_utc": "2026-08-31T04:55:51Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/amendment-candidates-s16.md"
+      ]
+    },
+    {
+      "commit": "63cb9ad9652bcaa34dc7b2924a667a675820ee3d",
+      "committed_utc": "2026-08-31T05:41:15Z",
+      "touched_files": [
+        "docs/tournament/amendment-candidates-s16.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md"
+      ]
+    },
+    {
+      "commit": "78b7588b51a104008ea3969599a4c89e49ec74f5",
+      "committed_utc": "2026-08-31T06:02:43Z",
+      "touched_files": [
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/s16-draw-map.json"
+      ]
+    },
+    {
+      "commit": "72634d078314d4f6d1e7d04e20d41bab87a764b3",
+      "committed_utc": "2026-08-31T06:10:07Z",
+      "touched_files": [
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/s16-draw-map.json"
+      ]
+    },
+    {
+      "commit": "f14465e52800283657dfe90ecb64605d4681846d",
+      "committed_utc": "2026-08-31T10:59:17Z",
+      "touched_files": [
+        "docs/tournament/ledger/m3-dispatch1-record.md",
+        "docs/tournament/ledger/m3-dispatch2-record.md",
+        "docs/tournament/ledger/m3.jsonl",
+        "docs/tournament/pre-s16-readiness.md"
+      ]
+    },
+    {
+      "commit": "f47783c2f70c1df5b22314ee15010e205e0360c1",
+      "committed_utc": "2026-08-31T16:56:36Z",
+      "touched_files": [
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "9d079532277aaed567b0a759ee4d500acbc6f54f",
+      "committed_utc": "2026-08-31T17:56:56Z",
+      "touched_files": [
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/amendment-candidates-s16.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/ledger/m3-dispatch1-record.md",
+        "docs/tournament/ledger/m3-dispatch2-record.md",
+        "docs/tournament/ledger/m3.jsonl",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/s16-draw-map.json",
+        "docs/tournament/scrimmages/s16-a1.md",
+        "docs/tournament/scrimmages/s16-a2.md",
+        "docs/tournament/scrimmages/s16-a3.md",
+        "docs/tournament/scrimmages/s16-a5.md",
+        "docs/tournament/scrimmages/s16-a6.md",
+        "docs/tournament/scrimmages/s16-c5.md",
+        "docs/tournament/scrimmages/s16-c8.md",
+        "docs/tournament/scrimmages/s16-e1.md",
+        "docs/tournament/scrimmages/s16-e2.md",
+        "docs/tournament/scrimmages/s16-e3.md",
+        "docs/tournament/scrimmages/s16-e4.md",
+        "docs/tournament/scrimmages/s16-e5.md",
+        "docs/tournament/scrimmages/s16-e6.md",
+        "docs/tournament/scrimmages/s16-m1.md",
+        "docs/tournament/scrimmages/s16-m3.md",
+        "docs/tournament/scrimmages/s16-m5.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "bd58295c7ec0f682db2b33bc431dabc47c55bf52",
+      "committed_utc": "2026-08-31T23:34:45Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/build_s16_packets.py",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/next-round-protocol.md",
+        "docs/tournament/official-runs/README.md",
+        "docs/tournament/official-runs/official-run-template.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/s16-draw-map.json",
+        "docs/tournament/tail-test-s16.txt",
+        "docs/tournament/test_build_s16_packets.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "43d1958a723405cfd65954612d2c8682a61f58ce",
+      "committed_utc": "2026-09-03T05:19:54Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/evidence-contracts-s16.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/s16-draw-map.json",
+        "docs/tournament/scrimmages/s16-e9.md",
+        "docs/tournament/tally.py"
+      ]
+    },
+    {
+      "commit": "910500d0ec33247ef7ec473fc2594cb51154f22d",
+      "committed_utc": "2026-09-03T06:40:49Z",
+      "touched_files": [
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/evidence-contracts-s16.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/scrimmages/s16-e9.md"
+      ]
+    },
+    {
+      "commit": "7a81b95513f711cd4f4cf2f10ba92eb8627541c0",
+      "committed_utc": "2026-09-03T11:03:32Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/build_s16_packets.py",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "d2bb96e2f92db3a2900387de78f559d558d72f2e",
+      "committed_utc": "2026-09-08T01:02:31Z",
+      "touched_files": [
+        "docs/tournament/COLD-START.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/box-score.html",
+        "docs/tournament/build_s16_packets.py",
+        "docs/tournament/commissioner-rulings.md",
+        "docs/tournament/evidence-contracts-s16.md",
+        "docs/tournament/field-of-32.md",
+        "docs/tournament/pre-s16-readiness.md",
+        "docs/tournament/rules-v2.md",
+        "docs/tournament/s16-draw-map.json",
+        "docs/tournament/scrimmages/s16-e9.md",
+        "docs/tournament/tally.py",
+        "docs/tournament/test_tally.py"
+      ]
+    },
+    {
+      "commit": "3b57bf8ad9428ed3f3c1fe1f7dc664e057b80330",
+      "committed_utc": "2026-09-08T03:06:53Z",
+      "touched_files": [
+        ".gitignore"
+      ]
+    },
+    {
+      "commit": "485a75d4a7f2446eda250fd89bd4879b4bba4f64",
+      "committed_utc": "2026-09-08T03:06:53Z",
+      "touched_files": [
+        "docs/tournament/enactment-harness-plan.md"
+      ]
+    },
+    {
+      "commit": "8b6e06a4b206a0dbcb96242e559bde84db2cfe58",
+      "committed_utc": "2026-09-08T03:18:20Z",
+      "touched_files": [
+        "docs/tournament/enactment-harness-plan.md"
+      ]
+    },
+    {
+      "commit": "a43801b34e99f19372e72f9480350b548866e389",
+      "committed_utc": "2026-09-08T03:20:22Z",
+      "touched_files": [
+        "docs/tournament/harness-fixtures/e1-pools-scrimmage.json",
+        "docs/tournament/official-runs/official-run-template.md"
+      ]
+    },
+    {
+      "commit": "fce560079e0443a6ac7cb9449240e427a37b183f",
+      "committed_utc": "2026-09-08T03:22:03Z",
+      "touched_files": [
+        "docs/tournament/enactment-harness-plan.md"
+      ]
+    },
+    {
+      "commit": "a67fd901222cd30387ed0e43eb0e046f93280861",
+      "committed_utc": "2026-09-08T03:22:31Z",
+      "touched_files": [
+        "docs/tournament/harness-fixtures/dispatch-log.json"
+      ]
+    },
+    {
+      "commit": "2ddefa95adf0eb471e51d4a8d731d9f4fd83d088",
+      "committed_utc": "2026-09-08T03:36:47Z",
+      "touched_files": [
+        ".gitignore",
+        "bin/verify",
+        "docs/tournament/receipts/.gitkeep",
+        "lib/README.md",
+        "lib/__init__.py",
+        "lib/bindings/__init__.py",
+        "lib/bindings/_example.py",
+        "lib/errors.py",
+        "lib/paths.py",
+        "lib/receipt.py",
+        "lib/tools.py",
+        "lib/verify/__init__.py",
+        "lib/verify/bind.py",
+        "lib/verify/dispatch.py",
+        "lib/verify/gate.py",
+        "lib/verify/replay.py",
+        "tests/conftest.py",
+        "tests/test_receipt.py",
+        "tests/test_tool_run.py",
+        "tests/test_verify_all.py",
+        "tests/test_verify_bind.py",
+        "tests/test_verify_replay.py"
+      ]
+    },
+    {
+      "commit": "52b784d4951f0949e823cf6100ec6ae8e269e673",
+      "committed_utc": "2026-09-08T03:42:49Z",
+      "touched_files": [
+        "bin/draw",
+        "lib/bindings/draw.py",
+        "tests/test_draw.py"
+      ]
+    },
+    {
+      "commit": "5e0b4ce600e99b82e47fd7c96f5b0a1bbda30b7b",
+      "committed_utc": "2026-09-08T03:49:33Z",
+      "touched_files": [
+        "bin/seed-string",
+        "lib/bindings/seed_string.py",
+        "tests/test_draw.py",
+        "tests/test_seed_string.py"
+      ]
+    },
+    {
+      "commit": "c410fe08d23a63859c1a9e4f4e39166398bb7e31",
+      "committed_utc": "2026-09-08T03:52:12Z",
+      "touched_files": [
+        "docs/tournament/harness-fixtures/e9-honest.md",
+        "docs/tournament/receipts/E9/001-80ba919f6167.bind.json",
+        "docs/tournament/receipts/E9/001-80ba919f6167.json"
+      ]
+    },
+    {
+      "commit": "11bb6bf0fb0d725e0640bbe0f24531b231f5a6b1",
+      "committed_utc": "2026-09-08T04:00:07Z",
+      "touched_files": [
+        "docs/tournament/harness-fixtures/e1-honest.md",
+        "docs/tournament/receipts/E1/001-e4e3f9d77bc7.bind.json",
+        "docs/tournament/receipts/E1/001-e4e3f9d77bc7.json",
+        "docs/tournament/receipts/E1/002-4c35b0bb2991.bind.json",
+        "docs/tournament/receipts/E1/002-4c35b0bb2991.json"
+      ]
+    },
+    {
+      "commit": "bebe86e4d3b335d83a1e509dde261d977abd6834",
+      "committed_utc": "2026-09-08T04:01:14Z",
+      "touched_files": [
+        "docs/tournament/enactment-harness-plan.md"
+      ]
+    },
+    {
+      "commit": "0f931302d92de3d52b8f9911ddfd64e5a0607c24",
+      "committed_utc": "2026-09-08T04:08:30Z",
+      "touched_files": [
+        "docs/tournament/enactment-harness-plan.md",
+        "docs/tournament/harness-fixtures/dispatch-log.json",
+        "docs/tournament/harness-fixtures/e1-forger.md",
+        "docs/tournament/harness-fixtures/e1-tamper.md",
+        "docs/tournament/harness-fixtures/receipts/E1/001-e4e3f9d77bc7.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/001-e4e3f9d77bc7.json",
+        "docs/tournament/harness-fixtures/receipts/E1/002-4c35b0bb2991.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/002-4c35b0bb2991.json",
+        "docs/tournament/harness-fixtures/receipts/E1/003-6d3710778d31.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/003-6d3710778d31.json",
+        "docs/tournament/harness-fixtures/receipts/E1/004-833efb0d11ba.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/004-833efb0d11ba.json",
+        "docs/tournament/harness-fixtures/receipts/E1/005-7355abdd45ac.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/005-7355abdd45ac.json",
+        "docs/tournament/harness-fixtures/receipts/E1/006-db6a6f261e2e.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/006-db6a6f261e2e.json",
+        "docs/tournament/harness-fixtures/receipts/E1/e1-forger-pools-counterfactual.json",
+        "docs/tournament/harness-fixtures/receipts/E1/e1-forger-pools-primary.json",
+        "docs/tournament/harness-fixtures/receipts/E9/001-80ba919f6167.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E9/001-80ba919f6167.json"
+      ]
+    },
+    {
+      "commit": "33eb27c6b5cc8129d36a37a6a7f0c3c11a6b73b8",
+      "committed_utc": "2026-09-08T04:09:49Z",
+      "touched_files": [
+        "docs/tournament/harness-fixtures/dispatch-log.json"
+      ]
+    },
+    {
+      "commit": "4a6f1ac6ad7b434dba9a5730466917f609d1ecbd",
+      "committed_utc": "2026-09-08T04:21:54Z",
+      "touched_files": [
+        "bin/draw",
+        "bin/verify",
+        "docs/tournament/harness-fixtures/receipts/E1/001-e4e3f9d77bc7.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/003-6d3710778d31.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/005-7355abdd45ac.bind.json",
+        "lib/README.md",
+        "lib/bindings/__init__.py",
+        "lib/bindings/_example.py",
+        "lib/bindings/draw.py",
+        "lib/bindings/seed_string.py",
+        "lib/paths.py",
+        "lib/tools.py",
+        "lib/verify/dispatch.py",
+        "lib/verify/gate.py",
+        "lib/verify/replay.py",
+        "tests/conftest.py",
+        "tests/test_draw.py",
+        "tests/test_forger_holes.py",
+        "tests/test_verify_all.py",
+        "tests/test_verify_replay.py"
+      ]
+    },
+    {
+      "commit": "af0cfc9d790204b8ae13243cde003d140ea6ce71",
+      "committed_utc": "2026-09-08T04:33:23Z",
+      "touched_files": [
+        "CLAUDE.md",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/enactment-harness-plan.md",
+        "docs/tournament/harness-fixtures/e1-forger2.md",
+        "docs/tournament/harness-fixtures/receipts/E1/007-aa1b2c3d4e5f.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/007-aa1b2c3d4e5f.json",
+        "docs/tournament/harness-fixtures/receipts/E1/008-bb6f5e4d3c2b.bind.json",
+        "docs/tournament/harness-fixtures/receipts/E1/008-bb6f5e4d3c2b.json",
+        "lib/verify/dispatch.py",
+        "lib/verify/gate.py",
+        "lib/verify/replay.py",
+        "tests/test_forger_holes.py",
+        "tests/test_verify_all.py"
+      ]
+    },
+    {
+      "commit": "56ebe7ff16ca4b4c0b8cfbd9d01fc7b76ee9aece",
+      "committed_utc": "2026-09-12T14:07:40Z",
+      "touched_files": [
+        "bin/prepare",
+        "docs/tournament/HANDOFF.md",
+        "docs/tournament/enactment-harness-plan.md",
+        "docs/tournament/harness-phase2-report.md",
+        "docs/tournament/pipeline/a1-transforms.json",
+        "docs/tournament/pipeline/a5-withhold.json",
+        "docs/tournament/pipeline/c8-mask-map.json",
+        "lib/README.md",
+        "lib/bindings/prepare.py",
+        "lib/pipeline/__init__.py",
+        "lib/pipeline/mask.py",
+        "lib/pipeline/negative.py",
+        "lib/pipeline/transform.py",
+        "lib/pipeline/withhold.py",
+        "tests/test_prepare.py"
+      ]
+    },
+    {
+      "commit": "192581631d646dadfbdc5c0e120d2b060b618b0f",
+      "committed_utc": "2026-09-12T14:09:16Z",
+      "touched_files": [
+        "docs/tournament/phase3-comparator-decision.md"
+      ]
+    }
+  ],
+  "limitations": [
+    "Snapshot records commit timestamps and paths touched by each reachable commit; it omits diffs, authors, branches not reachable from source_commit, and working-tree changes.",
+    "Each non-root commit is diffed against its first parent. Merge commits include merge-resolution changes relative to that parent, not a combined-parent view; renames are represented by reported paths without per-path git log --follow traversal.",
+    "The first and last calendar-month cadence buckets can be partial because the window is anchored to the source commit timestamp.",
+    "Archive replay validates only this committed snapshot and cannot inspect the source repository's .git directory."
+  ],
+  "origin": {
+    "collector": "scripts/snapshot-toolbelt-history.py/v1",
+    "source_commit": "192581631d646dadfbdc5c0e120d2b060b618b0f",
+    "source_repository": "https://github.com/blakeyoh/temp-agency",
+    "window_end_utc": "2026-09-12T14:09:16Z",
+    "window_start_utc": "2024-09-12T14:09:16Z",
+    "window_years": 2
+  },
+  "schema": "temp-agency.toolbelt-history/v1"
+}

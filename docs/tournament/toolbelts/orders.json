@@ -1,0 +1,16 @@
+{
+  "comparisons": [
+    {
+      "denominator": "12",
+      "id": "monthly-to-daily-events",
+      "numerator": "365"
+    },
+    {
+      "denominator": "1e3",
+      "id": "million-to-thousand",
+      "numerator": "1e6"
+    }
+  ],
+  "schema": "temp-agency.orders/v1"
+}
+

@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""Convert quantities and check dimensional compatibility using Pint."""
+import sys
+
+sys.dont_write_bytecode = True
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+from lib.toolbelts.cli import main as tool_main  # noqa: E402
+from lib.toolbelts.common import read_json  # noqa: E402
+from lib.toolbelts.measure import units_results, validate_units_config  # noqa: E402
+
+
+def compute(args, root):
+    config = validate_units_config(read_json(root, args.config, "config"))
+    return units_results(config)
+
+
+def main(argv):
+    return tool_main(__file__, argv, False, compute)
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)
+

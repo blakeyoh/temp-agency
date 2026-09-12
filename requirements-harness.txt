@@ -1,0 +1,4 @@
+# Install the exact transitive set from requirements-harness.lock for replay.
+sentence-transformers==6.0.1
+pint==0.26.1
+pytest==9.1.1

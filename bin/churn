@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+"""Count the files touched by the most commits in a pinned two-year git snapshot."""
+import sys
+
+sys.dont_write_bytecode = True
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+from lib.toolbelts.cli import main as tool_main  # noqa: E402
+from lib.toolbelts.common import read_json  # noqa: E402
+from lib.toolbelts.history import churn, validate_history_config, validate_snapshot  # noqa: E402
+
+
+def compute(args, root):
+    config = validate_history_config(read_json(root, args.config, "config"), "churn")
+    snapshot = validate_snapshot(read_json(root, args.snapshot, "snapshot"))
+    result = churn(snapshot, config["top_n"])
+    return {**result, "snapshot_origin": snapshot["origin"],
+            "snapshot_limitations": snapshot["limitations"]}
+
+
+def main(argv):
+    return tool_main(__file__, argv, True, compute)
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)
+
