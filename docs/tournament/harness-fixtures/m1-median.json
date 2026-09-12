@@ -1,0 +1,54 @@
+{
+  "claims": [
+    {
+      "id": "m1",
+      "label": "CHOSEN",
+      "text": "The restaurant owner and patio staff should begin a voluntary soft close at 11:45pm by lowering music and guiding conversations indoors; compare aggregated 311 complaints from 10pm to 1am before and after the change, with the restaurant and its workers carrying the primary coordination burden."
+    },
+    {
+      "id": "m2",
+      "label": "CHOSEN",
+      "text": "Recreation-center staff should stagger program endings and ask teenagers to leave in small groups during a posted departure window; track weekly aggregated complaints about departures, with center staff and participating teens carrying the primary scheduling and cooperation burden."
+    },
+    {
+      "id": "m3",
+      "label": "CHOSEN",
+      "text": "The neighborhood association should distribute voluntary pickup instructions directing rideshare drivers to wait quietly at the existing alley entrance and avoid repeated horn use; use voluntary resident surveys and aggregated 311 counts to measure alley noise, with association volunteers and rideshare users carrying the primary communication burden."
+    },
+    {
+      "id": "m4",
+      "label": "CHOSEN",
+      "text": "The drummer should adopt a voluntary practice schedule that ends the loudest practice before 10pm and notify nearby neighbors of the general schedule; compare anonymous survey reports of drum disturbance over 90 days, with the drummer carrying the primary accommodation burden."
+    },
+    {
+      "id": "m5",
+      "label": "CHOSEN",
+      "text": "The association should fund modest sound-dampening improvements for the restaurant patio and recreation-center exit using the one-time budget; compare the number of nighttime complaints before and after installation, with the association bearing the primary financial burden."
+    },
+    {
+      "id": "m6",
+      "label": "CHOSEN",
+      "text": "Restaurant and recreation-center managers should train workers to use a consistent quiet-closing script that asks patrons to lower voices and leave calmly; review monthly aggregated 311 trends and voluntary worker feedback, with managers and their staff carrying the primary training burden."
+    },
+    {
+      "id": "m7",
+      "label": "CHOSEN",
+      "text": "The association should create a voluntary resident and business liaison group that meets twice during the 90-day period to resolve recurring nighttime friction; measure whether repeat complaints decline in the following month, with association volunteers and participating stakeholders carrying the primary meeting burden."
+    },
+    {
+      "id": "m8",
+      "label": "FORCED",
+      "text": "The association must use only existing 311 data, voluntary surveys, and published business hours for evaluation and must not add surveillance or audio recording; report only aggregate complaint trends, with the association carrying the primary recordkeeping burden."
+    },
+    {
+      "id": "m9",
+      "label": "FORCED",
+      "text": "Any neighborhood rule must preserve legitimate nighttime restaurant, recreation-center, rideshare, and drum activity without banning one activity outright or requiring residents to seek advance permission; assess success through complaint trends within 90 days, with the rule designers carrying the primary design burden."
+    },
+    {
+      "id": "m10",
+      "label": "FORCED",
+      "text": "The association must avoid publishing complaint locations or identities and must not place the primary cost or volunteer burden on renters, teenagers, or low-wage workers; review participation and complaint feedback in aggregate, with the association carrying the primary privacy and equity burden."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Enactment harness — lib/ API
 
-Phase 0 of `docs/tournament/enactment-harness-plan.md`. Python 3.9+, stdlib only.
+Phase 0 of `docs/tournament/enactment-harness-plan.md`. Existing core: Python 3.9+. Libraries are welcome under the user-approved dependency policy in CLAUDE.md.
 
 ## Lifecycle of a tool run
 

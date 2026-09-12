@@ -1,6 +1,10 @@
 # Phase 3 commissioner decision: what counts as M1 overlap?
 
-Status: decision requested; no comparator or official threshold has been selected.
+Status: semantic comparison APPROVED by the user on 2026-09-12.
+The user also removed the inherited stdlib-only constraint project-wide: libraries
+that help the project or any entrant perform at its finest are welcome.
+Model selection and threshold calibration are implementation work; no official
+threshold has yet been frozen.
 Phase 2 implementation is committed as `56ebe7f` and passes 119 tests on Python
 3.9.6 and 3.13.12. This note does not amend an entrant or authorize a dispatch.
 
@@ -43,8 +47,10 @@ before official dispatch. The runtime must not silently fall back to word overla
 Keep FORCED/CHOSEN labels as separately frozen, disclosed model judgments, and require
 the replacement pass to be rechecked. The host verifies all resulting artifacts.
 
-This direction needs an explicit exception to the stdlib-only implementation floor
-for the semantic scorer. It adds dependencies and model-artifact management. It does
+At the time of the request, this direction was described as needing an exception
+to an inherited stdlib-only implementation floor. The user has since removed that
+rule entirely; no exception is needed. The semantic scorer adds dependencies and
+model-artifact management. It does
 not eliminate the carried defect: a necessary claim mislabeled CHOSEN can still be
 wrongly rejected. Detailed model selection and threshold calibration follow this
 architecture decision; no specific model or quality claim is being assumed here.
@@ -58,6 +64,6 @@ It must not be represented as measuring semantic overlap.
 
 ## Boundary
 
-This choice changes which proposals survive the rejection loop, so the host has
-stopped before making it. A6 distinctness (Ruling 25), entrant standing and official
+This choice changes which proposals survive the rejection loop, so the host stopped before making it. The user has now approved semantic comparison
+and implementation has resumed. A6 distinctness (Ruling 25), entrant standing and official
 start authorization remain deferred; this note rules on none of them.

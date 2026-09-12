@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "isolated-median",
+  "mode": "development",
+  "entrant": "M1",
+  "actor": "collaboration:/root/m1_blind_fixture",
+  "model": "gpt-5.6-luna",
+  "median_path": "docs/tournament/harness-fixtures/m1-median.json",
+  "median_sha256": "2484f5849c9fda32addb327a5edece447f00db38d5a2f23acb482b0704fbcc31",
+  "brief_path": "docs/tournament/tail-test-s16.txt",
+  "files_read": {
+    "AGENTS.md": "3992e89da1ab6aff9a8baa2bef18cf636ea070886f4f214cd15b1cfde7fc6d86",
+    "CLAUDE.md": "5101209bae96b32c610803a8f94b1f092cface9de2952957bbb5d4132acc0a8f",
+    "docs/tournament/tail-test-s16.txt": "0db8d3ebff02a96c949739a23c3f30f202756fc9b0727a781902e105c4275878"
+  },
+  "candidate_exposure": false,
+  "disclosure": "Host dispatched a fresh-context worker with the brief and project instructions only. Worker reported no candidate exposure. This is an orchestrator attestation, not a cryptographic proof of the worker context."
+}

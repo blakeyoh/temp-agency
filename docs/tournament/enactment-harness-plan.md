@@ -343,6 +343,11 @@ model-authored, so it is committed before dispatch.
 A skill produces the blind median in isolation. `bin/overlap` compares against a committed
 threshold. The agent does not judge whether answers "look too similar."
 
+**Commissioner decision (2026-09-12):** meaning-level overlap using a pinned semantic
+model is approved. There is no stdlib-only rule; libraries are welcome for this project
+and every entrant. Pin the scorer, model, preprocessing and threshold, and validate with
+paraphrase and distinct-idea calibration cases before official dispatch.
+
 ### E3 — re-priced upward
 
 Rated 2/10 on the theory that a subagent can pick the opposite specialist. That is Ruling
@@ -521,7 +526,7 @@ Rulings 24/25 remain deferred. Next is Phase 3.
   Four real tools remain. State whether that is the amendment the contract awaited.
 - **Operator.** Name the official operator and base model. The scrimmage freeze says
   `codex:codex-rescue` / `gpt-5.6-luna`. E9's scrimmage ran on Claude. Choose.
-- **Interpreter floor.** Python 3.9 stdlib. Receipts record the interpreter.
+- **Runtime.** Existing core supports Python 3.9; dependencies and model artifacts are welcome and must be pinned. Receipts record the interpreter.
 - **Effect on frozen artifacts.** `evidence-contracts-s16.md` enactment states,
   `field-of-32.md` (A5, A3), `official-run-template.md`, `official-runs/README.md`,
   `build_s16_packets.py`.

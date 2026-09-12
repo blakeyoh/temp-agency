@@ -61,13 +61,13 @@ temp-agency/
 │
 ├── bin/                            # Tournament enactment harness: bin/verify, bin/draw, bin/seed-string
 ├── lib/                            # Harness library (receipt writer, tool lifecycle, verifier, binding rules); lib/README.md is the API
-├── tests/                          # Harness tests: python3 -m pytest tests -q (Python 3.9 floor, stdlib only)
+├── tests/                          # Harness tests: python3 -m pytest tests -q (Python 3.9 core floor; pinned libraries welcome)
 │
 └── docs/tournament/                # The 99th Idea Bracket; read HANDOFF.md, then enactment-harness-plan.md
 ```
 
 The harness under `bin/`, `lib/` and `tests/` exists for the tournament only. It is not
-part of the skill and is not loaded at runtime. Its rules: Python 3.9, stdlib only, every
+part of the skill and is not loaded at runtime. Its rules: Python 3.9 for the existing core; use suitable pinned libraries, and every
 `bin/` tool writes a receipt through `lib/receipt.py`, and `bin/verify` re-executes receipts
 from a `git archive` of the commit they name. Never write into `docs/tournament/receipts/`
 by hand.
@@ -163,3 +163,11 @@ It has to be installed. That’s a durable investment.
 witness. A knowledge file specifies *which* missiologist this is. Same for a Seth
 Godin-influenced marketer vs. a Byron Sharp-influenced one. The methodology is general;
 the perspective is yours.
+
+## Dependency policy (user decision, 2026-09-12)
+
+There is no stdlib-only rule. The user explicitly welcomes libraries that help this
+project or any entrant perform at its finest. Choose dependencies for contract fidelity
+and reproducibility; pin versions and model artifacts used by receipts. Preserve the
+existing core where practical, and document any additional runtime requirements.
+M1 semantic overlap is approved; do not substitute lexical matching for meaning.
