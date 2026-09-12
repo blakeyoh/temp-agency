@@ -474,6 +474,18 @@ none` is exempt from the dispatch check.
 verifier's trust in a field it did not check, never in replay itself. The lesson for
 every later tool: the gate validates every receipt field it branches on.
 
+### Phase 2 result (2026-09-12)
+
+`bin/prepare`, `lib/pipeline/`, `lib/bindings/prepare.py` and the three committed
+configs under `docs/tournament/pipeline/` implement A1, C8 and A5. All adapters pass
+archive replay and the full gate with honest test records. Negative cases reject a
+leaked noun, a withheld fact and raw-brief text outside Execution trace. Six persona
+outputs meet the <0.9 similarity thresholds. The full suite passes 119 tests on both
+Python 3.9.6 and 3.13.12. Details and outputs: `harness-phase2-report.md`.
+
+Phase 2 is a build result, not an official entrant dispatch or change of standing.
+Rulings 24/25 remain deferred. Next is Phase 3.
+
 ## 12. Risks accepted in writing
 
 1. **One trust domain.** The harness cannot stop a subagent that knowingly forges. It

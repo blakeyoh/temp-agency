@@ -106,3 +106,18 @@ Without the flag an OS-entropy seed only warns and the `seed` column reads `unat
 `tests/conftest.py` builds a throwaway git repo with a copy of `bin/` and `lib/`, a test
 tool `bin/echo-tool`, and `lib/bindings/echo_tool.py` (an alias of the example rule) so
 `verify all` can bind it. Tools run as subprocesses from that repo's root.
+
+## Pre-persona pipeline (Phase 2)
+
+`bin/prepare --entrant A1 --adapter transform --brief docs/tournament/tail-test-s16.txt
+--config docs/tournament/pipeline/a1-transforms.json --persona nuclear-reactor-operator
+--seed 1` follows the standard lifecycle. Use C8/mask or A5/withhold with the corresponding
+config and omit persona. Both input files must be committed before a receipt is issued.
+The deterministic adapters record a seed for dispatch attestation but do not use it.
+
+Only the `PERSONA-VISIBLE INPUT` payload belongs in the persona context. The transform
+record and withheld-fact config are audit material, not persona input. Store verbatim
+payload/audit evidence in `## Execution trace`; proposals use `## Abstract proposal`
+(mask) or `## Pass 1 proposal artifact` (transform/withhold). The binding check requires
+at least ten numbered proposal lines, checks frozen-wordlist leaks, and rejects raw brief
+sentences outside the trace. Verbatim presence is not proof of isolation or causal use.

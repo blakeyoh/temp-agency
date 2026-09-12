@@ -1,0 +1,170 @@
+{
+  "personas": {
+    "nuclear-reactor-operator": {
+      "operation": "strip_intent_keep_limits",
+      "params": {
+        "duration_words": [
+          "midnight",
+          "hours",
+          "month",
+          "days"
+        ],
+        "limit_words": [
+          "may not",
+          "must",
+          "cannot",
+          "will not",
+          "no",
+          "only"
+        ]
+      }
+    },
+    "magician-illusionist": {
+      "operation": "reverse_sentence_order",
+      "params": {}
+    },
+    "civil-rights-activist": {
+      "operation": "actors_only",
+      "params": {
+        "actors": [
+          "night-shift hospital workers",
+          "recreation-center employees",
+          "neighborhood association",
+          "restaurant employees",
+          "low-wage workers",
+          "hospital workers",
+          "family-run restaurant",
+          "recreation center",
+          "rideshare",
+          "association",
+          "teenagers",
+          "employees",
+          "residents",
+          "restaurant",
+          "workers",
+          "renters",
+          "resident",
+          "family",
+          "city"
+        ]
+      }
+    },
+    "systems-thinker": {
+      "operation": "stocks_and_flows",
+      "params": {
+        "verbs": [
+          "is",
+          "come",
+          "closes",
+          "leaving",
+          "practices",
+          "sleep",
+          "depend",
+          "has",
+          "will",
+          "add",
+          "create",
+          "change",
+          "alter",
+          "may",
+          "use",
+          "introduce",
+          "have",
+          "stopped",
+          "reporting",
+          "made",
+          "identify",
+          "earn",
+          "publish",
+          "require",
+          "place",
+          "show",
+          "preserving",
+          "propose",
+          "could",
+          "adopt",
+          "do",
+          "ban",
+          "seek",
+          "name",
+          "acts",
+          "changes",
+          "would",
+          "working",
+          "bears",
+          "be",
+          "restate",
+          "must"
+        ],
+        "adjectives": [
+          "160-home",
+          "small",
+          "mixed-use",
+          "legitimate",
+          "family-run",
+          "narrow",
+          "insulated",
+          "night-shift",
+          "one-time",
+          "volunteer",
+          "new",
+          "existing",
+          "voluntary",
+          "published",
+          "past",
+          "public",
+          "easy",
+          "near-minimum",
+          "primary",
+          "low-wage",
+          "credible",
+          "nighttime",
+          "distinct",
+          "specific",
+          "advance",
+          "different",
+          "earlier"
+        ]
+      }
+    },
+    "behavioral-psychologist": {
+      "operation": "strip_stated_preference",
+      "params": {
+        "markers": [
+          "must",
+          "should",
+          "may not",
+          "may",
+          "will not"
+        ]
+      }
+    },
+    "franciscan-monk": {
+      "operation": "subtract_to_core",
+      "params": {
+        "creaturely": [
+          "$12,000",
+          "budget",
+          "hours",
+          "sleep",
+          "wages",
+          "health",
+          "work schedule",
+          "household status",
+          "workers",
+          "residents",
+          "resident",
+          "renters",
+          "teenagers"
+        ],
+        "remove": [
+          "about",
+          "several",
+          "some",
+          "substantively"
+        ]
+      }
+    }
+  },
+  "sentence_split": "regex"
+}

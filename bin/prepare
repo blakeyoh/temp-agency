@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""Prepare a committed Tail Test brief before a persona sees it."""
+import argparse
+import json
+import sys
+
+sys.dont_write_bytecode = True
+from pathlib import Path  # noqa: E402
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools  # noqa: E402
+from lib.errors import ToolError  # noqa: E402
+from lib.paths import sha256_file  # noqa: E402
+from lib.pipeline import run  # noqa: E402
+
+ENTRANTS = {"transform": "A1", "mask": "C8", "withhold": "A5"}
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(prog="prepare")
+    tools.add_common_args(parser)
+    parser.add_argument("--adapter", choices=tuple(ENTRANTS))
+    parser.add_argument("--brief", help="committed repo-relative brief")
+    parser.add_argument("--config", help="committed repo-relative JSON config")
+    parser.add_argument("--persona", help="transform persona slug")
+    return parser
+
+
+def require_inputs(args):
+    for name in ("brief", "config"):
+        value = getattr(args, name)
+        if not value or Path(value).is_absolute() or ".." in Path(value).parts:
+            raise ToolError("--%s must name a repo-relative committed file" % name)
+        if any(c.isspace() for c in value):
+            raise ToolError("--%s cannot contain whitespace" % name)
+    if args.brief == args.config:
+        raise ToolError("brief and config must be different files")
+    return [args.brief, args.config]
+
+
+def render(args, root):
+    if ENTRANTS.get(args.adapter) != args.entrant:
+        raise ValueError("adapter must match entrant: transform A1, mask C8, withhold A5")
+    if args.adapter != "transform" and args.persona is not None:
+        raise ValueError("--persona is only valid for transform")
+    brief = (root / args.brief).read_text(encoding="utf-8")
+    config = json.loads((root / args.config).read_text(encoding="utf-8"))
+    result = run(args.adapter, brief, config, args.persona)
+    header = ("PREPARE entrant=%s adapter=%s persona=%s brief=%s config=%s "
+              "brief_sha256=%s config_sha256=%s") % (
+                  args.entrant, args.adapter, args.persona or "none", args.brief,
+                  args.config, sha256_file(root / args.brief), sha256_file(root / args.config))
+    return (header + "\n\n=== PERSONA-VISIBLE INPUT ===\n" + result.visible
+            + "\n=== END ===\n\n=== TRANSFORM RECORD ===\n"
+            + "\n".join(result.record_lines) + "\n=== END ===\n")
+
+
+def main(argv):
+    parser = build_parser()
+    replay = tools.maybe_replay(parser, argv)
+    ctx = tools.make_context(__file__)
+    if replay:
+        args = parser.parse_args(tools.replay_args(replay))
+        require_inputs(args)
+        tools.emit(render(args, ctx.root))
+        return 0
+    args = parser.parse_args(argv)
+    entrant = tools.require_entrant(parser, args)
+    inputs = require_inputs(args)
+    seed = tools.draw_seed(args.seed)
+    output, path = tools.run_tool(
+        ctx, entrant, argv, inputs, seed, "replay-exact", None,
+        lambda: render(args, ctx.root))
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == "__main__":
+    tools.exit_on_error(main)

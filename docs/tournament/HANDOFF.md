@@ -61,16 +61,16 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
-**Enactment harness · 2026-09-08 — Phase 0 built, Phase 1 closed twice, Phase 2 not
-started.** The Sweet 16 cannot dispatch until every non-PROMISE entrant has a real
-executable and every source record carries machine-verified receipts. The design is
-`enactment-harness-plan.md` (v4; read §4 first, it defines what "verified" means). Built so
-far: `lib/` (receipt writer, tool lifecycle, verifier), `bin/verify`, `bin/draw` (E1),
-`bin/seed-string` (E9), `tests/` (`python3 -m pytest tests -q`, Python 3.9 floor). Two
-adversarial fixtures each beat the gate once and were closed the same day; the evidence and
-the receipts live under `harness-fixtures/` and the live `receipts/` directory must stay
-empty until official dispatch. Next: Phase 2, the pre-persona pipeline for A1, C8 and A5
-over the Tail Test brief (plan §8.1). Rulings 24 and 25 remain deliberately deferred.
+**Enactment harness · 2026-09-12 — Phases 0–2 built and verified.** The Sweet 16
+cannot dispatch until every non-PROMISE entrant has a real executable and every source
+record carries machine-verified receipts. Read `enactment-harness-plan.md` §4 for the
+trust boundary. Phase 2 adds `bin/prepare`, the transform/mask/withhold adapters for
+A1/C8/A5, committed pipeline configs and binding checks over the Tail Test brief.
+`harness-phase2-report.md` records implementation details, six persona outputs and
+verification: 119 tests pass on Python 3.9.6 and 3.13.12. The live `receipts/` directory
+remains reserved for official dispatch; development tests use throwaway repositories.
+Next: Phase 3, required-tool layer for A3 and M1. Rulings 24 and 25 remain deliberately
+deferred; no entrant standing or official freeze has been changed.
 
 **Before any scrimmage, read five more things after the governing four:**
 

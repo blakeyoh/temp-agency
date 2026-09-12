@@ -1,0 +1,15 @@
+{
+  "conditions": {
+    "budget": {
+      "withhold": "The volunteer neighborhood association has a one-time budget of $12,000 and about eight volunteer hours per month.",
+      "key": "The association has only $12,000 and about eight volunteer hours per month available.",
+      "negative_words": ["12,000", "12000", "eight", "volunteer hours"]
+    },
+    "night-shift": {
+      "withhold": "Several night-shift hospital workers sleep nearby",
+      "key": "Night-shift hospital workers sleep near the reported nighttime noise.",
+      "negative_words": ["night-shift", "hospital"]
+    }
+  },
+  "condition": "budget"
+}
