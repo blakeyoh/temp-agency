@@ -489,13 +489,20 @@ outputs meet the <0.9 similarity thresholds. The full suite passes 119 tests on 
 Python 3.9.6 and 3.13.12. Details and outputs: `harness-phase2-report.md`.
 
 Phase 2 is a build result, not an official entrant dispatch or change of standing.
-Rulings 24/25 remain deferred. Phase 3 is now implemented and host-verified, with A3
-real toolbelts and M1's authenticated prior median seal plus semantic comparator. C5's
-Phase 4 tool is implemented; E2 acquisition and the approved independent-evaluator
-gate are implemented. The commissioner decision is in `forage/deletion-gate-decision.md`;
-real calibration results and limitations are in `forage/calibration/README.md`. The Phase 6 chain-consistent forged
-attestation fixture was completed early and fails the full gate. See the phase reports
-for exact verification scope and remaining directive work.
+Rulings 24/25 remain deferred. Phase 3 and Phase 4 implementations are verified;
+E6's committed deck is also built. E4's crossover-only builder, E5's 1911 surface checker
+and E3's lexical router are now implemented, with their narrower bounds explicit.
+E3 still fails its required deletion check. A partial independent Phase 7 read of these
+three entrants found scope gaps against the frozen contracts; commissioner decisions
+are pending in `contract-review/phase5-host-findings.md`. Phase 5 is not declared complete
+merely because its executables exist. Full contract review, packet integration and
+directives remain outstanding.
+
+The integrated suite passed 250 tests in 122.46 seconds. Final E3 label hardening was
+additionally verified by nine focused tests, including three new cases. See
+`harness-phase5-report.md` for exact scope. E2's approved evaluator decision and real
+calibration remain in `forage/`; Phase 6's forged-attestation fixture was completed early.
+No entrant standing or official dispatch authorization has changed.
 
 ## 12. Risks accepted in writing
 

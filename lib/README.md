@@ -197,3 +197,58 @@ into an enacted record by writing an evaluation file.
 Changed source hashes or incomplete corpus coverage reject the draw. Full output belongs
 in Execution trace and the exact selected card belongs in Mechanism output. Binding
 verifies those bytes, not obedience in generated prose. See the deck README for provenance.
+
+## E4 crossover builder
+
+`bin/breed --entrant E4 --parent-a roster/<a>.md --parent-b roster/<b>.md --seed N`
+performs a deterministic, crossover-only build. It takes `Core Principles` from parent A,
+`Methodology` from parent B, and interleaves both parents' `Anti-Patterns` blocks using the
+seed. Parents must be distinct, and the selected methodology must contain at least two
+numbered phases. The receipt is replay-exact and pins both parent hashes.
+
+Put the complete receipt output in Execution trace. In Mechanism output, preserve the
+canonical JSON object `{"child": <exact child string>}`; this keeps the child's Markdown
+headings from being confused with the surrounding record sections.
+
+The child is a one-task crossover fragment. Point mutation, child scoring, promotion, and
+death history are deliberately outside this executable and its binding rule; it does not
+implement the complete breeding lifecycle described by the original entrant proposal.
+
+## E5 dated specialist checker
+
+`bin/lexicon-check --entrant E5 --lexicon docs/tournament/eras/1911.json \
+  --profile roster/<specialist>.md --candidate <candidate.json> \
+  --specialist <specialist> --era 1911 [--previous <receipt.json>]`
+checks candidate items against the frozen era lexicon and emits a replay-exact receipt.
+The current supported era is 1911. All 24 real roster profiles are eligible in the frozen
+configuration. Matching normalizes Unicode with NFKC and permits punctuation, underscore,
+and whitespace variants around multiword terms. A rejected candidate can be regenerated
+with `--previous`; the binding requires one retained, non-forked chain, preserves item IDs,
+requires every leaking item to change, and requires the final leak-free candidate to match
+the proposal.
+
+The 1911 list is a model-authored surface blacklist preserved from the scrimmage. It catches
+those frozen terms and their normalized variants, not conceptual anachronisms or every term
+that could be historically unavailable. The era metadata is experimental dispatch
+eligibility, not a claim that the modern role existed in 1911.
+
+## E3 opposite-specialist routing
+
+`bin/route --entrant E3 --brief <brief> --index references/roster.md \
+  --domain-specialist <lens>` routes against the complete built roster. It validates that
+the roster index and actual profile corpus contain the same 24 built specialists, computes
+unique word-token Jaccard overlap after NFKC normalization and frozen stopwords, and chooses
+the lowest-scoring eligible profile with slug-ascending tie-breaking. The supplied domain
+specialist is recorded as the LENS and excluded from LEAD selection; that supplied choice is
+not independently classified by the tool. The receipt is replay-exact and pins the brief,
+index, and all profile hashes.
+
+The binding verifies the recorded corpus, scores, and explicit LEAD/LENS, then fails its
+independent deletion-gate check unconditionally. E3 therefore cannot pass enactment until a
+separate semantic frame-dependence and regeneration gate is implemented; lexical routing
+alone is not that gate.
+
+Phase 5 focused verification for these three tools totals 20 tests: 5 for E4, 9 for E5,
+and 6 for E3. The integrated suite passed 250 tests; subsequent E3 label hardening passed nine focused
+route tests, including three new cases. See the Phase 5 contract-review note for pending
+mechanism choices.

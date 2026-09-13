@@ -759,6 +759,121 @@
         "elapsed_ms": 91075
       },
       "review": "Host read all 480 cards and all sixteen source packs; accepted as creative distillations. The tool excludes the first ten cards per pack and verifies exact corpus coverage and source hashes."
+    },
+    {
+      "scope": "Independent Phase7 contract read scoped to E3/E4/E5",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:35:47+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Perform the independent Phase 7 contract read for E3, E4 and E5 only. Compare their actual new executable implementations and binding rules with the build plan, evidence contracts and ratified Amendment 5. Identify concrete gaps that need commissioner interpretation before official packet integration. Distinguish intentional build scope from complete enactment claims. Recommend the smallest contract-faithful next action for each; do not propose silently weakening contracts or claim tests ran. Also identify any direct implementation defect visible in supplied files. Return concise severity-ranked findings, evidence paths, and a decision table; no patch. User welcomes libraries and approved independent model veto specifically for E2; no general stdlib-only rule exists.",
+          "output_mode": "review",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/enactment-harness-plan.md",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 36916,
+            "sha256": "b680302812483a589b9314459eb5cc36142bd67133a0f2f1bdd1e8d20bdd25f3"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/evidence-contracts-s16.md",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 16009,
+            "sha256": "df5485164e5c966516e82d3b624c244e6325f598886e6c7f6db906788c9da117"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/rules-v2.md",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 20674,
+            "sha256": "a90187cc98707c2a5546d30013e6b9133ebd7fd39045f0f81fcc181a0fcf2799"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/breed.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 2469,
+            "sha256": "4c39a4d92d74b6aca5cb681496a9a42ee8410e21e0320ec0a61d3c345fe75147"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/bindings/breed.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 1708,
+            "sha256": "eb685598627990146377d1b4dc0d1ba1eda62d7134437f8b11b3da7222c4cfd6"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/lexicon.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 4685,
+            "sha256": "193eff75c30954cad47058c5f8c30136749e2ef6aa856f545183f83c1df7c21a"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/bindings/lexicon_check.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 4066,
+            "sha256": "1d965891bca041b5dd13803285b86e40a3ef183eafa3f128459204c833dbed80"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/eras/1911.json",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 2609,
+            "sha256": "42f335d31965dcffb5325a7079171cc0b833856b17c904b671001f4cb69377cf"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/route.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 2883,
+            "sha256": "d1ca82780480087b27ab3b4c80d34f4d94b367a18cd1fbb3f4eabf87dc5b5d97"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/lib/bindings/route.py",
+            "purpose": "Frozen contract or implementation evidence",
+            "bytes": 1869,
+            "sha256": "073867ae171100c4da7169f5ddec61d703e1d4d98c708e5cabc99cc1195b1f04"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789328166-pmCC4BC1pvKWNhwhmGj6",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 2285,
+        "cost_usd": 0.0526912,
+        "usage": {
+          "prompt_tokens": 23434,
+          "completion_tokens": 4519,
+          "total_tokens": 27953,
+          "cost": 0.0526912,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0526912,
+            "upstream_inference_prompt_cost": 0.0328076,
+            "upstream_inference_completions_cost": 0.0198836
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2285,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 58381
+      },
+      "review": "Host confirmed contract gaps and fixed E3 prefix-substring label binding with exact unique-line parsing. Intentional fail-closed behavior is not itself an implementation defect. Review is partial Phase7, not a readiness sign-off."
     }
   ],
   "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."

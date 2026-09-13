@@ -61,28 +61,27 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
-**Enactment harness · 2026-09-12 — Phases 0–3 built and verified; Phase 4 underway.** The Sweet 16
-cannot dispatch until every non-PROMISE entrant has a real executable and every source
-record carries machine-verified receipts. Read `enactment-harness-plan.md` §4 for the
-trust boundary. Phase 2 adds `bin/prepare`, the transform/mask/withhold adapters for
-A1/C8/A5, committed pipeline configs and binding checks over the Tail Test brief.
-`harness-phase2-report.md` records implementation details, six persona outputs and
-verification: 119 tests pass on Python 3.9.6 and 3.13.12. The live `receipts/` directory
-remains reserved for official dispatch; development tests use throwaway repositories.
-Phase 3 adds A3's real toolbelts and M1's pinned semantic comparator with a verified
-prior git seal of its isolated median. C5's two-stage notation tool is implemented and
-tested. The full advanced runtime suite passes 182 tests on Python 3.13.12; see
-`harness-phase3-report.md`, `harness-phase4-report.md`, and `harness-delegations.json`.
-A fabricated, locally chain-consistent attestation is rejected, satisfying the Phase 6
-fixture early. The commissioner approved E2's independent evaluator with binding veto.
-`bin/forage-gate` now enforces sealed model verdicts, regeneration lineage and an exact
-final proposal match; fetch-only binding still fails. Real calibration evidence and its
-quality limitations are recorded in `forage/calibration/README.md`. E6 now has its full
-committed deck and replayable draw; ten focused tests pass (`harness-phase5-report.md`).
-Next: Phase 5 E4/E5/E3 tools, independent contract read,
-packet integration and directives. Rulings 24 and 25 remain deliberately deferred; no
-entrant standing or official freeze has been changed. The user welcomes libraries and
-has authorized future external delegations for this session; the host reviews all patches.
+**Enactment harness · 2026-09-13 — Phases 0–4 verified; Phase 5 code built with contract gaps pending.**
+E6 has its complete committed deck and replayable draw. E4 implements crossover only;
+E5 implements a frozen 1911 surface lexicon with retained regeneration; E3 implements
+full-roster routing but fails enactment until its deletion gate exists. The independent
+E3/E4/E5 contract read confirmed those limits. See `contract-review/phase5-host-findings.md`
+for the three pending commissioner choices and the E3 label-binding fix.
+
+The integrated suite passed 250 tests on Python 3.13.12 in 122.46 seconds, with one
+upstream Torch warning. Final route-label hardening additionally passes nine focused
+tests, including three new cases. Historical Phase 2/3/4 results remain in their reports.
+Read `enactment-harness-plan.md` §4 for the trust boundary. Development tests use
+throwaway repositories; the live `receipts/` directory remains reserved for dispatch.
+
+A3's real toolbelts, M1's pinned semantic comparator and authenticated prior median,
+C5's notation tool, and E2's approved independent evaluator gate are implemented.
+E2's real calibration evidence and evaluator quality limitations remain in
+`forage/calibration/README.md`. The chain-consistent forged-attestation fixture was
+completed early for Phase 6. A partial independent contract read has run; full Phase 7,
+packet integration and directives remain. Rulings 24/25 and official authorization are
+unchanged. The user welcomes libraries and authorizes external delegation in this session;
+the host reviews code and tests. GPT-5.6 Luna assists with documentation.
 
 **Before any scrimmage, read five more things after the governing four:**
 

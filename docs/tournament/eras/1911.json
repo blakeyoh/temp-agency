@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "era": 1911,
+  "range_purpose": "Experimental dispatch eligibility, not historical existence of the modern role. Only the frozen 1911 vocabulary set is currently supported.",
+  "specialists": {
+    "anthropologist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "behavioral-psychologist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "business-development-director": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "chief-of-staff": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "civil-rights-activist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "contrarian": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "executive-coach": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "farmer": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "fiction-author": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "franciscan-monk": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "gen-z-expert": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "investigative-journalist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "left-fielder": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "magician-illusionist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "michelin-star-chef": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "military-three-star-general": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "missiologist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "nuclear-reactor-operator": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "pediatric-occupational-therapist": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "physics-professor": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "soccer-referee": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "systems-thinker": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "trauma-informed-practitioner": {
+      "min_year": 1911,
+      "max_year": 1911
+    },
+    "world-builder": {
+      "min_year": 1911,
+      "max_year": 1911
+    }
+  },
+  "forbidden_terms": [
+    "networking",
+    "network",
+    "elevator pitch",
+    "LinkedIn",
+    "personal brand",
+    "social media",
+    "social battery",
+    "QR code",
+    "QR codes"
+  ],
+  "provenance": "Frozen from the model-authored 1911 working lexicon in docs/tournament/scrimmages/s16-e5.md. Conservative surface blacklist; network also rejects historical senses. Not an exhaustive historical dictionary."
+}
