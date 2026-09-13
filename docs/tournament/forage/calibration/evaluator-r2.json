@@ -1,0 +1,37 @@
+{
+  "content": "```json\n{\n  \"schema_version\": 1,\n  \"verdicts\": [\n    {\n      \"item_id\": \"i1\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"the sound energy is deflected toward the mixed-use strip and away from the street where night-shift hospital workers sleep\",\n      \"artifact_quote\": \"caused damage to an unoccupied [[Piper J-3 Cub|Piper Cub]] at the airport while taxiing, due to the large plane's [[jet blast]]\",\n      \"deletion_effect\": \"Without the directional jet-blast mechanism, the rule collapses into 'install some barrier near the alley'; the specific operating content \u2014 mapping a concentrated sound cone and placing the baffle exactly where it intersects sleepers' homes to deflect energy toward the commercial strip \u2014 is lost, since that placement condition and deflection tradeoff exist only because the item treats noise as directional blast energy.\",\n      \"reason\": \"The artifact's documented jet-blast damage establishes a directional-cone model of energy propagation, and the candidate's operating rule (where the baffle goes and which way it reflects) materially depends on that mechanism rather than on decoration or naming.\"\n    },\n    {\n      \"item_id\": \"i2\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"divide existing 311 complaints into coarse activity categories without publishing homes, identities or complaint locations\",\n      \"artifact_quote\": \"69% [[general aviation]], 19% [[air taxi]], and 12% [[military aviation|military]]\",\n      \"deletion_effect\": \"Removing the artifact's division of airport operations into fixed activity categories removes the rule's core allocation structure: partitioning complaints by activity type and reserving mitigation funds in proportion to aggregate category shares. What remains is only a generic instruction to spend the budget on noise mitigation with no categorization condition or proportional-allocation relationship.\",\n      \"reason\": \"The operating rule is the categorical decomposition and proportional budget split itself, a mechanism the artifact supplies via its published general-aviation/air-taxi/military category breakdown; deleting it eliminates the concrete condition and tradeoff, not merely a citation.\"\n    },\n    {\n      \"item_id\": \"i3\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"under a written reversal clause: if the day-45 aggregate complaint data shows a different category has become the largest contributor, the equipment automatically reverts to the association\",\n      \"artifact_quote\": \"the airfield was conveyed to [[Suffolk County, New York|Suffolk County]] for use as a civilian airport, but included a reversal clause if future military use was ever needed\",\n      \"deletion_effect\": \"Without the conveyed-asset-with-reversal-clause mechanism, the item reduces to 'buy some acoustic equipment for the loudest source,' losing the reversion rule: equipment retained in association ownership, automatic mid-trial redeployment at day 45 with no renegotiation, and the tradeoff that recipients accept a temporary rather than permanent asset.\",\n      \"reason\": \"The artifact's 1943 conveyance with a reversal clause is the specific mechanism generating the item's operating condition (conditional reversion of the equipment when complaint data shifts); removing it removes a concrete action, condition and tradeoff, so the item is dependent.\"\n    },\n    {\n      \"item_id\": \"i4\",\n      \"decision\": \"unchanged\",\n      \"proposal_quote\": \"they stand at the recreation-center exit and the alley mouth with printed, association-published schedules of legal pickup alternatives and quiet departure tips\",\n      \"artifact_quote\": \"\",\n      \"deletion_effect\": \"Removing the airport police staffing fact (two pilots and a paramedic on duty 7AM\u201311PM) leaves the substantive recommendation intact: volunteer stewards hand out informational schedules at the two hotspot locations during the measured peak complaint window. The number of stewards and the fixed window survive as ordinary volunteer-capacity arithmetic already implied by the brief's eight-hour monthly limit.\",\n      \"reason\": \"The aviation section's staffing pattern is an unrelated airport fact used to dress up headcount and shift length; the causal substance \u2014 presence at hotspots during peak complaint times with printed alternatives \u2014 neither derives from nor is altered by the borrowed staffing detail, so the same recommendation survives deletion.\"\n    }\n  ]\n}\n```",
+  "work_packet": null,
+  "receipt": {
+    "model": "z-ai/glm-5.3",
+    "provider": "Z.AI",
+    "request_id": "gen-1789326642-pTWiLggiCps5BiIJsyCO",
+    "finish_reason": "stop",
+    "truncated": false,
+    "reasoning_tokens": 430,
+    "cost_usd": 0.01540544,
+    "usage": {
+      "prompt_tokens": 6898,
+      "completion_tokens": 1323,
+      "total_tokens": 8221,
+      "cost": 0.01540544,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01540544,
+        "upstream_inference_prompt_cost": 0.00958424,
+        "upstream_inference_completions_cost": 0.0058212
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 430,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_ms": 17392
+  }
+}

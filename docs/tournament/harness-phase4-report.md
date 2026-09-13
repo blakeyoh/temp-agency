@@ -1,6 +1,6 @@
 # Phase 4 development report
 
-Status: C5 complete; E2 source acquisition verified, deletion-gate design awaiting commissioner decision. No official dispatch.
+Status: C5 complete; E2 source acquisition and approved independent-evaluator gate implemented. Model calibration remains development evidence. No official dispatch.
 
 ## C5 notation transposition
 
@@ -50,14 +50,26 @@ The full suite passed 200 tests in 94.47 seconds, with one upstream Torch warnin
 Final source-input hardening is covered by the focused E2 suite. Tests verify exact
 revision lookup, forged IDs/text/times, malformed payloads, no redirect following,
 network failure, source-input mismatch and a fetch-only full-gate rejection. A passing
-source attestation cannot produce a passing E2 bind: `deletion_gate` remains false.
+source attestation alone cannot produce a passing E2 bind.
 
-The substantive gate requires a commissioner decision described in
-`forage/deletion-gate-decision.md`, with four architecture probes in
-`forage/deletion-probe.json`. Reusing M1's metric/threshold does not distinguish
-mechanism loss from decorative-reference loss. The recommendation is an independent
-model evaluator with binding veto, mechanically enforced and hash-attested. This is
-not implemented or assumed approved. E2 remains NOT ENACTED.
+The commissioner approved an independent model evaluator with binding veto.
+`bin/forage-gate` reads a prior git seal of the brief, source, candidate, rubric,
+manifest, model response, invocation and actual fetch receipt. The verdict schema
+requires exact source/proposal quotes. All items must be dependent and at least three
+must survive. Unchanged or indeterminate items require regeneration under stable IDs;
+all rounds remain cited, connected and visible in the trace. The final proposal must
+match the last accepted candidate verbatim. Forks, missing predecessors, self-review,
+extra context/instructions, changed sealed inputs and forged attestations fail closed.
+
+The host owns code review, execution and source-grounding checks. A sealed model response
+is an orchestrator attestation, not cryptographic proof of hidden context or causal
+influence. Actual model calibration includes both useful rejections and evaluator errors;
+see `forage/calibration/README.md`. The development subset is not the eventual 24-item
+Tail Test and did not issue an official fetch/evaluation receipt.
 
 Sources checked: https://www.mediawiki.org/wiki/API:Random and
 https://www.mediawiki.org/wiki/API:Revisions.
+
+Final gate verification: 220 tests pass on Python 3.13.12 in 118.40 seconds, with one
+upstream Torch deprecation warning. The focused evaluator suite includes unchanged-item
+resubmission, missing predecessor citations, forked lineages and hidden manifest instructions.

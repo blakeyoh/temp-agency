@@ -155,3 +155,35 @@ receipt before artifact authoring. `--mode validate --catalog PATH --selection R
 call. The record must reproduce both outputs in `## Execution trace` and translate the
 notation into numbered `## Pass 1 proposal artifact` items prefixed `[notation-item-id]`.
 Both selection and validation receipts must be cited. Slot failure forbids a passing bind.
+
+
+## E2 independent evaluation gate
+
+After the committed corpus draw and `bin/forage` fetch, save the exact returned artifact
+and freeze a candidate JSON (`schema_version: 1`, ordered `items` with `id` and `text`).
+The independent OpenRouter request uses `lib.forage_audit.EVALUATOR_BRIEF`, output mode
+`critique`, no added constraints/acceptance criteria, and exactly four context files.
+Use the fixed purpose strings in `CONTEXT_PURPOSES` for brief, artifact, candidate and
+rubric. The generator must not make this judgment in its own invocation.
+
+Persist the complete response and manifest. Run `scripts/record-forage-evaluation.py`
+with `--manifest`, `--response`, `--brief`, `--artifact`, `--candidate`, `--rubric`,
+`--generator-actor`, `--mode development|official`, `--attest-independent` and `--out`.
+This records the host's isolation attestation; it is not a receipt writer. Commit all
+inputs and this invocation. Make a later dispatch commit, then invoke `bin/forage-gate`
+with `--entrant E2`, `--seal-commit` (full prior commit ID), the six named evaluation file inputs,
+`--invocation`, and `--fetch-receipt` pointing to the actual successful source receipt.
+All tool input paths are repository-relative.
+
+A well-formed negative semantic verdict creates an ok receipt whose result is false;
+malformed evidence creates a failed receipt. Regenerate every rejected item, preserve
+IDs, reevaluate the complete candidate in a fresh request, and include the actual prior
+gate receipt through `--previous` in the next sealed round. Cite every round and fetch
+in the record, retain their exact outputs in Execution trace, and render the accepted
+candidate as numbered `1. [item-id] text` items in Pass 1 proposal artifact. At least
+three must survive and no rejected item may remain. The enclosing packet enforces the
+brief's final item count; this generic gate also supports smaller development subsets.
+
+The full gate checks the independently resolving source plus the evaluator evidence and
+lineage. A development probe artifact without a real fetch receipt cannot be promoted
+into an enacted record by writing an evaluation file.

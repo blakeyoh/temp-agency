@@ -10,7 +10,7 @@ from lib.paths import repo_root, sha256_file, git_output
 from lib.receipt import list_receipts, load
 
 VERIFICATION_CLASS = 'hash-attested'
-BOUND_SPAN = 'server revision and exact artifact text, prior corpus draw; deletion gate pending'
+BOUND_SPAN = 'server revision and exact artifact text, prior corpus draw; independent deletion verdict enforced'
 
 
 def _trace(text):
@@ -59,7 +59,11 @@ def check(record_text, receipt):
                         '; '.join(problems) if problems else 'verified', not problems)]
     except (HarnessError, ValueError, KeyError, TypeError, OSError) as exc:
         checks = [Check('source_attestation', 'verified external source', str(exc), False)]
-    # Deliberately fail closed. Fetch-only evidence cannot pass the amended E2 contract.
-    checks.append(Check('deletion_gate', 'at least three surviving artifact-dependent items',
-                        'NOT ENACTED: deletion-gate decision pending', False))
-    return BindResult(False, BOUND_SPAN, checks)
+    try:
+        from lib.bindings.forage_gate import evaluation_chain
+        final_id, _gates = evaluation_chain(repo_root(), record_text, receipt['receipt_id'])
+        checks.append(Check('deletion_gate', 'accepted independent verdict with at least three survivors',
+                            'verified final evaluation ' + final_id, True))
+    except Exception as exc:
+        checks.append(Check('deletion_gate', 'accepted independent deletion verdict', str(exc), False))
+    return BindResult(all(c.passed for c in checks), BOUND_SPAN, checks)

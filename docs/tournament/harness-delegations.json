@@ -221,6 +221,393 @@
         "elapsed_ms": 36717
       },
       "review": "Host inspected patch; corrected hunk count; unit and live revision verification passed. Code uses standard library by choice, not policy."
+    },
+    {
+      "scope": "E2 verdict schema and deterministic enforcement",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T15:51:28+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Implement the deterministic E2 verdict enforcer in lib/forage_verdict.py from the exact supplied schema. Independent model judgment is now user-approved.",
+          "output_mode": "implementation",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [
+            "Strict evidence quoting and complete per-item coverage; unchanged or uncertain items fail, with at least three dependent survivors required."
+          ],
+          "constraints": [
+            "Only lib/forage_verdict.py; no model calls, authenticity claims, other files or execution claims."
+          ]
+        },
+        "context": [
+          {
+            "path": "/private/tmp/s16-e2-verdict-glm/spec.md",
+            "purpose": "Complete bounded schema and deterministic enforcement contract",
+            "bytes": 2742,
+            "sha256": "229561ae9300d1c19add2a117a99b0722ea0dc3f7b13cca85c69b076406b82b1"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789314753-yfEDQsK3u6RXaeq2poVC",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 16,
+        "cost_usd": 0.0119174,
+        "usage": {
+          "prompt_tokens": 781,
+          "completion_tokens": 2460,
+          "total_tokens": 3241,
+          "cost": 0.0119174,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0119174,
+            "upstream_inference_prompt_cost": 0.0010934,
+            "upstream_inference_completions_cost": 0.010824
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 16,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 30933
+      },
+      "review": "Host reviewed patch, fixed type and whitespace validation, tested enforcement."
+    },
+    {
+      "scope": "Independent E2 calibration round 1",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T16:02:25+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E2 deletion rubric to every supplied candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/brief.txt",
+            "purpose": "Frozen development brief; evaluate this subset, not a final 24-item submission.",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/artifact.json",
+            "purpose": "Exact previously server-verified random Wikipedia artifact; use its content string for quotes.",
+            "bytes": 16439,
+            "sha256": "693ef2897429c5ef8f2ca222b8c4b7b2c036e167decd4d5aecfbe74449af5acd"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/candidate-r1.json",
+            "purpose": "Four host-authored calibration candidates; evaluator receives no expected verdicts.",
+            "bytes": 2570,
+            "sha256": "da1984acb0e58771301a543ef0abaf824fb201a90e12003a68b45bb1a8ccf2a7"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/evaluator-rubric.md",
+            "purpose": "Approved independent deletion rubric and strict output schema.",
+            "bytes": 2564,
+            "sha256": "12c31157555779d9321b2a0f2dfbb99d687e8f13b8b7ac0389c5115061210b05"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789315363-D0UZreMwK9VRZIZ6nUkH",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 974,
+        "cost_usd": 0.0167308,
+        "usage": {
+          "prompt_tokens": 6482,
+          "completion_tokens": 1740,
+          "total_tokens": 8222,
+          "cost": 0.0167308,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0167308,
+            "upstream_inference_prompt_cost": 0.0090748,
+            "upstream_inference_completions_cost": 0.007656
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 974,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 31851
+      },
+      "review": "One accepted, three rejected; valid exact quotes. Host notes possible over-rejection."
+    },
+    {
+      "scope": "Regenerate three rejected E2 calibration items",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:08:55+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Regenerate rejected E2 candidate items i1, i3, and i4 using the supplied competition prompt, source artifact, brief and evaluator feedback. Preserve accepted i2 byte for byte and all four IDs/order. Make borrowed source mechanisms concretely change the proposed rules while satisfying the town constraints. Return only fenced JSON with schema_version 1 and items containing id and text. Do not judge your own work or invent source facts.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/brief.txt",
+            "purpose": "Town constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/artifact.json",
+            "purpose": "Required source material",
+            "bytes": 16439,
+            "sha256": "693ef2897429c5ef8f2ca222b8c4b7b2c036e167decd4d5aecfbe74449af5acd"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/generation-prompt.md",
+            "purpose": "Competition instructions",
+            "bytes": 1924,
+            "sha256": "f4a05b005338f6c0b641291a8567300629fb0d7cef731dd8c12a741f694cdbb8"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/candidate-r1.json",
+            "purpose": "Previous items and preserved i2",
+            "bytes": 2570,
+            "sha256": "da1984acb0e58771301a543ef0abaf824fb201a90e12003a68b45bb1a8ccf2a7"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/result-r1.json",
+            "purpose": "Rejection feedback",
+            "bytes": 3988,
+            "sha256": "fbd7dfbb5ef66c0b38046f892b95d6ab09e00b9e0ac8d16ee81b26c4ae9f7206"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789326551-t2r0eUu8n6BdsHhto2hN",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 693,
+        "cost_usd": 0.01729,
+        "usage": {
+          "prompt_tokens": 7202,
+          "completion_tokens": 1638,
+          "total_tokens": 8840,
+          "cost": 0.01729,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.01729,
+            "upstream_inference_prompt_cost": 0.0100828,
+            "upstream_inference_completions_cost": 0.0072072
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 693,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 28420
+      },
+      "review": "Preserved accepted i2. Host found unsupported source claims, retained evidence for evaluation."
+    },
+    {
+      "scope": "Independent E2 calibration round 2",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:10:23+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E2 deletion rubric to every supplied candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/brief.txt",
+            "purpose": "Frozen task constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/artifact.json",
+            "purpose": "Verified source artifact",
+            "bytes": 16439,
+            "sha256": "693ef2897429c5ef8f2ca222b8c4b7b2c036e167decd4d5aecfbe74449af5acd"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/candidate-r2.json",
+            "purpose": "Frozen candidate to evaluate",
+            "bytes": 4756,
+            "sha256": "f2755cc7198c7280d43fcff1f7ac3cc91e55fe37446294164af3c0f688d3a31f"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/evaluator-rubric.md",
+            "purpose": "Binding independent rubric",
+            "bytes": 2564,
+            "sha256": "12c31157555779d9321b2a0f2dfbb99d687e8f13b8b7ac0389c5115061210b05"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789326642-pTWiLggiCps5BiIJsyCO",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 430,
+        "cost_usd": 0.01540544,
+        "usage": {
+          "prompt_tokens": 6898,
+          "completion_tokens": 1323,
+          "total_tokens": 8221,
+          "cost": 0.01540544,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 64,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.01540544,
+            "upstream_inference_prompt_cost": 0.00958424,
+            "upstream_inference_completions_cost": 0.0058212
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 430,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 17392
+      },
+      "review": "Three accepted, one rejected. Judge missed source overclaims; host corrected them before round 3."
+    },
+    {
+      "scope": "Independent E2 calibration round 3",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:12:05+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E2 deletion rubric to every supplied candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/brief.txt",
+            "purpose": "Frozen task constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/artifact.json",
+            "purpose": "Verified source artifact",
+            "bytes": 16439,
+            "sha256": "693ef2897429c5ef8f2ca222b8c4b7b2c036e167decd4d5aecfbe74449af5acd"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/calibration/candidate-r3.json",
+            "purpose": "Frozen candidate to evaluate",
+            "bytes": 4561,
+            "sha256": "dde1129a2845d9a3cea30c3316c09673dd900c675423373c91b1f49d96f383c4"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/forage/evaluator-rubric.md",
+            "purpose": "Binding independent rubric",
+            "bytes": 2564,
+            "sha256": "12c31157555779d9321b2a0f2dfbb99d687e8f13b8b7ac0389c5115061210b05"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789326756-MorKOHFizqdPA4z4g3T3",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 287,
+        "cost_usd": 0.00887436,
+        "usage": {
+          "prompt_tokens": 6791,
+          "completion_tokens": 1249,
+          "total_tokens": 8040,
+          "cost": 0.00887436,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 5376,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00887436,
+            "upstream_inference_prompt_cost": 0.00337876,
+            "upstream_inference_completions_cost": 0.0054956
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 287,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 15926
+      },
+      "review": "All four accepted after host corrections. Development calibration only, not official dispatch or causal proof."
     }
   ],
   "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."

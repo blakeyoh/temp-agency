@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "minimum_survivors": 3,
+  "survivors": [
+    "i1",
+    "i2",
+    "i3",
+    "i4"
+  ],
+  "rejected": [],
+  "verdicts": [
+    {
+      "item_id": "i1",
+      "decision": "dependent",
+      "proposal_quote": "the operating transfer is protection of an inactive neighbor from an active user's spillover",
+      "artifact_quote": "caused damage to an unoccupied [[Piper J-3 Cub|Piper Cub]] at the airport while taxiing, due to the large plane's [[jet blast]]",
+      "deletion_effect": "Removing the borrowed spillover mechanism eliminates the causal model behind the paired-edge veto condition: the rule to measure a second, previously quiet edge and block installation if it worsens exists specifically because the artifact incident shows an active user's output damaging a non-user neighbor. Without it, what remains is only a generic 'measure before and after funding a barrier' recommendation, losing the collateral-spiover check and the placement-revision loop.",
+      "reason": "The artifact supplies a specific, supported mechanism (jet blast from one aircraft damaging an unoccupied aircraft) that the item explicitly converts into an operating condition: intervention success is judged partly on an unaffected third-party edge, not just the protected edge. That condition is a concrete tradeoff that materially changes the funding rule, so the item is dependent."
+    },
+    {
+      "item_id": "i2",
+      "decision": "dependent",
+      "proposal_quote": "divide existing 311 complaints into coarse activity categories without publishing homes, identities or complaint locations",
+      "artifact_quote": "69% [[general aviation]], 19% [[air taxi]], and 12% [[military aviation|military]]",
+      "deletion_effect": "Removing the airport's categorization of operations into general aviation, air taxi, and military removes the template for splitting complaint data into distinct activity categories and allocating budget in proportion to aggregate shares. What remains is a vague instruction to 'allocate mitigation funds somehow rather than by meeting faction influence,' which loses the categorical proportional-budget mechanism and the category-level 90-day feedback comparison.",
+      "reason": "The borrowed mechanism is not decoration: the airport's published division of its operations into percentage-bearing categories is directly restructured into a budget-allocation rule where fund portions track category shares. Deleting the mechanism removes the proportional allocation condition and category-level feedback signal, materially changing the operating rule."
+    },
+    {
+      "item_id": "i3",
+      "decision": "dependent",
+      "proposal_quote": "under a written reversal clause: if the day-45 aggregate complaint data shows a different category has become the largest contributor",
+      "artifact_quote": "conveyed to [[Suffolk County, New York|Suffolk County]] for use as a civilian airport, but included a reversal clause if future military use was ever needed",
+      "deletion_effect": "Removing the artifact's reversal-clause conveyance structure removes the automatic reversion trigger and the temporary-asset character of the equipment. What remains is a simple purchase of acoustic barriers given to the largest noise source, with no mid-trial redeployment rule, no association retention of ownership, and no day-45 category-flip condition \u2014 a materially different and weaker rule.",
+      "reason": "The item itself argues the borrowed mechanism is what makes it a reversion rule rather than a purchase, and that claim is supported: the artifact's conveyance-with-reversal structure supplies the concrete condition (ownership retained, automatic reversion on a changed fact) that defines this rule and distinguishes it from i2 or a plain equipment purchase. Removing it loses the core operating relationship."
+    },
+    {
+      "item_id": "i4",
+      "decision": "dependent",
+      "proposal_quote": "the association contracts one paid service operator for the 90-day pilot",
+      "artifact_quote": "one [[fixed-base operator]] provides services to airport users",
+      "deletion_effect": "Removing the single-FBO structure removes the pooled common stock, the single allocation queue, the no-reservation-for-favored-venue constraint, and the reassignment of returned stock on shortage. What remains is merely 'the association buys some curtains and hands them out,' losing the single-provider relationship that constitutes the rule's operating mechanism.",
+      "reason": "The airport's verified fact that exactly one fixed-base operator serves all airport users is directly transformed into the rule's core mechanism: one contracted operator with a shared stock and one queue replacing per-business procurement. The item explicitly notes that deleting this mechanism removes both the common queue and the pooled-stock constraint, which is a loss of concrete conditions and relationships, making it dependent."
+    }
+  ]
+}

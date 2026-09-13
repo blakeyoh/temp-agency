@@ -57,8 +57,11 @@ work could proceed after the commissioner explicitly chooses to defer E2.
 
 `bin/forage` obtains a real server-selected revision after a committed `bin/draw` corpus
 selection. Attestation independently resolves its revision and exact text on the server.
-The binding intentionally fails `deletion_gate` until this decision is resolved, even
-when every source check passes. No fetch-only record can pass as enacted E2.
+`bin/forage-gate` enforces sealed independent verdicts and the regeneration chain.
+A final proposal must match the evaluated items exactly; all must be dependent, with
+at least three survivors. Rejected rounds remain in the trace and receipt chain.
+No fetch-only record can pass as enacted E2. These checks authenticate recorded
+evidence and enforce decisions; they do not prove the evaluator is semantically correct.
 
 ## Competition framing (commissioner suggestion)
 

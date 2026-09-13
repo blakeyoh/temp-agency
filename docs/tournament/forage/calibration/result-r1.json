@@ -1,0 +1,46 @@
+{
+  "passed": false,
+  "minimum_survivors": 3,
+  "survivors": [
+    "i2"
+  ],
+  "rejected": [
+    "i1",
+    "i3",
+    "i4"
+  ],
+  "verdicts": [
+    {
+      "item_id": "i1",
+      "decision": "unchanged",
+      "proposal_quote": "pays a site designer to lay out three directional paths from the recreation-center exit",
+      "artifact_quote": "",
+      "deletion_effect": "Removing the runway-orientation mechanism leaves the full substantive rule intact: hire a designer, lay out three exit paths on willing owners' land, measure with 311 and anonymous feedback. The runways contribute only the decorative inspiration for 'three directional' routes; the action, funding, burden and feedback signal are all specified independently of the artifact.",
+      "reason": "The artifact's three differently oriented runways supply naming and inspiration, not a causal mechanism. The recommendation to build multiple dispersed pedestrian exit routes is fully specified without any runway geometry, and the path count and dispersion rationale do not depend on any specific supported artifact relationship."
+    },
+    {
+      "item_id": "i2",
+      "decision": "dependent",
+      "proposal_quote": "reserves separate portions of its remaining mitigation funds in proportion to those aggregate activity shares",
+      "artifact_quote": "69% [[general aviation]], 19% [[air taxi]], and 12% [[military aviation|military]]",
+      "deletion_effect": "Removing the airport's mechanism of dividing total operations into activity categories with measured shares eliminates the item's core allocation rule. Without the category-share model, what remains is only 'analyze 311 data and spend money on mitigation'; the specific tradeoff of reserving budget portions in proportion to aggregate category shares disappears, changing who gets funded and by how much.",
+      "reason": "The item explicitly borrows the artifact's supported mechanism of partitioning operations into coarse activity categories with proportional shares, and transfers that partition-plus-proportion relationship to complaint categories and budget reserves. That mechanism materially shapes the operating rule: proportional allocation by category is a concrete condition and tradeoff that would not survive deletion of the borrowed structure."
+    },
+    {
+      "item_id": "i3",
+      "decision": "unchanged",
+      "proposal_quote": "makes that coordinator's mission change at days 30 and 60 if aggregate complaints have not improved",
+      "artifact_quote": "",
+      "deletion_effect": "Deleting the borrowed mission-change history removes only the analogy. The staged-adaptation rule stands fully on its own: one coordinator, fixed budget and volunteer ceiling, three pre-specified funded pivots at days 30 and 60, measured against 311 totals and anonymous feedback. No concrete action, condition or tradeoff is lost.",
+      "reason": "The artifact's succession of unit missions is used as justification and atmosphere. The operating rule of scheduled conditional reallocation of a fixed coordination role is a generic adaptive-management design that is completely specified in the item itself; the artifact contributes no mechanism that changes what anyone does."
+    },
+    {
+      "item_id": "i4",
+      "decision": "unchanged",
+      "proposal_quote": "Call the restaurant's voluntary quiet-close routine Juniper Airport.",
+      "artifact_quote": "",
+      "deletion_effect": "Removing the airport name and label leaves the entire substantive recommendation: the owner voluntarily lowers patio music at 11pm, keeps midnight closing, and complaints are compared before and after 90 days with the owner bearing the adjustment. Only the printed reminder's branding is lost.",
+      "reason": "The artifact is used purely as a name for a routine and on a printed reminder. Naming and decoration are explicitly not sufficient for dependence; the quiet-close rule is entirely independent of any airport mechanism."
+    }
+  ]
+}
