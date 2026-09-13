@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Fetch E2's server-random artifact after a committed bin/draw corpus selection."""
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools
+from lib.errors import ToolError
+from lib.forage import ATTESTATION, render
+
+
+def main(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    tools.add_common_args(parser)
+    parser.add_argument('--pools')
+    parser.add_argument('--selection')
+    args = parser.parse_args(argv)
+    if args.replay_of:
+        raise ToolError('forage is hash-attested: verify its server revision, not a redraw')
+    entrant = tools.require_entrant(parser, args)
+    paths = [args.pools, args.selection]
+    if any(not p or Path(p).is_absolute() or '..' in Path(p).parts for p in paths):
+        raise ToolError('forage requires repo-relative pools and selection receipt')
+    if len(set(paths)) != 2:
+        raise ToolError('forage inputs must be distinct')
+    ctx = tools.make_context(__file__)
+    output, path = tools.run_tool(ctx, entrant, argv, paths, tools.draw_seed(args.seed),
+        'hash-attested', ATTESTATION,
+        lambda: render(ctx.root, entrant, args.pools, args.selection))
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == '__main__':
+    tools.exit_on_error(main)

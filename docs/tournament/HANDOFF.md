@@ -74,7 +74,9 @@ prior git seal of its isolated median. C5's two-stage notation tool is implement
 tested. The full advanced runtime suite passes 182 tests on Python 3.13.12; see
 `harness-phase3-report.md`, `harness-phase4-report.md`, and `harness-delegations.json`.
 A fabricated, locally chain-consistent attestation is rejected, satisfying the Phase 6
-fixture early. Next: E2 fetch/deletion gate, then Phase 5 tools, independent contract read,
+fixture early. E2 source acquisition is now verified and fetch-only binding intentionally fails.
+Next requires the commissioner choice in `forage/deletion-gate-decision.md`; then
+Phase 5 tools, independent contract read,
 packet integration and directives. Rulings 24 and 25 remain deliberately deferred; no
 entrant standing or official freeze has been changed. The user welcomes libraries and
 has authorized future external delegations for this session; the host reviews all patches.

@@ -491,7 +491,8 @@ Python 3.9.6 and 3.13.12. Details and outputs: `harness-phase2-report.md`.
 Phase 2 is a build result, not an official entrant dispatch or change of standing.
 Rulings 24/25 remain deferred. Phase 3 is now implemented and host-verified, with A3
 real toolbelts and M1's authenticated prior median seal plus semantic comparator. C5's
-Phase 4 tool is implemented; E2 remains in progress. The Phase 6 chain-consistent forged
+Phase 4 tool is implemented; E2 acquisition is verified, with its deletion-gate
+interpretation awaiting the commissioner decision in `forage/deletion-gate-decision.md`. The Phase 6 chain-consistent forged
 attestation fixture was completed early and fails the full gate. See the phase reports
 for exact verification scope and remaining directive work.
 

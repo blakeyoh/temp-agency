@@ -1,0 +1,9 @@
+{
+  "draws": 1,
+  "pools": [
+    {
+      "name": "corpus",
+      "options": ["wikipedia-en", "wikipedia-simple"]
+    }
+  ]
+}

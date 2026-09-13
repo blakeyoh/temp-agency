@@ -220,6 +220,9 @@ def _unparseable() -> BindResult:
 
 def check(record_text: str, receipt: Dict[str, Any]) -> BindResult:
     """Bind a source record to one bin/draw receipt."""
+    if receipt.get("entrant") == "E2":
+        from lib.bindings.forage import check_corpus
+        return check_corpus(record_text, receipt)
     output = str(receipt.get("output", ""))
     try:
         parsed = parse_output(output)

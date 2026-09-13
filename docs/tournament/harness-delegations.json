@@ -156,6 +156,71 @@
         "elapsed_ms": 51364
       },
       "review": "Host inspected patch before applying; patch hunk counts corrected locally. Host tests recorded in phase reports."
+    },
+    {
+      "scope": "E2 random-revision adapter and independent server verifier. Host corrected redirects before follow, suppressed-content markers and transport exception handling.",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T12:16:50+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Implement the bounded E2 Wikipedia random-revision fetcher and independent revision verifier in one module, as specified.",
+          "output_mode": "implementation",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [
+            "Fetcher preserves genuine random revision metadata and text; verifier independently rejects fabricated content, IDs and timestamps or unreachable server."
+          ],
+          "constraints": [
+            "Only lib/forage_wikipedia.py; no CLI, tests, dependencies without justification, or execution claims."
+          ]
+        },
+        "context": [
+          {
+            "path": "/private/tmp/s16-e2-wikipedia-glm/spec.md",
+            "purpose": "Complete single-module API contract with live-verified MediaWiki parameters",
+            "bytes": 2854,
+            "sha256": "768fdcbca73ddc368856e91c925e87d6a20859829dbe35e5ca7a12ea3b11a87d"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789301906-8XaIq74muA5UkqVfNkE0",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0183018,
+        "usage": {
+          "prompt_tokens": 825,
+          "completion_tokens": 3897,
+          "total_tokens": 4722,
+          "cost": 0.0183018,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0183018,
+            "upstream_inference_prompt_cost": 0.001155,
+            "upstream_inference_completions_cost": 0.0171468
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 36717
+      },
+      "review": "Host inspected patch; corrected hunk count; unit and live revision verification passed. Code uses standard library by choice, not policy."
     }
   ],
   "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."

@@ -1,6 +1,6 @@
 # Phase 4 development report
 
-Status: C5 complete; E2 fetch adapter and deletion gate in progress. No official dispatch.
+Status: C5 complete; E2 source acquisition verified, deletion-gate design awaiting commissioner decision. No official dispatch.
 
 ## C5 notation transposition
 
@@ -34,9 +34,30 @@ committed Tail Test catalog requires 24.
 Live probes on 2026-09-13 reached both English and Simple English Wikipedia random
 revision endpoints over HTTPS. Both returned a server revision ID, UTC revision timestamp,
 HTTP Date and article text. Probes were development connectivity checks and did not issue
-receipts or constitute a selected official artifact. The one-module GLM adapter request
-is pending review. The fetch alone does not close E2: a substantive deletion/rejection
-gate and its calibration remain required.
+receipts or constitute a selected official artifact. The one-module GLM adapter returned in 36.717 seconds for $0.0183018. Host review
+corrected redirects before following, suppressed-content markers and error handling.
+`bin/forage` now consumes a committed corpus-selection receipt from `bin/draw`, invokes
+the chosen server's random endpoint once, and emits a hash-attested receipt. Verification
+independently resolves the selected revision, exact text and timestamps, with pinned
+input/argv checks. Network failure produces a failed receipt without a substitute draw.
+
+A live development check fetched page 2932986, revision 1365146037 (Francis S. Gabreski
+Airport) at HTTP Date `Sun, 13 Sep 2026 12:22:01 GMT`; independent revision lookup passed.
+Content SHA-256: `05cd340b352a1732628f05267be088496ea5873c62b83b2c93826f26b5258861`.
+This was a connectivity/adapter check, not an official corpus draw or receipt.
+
+The full suite passed 200 tests in 94.47 seconds, with one upstream Torch warning.
+Final source-input hardening is covered by the focused E2 suite. Tests verify exact
+revision lookup, forged IDs/text/times, malformed payloads, no redirect following,
+network failure, source-input mismatch and a fetch-only full-gate rejection. A passing
+source attestation cannot produce a passing E2 bind: `deletion_gate` remains false.
+
+The substantive gate requires a commissioner decision described in
+`forage/deletion-gate-decision.md`, with four architecture probes in
+`forage/deletion-probe.json`. Reusing M1's metric/threshold does not distinguish
+mechanism loss from decorative-reference loss. The recommendation is an independent
+model evaluator with binding veto, mechanically enforced and hash-attested. This is
+not implemented or assumed approved. E2 remains NOT ENACTED.
 
 Sources checked: https://www.mediawiki.org/wiki/API:Random and
 https://www.mediawiki.org/wiki/API:Revisions.
