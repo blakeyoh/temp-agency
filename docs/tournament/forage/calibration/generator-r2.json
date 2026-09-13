@@ -1,0 +1,37 @@
+{
+  "content": "```json\n{\n  \"schema_version\": 1,\n  \"items\": [\n    {\n      \"id\": \"i1\",\n      \"text\": \"Borrow the airport's documented jet-blast incident, in which Air Force Two's taxiing exhaust damaged a Piper Cub behind the plane because the energy traveled in a directional cone, not evenly in all directions. The association hires an acoustics consultant to map where departing-teen and rideshare sound actually concentrates and then pays for a planted baffle and angled reflective fencing placed exactly along that measured cone at the alley mouth, so the sound energy is deflected toward the mixed-use strip and away from the street where night-shift hospital workers sleep. The rule's substance is the placement rule itself: the baffle goes where the mapped cone intersects the sleepers' homes, a position that only follows from treating noise as directional blast energy rather than ambient fog. Parking, hours and activity are untouched. Feedback signal: aggregate 311 complaint counts for the 10pm-1am window, compared before and after installation, plus one anonymous voluntary survey of nearby sleepers. The association bears the consultant and construction cost from its $12,000 budget; no resident or worker bears any cost or duty.\"\n    },\n    {\n      \"id\": \"i2\",\n      \"text\": \"Borrow the airport's published division of operations into general aviation, air taxi and military categories, rather than its particular percentages. The association pays an analyst to divide existing 311 complaints into coarse activity categories without publishing homes, identities or complaint locations, then reserves separate portions of its remaining mitigation funds in proportion to those aggregate activity shares instead of allowing the loudest public meeting faction to capture the whole budget. It publishes only category totals and funded interventions; it collects no new surveillance. Compare category-level complaints after 90 days. The association bears the analytical cost.\"\n    },\n    {\n      \"id\": \"i3\",\n      \"text\": \"Borrow the 1943 conveyance structure in which the airfield was transferred to Suffolk County for civilian use but contained a reversal clause reserving return to military use if ever needed. The association buys a small pool of movable acoustic barriers and sound-absorbing curtains with its budget, then conveys them for the 90-day trial to whichever single noise source the categorized 311 data shows is largest, under a written reversal clause: if the day-45 aggregate complaint data shows a different category has become the largest contributor, the equipment automatically reverts to the association and is redeployed there, with no renegotiation and no resident required to give permission or disclose anything. The borrowed mechanism is what makes this a reversion rule rather than a purchase: ownership never fully transfers, which is why the equipment can move mid-trial at zero marginal cost and why the recipient accepts a temporary asset instead of a permanent one. Feedback signal: the day-45 and day-90 category-level 311 counts that trigger or execute each reversal. The association bears the purchase, storage and moving costs; recipients bear only placement of equipment on their own property, which is voluntary.\"\n    },\n    {\n      \"id\": \"i4\",\n      \"text\": \"Borrow the artifact's documented staffing pattern for the Suffolk County Police Aviation Section: exactly two officer pilots plus one paramedic, on duty only during a fixed 7AM-11PM window matched to operating hours, rather than around-the-clock coverage. Translating that structure, the association recruits exactly two volunteer 'quiet-window stewards' who are present only during the measured peak complaint window within 10pm-1am on the two highest-complaint weekend nights each week, staying inside the eight-hour monthly volunteer ceiling, and who work as a pair rather than singly. Their task is not enforcement: they stand at the recreation-center exit and the alley mouth with printed, association-published schedules of legal pickup alternatives and quiet departure tips, and they hand them to anyone who wants one. The borrowed dual-staffing-within-a-fixed-window mechanism is what fixes the item's shape: two stewards, not one or a roving patrol, and only inside the measured window, not all night, which is what keeps the volunteer budget arithmetically viable. The city adds no patrols and no ordinance is created, since stewards are association volunteers with no authority. Feedback signal: 311 complaint counts during the stewarded window versus the unstewarded nights of the same week. The volunteer association members bear the whole burden; teenagers, renters and low-wage workers are recruited for none of it and are never identified.\"\n    }\n  ]\n}\n```",
+  "work_packet": null,
+  "receipt": {
+    "model": "z-ai/glm-5.3",
+    "provider": "Z.AI",
+    "request_id": "gen-1789326551-t2r0eUu8n6BdsHhto2hN",
+    "finish_reason": "stop",
+    "truncated": false,
+    "reasoning_tokens": 693,
+    "cost_usd": 0.01729,
+    "usage": {
+      "prompt_tokens": 7202,
+      "completion_tokens": 1638,
+      "total_tokens": 8840,
+      "cost": 0.01729,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01729,
+        "upstream_inference_prompt_cost": 0.0100828,
+        "upstream_inference_completions_cost": 0.0072072
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 693,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_ms": 28420
+  }
+}
