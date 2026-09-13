@@ -1,7 +1,7 @@
-# E2 deletion gate: commissioner decision needed
+# E2 deletion gate: independent evaluator approved
 
-The source-acquisition stage works. The remaining choice changes how E2 earns a pass,
-so it should be settled before implementing or declaring its amended mechanism enacted.
+The commissioner approved the independent evaluator with binding rejection authority
+on 2026-09-13. Implementation and validation follow this recorded decision.
 
 ## Contract
 
@@ -43,7 +43,8 @@ ignore. The host continues reviewing all implementation code and tests.
 This changes the amended gate from a wholly deterministic semantic decision into
 mechanical enforcement of a disclosed independent model judgment. The model can still
 be wrong; isolation and reasoning evidence are auditable, not proof of causality.
-Commissioner approval is needed for that interpretation of Amendment 5.
+Commissioner approval was given for this E2 interpretation of Amendment 5. This note
+does not resolve deferred Rulings 24/25 or authorize official dispatch.
 
 ## Alternative: keep the semantic decision fully deterministic
 
@@ -58,3 +59,12 @@ work could proceed after the commissioner explicitly chooses to defer E2.
 selection. Attestation independently resolves its revision and exact text on the server.
 The binding intentionally fails `deletion_gate` until this decision is resolved, even
 when every source check passes. No fetch-only record can pass as enacted E2.
+
+## Competition framing (commissioner suggestion)
+
+The commissioner compared foraging to art competitions in which randomly selected
+required elements must visibly shape the finished work. Use that framing to encourage
+visible incorporation of the artifact's specific structure, behavior or constraints.
+The evaluator still asks whether removing those borrowed elements changes the proposed
+operation; visibility alone cannot substitute for dependence. Preserve E2's one-artifact
+corpus/server draw. The analogy is not an instruction to add three independent draws.

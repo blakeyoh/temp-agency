@@ -230,6 +230,15 @@ similar — shapes the output, the enforcer must run a per-item deletion test: i
 foreign frame leaves an item's substance unchanged, the item is rejected and regenerated
 under the frame. A pass requires at least three surviving frame-dependent items.
 
+**E2 implementation clarification (commissioner-approved 2026-09-13).** Its deletion
+verdict may come from an isolated model evaluator with binding rejection authority.
+The deterministic gate enforces complete per-item coverage, quoted evidence, rejection
+and re-evaluation of unchanged or indeterminate items, and at least three surviving
+artifact-dependent items. The semantic verdict is disclosed model judgment, hash-attested
+with its frozen inputs and response; it is not represented as a replay-exact causal test.
+Competition framing may make incorporation explicit, but E2 still draws one artifact.
+See `forage/deletion-gate-decision.md`; this clarification does not authorize dispatch.
+
 **Amendment 6 (2026-08-31, ratified from `commissioner-rulings.md` Ruling 16).** Before an A6
 generation, a per-run degradation card must record the exact phase permutation, the one
 overused signature technique, and the false load-bearing principle, each with one required
