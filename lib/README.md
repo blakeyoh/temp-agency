@@ -187,3 +187,13 @@ brief's final item count; this generic gate also supports smaller development su
 The full gate checks the independently resolving source plus the evaluator evidence and
 lineage. A development probe artifact without a real fetch receipt cannot be promoted
 into an enacted record by writing an evaluation file.
+
+## E6 oblique draw
+
+`bin/oblique --entrant E6 --seed N` consumes the committed full-corpus deck at
+`docs/tournament/deck/cards.json` and every real positions pack. It samples two packs
+(default), excludes cards 1-10 of each pack and draws from the remaining cards.
+`--pack-count` changes the number of sampled packs; no preferred-pack selector exists.
+Changed source hashes or incomplete corpus coverage reject the draw. Full output belongs
+in Execution trace and the exact selected card belongs in Mechanism output. Binding
+verifies those bytes, not obedience in generated prose. See the deck README for provenance.

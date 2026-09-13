@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Draw E6's source packs and imperative from the full committed deck."""
+import argparse
+import sys
+from pathlib import Path
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from lib import tools
+from lib.oblique import DEFAULT_DECK, input_paths, render
+
+
+def main(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    tools.add_common_args(parser)
+    parser.add_argument('--deck', default=DEFAULT_DECK)
+    parser.add_argument('--pack-count', type=int, default=2)
+    replay = tools.maybe_replay(parser, argv)
+    ctx = tools.make_context(__file__)
+    if replay:
+        args = parser.parse_args(tools.replay_args(replay))
+        tools.emit(render(ctx.root, args.deck, args.pack_count, replay['seed']))
+        return 0
+    args = parser.parse_args(argv)
+    entrant = tools.require_entrant(parser, args)
+    seed = tools.draw_seed(args.seed)
+    def produce():
+        if entrant != 'E6':
+            raise ValueError('oblique belongs to E6')
+        return render(ctx.root, args.deck, args.pack_count, seed)
+    output, path = tools.run_tool(ctx, entrant, argv, input_paths(ctx.root, args.deck),
+                                  seed, 'replay-exact', None, produce)
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == '__main__':
+    tools.exit_on_error(main)

@@ -77,7 +77,9 @@ A fabricated, locally chain-consistent attestation is rejected, satisfying the P
 fixture early. The commissioner approved E2's independent evaluator with binding veto.
 `bin/forage-gate` now enforces sealed model verdicts, regeneration lineage and an exact
 final proposal match; fetch-only binding still fails. Real calibration evidence and its
-quality limitations are recorded in `forage/calibration/README.md`. Next: Phase 5 tools, independent contract read,
+quality limitations are recorded in `forage/calibration/README.md`. E6 now has its full
+committed deck and replayable draw; ten focused tests pass (`harness-phase5-report.md`).
+Next: Phase 5 E4/E5/E3 tools, independent contract read,
 packet integration and directives. Rulings 24 and 25 remain deliberately deferred; no
 entrant standing or official freeze has been changed. The user welcomes libraries and
 has authorized future external delegations for this session; the host reviews all patches.

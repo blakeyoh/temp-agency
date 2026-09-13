@@ -1,0 +1,114 @@
+{
+  "version": 3,
+  "created_at": "2026-09-13T19:15:16+00:00",
+  "delegation": {
+    "model": "z-ai/glm-5.3",
+    "brief": "Distill all sixteen supplied specialist positions packs into oblique imperative decks. For EACH pack produce exactly 30 short distinct imperative cards in generation order, grounded in that pack. Cards 1-10 will be deleted by the host; cards 11-30 form the committed deck. Do not select a subset of packs. Make useful, concrete, surprising instructions, not generic encouragement. Return only fenced JSON: schema_version 1, packs list with each exact slug and cards list of 30 strings. Do not execute code or claim dispatch.",
+    "output_mode": "critique",
+    "reasoning_effort": "low",
+    "max_output_tokens": 20480,
+    "provider_only": [
+      "z-ai"
+    ],
+    "acceptance_criteria": [],
+    "constraints": []
+  },
+  "context": [
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/behavioral-psychologist/positions.md",
+      "purpose": "Complete positions pack for behavioral-psychologist",
+      "bytes": 736,
+      "sha256": "9951568e82d720dc18f89e354bd3fcf20d0aef7e6c421f571096d6e25f3fbb0d"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/business-development-director/positions.md",
+      "purpose": "Complete positions pack for business-development-director",
+      "bytes": 2131,
+      "sha256": "a3ed32a0215dd488a4fb0dbd9b44fa67dc3a29fafaa2d9767e05414e0914f767"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/farmer/positions.md",
+      "purpose": "Complete positions pack for farmer",
+      "bytes": 718,
+      "sha256": "dd0b098d683da76613a9f5f7d801102aa723bfa59d299378a7f7f27e56d78931"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/fiction-author/positions.md",
+      "purpose": "Complete positions pack for fiction-author",
+      "bytes": 1709,
+      "sha256": "963bedf3f2f2be21efc1af8004b684133d389ec257b699c0034fea9b21c82bc3"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/franciscan-monk/positions.md",
+      "purpose": "Complete positions pack for franciscan-monk",
+      "bytes": 731,
+      "sha256": "4b45541da9d9b178aa58621a2f9d44d9b0ede4da378e381eb262ac73915e44d8"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/gen-z-expert/positions.md",
+      "purpose": "Complete positions pack for gen-z-expert",
+      "bytes": 2201,
+      "sha256": "63aa6ab856db427f0e041221d362c78e3590942ad0d8a83828867c9dee9fbde4"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/investigative-journalist/positions.md",
+      "purpose": "Complete positions pack for investigative-journalist",
+      "bytes": 744,
+      "sha256": "9956c71160d54d4c452835669baa55c1bb11a8664c85ba7e32dce4828acfa5fa"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/magician-illusionist/positions.md",
+      "purpose": "Complete positions pack for magician-illusionist",
+      "bytes": 2774,
+      "sha256": "29e081058e4ffa5c59a8a110e0d8858858e65f67f3cec6369c6c2c66a3426e7f"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/michelin-star-chef/positions.md",
+      "purpose": "Complete positions pack for michelin-star-chef",
+      "bytes": 2461,
+      "sha256": "75ac244c86caa5a090a38d4c4526f9e2897b647526f95217aa6d525ba2013e71"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/military-three-star-general/positions.md",
+      "purpose": "Complete positions pack for military-three-star-general",
+      "bytes": 1796,
+      "sha256": "4f0eb9c96fbd8acc0650bca211ce833ff8d60d85e9928aa8f6f4e05baf1bc6c4"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/nuclear-reactor-operator/positions.md",
+      "purpose": "Complete positions pack for nuclear-reactor-operator",
+      "bytes": 2403,
+      "sha256": "05e31852fd533537ffb02b26d9bc1af993af252d753c6f7f09769e7b43d00d03"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/physics-professor/positions.md",
+      "purpose": "Complete positions pack for physics-professor",
+      "bytes": 2621,
+      "sha256": "c1065387dc30f7d4acd489c42ea0ee2e24715ca042e625686f087669f30aad26"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/soccer-referee/positions.md",
+      "purpose": "Complete positions pack for soccer-referee",
+      "bytes": 1861,
+      "sha256": "8bdc65215181af31cf5b01e26710f5b090e60d7f5d3e547d14d382be3dd8aaf0"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/systems-thinker/positions.md",
+      "purpose": "Complete positions pack for systems-thinker",
+      "bytes": 804,
+      "sha256": "e83764dec13ed8ee585ea1a6549e36d60bff6e8994f1260b9ed01c383ae2bed9"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/trauma-informed-practitioner/positions.md",
+      "purpose": "Complete positions pack for trauma-informed-practitioner",
+      "bytes": 2597,
+      "sha256": "3f644135e58f1315faf1bc91a23b582e61124a060de5adb6a8bce352d0e7ac18"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/knowledge/world-builder/positions.md",
+      "purpose": "Complete positions pack for world-builder",
+      "bytes": 2839,
+      "sha256": "a1ed6d57f64c25f6a7f3801b8f7787a37073bdcbd50f0d3406bfdcdfa6179ed6"
+    }
+  ]
+}
