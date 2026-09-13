@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Attest an isolated M1 median using an earlier orchestrator git seal."""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools
+from lib.errors import ToolError
+from lib.median_seal import expected_output, verify_attestation
+from lib.paths import head_commit, sha256_file
+
+
+def main(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    tools.add_common_args(parser)
+    for name in ('median', 'invocation', 'seal-commit'):
+        parser.add_argument('--' + name)
+    args = parser.parse_args(argv)
+    if args.replay_of:
+        raise ToolError('seal-median is hash-attested and cannot replay')
+    entrant = tools.require_entrant(parser, args)
+    for name in ('median', 'invocation'):
+        value = getattr(args, name)
+        if not value or Path(value).is_absolute() or '..' in Path(value).parts:
+            raise ToolError('--' + name + ' must be a repo-relative input')
+    ctx = tools.make_context(__file__)
+    seed = tools.draw_seed(args.seed)
+    inputs = tools.hash_inputs(ctx.root, [args.median, args.invocation])
+    seal = {'seal_commit': args.seal_commit, 'median_path': args.median,
+            'median_sha256': inputs[args.median], 'invocation_path': args.invocation,
+            'invocation_sha256': inputs[args.invocation]}
+    attestation = {'kind': 'orchestrator-git-seal', **seal}
+
+    def produce():
+        median = json.loads((ctx.root / args.median).read_text(encoding='utf-8'))
+        output = expected_output(median, seal)
+        claimed = {'tool': 'seal-median', 'entrant': entrant, 'status': 'ok',
+                   'verification_class': 'hash-attested', 'external_attestation': attestation,
+                   'inputs': inputs, 'repo_commit': head_commit(ctx.root), 'argv': list(argv),
+                   'seed': seed, 'output': output}
+        problems = verify_attestation(ctx.root, claimed)
+        if problems:
+            raise ValueError('; '.join(problems))
+        return output
+
+    output, path = tools.run_tool(ctx, entrant, argv, list(inputs), seed,
+                                  'hash-attested', attestation, produce)
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == '__main__':
+    tools.exit_on_error(main)

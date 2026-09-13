@@ -62,11 +62,12 @@ def citing_records(records: List[Record], receipt_id: str) -> List[Record]:
     return [r for r in records if receipt_id in r.receipt_ids]
 
 
-def _check_class(receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
+def _check_class(root: Path, receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
     """The class the receipt claims must be the class its tool declares in code."""
     klass = str(receipt.get("verification_class"))
     try:
-        declared = str(getattr(load_rule(str(receipt.get("tool"))), "VERIFICATION_CLASS"))
+        rule = load_rule(str(receipt.get("tool")))
+        declared = str(getattr(rule, "VERIFICATION_CLASS"))
     except VerifyError as exc:
         return klass, [Line("FAIL", f"{tag}: {exc}")]
     if klass != declared:
@@ -75,6 +76,11 @@ def _check_class(receipt: Dict[str, Any], tag: str) -> Tuple[str, List[Line]]:
         attestation = receipt.get("external_attestation")
         if not isinstance(attestation, dict) or not attestation:
             return klass, [Line("FAIL", f"{tag}: hash-attested receipt lacks external_attestation")]
+        validator = getattr(rule, "verify_attestation", None)
+        if callable(validator) and receipt.get("status") == "ok":
+            problems = validator(root, receipt)
+            if problems:
+                return klass, [Line("FAIL", f"{tag}: attestation: {p}") for p in problems]
     return klass, []
 
 
@@ -139,7 +145,7 @@ def _gate_receipt(root: Path, path: Path, records: List[Record],
     receipt = load(path)
     receipt_id = str(receipt.get("receipt_id", path.stem))
     tag = f"{receipt.get('entrant')}/{path.name}"
-    klass, lines = _check_class(receipt, tag)
+    klass, lines = _check_class(root, receipt, tag)
     citing = citing_records(records, receipt_id)
     status, status_lines = _check_status(receipt, citing, tag)
     replay, replay_lines = _check_replay(root, path, receipt, tag)

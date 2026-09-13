@@ -24,4 +24,3 @@ def main(argv):
 
 if __name__ == "__main__":
     tools.exit_on_error(main)
-

@@ -121,3 +121,37 @@ payload/audit evidence in `## Execution trace`; proposals use `## Abstract propo
 (mask) or `## Pass 1 proposal artifact` (transform/withhold). The binding check requires
 at least ten numbered proposal lines, checks frozen-wordlist leaks, and rejects raw brief
 sentences outside the trace. Verbatim presence is not proof of isolation or causal use.
+
+## Advanced runtime (Phases 3–4)
+
+The original core keeps its Python 3.9 syntax floor. Full verification now requires the
+pinned Python 3.13 runtime libraries and local semantic model, currently validated on
+macOS arm64 CPU. Use a virtual environment outside the checkout:
+
+```sh
+python3.13 -m venv /tmp/temp-agency-harness
+/tmp/temp-agency-harness/bin/pip install -r requirements-harness.lock
+/tmp/temp-agency-harness/bin/python scripts/setup-semantic-model.py \
+  --manifest docs/tournament/overlap/model.json --cache /tmp/temp-agency-models
+HARNESS_MODEL_CACHE=/tmp/temp-agency-models /tmp/temp-agency-harness/bin/python -m pytest tests -q
+```
+
+Model setup is an explicit network operation. Inference and replay only use verified
+local assets. The manifest pins hashes, package versions and platform; drift fails closed.
+Python 3.9 core compatibility can be checked with `python3 -m pytest tests
+--ignore=tests/test_toolbelts.py -q`; model-dependent tests skip when their runtime is
+unavailable, so that command is not a substitute for full advanced verification.
+
+A3 documentation is in `docs/tournament/toolbelts/README.md`. M1's scorer and limits are
+in `docs/tournament/overlap/README.md`. `bin/seal-median` authenticates earlier git blobs
+and context hashes before M1 comparison; it does not prove hidden model context.
+A hash-attested binding may export `verify_attestation(root, receipt) -> list[str]`.
+The full gate invokes that hook independently for successful receipts and rejects any
+reported problem. Failed receipts never count as authenticated median evidence.
+
+C5 uses `bin/notation --mode select --catalog PATH`, then commits the resulting selection
+receipt before artifact authoring. `--mode validate --catalog PATH --selection RECEIPT
+--artifact PATH` checks the committed authored structure. Supply entrant and seed on each
+call. The record must reproduce both outputs in `## Execution trace` and translate the
+notation into numbered `## Pass 1 proposal artifact` items prefixed `[notation-item-id]`.
+Both selection and validation receipts must be cited. Slot failure forbids a passing bind.

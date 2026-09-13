@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Select C5 notation, then validate its committed artifact before translation."""
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from lib import tools
+from lib.errors import ToolError
+from lib.notation import render
+
+
+def parser_for():
+    parser = argparse.ArgumentParser(description=__doc__)
+    tools.add_common_args(parser)
+    parser.add_argument('--mode', choices=['select', 'validate'])
+    for name in ('catalog', 'selection', 'artifact'):
+        parser.add_argument('--' + name)
+    return parser
+
+
+def paths_for(args):
+    if args.mode not in ('select', 'validate'):
+        raise ToolError('--mode is required')
+    names = ['catalog'] if args.mode == 'select' else ['catalog', 'selection', 'artifact']
+    if args.mode == 'select' and (args.selection or args.artifact):
+        raise ToolError('select stage cannot read selection or artifact inputs')
+    paths = [getattr(args, name) for name in names]
+    if any(not p or Path(p).is_absolute() or '..' in Path(p).parts for p in paths):
+        raise ToolError('notation requires repo-relative stage inputs')
+    if len(set(paths)) != len(paths):
+        raise ToolError('notation inputs must be distinct')
+    return paths
+
+
+def main(argv):
+    parser = parser_for()
+    receipt = tools.maybe_replay(parser, argv)
+    if receipt:
+        args = parser.parse_args(tools.replay_args(receipt))
+        paths_for(args)
+        tools.emit(render(tools.make_context(__file__).root, args, receipt['seed']))
+        return 0
+    args = parser.parse_args(argv)
+    entrant = tools.require_entrant(parser, args)
+    paths = paths_for(args)
+    seed = tools.draw_seed(args.seed)
+    ctx = tools.make_context(__file__)
+    output, path = tools.run_tool(ctx, entrant, argv, paths, seed, 'replay-exact', None,
+                                  lambda: render(ctx.root, args, seed))
+    tools.emit(output)
+    tools.report_receipt(path)
+    return 0
+
+
+if __name__ == '__main__':
+    tools.exit_on_error(main)

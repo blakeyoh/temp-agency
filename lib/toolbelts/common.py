@@ -51,4 +51,3 @@ def input_provenance(root: Path, paths: Iterable[str]) -> list:
 
 def render_json(value: Any) -> str:
     return json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
-

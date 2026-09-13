@@ -31,6 +31,8 @@ rule, threshold and calibration evidence must be frozen before official dispatch
 and model manifest. Receipt replay recomputes every score in a git archive using the
 same verified local model dependency. Binding requires the full report and exact
 numbered final proposal text; putting checked text only in the trace is insufficient.
-The separate median-seal attestation integration is still under development.
+The record must cite an authenticated `bin/seal-median` receipt for the same median.
+The seal verifier checks earlier git blobs and context hashes; the candidate path must
+not exist at that seal commit. Worker isolation remains an orchestrator attestation.
 
 Model documentation: https://huggingface.co/cross-encoder/nli-deberta-v3-base

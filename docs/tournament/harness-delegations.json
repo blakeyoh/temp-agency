@@ -1,0 +1,162 @@
+{
+  "authorization": "User approved all future delegations in this session on 2026-09-12, including project context disclosure. Libraries welcome.",
+  "failed_attempts": [
+    {
+      "model": "z-ai/glm-5.3",
+      "effort": "high",
+      "scope": "C5 complete implementation",
+      "combined_cap": 47247,
+      "reasoning_tokens": 47237,
+      "finish_reason": "length",
+      "usable_output": false
+    },
+    {
+      "model": "moonshotai/kimi-k3",
+      "effort": "high",
+      "scope": "M1 seal complete implementation",
+      "combined_cap": 17900,
+      "reasoning_tokens": 17900,
+      "finish_reason": "length",
+      "usable_output": false
+    }
+  ],
+  "successful_delegations": [
+    {
+      "scope": "Median attestation validator; host corrected binary hashing, output formatting and argument-value validation.",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-12T19:43:15+00:00",
+        "delegation": {
+          "model": "moonshotai/kimi-k3",
+          "brief": "Implement only the M1 git-backed median attestation validator in lib/median_seal.py. Return a concrete unified diff for this one file.",
+          "output_mode": "implementation",
+          "reasoning_effort": "low",
+          "max_output_tokens": 14336,
+          "provider_only": [
+            "together"
+          ],
+          "acceptance_criteria": [
+            "verify_attestation independently checks sealed git blobs, context hashes and strict ancestry; malformed or fabricated claims return problems without escaping exceptions."
+          ],
+          "constraints": [
+            "Only lib/median_seal.py; host owns CLI, binding and tests. No extra dependencies required, but libraries are permitted."
+          ]
+        },
+        "context": [
+          {
+            "path": "/private/tmp/s16-m1-validator-kimi/spec.md",
+            "purpose": "Narrow single-module validator contract",
+            "bytes": 3707,
+            "sha256": "a988b343ca2a26001ad9ea9a73a76ffbb7d58daed67c7b6f18dda33f7f93cab8"
+          },
+          {
+            "path": "/private/tmp/s16-m1-seal-kimi/evidence.md",
+            "purpose": "Exact receipt APIs and real sealed development invocation format",
+            "bytes": 52215,
+            "sha256": "1b1f9dfbb335985e7bdfb8267e677759f68dc979c917c3f63b1d981bdad0fd2f"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "moonshotai/kimi-k3",
+        "provider": "Together",
+        "request_id": "gen-1789242213-YG13kgkMtscIOSLOTp4b",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 123,
+        "cost_usd": 0.1011762,
+        "usage": {
+          "prompt_tokens": 14158,
+          "completion_tokens": 3925,
+          "total_tokens": 18083,
+          "cost": 0.1011762,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 64,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.1011762,
+            "upstream_inference_prompt_cost": 0.0423012,
+            "upstream_inference_completions_cost": 0.058875
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 123,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 85842
+      },
+      "review": "Host inspected patch before applying; patch hunk counts corrected locally. Host tests recorded in phase reports."
+    },
+    {
+      "scope": "Seven notation schemas and validator; host corrected recipe types, finite numbers and positive item counts.",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-12T19:44:39+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Implement only C5 notation structural validation and its seven-form catalog. Return the two-file patch specified in spec.md; no broader harness work.",
+          "output_mode": "implementation",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [
+            "All seven form schemas have meaningful deterministic slot checks; catalog drift, malformed values, duplicates and mismatched notation/count are rejected."
+          ],
+          "constraints": [
+            "Only lib/notation_slots.py and docs/tournament/notation/catalog.json. No execution claims or other files."
+          ]
+        },
+        "context": [
+          {
+            "path": "/private/tmp/s16-c5-slots-glm/spec.md",
+            "purpose": "Complete standalone two-file schema and validation contract; no other project context needed",
+            "bytes": 2134,
+            "sha256": "5d869ca995c6b1b851ad495dd27d346eabc93435a38b7ba076a94797d97c1105"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789242304-svYEtcYa167Zo9ApVLHL",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 679,
+        "cost_usd": 0.0230762,
+        "usage": {
+          "prompt_tokens": 643,
+          "completion_tokens": 5040,
+          "total_tokens": 5683,
+          "cost": 0.0230762,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0230762,
+            "upstream_inference_prompt_cost": 0.0009002,
+            "upstream_inference_completions_cost": 0.022176
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 679,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 51364
+      },
+      "review": "Host inspected patch before applying; patch hunk counts corrected locally. Host tests recorded in phase reports."
+    }
+  ],
+  "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."
+}

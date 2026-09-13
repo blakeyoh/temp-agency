@@ -1,7 +1,7 @@
 # Phase 3 development report
 
-Status: A3 implemented and host-reviewed; M1 semantic comparison implemented, median
-attestation and end-to-end integration still in progress. No official dispatch occurred.
+Status: Phase 3 implemented and host-reviewed, including the M1 median seal and
+semantic comparison integration. No official dispatch occurred.
 
 ## A3
 
@@ -25,7 +25,7 @@ final verification, which the host completed. Focused verification: 13 tests pas
 replays, full dispatch gate, tampered outputs/hashes, false credits, malformed history,
 wrong entrants, Celsius conversion and a real temporary git merge.
 
-## M1 work in progress
+## M1
 
 The offline NLI comparator uses individually hashed model assets, exact runtime pins,
 a fixed rule prefix, bidirectional entailment maximum and a committed 0.7 threshold.
@@ -35,8 +35,11 @@ accuracy benchmark. Including schema and real CLI/replay/gate checks, 19 focused
 passed in 27.53 seconds. One upstream Torch deprecation warning remains.
 
 Host review tightened binding to require exact numbered final proposal items; copying
-scored text only into the trace cannot satisfy it. M1 is not complete until the separate
-sealed-median attestation, chronology and final comparator binding are integrated.
+scored text only into the trace cannot satisfy it. The sealed-median attestation is now integrated: the comparator requires exactly one
+cited authenticated seal with matching median bytes. The candidate path must be absent
+at the earlier seal commit. The seal verifier reloads immutable git blobs, validates
+context hashes and strict ancestry, and checks CLI argument values. It does not claim
+cryptographic proof of what the worker saw.
 
 ## Runtime
 
@@ -48,3 +51,27 @@ Model inference makes no network requests. Missing assets or runtime drift fail 
 Full current harness verification: 151 tests passed in 78.12 seconds on Python 3.13.12
 with the pinned local model cache; one upstream Torch deprecation warning. This does
 not close the pending median attestation integration or Phase 3 as a whole.
+
+## Integrated verification, 2026-09-13
+
+The full suite passes 182 tests in 95.38 seconds on Python 3.13.12 with the real model
+cache, including the C5 tests added during Phase 4. One upstream Torch deprecation
+warning remains. M1 has an explicit reject-then-regenerate binding test, missing-seal
+rejection, and an honest combined seal/comparator full-gate fixture. A3's checks remain
+green. The actual isolated Luna fixture at seal commit
+`2a21fc45957c03628e55eede5ed421742a4d6ff5` also validates against its committed invocation
+and context files; that check did not issue an official receipt.
+
+The Phase 6 authenticity requirement is exercised early: a fabricated median seal is
+issued with internally consistent output hashes and chain linkage through the real
+receipt writer. Its chain passes, but the full gate rejects its nonexistent external git
+seal. This demonstrates why the local nonce/chain is a guardrail, not an authenticity
+boundary. Successful hash-attestation hooks run in the gate independently of binding.
+
+Rejected comparison attempts are retained as development negative fixtures. The final
+passing gate fixture uses its own valid receipt set; regeneration tests do not pretend a
+rejected prior attempt is an accepted final receipt. Official regeneration transcript and
+receipt disposition must be specified in Phase 8 directives before dispatch.
+
+Python 3.9 core compatibility: 163 passed, six model-dependent tests skipped, excluding
+the Pint-dependent toolbelt suite. This is distinct from the full 182-test runtime check.

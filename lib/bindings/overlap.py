@@ -4,10 +4,12 @@ from __future__ import annotations
 import json
 import re
 
-from lib.bindings import BindResult, Check
+from lib.bindings import BindResult, Check, cited_receipt_ids
 from lib.errors import HarnessError
 from lib.overlap import compare, items
-from lib.paths import canonical_json, repo_root, sha256_file
+from lib.paths import canonical_json, repo_root, sha256_file, git_output
+from lib.receipt import list_receipts, load
+from lib.median_seal import verify_attestation
 
 VERIFICATION_CLASS = "replay-exact"
 BOUND_SPAN = ("semantic scores recompute from pinned median and candidate; every candidate "
@@ -50,6 +52,33 @@ def final_sections_match(record_text, sections):
     return True
 
 
+def matching_median_seal(record_text, receipt, output):
+    root = repo_root()
+    cited = set(cited_receipt_ids(record_text))
+    seals = [load(path) for path in list_receipts(root, "M1")]
+    seals = [value for value in seals if value.get("receipt_id") in cited
+             and value.get("tool") == "seal-median"]
+    if len(seals) != 1:
+        raise ValueError("M1 requires exactly one cited authenticated median seal")
+    seal = seals[0]
+    problems = verify_attestation(root, seal)
+    if problems:
+        raise ValueError("invalid median seal: " + "; ".join(problems))
+    attestation = seal["external_attestation"]
+    path = output["inputs"]["median"]
+    if (attestation["median_path"] != path
+            or attestation["median_sha256"] != receipt["inputs"][path]):
+        raise ValueError("overlap median differs from authenticated median")
+    git_output(root, "merge-base", "--is-ancestor", seal["repo_commit"], receipt["repo_commit"])
+    candidate = output["inputs"]["candidate"]
+    existing = git_output(root, "ls-tree", "-r", "--name-only", attestation["seal_commit"],
+                          "--", candidate).strip()
+    if existing:
+        raise ValueError("candidate path already existed when median was sealed")
+    if seal["output"] not in record_text:
+        raise ValueError("authenticated median output absent from record")
+
+
 def check(record_text, receipt):
     try:
         if receipt.get("entrant") != "M1" or receipt.get("tool") != "overlap":
@@ -58,6 +87,7 @@ def check(record_text, receipt):
         if output.get("tool") != "overlap" or output.get("entrant") != "M1":
             raise ValueError("wrong overlap output identity")
         documents = load_documents(receipt, output)
+        matching_median_seal(record_text, receipt, output)
         result = compare(*documents)
         if result != output.get("comparison"):
             raise ValueError("semantic report does not recompute")

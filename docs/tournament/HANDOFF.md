@@ -61,7 +61,7 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
-**Enactment harness · 2026-09-12 — Phases 0–2 built and verified.** The Sweet 16
+**Enactment harness · 2026-09-12 — Phases 0–3 built and verified; Phase 4 underway.** The Sweet 16
 cannot dispatch until every non-PROMISE entrant has a real executable and every source
 record carries machine-verified receipts. Read `enactment-harness-plan.md` §4 for the
 trust boundary. Phase 2 adds `bin/prepare`, the transform/mask/withhold adapters for
@@ -69,8 +69,15 @@ A1/C8/A5, committed pipeline configs and binding checks over the Tail Test brief
 `harness-phase2-report.md` records implementation details, six persona outputs and
 verification: 119 tests pass on Python 3.9.6 and 3.13.12. The live `receipts/` directory
 remains reserved for official dispatch; development tests use throwaway repositories.
-Next: Phase 3, required-tool layer for A3 and M1. Rulings 24 and 25 remain deliberately
-deferred; no entrant standing or official freeze has been changed.
+Phase 3 adds A3's real toolbelts and M1's pinned semantic comparator with a verified
+prior git seal of its isolated median. C5's two-stage notation tool is implemented and
+tested. The full advanced runtime suite passes 182 tests on Python 3.13.12; see
+`harness-phase3-report.md`, `harness-phase4-report.md`, and `harness-delegations.json`.
+A fabricated, locally chain-consistent attestation is rejected, satisfying the Phase 6
+fixture early. Next: E2 fetch/deletion gate, then Phase 5 tools, independent contract read,
+packet integration and directives. Rulings 24 and 25 remain deliberately deferred; no
+entrant standing or official freeze has been changed. The user welcomes libraries and
+has authorized future external delegations for this session; the host reviews all patches.
 
 **Before any scrimmage, read five more things after the governing four:**
 

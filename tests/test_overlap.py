@@ -63,10 +63,30 @@ def inputs(repo, chosen=False):
                          'text': 'Submit complaints without names through a shared form.'}]}
     candidate = {'sections': [{'id': 's1', 'text': 'Report disturbances anonymously using one common questionnaire.'}]}
     repo.write(MEDIAN, canonical_json(median))
+    brief = BASE + 'brief.txt'
+    invocation_path = BASE + 'invocation.json'
+    for path in ('AGENTS.md', 'CLAUDE.md', brief):
+        repo.write(path, 'Isolated fixture context: ' + path)
+    invocation = {'schema_version': 1, 'kind': 'isolated-median', 'mode': 'development',
+                  'entrant': 'M1', 'actor': 'fixture', 'model': 'fixture-model',
+                  'disclosure': 'Host attestation for development fixture.',
+                  'candidate_exposure': False, 'brief_path': brief,
+                  'median_path': MEDIAN, 'median_sha256': sha256_file(repo.root / MEDIAN),
+                  'files_read': {p: sha256_file(repo.root / p)
+                                 for p in ('AGENTS.md', 'CLAUDE.md', brief)}}
+    repo.write(invocation_path, canonical_json(invocation))
     repo.commit_all('seal development median before candidate')
+    seal_commit = repo.git('rev-parse', 'HEAD').strip()
+    seal_hashes = {p: sha256_file(repo.root / p) for p in (MEDIAN, invocation_path)}
+    seal_entry = {'entrant': 'M1', 'seed': 7, 'inputs': seal_hashes}
+    repo.write(DISPATCH, canonical_json({'entries': [seal_entry]}))
+    repo.commit_all('freeze median attestation dispatch')
+    sealed = repo.run('bin/seal-median', '--entrant', 'M1', '--median', MEDIAN,
+                      '--invocation', invocation_path, '--seal-commit', seal_commit, '--seed', '7')
+    assert sealed.returncode == 0, sealed.stderr
     repo.write(CANDIDATE, canonical_json(candidate))
     hashes = {path: sha256_file(repo.root / path) for path in (CONFIG, MANIFEST, MEDIAN, CANDIDATE)}
-    repo.write(DISPATCH, canonical_json({'entries': [{'entrant': 'M1', 'seed': 1, 'inputs': hashes}]}))
+    repo.write(DISPATCH, canonical_json({'entries': [seal_entry, {'entrant': 'M1', 'seed': 1, 'inputs': hashes}]}))
     repo.commit_all('freeze candidate and dispatch inputs')
     return candidate
 
@@ -77,10 +97,11 @@ def invoke(repo):
 
 
 def record(repo, candidate, receipt):
+    seal = repo.receipt('M1', 0)
     text = ('# Development M1 record\n\n## Provenance\n\n- **Entrant code:** M1\n\n'
             '## Pass 1 proposal artifact\n\n1. ' + candidate['sections'][0]['text'] +
-            '\n\n## Execution trace\n\n' + receipt['output'] +
-            '\n## Receipts\n\n- ' + receipt['receipt_id'] + ' overlap\n')
+            '\n\n## Execution trace\n\n' + seal['output'] + receipt['output'] +
+            '\n## Receipts\n\n- ' + receipt['receipt_id'] + ' overlap\n- ' + seal['receipt_id'] + ' seal-median\n')
     return repo.write(BASE + 'record.md', text)
 
 
@@ -155,3 +176,25 @@ def test_trace_copy_cannot_satisfy_final_section_binding():
     assert not final_sections_match(honest + honest, sections)
     assert not final_sections_match(honest.replace("1. Use", "2. Use"), sections)
     assert not final_sections_match(honest.replace("entrance.", "entrance. Extra unchecked idea."), sections)
+
+
+@semantic
+def test_regenerated_candidate_and_missing_seal_binding(repo):
+    candidate = inputs(repo, chosen=True)
+    assert invoke(repo).returncode == 0
+    rejected = repo.receipt('M1')
+    assert not json.loads(rejected['output'])['comparison']['passed']
+    candidate['sections'][0]['text'] = 'Install sound-absorbing wall panels beside the drummer practice room.'
+    repo.write(CANDIDATE, canonical_json(candidate))
+    repo.commit_all('regenerate overlapping section with different mechanism')
+    assert invoke(repo).returncode == 0
+    accepted = repo.receipt('M1')
+    assert json.loads(accepted['output'])['comparison']['passed']
+    target = record(repo, candidate, accepted)
+    bound = repo.verify('bind', str(target), str(repo.receipts('M1')[-1]))
+    assert bound.returncode == 0, bound.stdout + bound.stderr
+    text = target.read_text()
+    seal = repo.receipt('M1', 0)
+    target.write_text(text.replace('- ' + seal['receipt_id'] + ' seal-median\n', ''))
+    bound = repo.verify('bind', str(target), str(repo.receipts('M1')[-1]))
+    assert bound.returncode == 1 and 'authenticated median seal' in bound.stdout

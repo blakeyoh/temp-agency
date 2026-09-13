@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "item_count": 24,
+  "notations": [
+    {
+      "name": "recipe",
+      "description": "Cooking recipe: ingredients as objects with name (string), quantity (positive number, booleans rejected), unit (string); steps as an ordered non-empty list of non-empty strings.",
+      "required_slots": ["ingredients", "steps"]
+    },
+    {
+      "name": "court-docket",
+      "description": "Court docket: issue (non-empty string), parties and evidence as non-empty string lists, ruling (non-empty string), remedies as a non-empty string list.",
+      "required_slots": ["issue", "parties", "evidence", "ruling", "remedies"]
+    },
+    {
+      "name": "knitting-pattern",
+      "description": "Knitting pattern: gauge object with stitches_per_inch and rows_per_inch (positive numbers), stitches as a non-empty string list, repeat and bind_off as non-empty strings.",
+      "required_slots": ["gauge", "stitches", "repeat", "bind_off"]
+    },
+    {
+      "name": "chess-annotation",
+      "description": "Chess annotation: moves as a non-empty list of objects with move and countermove (non-empty strings) and evaluation (number, booleans rejected).",
+      "required_slots": ["moves"]
+    },
+    {
+      "name": "liturgical-rubric",
+      "description": "Liturgical rubric: cues as a non-empty list of objects with cue, officiant, response, and rubric (all non-empty strings).",
+      "required_slots": ["cues"]
+    },
+    {
+      "name": "flight-checklist",
+      "description": "Flight checklist: checks as a non-empty list of objects with trigger, challenge, expected_response, verify, and abort (all non-empty strings).",
+      "required_slots": ["checks"]
+    },
+    {
+      "name": "circuit-diagram",
+      "description": "Circuit diagram: nodes as a non-empty list of unique non-empty string IDs; connections as a non-empty list of directed objects with from and to referencing declared node IDs.",
+      "required_slots": ["nodes", "connections"]
+    }
+  ]
+}
