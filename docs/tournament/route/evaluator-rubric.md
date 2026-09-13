@@ -22,7 +22,8 @@ Each row has exactly item_id, decision, proposal_quote, artifact_quote, deletion
 and reason. Cover every candidate ID exactly once in order. proposal_quote is an exact
 candidate substring of at least 12 characters (or the whole shorter text). For dependent,
 artifact_quote must be an exact substring of the artifact's content with the same minimum.
-For other decisions it may be empty. All nonempty quotes must match exactly. deletion_effect
+For other decisions it may be empty. All nonempty quotes must match exactly, including Markdown punctuation such as **bold**
+markers. Copy from the content string; never strip formatting inside a quoted substring. deletion_effect
 and reason must each contain at least 20 characters explaining what changes or remains.
 
 The harness rejects unchanged/indeterminate items and requires their regeneration.

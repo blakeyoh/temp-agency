@@ -1,0 +1,4 @@
+{
+  "accepted": false,
+  "schema_error": "evaluation.verdicts[1].artifact_quote is not a verbatim substring of its source"
+}

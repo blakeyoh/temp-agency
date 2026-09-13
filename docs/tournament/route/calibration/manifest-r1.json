@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "created_at": "2026-09-13T19:52:07+00:00",
+  "delegation": {
+    "model": "z-ai/glm-5.3",
+    "brief": "Apply the supplied independent E3 frame-deletion rubric to every supplied final candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+    "output_mode": "critique",
+    "reasoning_effort": "low",
+    "max_output_tokens": 20480,
+    "provider_only": [
+      "z-ai"
+    ],
+    "acceptance_criteria": [],
+    "constraints": []
+  },
+  "context": [
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/brief.txt",
+      "purpose": "Frozen task constraints",
+      "bytes": 2032,
+      "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/artifact.json",
+      "purpose": "Verified source artifact",
+      "bytes": 10041,
+      "sha256": "3d1b2004a33a8c5552b2ba5f9100dd5f049f62fd66b72bffb8479993d0305a7e"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/candidate.json",
+      "purpose": "Frozen candidate to evaluate",
+      "bytes": 2336,
+      "sha256": "c5dd54d287a25060b4e97099be8e162486b6b770ac7af41e73c4d3326398020d"
+    },
+    {
+      "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/evaluator-rubric.md",
+      "purpose": "Binding independent rubric",
+      "bytes": 2093,
+      "sha256": "569c8a9a4828af291956f4d0fd4ad6beef9530bcdd6f165b158c3c7e34a9b6a7"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "content": "```json\n{\n  \"schema_version\": 1,\n  \"verdicts\": [\n    {\n      \"item_id\": \"i1\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"help its own board name one belief behind its preferred remedy, record what aggregate 311 evidence would contradict that belief\",\n      \"artifact_quote\": \"Identify the assumption or belief producing the pattern. Ask: \\\"What would have to be true for you to keep responding this way?\\\"\",\n      \"deletion_effect\": \"Without the operating-belief and counter-evidence method, the purchase approval would be a straightforward cost-benefit check, not a conditional rule requiring the board to name and test its own assumption.\",\n      \"reason\": \"The coach's Phase 2/3 belief-surfacing and counter-evidence testing materially changes the approval condition for the purchase.\"\n    },\n    {\n      \"item_id\": \"i2\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"Funding can support only the owner's chosen feasible experiment, not a substitute solution selected by the facilitator\",\n      \"artifact_quote\": \"The coachee drives: The coach expands the client's range; they don't substitute the coach's judgment for the client's.\",\n      \"deletion_effect\": \"Remove the coachee-drives principle and the funding rule could allow the facilitator to prescribe a solution, changing who controls the funded action.\",\n      \"reason\": \"The specialist's ownership constraint is converted into an explicit funding condition, a substantive transfer beyond vocabulary.\"\n    },\n    {\n      \"item_id\": \"i3\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"no renewal until the operator states what was learned from the observed result\",\n      \"artifact_quote\": \"Name one specific behavioral change to try in one specific situation. Not a resolution, an experiment \\u2014 with an outcome to observe and a learning to extract.\",\n      \"deletion_effect\": \"Without the experiment-and-debrief structure, renewal would depend on complaint counts alone rather than on a stated learning from a pre-committed expected outcome.\",\n      \"reason\": \"The Phase 4 experiment/debrief sequence materially shapes both the trial design and the renewal condition.\"\n    },\n    {\n      \"item_id\": \"i4\",\n      \"decision\": \"unchanged\",\n      \"proposal_quote\": \"buy sound-absorbing barriers for consenting properties\",\n      \"artifact_quote\": \"\",\n      \"deletion_effect\": \"The substantive recommendation \u2014 buying barriers and comparing 311 complaints \u2014 is a conventional noise intervention unaffected by removing any coach mechanism.\",\n      \"reason\": \"The only LEAD presence is the project's name and printed title, which is decoration rather than a shaping mechanism.\"\n    }\n  ]\n}\n```",
+  "work_packet": null,
+  "receipt": {
+    "model": "z-ai/glm-5.3",
+    "provider": "Z.AI",
+    "request_id": "gen-1789329151-3NKdcCrZwC8ZplzQXRDh",
+    "finish_reason": "stop",
+    "truncated": false,
+    "reasoning_tokens": 43,
+    "cost_usd": 0.00784724,
+    "usage": {
+      "prompt_tokens": 3737,
+      "completion_tokens": 611,
+      "total_tokens": 4348,
+      "cost": 0.00784724,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00784724,
+        "upstream_inference_prompt_cost": 0.00515884,
+        "upstream_inference_completions_cost": 0.0026884
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 43,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_ms": 7527
+  }
+}
