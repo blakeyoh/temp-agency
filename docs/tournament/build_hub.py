@@ -149,6 +149,45 @@ def collect_states(text):
     return states
 
 
+TAIL_ITEM_RE = re.compile(r"^(?P<n>\d+)\.\s+(?P<text>.+?)\s*$", re.M)
+
+
+def collect_tail(text):
+    """Parse the 24 numbered proposals out of one official source record.
+
+    Returns [] when the section is missing or empty, so a record that has not
+    been generated yet is absent rather than half-present.
+    """
+    match = re.search(
+        r"^## Pass 1 proposal artifact\s*$\n(.*?)(?=^## )", text, re.M | re.S)
+    if not match:
+        return []
+    items = {}
+    for item in TAIL_ITEM_RE.finditer(match.group(1)):
+        body = _plain(" ".join(item.group("text").split()))
+        if body:
+            items[int(item.group("n"))] = body
+    return [items[n] for n in sorted(items)]
+
+
+def preview_tail(code, scrimmage_text, size=24):
+    """Build a preview proposal list from an entrant's own scrimmage output.
+
+    Preview only. Real generated text, but from the unscored scrimmage rather
+    than an official run, so it must never be presented as tournament evidence.
+    Cycling past the source's length is deliberate: repetition is the thing the
+    view exists to show.
+    """
+    lines = []
+    for item in TAIL_ITEM_RE.finditer(scrimmage_text):
+        body = _plain(" ".join(item.group("text").split()))
+        if len(body) > 30:
+            lines.append(body)
+    if not lines:
+        return []
+    return [lines[n % len(lines)] for n in range(size)]
+
+
 STAGES = ("pending", "dispatched", "recorded", "gated")
 
 
@@ -190,15 +229,22 @@ DRAW_FILE = HERE / "s16-draw-map.json"
 DISPATCH_FILE = HERE / "dispatch-log.json"
 RUNS_DIR = HERE / "official-runs"
 RECEIPTS_DIR = HERE / "receipts"
+SCRIMMAGES_DIR = HERE / "scrimmages"
 
 
-def assemble(phase, field, states, draw, floor):
-    """Build the payload for `phase`. Judged evidence is never read at runfloor."""
+def assemble(phase, field, states, draw, floor, tails=None, demo=False):
+    """Build the payload for `phase`. Judged evidence is never read at runfloor.
+
+    `tails` and `demo` are only ever added outside runfloor: the runfloor key set
+    is a frozen contract (see AssembleTests.test_runfloor_payload_carries_state_
+    and_omits_judged_evidence in test_build_hub.py), so runfloor ignores both
+    arguments rather than trusting the caller not to pass them.
+    """
     merged = {}
     for code, entry in field.items():
         state = states.get(code, {"state": "", "flag": ""})
         merged[code] = dict(entry, state=state["state"], flag=state["flag"])
-    return {
+    payload = {
         "phase": phase,
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "field": merged,
@@ -206,6 +252,13 @@ def assemble(phase, field, states, draw, floor):
         "panels": draw.get("panels", []),
         "floor": floor,
     }
+    if phase == "runfloor":
+        return payload
+    if tails:
+        payload["tails"] = tails
+    if demo:
+        payload["demo"] = True
+    return payload
 
 
 def emit(payload, out_dir):
@@ -245,6 +298,42 @@ def _gated(run_gate_enabled):
     return gated_codes(run_gate(ROOT, dispatch_log="docs/tournament/dispatch-log.json"))
 
 
+def _collect_tails(codes, demo):
+    """Resolve each code to an official tail, falling back to a scrimmage preview.
+
+    A code is skipped entirely when neither source yields ideas, so the hub never
+    renders an empty card for an entrant that has not been generated yet.
+    """
+    tails = {}
+    for code in codes:
+        lower = code.lower()
+        run_file = RUNS_DIR / f"s16-{lower}.md"
+        ideas = collect_tail(run_file.read_text(encoding="utf-8")) if run_file.is_file() else []
+        source = "official"
+        if not ideas and demo:
+            scrimmage_file = SCRIMMAGES_DIR / f"s16-{lower}.md"
+            if scrimmage_file.is_file():
+                ideas = preview_tail(code, scrimmage_file.read_text(encoding="utf-8"))
+                source = "preview"
+        if ideas:
+            tails[code] = {"ideas": ideas, "source": source}
+    return tails
+
+
+def _tail_note(tails):
+    """Render the tail-count suffix for the CLI summary line. Empty when no phase-level tails apply."""
+    if not tails:
+        return ""
+    counts = {}
+    for entry in tails.values():
+        counts[entry["source"]] = counts.get(entry["source"], 0) + 1
+    if len(counts) == 1:
+        detail = next(iter(counts))
+    else:
+        detail = ", ".join(f"{n} {source}" for source, n in sorted(counts.items()))
+    return f", {len(tails)} tails ({detail})"
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Generate the commissioner hub data file.")
     parser.add_argument("--phase", required=True, choices=PHASES)
@@ -252,9 +341,14 @@ def main(argv=None):
                         help="Directory outside the repo. Defaults to ~/.cache/temp-agency/hub.")
     parser.add_argument("--gate", action="store_true",
                         help="Run bin/verify's gate to fill the gated column. Slower.")
+    parser.add_argument(
+        "--demo", action="store_true",
+        help="Build preview tails from scrimmage text when no official run exists.")
     args = parser.parse_args(argv)
 
     phase = resolve_phase(args.phase)
+    if args.demo and phase == "runfloor":
+        raise PhaseError("runfloor carries no tails; --demo has nothing to preview")
     out_dir = resolve_out_dir(args.out)
 
     field = collect_field(FIELD_FILE.read_text(encoding="utf-8"))
@@ -266,8 +360,11 @@ def main(argv=None):
     floor = run_floor(codes, dispatched_codes(log), _recorded_codes(codes),
                       _gated(args.gate), _receipt_counts())
 
-    path = emit(assemble(phase, field, states, draw, floor), out_dir)
-    print(f"hub-data.js: {phase} phase, {len(codes)} entrants -> {path}")
+    tails = {} if phase == "runfloor" else _collect_tails(codes, args.demo)
+
+    path = emit(assemble(phase, field, states, draw, floor, tails=tails, demo=args.demo), out_dir)
+    print(f"hub-data.js: {phase} phase, {len(codes)} entrants"
+          f"{_tail_note(tails)} -> {path}")
     return 0
 
 
