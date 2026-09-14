@@ -288,3 +288,102 @@ because same-origin module resolution inside an Artifact is unverified.
 
 - **Plan 1 (run floor)** — `build_hub.py` at `--phase runfloor`, plus the Bracket, Run Floor
   and Entrant Card views. See `hub-plan-1-runfloor.md`.
+- **The design system and the Tail** — `--phase output`, `views/tail.js`, and the rebuilt
+  `hub.css`. See § 12.
+
+---
+
+## 12. Design system
+
+The first pass had no design intent and hit three of the known tells of generated
+interface work: all-caps monospace labels, arrow-joined meta strings, and identical
+rounded cards with one radius and one shadow. This section records what replaced it.
+
+### Governing idea
+
+Quiet authority around moments of spectacle. Most of the interface is disciplined. When
+something carries consequence, the interface becomes unmistakably consequential.
+
+### The organising metaphor
+
+Every entrant owes exactly 24 proposals (`official-runs/official-run-template.md:22`). A
+shot clock runs 24 seconds. Both are a bounded window in which you must produce something
+non-obvious — early clock is rehearsed, late clock is where you either manufacture
+something or force a bad shot. Ideas 17–24 are the late clock, and they are exactly the
+band Pass 1 judges (`verdict-template-s16.md:36`).
+
+The metaphor is load-bearing where it caps output at 24 and judges only the tail. It is
+weakest where it borrows clock vocabulary for a page with no elapsing time: the tail
+renders a finished transcript, not a countdown. Keep it for the constraint it explains,
+not for atmosphere it cannot supply.
+
+### Environment is phase, not viewer theme
+
+| Phase | Environment |
+|---|---|
+| `runfloor` | House lights up. Cool bone ground. Nothing is at stake. |
+| `output` | Half light. Pass 1 sealed, the proposals exist. |
+| `mechanism` | The bowl. Only the floor stays lit. Scores released. |
+
+Stamped as `data-phase` on the root element, so CSS owns the whole shift. Two planes
+throughout — a lit warm floor inside a cool dark bowl — never a dark page with a bright
+accent. Measured floor-to-ground contrast is 1.28–1.44:1; at 1.16–1.23:1 it was invisible.
+
+### Type
+
+- **Archivo** — structure and every number. Its width axis does the work a second display
+  face would otherwise do.
+- **Newsreader** — evidence prose, at long measure.
+- Monospace survives only for true machine identifiers (receipt IDs, seeds, commit SHAs).
+  As a label face it was decoration.
+
+### Colour meanings
+
+`--floorlight` is the lit floor and the only warm accent. `--buzzer` is rationed to
+consequence: repetition onset, and nothing else. `--dead` means *judged repetition* and
+`--quiet` means *ordinary secondary chrome* — these are separate meanings and must stay
+visually separable, having once sat 1.42:1 apart.
+
+### The honesty contract
+
+The tail computes a repetition onset from a word-prefix match. **That is not a panel's
+judgment and must never be dressed as one.** Panel names and any isolation claim appear
+only when `data.yields` carries that specific panel's onset for that side — gating on the
+game alone would let a partially filled block print a real panel's name beside a
+fabricated verdict. In preview, controls are labelled by the match width they set, the
+caption says the line was computed in the page, and a per-game provenance badge sits
+beside each verdict.
+
+This exists because the tournament has already convicted one entrant for the same move:
+*"a model judgment dressed as an executable launders a judgment into apparent
+measurement, which is worse than stating it plainly"* (`HANDOFF.md:327`).
+
+### Rules that fell out of review
+
+- Signal strength tracks consequence. An early stall is the worse result, so it cannot be
+  rendered more faintly than a late one.
+- A claim must be inspectable where it is made. Every early-clock tick carries its
+  proposal text, and the echoed proposal is marked.
+- Motion is for orientation, not flourish. This is an instrument used for months.
+
+---
+
+## 13. Open calls, deferred deliberately
+
+Raised by review, not acted on, because each is a decision rather than a fix.
+
+1. **Round is not a first-class field.** `s16` is hardcoded in five places in
+   `build_hub.py` and `views/bracket.js:31` carries the literal string `"Sweet 16"`. The
+   payload has no `round`, so an Elite 8 build will misreport the round unless hand-edited.
+   Until round exists as data, the three phase palettes are three moods with no memory, and
+   the brief's "different in April than in June" cannot be built. Changing this alters the
+   payload contract and the structural test guard.
+2. **"Who did better" is not a two-second read.** The comparison currently lives in one
+   prose sentence per side. A shared comparative scale would fix it and is a design
+   decision, not a repair.
+3. **The stalled treatment flattens entrant character.** Voice is the one place local
+   identity survives — one entrant writes tagged, self-aware lines where another writes
+   plain questions — and dimming erases exactly that the moment a run is ruled stalled.
+4. **The other three views inherit tokens, not composition.** Run Floor is still a table,
+   Bracket still an equal-weight card grid, Entrant still dense prose. They render
+   correctly under the new system but have not been redesigned.
