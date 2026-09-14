@@ -12,8 +12,8 @@
     var line = el("div", {});
     line.appendChild(el("span", { cls: "code", text: code + " " }));
     line.appendChild(el("span", { text: meta.name + (meta.owner ? " ◆" : "") }));
-    line.appendChild(el("span", { cls: "muted stage-" + stageOf(data.floor, code),
-                                  text: "  " + stageOf(data.floor, code) }));
+    line.appendChild(el("div", { cls: "stageline stage-" + stageOf(data.floor, code),
+                                 text: stageOf(data.floor, code) }));
     return line;
   }
 

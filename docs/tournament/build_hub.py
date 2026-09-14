@@ -63,7 +63,11 @@ def resolve_out_dir(raw):
     return out
 
 
-ENTRANT_RE = re.compile(r"^### (?P<code>[A-Z]\d+) · (?P<name>.+?)(?P<owner> ◆)?$", re.M)
+# A heading's trailing glyph marks origin: ◆ owner idea, ◇ not an owner idea,
+# ✦ a late substitution (which may carry trailing text such as "— AMENDED").
+# Keep the glyph out of the name and preserve whatever follows it as a note.
+ENTRANT_RE = re.compile(
+    r"^### (?P<code>[A-Z]\d+) · (?P<name>.+?)(?P<mark>\s+[◆◇✦][^\n]*)?$", re.M)
 CONTRACT_RE = re.compile(r"^## (?P<code>[A-Z]\d+) · ", re.M)
 STATE_RE = re.compile(r"\*\*Enactment state:\*\* \*\*(?P<body>[^*]+)\*\*")
 
@@ -96,10 +100,12 @@ def collect_field(text):
     """Parse field-of-32.md into {code: {code, name, owner, summary, not_native, status}}."""
     entries = {}
     for mark, block in _blocks(ENTRANT_RE, text):
+        glyphs = mark.group("mark") or ""
         entries[mark.group("code")] = {
             "code": mark.group("code"),
             "name": mark.group("name").strip(),
-            "owner": bool(mark.group("owner")),
+            "owner": "◆" in glyphs,
+            "note": glyphs.lstrip(" ◆◇✦—- ").strip(),
             "summary": _first_paragraph(block),
             "not_native": _labelled(block, "Not native"),
             "status": _labelled(block, "Status"),

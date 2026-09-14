@@ -8,6 +8,9 @@
     head.appendChild(el("span", { cls: "code", text: entry.code + " " }));
     head.appendChild(el("span", { text: entry.name + (entry.owner ? " ◆" : "") }));
     box.appendChild(head);
+    if (entry.note) {
+      box.appendChild(el("p", { cls: "muted", text: entry.note }));
+    }
     box.appendChild(el("p", { text: entry.summary }));
     if (entry.not_native) {
       box.appendChild(el("p", { cls: "muted", text: "Not native: " + entry.not_native }));
