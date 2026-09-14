@@ -857,3 +857,98 @@ second substitution.
 
 **Promoted to `rules-v2.md` §4 as Amendment 9,** per the standing rule that a ruling settling
 more than the one game it decided is not itself a rule until folded back into that document.
+
+### Ruling 25 — THE UNDERSTUDY (A6) IS DISTINCT FROM THE HOSTILE ENVIRONMENT (A5); BOUNDED RECIPE IMPLEMENTATION AUTHORIZED
+
+**Ruling (commissioner, 2026-09-13):** The Understudy is retained as a distinct Sweet 16
+entrant. It is not absorbed into The Hostile Environment. A bounded implementation of its
+frozen degradation recipe is authorized so that it can pass packet admission like the
+other thirteen implemented entrants.
+
+**Why they are different mechanisms.** The Hostile Environment removes information or
+resources from the environment and leaves the performer intact. The Understudy leaves the
+task fully available and deliberately misapplies the performer's own method: phases run
+in the wrong order, the signature technique is overused, and the load-bearing principle
+is misidentified. "Less information" and "misapplied expertise" are different causes of
+output change. The three-test check in `harness-readiness-docket.md` (same thesis,
+deletion, one sentence) favors separate evaluation, and all three Round-of-32 panels
+already refused to merge The Understudy with The Wrong Expert on Purpose for the same
+reason: they defeat different reflexes.
+
+**Conditions of the authorization.** These are binding on the build, not suggestions.
+
+1. **Freeze the recipe.** The three-step recipe in `scrimmages/s16-a6.md` § Exact input
+   (wrong phase order, signature-technique overuse, principle misidentification) is the
+   mechanism. The tool applies that recipe to a frozen parent profile and emits the
+   degraded method as its bound span. The recipe text is committed and hashed before any
+   official invocation, like every other frozen input.
+2. **Preserve both responses.** The official source record keeps the understudy's
+   degraded proposal and a bounded expert (undegraded) response from the same parent,
+   side by side. The binding checks that the Pass 1 proposal is the understudy's, not the
+   expert's.
+3. **Synthesis may not silently repair the errors.** If a LENS or synthesis pass restores
+   the correct phase order, varies the technique, or re-identifies the principle, the
+   record must show that repair explicitly. A record whose Pass 1 artifact no longer
+   exhibits the three degradations fails the binding.
+4. **No weaker-model substitute.** The understudy is the same frozen official model under
+   a degraded method. Running a smaller model as "the understudy" is not this mechanism.
+
+**Effect.** `lib/verify/packet.py` `REQUIRED` gains an `A6` entry once the tool exists;
+`enactment-directives-s16.md` § A6 is rewritten from "deferred" to an operator directive;
+the implemented count moves from 13 to 14. None of that is done by this ruling. Until the
+tool, its binding and its tests land and pass the receipt gate, The Understudy stays
+blocked at admission, exactly as today.
+
+**Standing.** This does not change any game result or the draw. Game 6 (The Understudy in
+position A versus The Idea-Space Map in position B) is unaffected.
+
+### Ruling 24 — ENACTMENT HARNESS: STANDING, OFFICIAL GENERATOR AND EXECUTION CAPABILITY
+
+**Ruling (commissioner, 2026-09-13):**
+
+1. **Standing.** The thirteen implemented Sweet 16 entrants move from `MANUAL PROTOTYPE`
+   to `RUNNABLE`: Lens Transformers, Make the Problem Strange First, The Hostile
+   Environment, Persona Toolbelts, Notation Transposition, The Entropy Well, Cross-Repo
+   Foraging, The Wrong Expert on Purpose, Roster Mutation, Temporal Displacement, The
+   Oblique Deck, String Seed of Thought, and The Homogeneity Auditor. The Understudy
+   moves to `RUNNABLE` only when its Ruling 25 build passes the receipt gate. The Voice
+   Oracle and The Idea-Space Map stay `PROMISE`; they play as receipt-free matched
+   baselines. The Grudge Ledger stays benched. Standing is not promoted by arithmetic:
+   the count is 13 today and becomes 14 only on evidence.
+2. **Scope limits stand.** Roster Mutation is crossover only. Temporal Displacement is
+   the frozen 1911 surface-wordlist check with no concept-review stage. The Wrong Expert
+   on Purpose carries the small independent frame gate. None of these expands without a
+   further ruling.
+3. **Official generator.** `gpt-5.6-luna` at `--effort xhigh` under the
+   `codex:codex-rescue` operator remains the frozen official generator for every entrant.
+   GLM-5.3 and Kimi K3 produced useful development work through OpenRouter; that is
+   subagent approval for building, not for generating official output. Substituting the
+   official model is a separate fairness decision and is not made here.
+4. **Field waits.** No game dispatches until the official generator is confirmed
+   reachable and every implemented entrant's runtime prerequisite is present in the
+   execution environment. Missing prerequisites produce a real failed-tool receipt and a
+   `NOT ENACTED` record, never a silent substitute.
+
+**Capability record, 2026-09-13.** Verified by two isolated agents; commands are
+re-runnable.
+
+- **Interpreter — PASS.** `/private/tmp/s16-harness-py313/bin/python` is Python 3.13.12
+  with Pint 0.26.1, torch 2.14.0, transformers 5.17.0, matching `requirements-harness.lock`.
+  System `python3` (3.9) lacks Pint, so Persona Toolbelts' `bin/units` fails there with a
+  real failed receipt. **Caveat:** the venv lives under `/private/tmp` and does not survive
+  a reboot. Rebuild per `lib/README.md` § runtime.
+- **Cross-Repo Foraging network — PASS.** `https://en.wikipedia.org/w/api.php` random-page
+  query returned HTTP 200 in 162 ms with the harness User-Agent.
+- **Homogeneity Auditor model — PASS, env var required.** `cross-encoder/nli-deberta-v3-base`
+  at revision `6c749ce3…` is present with all seven file hashes verified at
+  `/private/tmp/s16-model-cache`. The default cache `~/.cache/temp-agency/models` is
+  empty, so official invocations must export `HARNESS_MODEL_CACHE` to the absolute path.
+  Same `/private/tmp` reboot caveat.
+- **Full suite — PASS.** 310 passed, 7 subtests, 1 upstream torch warning, 147 s, using
+  the interpreter and cache above.
+- **Official generator — BLOCKED, quota.** `codex-cli 0.144.6`, logged in via ChatGPT.
+  The CLI accepts `-m gpt-5.6-luna` with reasoning effort `xhigh` (banner confirms both),
+  so there is no model-name mismatch. A one-word probe returned, twice:
+  `You've hit your usage limit ... try again at Sep 14th, 2026 2:23 AM.` The round does
+  not start until a fresh probe succeeds. Note `~/.codex/config.toml` defaults effort to
+  `high`; every official spawn must pass `xhigh` explicitly.

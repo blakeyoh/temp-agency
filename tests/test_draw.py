@@ -50,7 +50,7 @@ def build_record(entrant, ids, body, extra=""):
     bullets = "\n".join("- %s draw primary" % rid for rid in ids)
     return (
         "# Sweet 16 Official Source Record — %s\n\n## Provenance\n\n"
-        "- **Entrant code:** %s\n\n## Execution trace\n\n%s\n\n%s## Receipts\n\n%s\n"
+        "- **Entrant code:** %s\n\n## Pass 1 proposal artifact\n\n%s\n\n%s## Receipts\n\n%s\n"
         % (entrant, entrant, body, extra, bullets)
     )
 

@@ -6,6 +6,12 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+sys.path.insert(0, str(ROOT))
+from lib.verify.packet import validate_sources
+from lib.tools import require_clean
+from lib.paths import relative_to_root
+DISPATCH_LOG = "docs/tournament/dispatch-log.json"
 RUNS = HERE / "official-runs"
 PACKETS = HERE / "packets"
 DRAW = HERE / "s16-draw-map.json"
@@ -172,6 +178,9 @@ def render(write=False, phase=None):
     is true, per official-runs/README.md's Packet release order: output packets
     are rendered and Pass 1 is sealed *before* mechanism packets are released, so
     a single --write can never emit both at once."""
+    if write and phase not in ("output", "mechanism"):
+        raise ValueError("writing requires one explicit packet release phase")
+    require_clean(ROOT, [relative_to_root(ROOT, p) for p in (DRAW, FIELD, CONTRACTS)])
     draw = json.loads(DRAW.read_text())
     errors = []
     records = {}
@@ -184,6 +193,11 @@ def render(write=False, phase=None):
                     errors.append(str(error))
     if errors:
         raise ValueError("\n".join(errors))
+
+    try:
+        validate_sources(ROOT, records, RUNS, DISPATCH_LOG)
+    except Exception as error:
+        raise ValueError("packet admission: " + str(error)) from error
 
     definitions = {}
     if phase in (None, "mechanism"):

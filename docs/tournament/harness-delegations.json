@@ -18,6 +18,15 @@
       "reasoning_tokens": 17900,
       "finish_reason": "length",
       "usable_output": false
+    },
+    {
+      "model": "z-ai/glm-5.3",
+      "effort": "low",
+      "scope": "Phase 8 entrant directives draft",
+      "manifest_sha256": "87eed830dfdc9c06db19df971885ad6a40ec3d0115a371a98b44f0e2af601a80",
+      "usable_output": false,
+      "reason": "OPENROUTER_API_KEY absent in resumed environment; stopped before network request. Host authored directives locally.",
+      "cost_usd": 0
     }
   ],
   "successful_delegations": [
@@ -1111,6 +1120,85 @@
         "elapsed_ms": 12865
       },
       "review": "Exact validation passed: three dependent, one decorative; overall false as intended. Not an official dispatch."
+    },
+    {
+      "scope": "Full Phase 7 review of all implemented tool contracts at 2953905; host disposition in contract-review/phase7-host-findings.md.",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-14T01:27:52+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Perform the mandatory Phase 7 fresh independent contract read across the entire enactment harness. Read the supplied implementation snapshot and governing contracts/plan. Give an entrant-by-entrant matrix for all 14 planned runnable slots, explicitly identify any missing/deferred slot (A6 is intentionally deferred pending distinctness), and identify concrete actionable mismatches or bypasses between tool/receipt/binding behavior and the agreed bound spans. The newest commissioner choices govern: E4 crossover-only intentionally, E5 instruction+1911wordlist only with no concept-review step, E3 small independent evaluator analogousE2. Do NOT re-open those approved choices or demand perfect semanticproof outsidedeclaredboundspans. Core trustdomain excludes deliberatehostforgery; do inspect accidental/maliciousentrant misbinding. Separate implementation defects from pending Phase8 integration and Rulings24/25. Do not claim tools are missing solely because old historical contract states say so. Return concise prioritized findings with exact evidence paths and an all-slot checklist; no patch and no claims of running tests. Host retains review and execution authority.",
+          "output_mode": "review",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/private/tmp/s16-phase7-full-glm/implementation.md",
+            "purpose": "Complete bin and lib implementation snapshot",
+            "bytes": 273168,
+            "sha256": "97f650b569d932e2835511d2235e1b75e3084f52a51c41bc7834c1ecd75ca5dc"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/enactment-harness-plan.md",
+            "purpose": "Phased requirements and accepted trustboundary",
+            "bytes": 36999,
+            "sha256": "d5bf9404e17e16795f57bbf5ef2b1b7baf8076a44ae32315211620fa18bfe6b4"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/evidence-contracts-s16.md",
+            "purpose": "All entrant contracts with operative scopeclarifications",
+            "bytes": 17099,
+            "sha256": "ce5caecf2252568e5acee6051fff0ff71b99e9c63d88fcdff238fda53553db39"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/rules-v2.md",
+            "purpose": "Ratifiedrules and commissioner clarifications",
+            "bytes": 21490,
+            "sha256": "00c4abc58454f31264fc4411696d69fbb92d9c6ac186a36afda59c41b387d9f1"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789349306-oV5ez6YOpZf5vLZEqhii",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 5605,
+        "cost_usd": 0.153531,
+        "usage": {
+          "prompt_tokens": 85421,
+          "completion_tokens": 7714,
+          "total_tokens": 93135,
+          "cost": 0.153531,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.153531,
+            "upstream_inference_prompt_cost": 0.1195894,
+            "upstream_inference_completions_cost": 0.0339416
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 5605,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 153031
+      },
+      "review": "Two actionable binding-scope findings; host fixes and regressions follow. A6 remains intentionally deferred."
     }
   ],
   "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."

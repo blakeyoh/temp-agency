@@ -105,8 +105,8 @@ the seed is known is a second way to shop the draw (Phase 1 forger).
 | **G1** | **Artifact binding** — the record derives from the tool's output | Binding sidecar (§6.2) + per-tool binding rule (§6.4) + `bin/verify --bind` | **Partial and bounded.** Exact for the receipt-determined span. Prose beyond it is declared unverifiable. |
 | **G2** | **Receipt authenticity** — the tool really ran | Deterministic replay for `replay-exact`; external attestation for `hash-attested`; git commit as anchor | Strong for replay-exact. Bounded for hash-attested. **The token contributes nothing here** (§4). |
 | **G3** | **Tamper evidence** | Git commit by the orchestrator; in-directory hash chain | Strong once committed. Nil before. |
-| **G4** | **Seed provenance** — entropy from the OS, not the model, and **not shopped** | The orchestrator draws every official seed with `secrets.randbits` and commits `official-runs/dispatch-log.json` **before** dispatch, together with the sha256 of every input file the tool may read; the tool receives the seed as `--seed`; the gate requires `seed.source: argument`, a value present in the committed log, and receipt inputs equal to the entry's | Strong. A tool that draws its own seed is replayable but shoppable (§4). Ruling 23 applied field-wide. |
-| **G5** | **Contract fidelity** — the tool does what the contract claims | **UNSOLVED by automation.** Phase 8 independent read only. | None until Phase 8. |
+| **G4** | **Seed provenance** — entropy from the OS, not the model, and **not shopped** | The orchestrator draws every official seed with `secrets.randbits` and commits `docs/tournament/dispatch-log.json` **before** dispatch, together with the sha256 of every input file the tool may read; the tool receives the seed as `--seed`; the gate requires `seed.source: argument`, a value present in the committed log, and receipt inputs equal to the entry's | Strong. A tool that draws its own seed is replayable but shoppable (§4). Ruling 23 applied field-wide. |
+| **G5** | **Contract fidelity** — the tool does what the contract claims | **UNSOLVED by automation.** Phase 7 independent read plus host disposition. | Bounded contract review; see `contract-review/phase7-host-findings.md`. |
 
 ## 6. Architecture
 
@@ -167,7 +167,7 @@ the gate records the span so the panel knows what was and was not verified.
 
 | Tool | Bound span | Mechanical check |
 |---|---|---|
-| `bin/draw` (E1) | Header: seed, pools, index arrays. Amendment 4 replay. | Header byte-matches receipt output. Two receipts, both `os-entropy`. The replayed item's prose differs from the original by more than a committed similarity threshold. |
+| `bin/draw` (E1) | Header: seed, pools, index arrays. Amendment 4 replay. | Header byte-matches receipt output. Two receipts, both with argument seeds precommitted in the official dispatch log. The replayed item's prose differs from the original under the committed `SIMILARITY_MAX = 0.8` threshold in `lib/bindings/draw.py`. |
 | `bin/seed-string` (E9) | Seed string. Derivation table. | String appears verbatim. **Every row's arithmetic re-computes** (char-code sum, modulus, index). Every item's derived index is the one its prose is labeled with. |
 | `bin/oblique` (E6) | Card text. Deck hash. | Card appears verbatim. Deck file hash matches the committed deck. |
 | `bin/forage` (E2) | Artifact citation. Revision ID. | Citation matches receipt. Revision ID resolves on re-query. Amendment 5 deletion test: at least three items marked frame-dependent. |
@@ -495,9 +495,11 @@ and E3's lexical router are now implemented, with their narrower bounds explicit
 E3 now includes the approved small independent frame gate. A partial independent Phase 7 read of these
 three entrants found scope gaps against the frozen contracts; the commissioner decisions
 are resolved in `contract-review/phase5-host-findings.md` (E4 crossover-only; E5 wordlist-only;
-E3 small independent evaluation). Phase 5 is not declared complete
-merely because its executables exist. Full contract review, packet integration and
-directives remain outstanding.
+E3 small independent evaluation). The full Phase 7 read now covers all 13 implementations and the intentionally deferred
+A6 slot. Its two binding-scope findings were fixed with regressions; the host corrected
+the stale E1 seed requirement. Phase 8 packet admission and all sixteen entrant
+directives are implemented. Read `harness-readiness-docket.md` for the remaining
+A6, standing, runtime and start-authorization decisions.
 
 The integrated suite passed 250 tests in 122.46 seconds. Final E3 label hardening was
 additionally verified by nine focused tests, including three new cases. See

@@ -25,7 +25,7 @@ runner must preserve the exact output rather than editing it for style.
 
 ### Transformed, masked, or withheld entrants
 
-Amendment 3 applies to A1, C8, and M1. The final generating context receives only the
+Amendment 3 applies to A1, C8, A5, and M1. The final generating context receives only the
 transformed, masked, or withheld artifact. A same-context simulation records the relevant
 operation as `NOT RUN`; it cannot be represented as faithful enactment.
 
@@ -57,3 +57,28 @@ therefore records `NO SIMULATION`.
 
 The renderer rejects a source record without exactly 24 numbered rules. The dispatch runtime
 enforces the recorded 2,000-token cap; its completion record is part of the source trace.
+
+## Harness admission and directives
+
+Follow [Enactment Directives](../enactment-directives-s16.md) for the entrant's
+ordered operations. Every implemented entrant needs real receipt IDs in its
+`## Receipts` section, including rejected/regenerated attempts. The renderer runs
+`lib.verify.packet.validate_sources` and the complete receipt gate on every render,
+including read-only validation. A missing receipt, missing required tool, wrong
+entrant, stale binding, failed replay or invalid attestation blocks release.
+
+Before each invocation, commit its exact input-path/hash mapping and seed in
+`docs/tournament/dispatch-log.json`, as an `entries` array of objects with `entrant`,
+`seed`, and `inputs`. Deterministic tools use JSON `null` as their seed. Seeded tools
+use operator-selected argument seeds; retain failed attempts and do not shop draws.
+The matching entry must exist in the receipt's invocation commit, not merely in
+some later log. Append entries as later-stage artifacts become available.
+
+Commit source records before rendering. Select exactly one enactment status in the
+template. `NOT ENACTED` requires a real failed-tool receipt. Only A2/M5 currently
+have a receipt-free `PROMISE ONLY` policy, with `Pass 1 provenance: baseline`.
+A6 is blocked pending its distinctness ruling; these directives do not settle it.
+
+Writing requires `--phase output` or `--phase mechanism`, including through the
+Python API. The operator still owns the panel-seal check before mechanism release;
+the phase flag is not proof that a panel has sealed its Pass 1 record.

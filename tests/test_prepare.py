@@ -316,3 +316,24 @@ def test_binding_rejects_input_tamper_and_optional_abstract_leak(repo):
     config = repo.root / CONFIGS["A5"]
     config.write_text(config.read_text() + "\n")
     assert repo.verify("bind", str(record), str(path)).returncode == 1
+
+
+@pytest.mark.parametrize('entrant,adapter,section,word', [
+    ('C8', 'mask', 'Abstract proposal', 'hospital workers'),
+    ('A5', 'withhold', 'Pass 1 proposal artifact', 'Eight'),
+])
+@pytest.mark.parametrize('heading', ['', '## Reasoning\n', '## Approach\n'])
+def test_negative_scan_includes_other_reasoning(repo, entrant, adapter, section, word, heading):
+    copy_inputs(repo)
+    receipt, path, parsed = prepared(repo, entrant, adapter)
+    text = source_record(entrant, receipt, parsed['visible'], section)
+    record = repo.write(RECORDS + '/leak.md', heading + word + '\n' + text)
+    assert 'FAIL negative_words' in repo.verify('bind', str(record), str(path)).stdout
+
+
+def test_mask_allows_decoded_final_proposal(repo):
+    copy_inputs(repo)
+    receipt, path, parsed = prepared(repo, 'C8', 'mask')
+    text = source_record('C8', receipt, parsed['visible'], 'Abstract proposal')
+    record = repo.write(RECORDS + '/decoded.md', text + '\n## Pass 1 proposal artifact\n1. hospital workers\n')
+    assert repo.verify('bind', str(record), str(path)).returncode == 0

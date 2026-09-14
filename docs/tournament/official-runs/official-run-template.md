@@ -9,6 +9,7 @@
 - **Model / effort:** `gpt-5.6-luna` / `xhigh`
 - **Started (UTC):**
 - **Completed (UTC):**
+- **Pass 1 provenance:** mechanism / baseline
 - **Enactment status:** `FAITHFUL` / `PARTIAL` / `NOT ENACTED` / `PROMISE ONLY`
 
 ## Dispatch boundary

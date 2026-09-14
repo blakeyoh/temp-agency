@@ -61,26 +61,63 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
-**Enactment harness · 2026-09-13 — Phases 0–4 verified; Phase 5 built at commissioner-approved scope.**
-E6 has its complete committed deck and replayable draw. E4 implements crossover only;
-E5 implements a frozen 1911 surface lexicon with retained regeneration; E3 implements
-full-roster routing and the small approved independent frame gate. The independent
-E3/E4/E5 contract read confirmed those limits. See `contract-review/phase5-host-findings.md`
-for the resolved commissioner choices and the E3 label-binding fix.
+**Enactment harness · 2026-09-13 — Phases 0–8 implemented and verified within approved scope.**
+There are 13 implemented entrants; A6 remains intentionally deferred, and A2/M5 have
+explicit PROMISE baselines. E3 has the small independent frame gate, E4 is crossover
+only, and E5 remains the frozen 1911 surface checker without extra concept review.
 
-The integrated suite passed 256 tests on Python 3.13.12 in 139.05 seconds, with one
-upstream Torch warning. Three focused frame tests passed after plain-text normalization. Historical Phase 2/3/4 results remain in their reports.
-Read `enactment-harness-plan.md` §4 for the trust boundary. Development tests use
-throwaway repositories; the live `receipts/` directory remains reserved for dispatch.
+The full independent Phase 7 read covered the bin/lib snapshot at `2953905`. Its two
+binding-scope findings are fixed: prepare scans non-trace reasoning, and E1/E9 item
+labels must come from the proposal. Host disposition and original GLM response are in
+`contract-review/phase7-host-findings.md` and its companion JSON. GLM cost $0.153531.
 
-A3's real toolbelts, M1's pinned semantic comparator and authenticated prior median,
-C5's notation tool, and E2's approved independent evaluator gate are implemented.
-E2's real calibration evidence and evaluator quality limitations remain in
-`forage/calibration/README.md`. The chain-consistent forged-attestation fixture was
-completed early for Phase 6. A partial independent contract read has run; full Phase 7,
-packet integration and directives remain. Rulings 24/25 and official authorization are
-unchanged. The user welcomes libraries and authorizes external delegation in this session;
-the host reviews code and tests. GPT-5.6 Luna assists with documentation.
+Phase 8 gates every packet render on real receipts, required tools, pre-invocation
+input/seed commitments, fresh binding, replay and attestation. All sixteen source
+scrimmages have an entry in `enactment-directives-s16.md`. A6 admission fails closed.
+The official receipts directory still contains only `.gitkeep`; no official output
+or judging has begun. Packet phase selection does not attest that a panel sealed Pass 1;
+the operator still checks release order.
+
+Verification: 271 tests passed on Python 3.13.12 in 151.70 seconds, including packet
+renderer tests, with one upstream Torch warning. Five focused packet tests passed
+with an additional E1 missing-counterfactual regression after that full run. All 16
+directive sections match the frozen draw, and their source links resolve.
+
+Next: `harness-readiness-docket.md` makes the remaining Ruling 25 (A6 distinctness),
+Ruling 24 (standing/runtime), and Phase 9 start record concrete. No ruling has been
+silently issued. Recommendation is to retain A6's degraded-performer recipe as distinct
+from A5's degraded input, then build only if authorized.
+
+The user welcomes libraries and authorizes external delegation throughout this session.
+GLM has returned useful work; the newest draft attempt stopped before network access
+because the resumed shell lacks exported `OPENROUTER_API_KEY`. The skill and wrapper
+were re-read after the user's update notice and still require that environment variable.
+Luna's recent documentation follow-up hit quota; the host completed the documentation.
+Do not retry either blindly or change the frozen official model without a ruling.
+
+**Session change of hands · 2026-09-13 — Rulings 24 and 25 made; Phase 8 host-reviewed; Phase 9 not started.**
+A new agent took over mid-session with all Phase 8 work uncommitted on top of `2953905`.
+What happened, in order, so the next agent can pick up cold:
+
+1. The commissioner ruled on `harness-readiness-docket.md`. **Ruling 25:** The Understudy
+   stays distinct from The Hostile Environment; a bounded recipe build is authorized under
+   four conditions (frozen recipe, both responses preserved, no silent repair by synthesis,
+   no weaker-model substitute). **Ruling 24:** thirteen entrants are `RUNNABLE`, The
+   Understudy joins on evidence, Luna/xhigh stays the official generator, the field waits
+   for capability. Both are in `commissioner-rulings.md`.
+2. Phase 8 was reviewed by the host (Claude), not GLM, because the OpenRouter key was not
+   exported. Findings are in `contract-review/phase8-host-review.md`.
+3. Two isolated agents ran the capability checks. Results are in Ruling 24's capability
+   record. Short form: interpreter, Wikipedia and the Blind Auditor model all PASS, but
+   the venv and model cache live under `/private/tmp` and vanish on reboot. Run the suite
+   with `HARNESS_MODEL_CACHE=/private/tmp/s16-model-cache /private/tmp/s16-harness-py313/bin/python -m pytest tests docs/tournament -q`
+   (310 pass). System `python3` is 3.9 without Pint and fails five toolbelt tests.
+4. Nothing official has been generated. `receipts/` still holds only `.gitkeep`.
+
+**Next, in order:** (a) commit the Phase 8 tree plus these rulings and the review;
+(b) build The Understudy under Ruling 25 (tool, binding, `REQUIRED['A6']`, directive,
+tests) and re-run the receipt gate; (c) re-confirm Luna reachability on the day of start;
+(d) then Phase 9 per the docket. Do not dispatch any game before (c).
 
 **Before any scrimmage, read five more things after the governing four:**
 

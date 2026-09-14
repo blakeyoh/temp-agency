@@ -123,7 +123,7 @@ def test_two_option_pool_still_draws(repo):
 
 DRAW_RECORD = (
     "# Record\n\n## Provenance\n\n- **Entrant code:** E1\n\n## Execution trace\n\n"
-    "%s\n\n%s\n\n## Receipts\n\n- %s draw primary\n"
+    "%s\n\n## Pass 1 proposal artifact\n\n%s\n\n## Receipts\n\n- %s draw primary\n"
 )
 
 

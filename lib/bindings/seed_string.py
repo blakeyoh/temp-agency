@@ -40,6 +40,7 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
+from lib.bindings.proposal import proposal_lines
 from lib.bindings import BindResult, Check
 
 BOUND_SPAN = (
@@ -196,7 +197,7 @@ def _find_item_line(lines: List[str], n: int) -> Optional[str]:
 
 def _check_item_labels(strings: List[str], by_string: Dict[str, List[Tuple[int, int]]],
                        pool: Optional[List[str]], record_text: str) -> Check:
-    lines = record_text.splitlines()
+    lines = proposal_lines(record_text)
     failures: List[str] = []
     for n, s in enumerate(strings, start=1):
         matches = by_string.get(s, [])

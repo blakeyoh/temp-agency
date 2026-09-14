@@ -5,6 +5,7 @@ import difflib
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
+from lib.bindings.proposal import proposal_lines
 from lib.bindings import BindResult, Check, cited_receipt_ids
 from lib.paths import repo_root
 from lib.receipt import list_receipts, load
@@ -95,7 +96,7 @@ def _item_triple(line: str) -> Optional[List[str]]:
 
 def _item_line(record_text: str, item: int) -> Optional[str]:
     pattern = re.compile(r"^\s*%d\.\s" % item)
-    for line in record_text.splitlines():
+    for line in proposal_lines(record_text):
         if pattern.match(line):
             return line
     return None

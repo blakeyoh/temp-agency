@@ -65,7 +65,7 @@ def _parse(receipt):
 
 
 def _sections(text):
-    sections = {}
+    sections = {"": [""]}
     heading = ""
     outside = []
     for line in text.splitlines(keepends=True):
@@ -73,7 +73,7 @@ def _sections(text):
         if match:
             heading = match[1]
             sections.setdefault(heading, []).append("")
-        elif heading:
+        else:
             sections[heading][-1] += line
         if heading != "Execution trace":
             outside.append(line)
@@ -85,11 +85,15 @@ def _negative(adapter, config, sections):
         return Check("negative_words", "not applicable", "not applicable (transform)", True)
     if adapter == "mask":
         words = list(config["map"])
-        headings = ("Abstract proposal",)
+
     else:
         words = config["conditions"][config["condition"]]["negative_words"]
-        headings = ("Pass 1 proposal artifact", "Abstract proposal")
-    text = "\n".join(body for name in headings for body in sections.get(name, []))
+
+    excluded = {"Execution trace"}
+    if adapter == "mask":
+        excluded.add("Pass 1 proposal artifact")  # Decoded output follows abstract reasoning.
+    text = "\n".join(body for name, bodies in sections.items()
+                     if name not in excluded for body in bodies)
     found = leaks(text, words)
     return Check("negative_words", "no frozen negative words in reasoning",
                  ", ".join(found) if found else "none", not found)

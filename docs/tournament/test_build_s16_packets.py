@@ -4,6 +4,7 @@ import os
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -29,6 +30,10 @@ Trace for {code}.
 
 
 class PacketRendererTests(unittest.TestCase):
+    def test_write_requires_explicit_phase(self):
+        with self.assertRaisesRegex(ValueError, "explicit packet release phase"):
+            builder.render(write=True)
+
     def test_render_keeps_pass_1_anonymous_and_releases_trace_separately(self):
         original = builder.RUNS, builder.PACKETS, builder.DRAW
         with tempfile.TemporaryDirectory() as temp:
@@ -42,7 +47,9 @@ class PacketRendererTests(unittest.TestCase):
             builder.DRAW.write_text(json.dumps({"games": [
                 {"g": 1, "A": "A1", "B": "E4", "region": "Sweet 16"}
             ]}))
-            packets = builder.render(write=True)
+            with patch.object(builder, "validate_sources"), patch.object(builder, "require_clean"), patch.object(builder, "relative_to_root", return_value="fixture") :
+                packets = builder.render(write=True, phase="output")
+                packets += builder.render(write=True, phase="mechanism")
             self.assertEqual(2, len(packets))
             output = (builder.PACKETS / "s16-01-output.md").read_text()
             trace = (builder.PACKETS / "s16-01-mechanism-trace.md").read_text()
