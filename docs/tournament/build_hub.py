@@ -114,3 +114,38 @@ def collect_states(text):
         state, _, flag = body.partition(",")
         states[mark.group("code")] = {"state": state.strip(), "flag": flag.strip()}
     return states
+
+
+STAGES = ("pending", "dispatched", "recorded", "gated")
+
+
+def dispatched_codes(log):
+    """Entrant codes carrying a committed dispatch-log entry."""
+    return {str(entry.get("entrant", "")).upper()
+            for entry in log.get("entries", []) if entry.get("entrant")}
+
+
+def gated_codes(report):
+    """Codes whose every gate row passed. `report` is a lib.verify.gate.GateReport."""
+    clean = {}
+    for row in report.rows:
+        code = row.entrant.upper()
+        ok = row.status == "ok" and "FAIL" not in (row.replay, row.bind, row.cited)
+        clean[code] = clean.get(code, True) and ok
+    return {code for code, ok in clean.items() if ok}
+
+
+def run_floor(codes, dispatched, recorded, gated, receipts):
+    """Resolve each entrant to its furthest completed pipeline stage."""
+    rows = []
+    for code in codes:
+        if code in gated:
+            stage = "gated"
+        elif code in recorded:
+            stage = "recorded"
+        elif code in dispatched:
+            stage = "dispatched"
+        else:
+            stage = "pending"
+        rows.append({"code": code, "stage": stage, "receipts": receipts.get(code, 0)})
+    return rows

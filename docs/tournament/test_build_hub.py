@@ -121,3 +121,37 @@ class ContractReaderTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Row:
+    """Stand-in for lib.verify.gate.Row carrying only the fields gated_codes reads."""
+
+    def __init__(self, entrant, status="ok", replay="pass", bind="pass", cited="pass"):
+        self.entrant = entrant
+        self.status = status
+        self.replay = replay
+        self.bind = bind
+        self.cited = cited
+
+
+class Report:
+    def __init__(self, rows):
+        self.rows = rows
+
+
+class RunFloorTests(unittest.TestCase):
+    def test_stage_climbs_with_each_completed_step(self):
+        # One row per stage, so this single case covers all four.
+        rows = hub.run_floor(["E6", "E1", "A5", "C8"], {"E1", "A5", "C8"},
+                             {"A5", "C8"}, {"C8"}, {"C8": 3})
+        self.assertEqual([r["stage"] for r in rows],
+                         ["pending", "dispatched", "recorded", "gated"])
+        self.assertEqual(rows[3]["receipts"], 3)
+
+    def test_reads_dispatch_and_gate_state(self):
+        self.assertEqual(
+            hub.dispatched_codes({"entries": [{"entrant": "e1"}, {"entrant": "A5"}]}),
+            {"E1", "A5"})
+        self.assertEqual(hub.dispatched_codes({"entries": []}), set())
+        report = Report([Row("E1"), Row("A5", replay="FAIL"), Row("E1")])
+        self.assertEqual(hub.gated_codes(report), {"E1"})
