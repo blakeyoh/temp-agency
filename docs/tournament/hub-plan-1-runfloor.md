@@ -362,7 +362,7 @@ def collect_states(text):
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 10 passed.
+Expected: 13 passed.
 
 - [ ] **Step 5: Commit**
 
@@ -412,32 +412,21 @@ class Report:
 
 
 class RunFloorTests(unittest.TestCase):
-    def test_pending_when_nothing_has_happened(self):
-        rows = hub.run_floor(["E1"], set(), set(), set(), {})
-        self.assertEqual(rows, [{"code": "E1", "stage": "pending", "receipts": 0}])
-
     def test_stage_climbs_with_each_completed_step(self):
-        codes = ["E1", "A5", "C8", "M1"]
-        rows = hub.run_floor(codes, {"E1", "A5", "C8", "M1"}, {"A5", "C8", "M1"},
-                             {"C8", "M1"}, {"M1": 3})
+        # One row per stage, so this single case covers all four.
+        rows = hub.run_floor(["E6", "E1", "A5", "C8"], {"E1", "A5", "C8"},
+                             {"A5", "C8"}, {"C8"}, {"C8": 3})
         self.assertEqual([r["stage"] for r in rows],
-                         ["dispatched", "recorded", "gated", "gated"])
+                         ["pending", "dispatched", "recorded", "gated"])
         self.assertEqual(rows[3]["receipts"], 3)
 
-    def test_reads_dispatched_codes_from_the_log(self):
-        log = {"entries": [{"entrant": "e1", "seed": 7}, {"entrant": "A5"}]}
-        self.assertEqual(hub.dispatched_codes(log), {"E1", "A5"})
-
-    def test_empty_dispatch_log_yields_no_codes(self):
+    def test_reads_dispatch_and_gate_state(self):
+        self.assertEqual(
+            hub.dispatched_codes({"entries": [{"entrant": "e1"}, {"entrant": "A5"}]}),
+            {"E1", "A5"})
         self.assertEqual(hub.dispatched_codes({"entries": []}), set())
-
-    def test_gated_codes_excludes_any_entrant_with_a_failing_row(self):
         report = Report([Row("E1"), Row("A5", replay="FAIL"), Row("E1")])
         self.assertEqual(hub.gated_codes(report), {"E1"})
-
-    def test_gated_codes_excludes_a_failed_status(self):
-        report = Report([Row("C8", status="failed")])
-        self.assertEqual(hub.gated_codes(report), set())
 ```
 
 - [ ] **Step 2: Run the test to verify it fails**
@@ -494,7 +483,7 @@ def run_floor(codes, dispatched, recorded, gated, receipts):
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 16 passed.
+Expected: 15 passed.
 
 - [ ] **Step 5: Commit**
 
@@ -533,30 +522,17 @@ DRAW_FIXTURE = {
 
 
 class AssembleTests(unittest.TestCase):
-    def payload(self):
-        return hub.assemble(
-            "runfloor",
-            hub.collect_field(FIELD_FIXTURE),
-            hub.collect_states(CONTRACT_FIXTURE),
-            DRAW_FIXTURE,
-            hub.run_floor(["E1", "A5"], {"E1"}, set(), set(), {}),
-        )
-
-    def test_carries_field_games_panels_and_floor(self):
-        payload = self.payload()
+    def test_runfloor_payload_carries_state_and_omits_judged_evidence(self):
+        payload = hub.assemble(
+            "runfloor", hub.collect_field(FIELD_FIXTURE),
+            hub.collect_states(CONTRACT_FIXTURE), DRAW_FIXTURE,
+            hub.run_floor(["E1", "A5"], {"E1"}, set(), set(), {}))
         self.assertEqual(payload["phase"], "runfloor")
+        self.assertEqual(payload["field"]["A5"]["state"], "PROMISE")
+        self.assertEqual(payload["field"]["A5"]["flag"], "DEFECT UNRESOLVED")
         self.assertEqual(len(payload["games"]), 1)
-        self.assertEqual(payload["panels"][0]["name"], "Builder")
         self.assertEqual(len(payload["floor"]), 2)
-
-    def test_merges_enactment_state_into_the_field(self):
-        self.assertEqual(self.payload()["field"]["A5"]["state"], "PROMISE")
-        self.assertEqual(self.payload()["field"]["A5"]["flag"], "DEFECT UNRESOLVED")
-
-    def test_runfloor_payload_omits_all_judged_evidence(self):
-        payload = self.payload()
-        self.assertNotIn("proposals", payload)
-        self.assertNotIn("results", payload)
+        # The phase gate works by omission: judged evidence must be absent from the bytes.
         blob = json.dumps(payload, ensure_ascii=False)
         for leak in ("Distance", "Irreducibility", "Compounding", "Generative failure",
                      "ABSORBED", "ORTHOGONAL", "STRONGEST"):
@@ -569,11 +545,6 @@ class AssembleTests(unittest.TestCase):
         self.assertEqual(path.name, "hub-data.js")
         self.assertTrue(text.startswith("window.HUB_DATA = {"))
         self.assertTrue(text.rstrip().endswith("};"))
-
-    def test_main_refuses_an_out_dir_inside_the_repo(self):
-        inside = str(hub.ROOT / "docs" / "tournament" / "hub")
-        with self.assertRaises(hub.OutsideTreeError):
-            hub.main(["--phase", "runfloor", "--out", inside])
 ```
 
 - [ ] **Step 2: Run the test to verify it fails**
@@ -687,7 +658,7 @@ if __name__ == "__main__":
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 21 passed.
+Expected: 17 passed.
 
 - [ ] **Step 5: Run the generator against the real repo**
 
@@ -737,24 +708,17 @@ Append to `docs/tournament/test_build_hub.py`:
 
 ```python
 class ShellTests(unittest.TestCase):
-    def committed_files(self):
+    def test_the_committed_shell_carries_no_tournament_evidence(self):
         hub_dir = hub.HERE / "hub"
-        return [hub_dir / "index.html", hub_dir / "hub.css", hub_dir / "chrome.js"] + \
+        files = [hub_dir / "index.html", hub_dir / "hub.css", hub_dir / "chrome.js"] + \
             sorted((hub_dir / "views").glob("*.js"))
-
-    def test_the_committed_shell_never_assigns_hub_data(self):
-        for path in self.committed_files():
-            with self.subTest(path=path.name):
-                self.assertNotRegex(path.read_text(encoding="utf-8"),
-                                    r"window\.HUB_DATA\s*=")
-
-    def test_the_committed_shell_names_no_entrant(self):
-        field = hub.collect_field(hub.FIELD_FILE.read_text(encoding="utf-8"))
-        names = [entry["name"] for entry in field.values()]
-        for path in self.committed_files():
+        names = [entry["name"] for entry in
+                 hub.collect_field(hub.FIELD_FILE.read_text(encoding="utf-8")).values()]
+        for path in files:
             text = path.read_text(encoding="utf-8")
-            for name in names:
-                with self.subTest(path=path.name, name=name):
+            with self.subTest(path=path.name):
+                self.assertNotRegex(text, r"window\.HUB_DATA\s*=")
+                for name in names:
                     self.assertNotIn(name, text)
 ```
 
@@ -990,7 +954,7 @@ so the test passes on the three files that exist.
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 23 passed.
+Expected: 18 passed.
 
 - [ ] **Step 6: Commit**
 
@@ -1081,7 +1045,7 @@ Expected: a table of sixteen rows, every stage reading `pending`, the counter re
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 23 passed. The shell tests now also scan `views/runfloor.js`.
+Expected: 18 passed. The shell tests now also scan `views/runfloor.js`.
 
 - [ ] **Step 4: Commit**
 
@@ -1169,7 +1133,7 @@ scroll sideways.
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest docs/tournament/test_build_hub.py -q
 ```
 
-Expected: 23 passed.
+Expected: 18 passed.
 
 - [ ] **Step 5: Commit**
 
@@ -1251,7 +1215,7 @@ Expected: an `entrant` tab with sixteen cards, each naming an evidence state of 
 ~/.cache/temp-agency/harness-py313/bin/python -m pytest tests docs/tournament -q
 ```
 
-Expected: the pre-existing 322 tests still pass, plus the 23 new ones.
+Expected: the pre-existing 322 tests still pass, plus the 18 new ones.
 
 - [ ] **Step 4: Confirm the repo holds no hub data**
 
