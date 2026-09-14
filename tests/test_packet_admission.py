@@ -64,7 +64,7 @@ def test_promise_baseline_is_explicit_and_deferred_entrant_is_blocked(repo):
     records = {'A2': {'path': path, 'text': text}}
     assert validate_sources(repo.root, records, repo.root / RUNS, LOG).passed
     with pytest.raises(ValueError, match='deferred entrant'):
-        validate_sources(repo.root, {'A6': records['A2']}, repo.root / RUNS, LOG)
+        validate_sources(repo.root, {'M3': records['A2']}, repo.root / RUNS, LOG)
 
 
 def test_e1_primary_draw_alone_cannot_release_packet(repo):

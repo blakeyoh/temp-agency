@@ -190,14 +190,26 @@ Source: [scrimmage Exact input](scrimmages/s16-m1.md#exact-input).
    final proposal. FORCED claims follow the committed exemption. Disclose the carried
    risk that a correct-but-obvious claim can be mislabeled CHOSEN and rejected.
 
-## A6 — Deferred, no official dispatch yet
+## A6 — Frozen degradation card, both responses preserved
 
-Source: [scrimmage Exact input](scrimmages/s16-a6.md#exact-input).
+Source: [scrimmage Exact input](scrimmages/s16-a6.md#exact-input); authorized by
+[Ruling 25](commissioner-rulings.md) under Amendment 6.
 
-Preserve the understudy's phase-order, overused-technique and misidentified-principle
-recipe as historical evidence. Ruling 25 must settle distinctness before implementing
-or admitting this slot. Do not relabel it as a receipt-free baseline or fabricate a
-receipt to make the packet builder accept it.
+1. Freeze one real parent profile, its committed recipe under `understudy/`, and a seed.
+   Run `bin/understudy`. The emitted card, not operator judgment, fixes the phase
+   permutation, the one overused signature technique and the false load-bearing principle.
+2. Generate a bounded expert response from the same parent in canonical phase order.
+   Then, in a fresh context given only the brief, the parent profile and the card,
+   generate the understudy proposal: run the phases in the card's order, apply the
+   overused technique to every item, and treat the false principle as load-bearing,
+   naming it by its bold title exactly as the profile writes it.
+3. Preserve the canonical JSON card in `## Mechanism output`, the raw tool output in
+   Execution trace, the expert pass in `## Expert response`, the degraded numbered pass
+   in `## Pass 1 proposal artifact`, and the receipt.
+   Synthesis may not restore the correct order, vary the technique or re-identify the
+   principle. A Pass 1 artifact whose phase headings no longer match the card fails
+   binding. The same frozen official model runs both passes; a weaker model is not
+   the understudy.
 
 ## A2 — Voice Oracle baseline
 

@@ -114,9 +114,17 @@ What happened, in order, so the next agent can pick up cold:
    (310 pass). System `python3` is 3.9 without Pint and fails five toolbelt tests.
 4. Nothing official has been generated. `receipts/` still holds only `.gitkeep`.
 
-**Next, in order:** (a) commit the Phase 8 tree plus these rulings and the review;
-(b) build The Understudy under Ruling 25 (tool, binding, `REQUIRED['A6']`, directive,
-tests) and re-run the receipt gate; (c) re-confirm Luna reachability on the day of start;
+**Later the same day:** (a) landed as `afc819f`. (b) The Understudy is built:
+`bin/understudy` emits a seeded, replay-exact degradation card (phase permutation that
+is never identity or Phase-1-first, one overused technique, one false principle);
+`lib/bindings/understudy.py` binds nine checks including "Pass 1 still runs the card's
+phase order beside a canonically ordered expert response"; `REQUIRED['A6']` is set;
+directive § A6 rewritten; committed recipe at `understudy/behavioral-psychologist.json`.
+The runtime is now durable at `~/.cache/temp-agency/harness-py313` and the default
+model cache `~/.cache/temp-agency/models` needs no env var. Full suite: 322 passed,
+0 skipped. The implemented count is 14.
+
+**Next, in order:** (c) re-confirm Luna reachability on the day of start;
 (d) then Phase 9 per the docket. Do not dispatch any game before (c).
 
 **Before any scrimmage, read five more things after the governing four:**

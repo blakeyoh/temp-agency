@@ -14,7 +14,7 @@ REQUIRED = {
     'E1': {'draw'}, 'E2': {'draw', 'forage', 'forage-gate'},
     'E3': {'route', 'frame-gate'}, 'E4': {'breed'}, 'E5': {'lexicon-check'},
     'E6': {'oblique'}, 'E9': {'seed-string'},
-    'A1': {'prepare'}, 'A3': {'churn','seasons','units','orders'}, 'A5': {'prepare'},
+    'A1': {'prepare'}, 'A6': {'understudy'}, 'A3': {'churn','seasons','units','orders'}, 'A5': {'prepare'},
     'C5': {'notation'}, 'C8': {'prepare'}, 'M1': {'seal-median','overlap'},
 }
 PROMISE = {'A2','M5'}

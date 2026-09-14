@@ -952,3 +952,12 @@ re-runnable.
   `You've hit your usage limit ... try again at Sep 14th, 2026 2:23 AM.` The round does
   not start until a fresh probe succeeds. Note `~/.codex/config.toml` defaults effort to
   `high`; every official spawn must pass `xhigh` explicitly.
+
+**Addendum, 2026-09-13 (commissioner, on the build).** Condition 1 "freeze the recipe" is
+satisfied by freezing the recipe *generator*: the committed per-parent config under
+`docs/tournament/understudy/` lists the parent's signature techniques, and the seeded
+card selects the one technique to overuse and the one principle to misidentify per run.
+This is Amendment 6's degradation card as written. The seed is committed in the dispatch
+log before generation, so the selection cannot be shopped. Trimming the list to the
+scrimmage's single technique was considered and declined. The build passed the receipt
+gate on 2026-09-13 (322 tests); The Understudy is `RUNNABLE` under Ruling 24 item 1.

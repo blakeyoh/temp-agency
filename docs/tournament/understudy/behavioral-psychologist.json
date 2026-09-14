@@ -1,0 +1,16 @@
+{
+  "parent": "roster/behavioral-psychologist.md",
+  "true_principle": "**Context shapes choice**: Behavior is inseparable from the environment in which it occurs. Before attributing behavior to character or attitude, change the context and observe what changes.",
+  "signature_techniques": [
+    "Friction reduction",
+    "default changes",
+    "salience adjustment",
+    "social proof",
+    "commitment devices"
+  ],
+  "consequences": {
+    "phase_order": "Every phase after the first defends the already-designed intervention instead of producing it, so the later-run phases read as justification rather than analysis.",
+    "technique": "All ten proposal items apply the one overused technique, so the intervention method never varies across the set.",
+    "principle": "The false principle governs the definition of success, so each item is written as a quick behavioral measurement rather than as a context change."
+  }
+}

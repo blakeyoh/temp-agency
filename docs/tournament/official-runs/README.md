@@ -75,7 +75,10 @@ The matching entry must exist in the receipt's invocation commit, not merely in
 some later log. Append entries as later-stage artifacts become available.
 
 Commit source records before rendering. Select exactly one enactment status in the
-template. `NOT ENACTED` requires a real failed-tool receipt. Only A2/M5 currently
+template. `NOT ENACTED` requires a real failed-tool receipt. `FAITHFUL` and `PARTIAL`
+both require every required tool to have an `ok` receipt: a failed tool always means
+`NOT ENACTED`, never `PARTIAL`. `PARTIAL` is for a record whose tools all ran but whose
+prose enactment of the mechanism is incomplete, and the record must say what is missing. Only A2/M5 currently
 have a receipt-free `PROMISE ONLY` policy, with `Pass 1 provenance: baseline`.
 A6 is blocked pending its distinctness ruling; these directives do not settle it.
 

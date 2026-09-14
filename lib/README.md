@@ -126,18 +126,21 @@ sentences outside the trace. Verbatim presence is not proof of isolation or caus
 
 The original core keeps its Python 3.9 syntax floor. Full verification now requires the
 pinned Python 3.13 runtime libraries and local semantic model, currently validated on
-macOS arm64 CPU. Use a virtual environment outside the checkout:
+macOS arm64 CPU. Use a durable virtual environment outside the checkout:
 
 ```sh
-python3.13 -m venv /tmp/temp-agency-harness
-/tmp/temp-agency-harness/bin/pip install -r requirements-harness.lock
-/tmp/temp-agency-harness/bin/python scripts/setup-semantic-model.py \
-  --manifest docs/tournament/overlap/model.json --cache /tmp/temp-agency-models
-HARNESS_MODEL_CACHE=/tmp/temp-agency-models /tmp/temp-agency-harness/bin/python -m pytest tests -q
+python3.13 -m venv ~/.cache/temp-agency/harness-py313
+~/.cache/temp-agency/harness-py313/bin/pip install -r requirements-harness.lock
+~/.cache/temp-agency/harness-py313/bin/python scripts/setup-semantic-model.py \
+  --manifest docs/tournament/overlap/model.json --cache ~/.cache/temp-agency/models
+~/.cache/temp-agency/harness-py313/bin/python -m pytest tests -q
 ```
 
-Model setup is an explicit network operation. Inference and replay only use verified
-local assets. The manifest pins hashes, package versions and platform; drift fails closed.
+`~/.cache/temp-agency/models` is the default `HARNESS_MODEL_CACHE` location, so once it
+is populated no env var is needed; set `HARNESS_MODEL_CACHE` only to point at a different
+cache. Model setup is an explicit network operation. Inference and replay only use
+verified local assets. The manifest pins hashes, package versions and platform; drift
+fails closed.
 Python 3.9 core compatibility can be checked with `python3 -m pytest tests
 --ignore=tests/test_toolbelts.py -q`; model-dependent tests skip when their runtime is
 unavailable, so that command is not a substitute for full advanced verification.

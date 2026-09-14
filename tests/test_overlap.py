@@ -3,14 +3,13 @@ from __future__ import annotations
 
 import importlib.util
 import json
-import os
 from pathlib import Path
 
 import pytest
 
 from lib.overlap import decisions, items, threshold
 from lib.paths import canonical_json, sha256_file
-from lib.semantic import validate_manifest
+from lib.semantic import model_directory, validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'docs/tournament/overlap/'
@@ -19,8 +18,18 @@ CONFIG = BASE + 'config.json'
 MEDIAN = BASE + 'median.json'
 CANDIDATE = BASE + 'candidate.json'
 DISPATCH = BASE + 'dispatch.json'
-SEMANTIC_AVAILABLE = bool(os.environ.get('HARNESS_MODEL_CACHE')) and bool(importlib.util.find_spec('torch'))
-semantic = pytest.mark.skipif(not SEMANTIC_AVAILABLE, reason='install pinned runtime and set HARNESS_MODEL_CACHE')
+def _semantic_available():
+    if not importlib.util.find_spec('torch'):
+        return False
+    try:
+        model_directory(json.loads((ROOT / MANIFEST).read_text()))
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+SEMANTIC_AVAILABLE = _semantic_available()
+semantic = pytest.mark.skipif(not SEMANTIC_AVAILABLE, reason='install pinned runtime and populate the model cache')
 
 
 def test_chosen_only_and_exact_threshold_rejection():
