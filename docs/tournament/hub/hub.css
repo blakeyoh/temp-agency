@@ -19,8 +19,8 @@
   --floorlight: #A9701F;   /* Golden Hour, darkened to hold contrast on light */
   --buzzer:     #A82E1B;
   --dead:       #9B9A93;
-  --floor:      #EFEDE6;
-  --floor-lit:  #FBFAF6;
+  --floor:      #F3F1E9;
+  --floor-lit:  #FFFFFC;
   --lift: 0 1px 0 rgba(23,27,31,.06);
   --pace: 420ms;
   --ease: cubic-bezier(.2,.7,.2,1);
@@ -36,8 +36,8 @@
   --floorlight: #F0A44E;
   --buzzer:     #D8402A;
   --dead:       #767C82;
-  --floor:      #2E2B27;
-  --floor-lit:  #3A362F;
+  --floor:      #35312A;
+  --floor-lit:  #464034;
 }
 
 /* ---- The bowl. Scores released, consequence in the room. ---- */
@@ -50,8 +50,8 @@
   --floorlight: #FEB262;
   --buzzer:     #D8402A;
   --dead:       #6E757D;
-  --floor:      #1C1A17;
-  --floor-lit:  #26231D;
+  --floor:      #241F18;
+  --floor-lit:  #332B20;
   --lift: 0 1px 0 rgba(0,0,0,.4);
 }
 
@@ -138,13 +138,24 @@ h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin
 
 /* Early clock: sixteen ticks. Present, deliberately not competing. */
 .tail-rail {
-  display: grid; padding-inline: 26px; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
+  display: grid; padding-inline: 26px; align-items: end; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
   align-items: center; padding-bottom: 12px;
 }
 .tail-ticks { display: flex; gap: 3px; align-items: center; }
 .tail-ticks.side-a { justify-content: flex-end; }
 .tail-ticks i { display: block; flex: 1; max-width: 13px; height: 14px; background: var(--floorlight); opacity: .55; }
 .tail-ticks i.stalled { background: var(--dead); opacity: .3; }
+/* Hollow: the move that got repeated. Solid: where it repeated. */
+.tail-ticks i.echo { background: none; box-shadow: inset 0 0 0 2px var(--buzzer); opacity: 1; }
+.tail-ticks i.onset { background: var(--buzzer); opacity: 1; }
+.rail-side { display: flex; flex-direction: column; gap: 5px; }
+.rail-side .tail-ticks { width: 100%; }
+.rail-side.side-a { align-items: flex-end; }
+.rail-tag {
+  font-family: Archivo, sans-serif; font-size: 10px; font-weight: 600;
+  font-stretch: 112%; color: var(--buzzer);
+}
+.tail-ticks i { cursor: help; }
 .rail-label {
   text-align: center; font-family: Archivo, sans-serif; font-size: 10px;
   font-stretch: 88%; color: var(--quiet);
@@ -153,7 +164,7 @@ h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin
 /* Centre court, lit from above. The judged band sits on its own plane so the page
    reads as a lit rectangle inside a dark volume, not as a dark page with an accent. */
 .tail-body {
-  display: grid; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
+  position: relative; display: grid; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
   background: radial-gradient(130% 95% at 50% -10%, var(--floor-lit), var(--floor));
   box-shadow: inset 0 0 0 1px var(--line);
   padding: 2px 26px 20px; border-radius: 2px;
@@ -181,16 +192,21 @@ h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin
 
 /* The onset rule is the baseline. It moves when you change panels, because three
    blind judges disagreed about where the repetition began. */
-.tail-row.onset { border-top: 2px solid var(--buzzer); }
+.onset-rule {
+  position: absolute; top: 0; height: 0; width: calc(50% - 80px);
+  border-top: 2px solid var(--buzzer); pointer-events: none;
+  transition: transform 520ms var(--ease), opacity 240ms var(--ease);
+}
+.onset-rule.side-a { left: 26px; }
+.onset-rule.side-b { right: 26px; }
+.onset-rule.clear { opacity: 0; }
 .onset-tag {
   position: absolute; top: -8px; font-family: Archivo, sans-serif; font-size: 10px;
   font-weight: 600; font-stretch: 112%; color: var(--buzzer);
   background: var(--floor-lit); padding: 0 8px; white-space: nowrap;
 }
-.tail-row.side-a .onset-tag { right: 0; }
-.tail-row.side-b .onset-tag { left: 0; }
-
-.tail-strong { color: var(--floorlight); flex: none; font-size: 12px; line-height: 1.9; }
+.onset-rule.side-a .onset-tag { right: 0; }
+.onset-rule.side-b .onset-tag { left: 0; }
 
 .panel-toggle { display: flex; gap: 7px; justify-content: center; margin: 38px 0 6px; }
 .panel-toggle button {

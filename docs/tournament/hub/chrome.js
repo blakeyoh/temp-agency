@@ -95,8 +95,14 @@
     return bar;
   }
 
+  var resizers = [];
+  window.addEventListener("resize", function () {
+    resizers.forEach(function (fn) { fn(); });
+  });
+
   function render() {
     if (!root) { return; }
+    resizers.length = 0;
     root.textContent = "";
     var wrap = el("div", { cls: "wrap" });
     wrap.appendChild(banner());
@@ -125,6 +131,7 @@
     state: state,
     el: el,
     register: function (name, render_) { views[name] = render_; },
+    onResize: function (fn) { resizers.push(fn); },
     go: go,
     mount: function (node) {
       root = node;
