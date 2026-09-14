@@ -38,9 +38,12 @@
 
   /* Preview controls name the parameter they set. Real ones name the panel. */
   function controls(data, game) {
-    var given = (data.yields || {})[game.g];
-    if (given) {
-      return (data.panels || []).map(function (panel) {
+    var given = (data.yields || {})[game.g] || {};
+    var read = (data.panels || []).filter(function (panel) {
+      return given[panel.name + ":A"] || given[panel.name + ":B"];
+    });
+    if (read.length) {
+      return read.map(function (panel) {
         return { key: panel.name, label: panel.name, real: true };
       });
     }
@@ -50,7 +53,9 @@
   }
 
   function reading(pick, ideas, given) {
-    if (pick.real) { return given || { onset: null, echoes: null }; }
+    /* Absent is not the same as "no repetition found". Say so rather than
+       rendering a missing verdict as a clean run to the buzzer. */
+    if (pick.real) { return given || { onset: null, echoes: null, unread: true }; }
     return computeOnset(ideas, pick.width);
   }
 
@@ -84,6 +89,7 @@
   }
 
   function verdict(read) {
+    if (read.unread) { return "this panel did not record an onset"; }
     if (!read.onset) { return "ran to the buzzer"; }
     return "stalled at " + read.onset + " — " + (CLOCK - read.onset + 1) + " of 24 spent repeating";
   }
@@ -172,8 +178,13 @@
             ? "Read by the " + pick.label + " panel."
             : "No panel has read these yet. The line below is a literal "
               + pick.width + "-word prefix match computed in the page.");
-      nameA.lastChild.textContent = verdict(readA);
-      nameB.lastChild.textContent = verdict(readB);
+      [[nameA, readA], [nameB, readB]].forEach(function (pair) {
+        var line = pair[0].lastChild;
+        line.textContent = verdict(pair[1]) + " ";
+        line.appendChild(el("span", {
+          cls: "provenance " + (pick.real ? "panel" : "computed"),
+          text: pick.real ? pick.label + " panel" : "computed in page" }));
+      });
       railRow.textContent = "";
       railRow.appendChild(railSide(a.ideas, readA, "a"));
       railRow.appendChild(el("div", { cls: "rail-label", text: "1–16" }));

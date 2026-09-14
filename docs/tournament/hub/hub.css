@@ -18,7 +18,7 @@
   --line:       #C7C5BD;
   --floorlight: #A9701F;   /* Golden Hour, darkened to hold contrast on light */
   --buzzer:     #A82E1B;
-  --dead:       #9B9A93;
+  --dead:       #A8A69C;
   --floor:      #F3F1E9;
   --floor-lit:  #FFFFFC;
   --lift: 0 1px 0 rgba(23,27,31,.06);
@@ -35,7 +35,7 @@
   --line:       #3E4145;
   --floorlight: #F0A44E;
   --buzzer:     #D8402A;
-  --dead:       #767C82;
+  --dead:       #63696F;
   --floor:      #35312A;
   --floor-lit:  #464034;
 }
@@ -49,7 +49,7 @@
   --line:       #262D35;
   --floorlight: #FEB262;
   --buzzer:     #D8402A;
-  --dead:       #6E757D;
+  --dead:       #545C64;
   --floor:      #241F18;
   --floor-lit:  #332B20;
   --lift: 0 1px 0 rgba(0,0,0,.4);
@@ -147,10 +147,19 @@ h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin
 .tail-ticks i.stalled { background: var(--dead); opacity: .3; }
 /* Hollow: the move that got repeated. Solid: where it repeated. */
 .tail-ticks i.echo { background: none; box-shadow: inset 0 0 0 2px var(--buzzer); opacity: 1; }
-.tail-ticks i.onset { background: var(--buzzer); opacity: 1; }
+.tail-ticks i.onset {
+  background: var(--buzzer); opacity: 1; height: 26px; margin-bottom: -6px;
+  box-shadow: 0 0 0 3px var(--ground);
+}
 .rail-side { display: flex; flex-direction: column; gap: 5px; }
 .rail-side .tail-ticks { width: 100%; }
 .rail-side.side-a { align-items: flex-end; }
+.provenance {
+  display: inline-block; margin-left: 8px; padding: 1px 6px; border-radius: 2px;
+  font-size: 10px; font-weight: 600; font-stretch: 112%;
+}
+.provenance.computed { color: var(--buzzer); box-shadow: inset 0 0 0 1px var(--buzzer); }
+.provenance.panel { color: var(--floorlight); box-shadow: inset 0 0 0 1px var(--floorlight); }
 .rail-tag {
   font-family: Archivo, sans-serif; font-size: 10px; font-weight: 600;
   font-stretch: 112%; color: var(--buzzer);
@@ -195,7 +204,7 @@ h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin
 .onset-rule {
   position: absolute; top: 0; height: 0; width: calc(50% - 80px);
   border-top: 2px solid var(--buzzer); pointer-events: none;
-  transition: transform 520ms var(--ease), opacity 240ms var(--ease);
+  transition: transform 300ms var(--ease), opacity 200ms var(--ease);
 }
 .onset-rule.side-a { left: 26px; }
 .onset-rule.side-b { right: 26px; }
