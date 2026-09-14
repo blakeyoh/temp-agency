@@ -193,3 +193,18 @@ class AssembleTests(unittest.TestCase):
         self.assertEqual(path.name, "hub-data.js")
         self.assertTrue(text.startswith("window.HUB_DATA = {"))
         self.assertTrue(text.rstrip().endswith("};"))
+
+
+class ShellTests(unittest.TestCase):
+    def test_the_committed_shell_carries_no_tournament_evidence(self):
+        hub_dir = hub.HERE / "hub"
+        files = [hub_dir / "index.html", hub_dir / "hub.css", hub_dir / "chrome.js"] + \
+            sorted((hub_dir / "views").glob("*.js"))
+        names = [entry["name"] for entry in
+                 hub.collect_field(hub.FIELD_FILE.read_text(encoding="utf-8")).values()]
+        for path in files:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.name):
+                self.assertNotRegex(text, r"window\.HUB_DATA\s*=")
+                for name in names:
+                    self.assertNotIn(name, text)

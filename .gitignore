@@ -4,3 +4,4 @@ __pycache__/
 .gstack/
 .pytest_cache/
 docs/tournament/receipts/.nonce
+docs/tournament/hub/hub-data.js
