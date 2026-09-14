@@ -4,6 +4,8 @@
   var state = { view: "runfloor", game: 1 };
   var root = null;
   var ALL = { runfloor: true, bracket: true, entrant: true };  // views with no single subject
+  var PHASE_RANK = { runfloor: 0, output: 1, mechanism: 2 };
+  var NEEDS_PHASE = { tail: 1 };  // unlisted views are available at every phase  // views with no single subject
 
   function data() { return window.HUB_DATA || null; }
 
@@ -58,16 +60,33 @@
   function banner() {
     var d = data();
     var bar = el("div", { cls: "chrome" });
-    bar.appendChild(el("span", { text: "The 99th Idea Bracket" }));
-    bar.appendChild(el("span", { cls: "live", text: "● " + (d ? d.phase : "no data") }));
-    if (d) { bar.appendChild(el("span", { cls: "muted", text: "built " + d.generated })); }
+    bar.appendChild(el("span", { cls: "mark", text: "The 99th Idea Bracket" }));
+    if (d) {
+      // The phase drives the whole environment: house lights up before anything is at
+      // stake, the bowl once scores are released. Stamped on the root so CSS owns it.
+      document.documentElement.setAttribute("data-phase", d.phase);
+      bar.appendChild(el("span", { cls: "live", text: d.phase }));
+      if (d.demo) {
+        bar.appendChild(el("span", { cls: "preview",
+          text: "preview data — no official run generated" }));
+      }
+      bar.appendChild(el("span", { text: "built " + d.generated }));
+    } else {
+      bar.appendChild(el("span", { text: "no data" }));
+    }
     bar.appendChild(switcher());
     return bar;
   }
 
+  function released(name) {
+    var d = data();
+    var rank = d ? (PHASE_RANK[d.phase] || 0) : 0;
+    return rank >= (NEEDS_PHASE[name] || 0);
+  }
+
   function tabs() {
     var bar = el("div", { cls: "tabs" });
-    Object.keys(views).forEach(function (name) {
+    Object.keys(views).filter(released).forEach(function (name) {
       var button = el("button", { text: name });
       if (name === state.view) { button.setAttribute("aria-current", "true"); }
       button.addEventListener("click", function () { go(name, state.game); });
@@ -109,6 +128,7 @@
     go: go,
     mount: function (node) {
       root = node;
+      if (released("tail")) { state.view = "tail"; }
       document.addEventListener("keydown", function (event) {
         if (event.key === "ArrowRight") { step(1); }
         if (event.key === "ArrowLeft") { step(-1); }

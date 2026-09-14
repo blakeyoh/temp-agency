@@ -1,66 +1,227 @@
-:root {
-  --paper: #F6F7F6; --paper-sunk: #DFE3E3; --ground: #ECEEEE;
-  --ink: #191C1F; --ink-2: #4A5257; --ink-3: #737C81;
-  --rule: #C8CFCF; --live: #B4462A; --ok: #2F6B4F;
-  --f-display: ui-serif, Georgia, serif;
-  --f-body: ui-sans-serif, system-ui, sans-serif;
-  --f-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+/* The 99th Idea Bracket — commissioner hub.
+
+   Governing idea: quiet authority around moments of spectacle. The environment is
+   driven by PHASE, not by the viewer's theme. Before anything is at stake the house
+   lights are up. As evidence releases and games become contested, the house goes dark
+   and only the floor stays lit. Restraint earns the boldness later.
+
+   Two planes, never a dark page with a bright accent: a lit warm floor inside a cool
+   dark bowl. Warm floor, cool everything else.  */
+
+/* ---- Environment: house lights up. Nothing is at stake yet. ---- */
+:root,
+:root[data-phase="runfloor"] {
+  --ground:     #E4E3DD;   /* cool bone, deliberately not warm cream */
+  --surface:    #F1F0EB;
+  --ink:        #171B1F;
+  --quiet:      #6B747C;
+  --line:       #C7C5BD;
+  --floorlight: #A9701F;   /* Golden Hour, darkened to hold contrast on light */
+  --buzzer:     #A82E1B;
+  --dead:       #9B9A93;
+  --floor:      #EFEDE6;
+  --floor-lit:  #FBFAF6;
+  --lift: 0 1px 0 rgba(23,27,31,.06);
+  --pace: 420ms;
+  --ease: cubic-bezier(.2,.7,.2,1);
 }
-:root:not([data-theme="light"]) { color-scheme: light dark; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #1A1E22; --paper-sunk: #0F1214; --ground: #15181B;
-    --ink: #E8ECEC; --ink-2: #A6B0B4; --ink-3: #788388;
-    --rule: #2C3237; --live: #E2714F; --ok: #6FBF95;
-  }
+
+/* ---- Half light. Pass 1 has sealed, the ideas exist. ---- */
+:root[data-phase="output"] {
+  --ground:     #27282A;
+  --surface:    #303234;
+  --ink:        #EDE9E0;
+  --quiet:      #949AA0;
+  --line:       #3E4145;
+  --floorlight: #F0A44E;
+  --buzzer:     #D8402A;
+  --dead:       #767C82;
+  --floor:      #2E2B27;
+  --floor-lit:  #3A362F;
 }
-:root[data-theme="dark"] {
-  --paper: #1A1E22; --paper-sunk: #0F1214; --ground: #15181B;
-  --ink: #E8ECEC; --ink-2: #A6B0B4; --ink-3: #788388;
-  --rule: #2C3237; --live: #E2714F; --ok: #6FBF95;
+
+/* ---- The bowl. Scores released, consequence in the room. ---- */
+:root[data-phase="mechanism"] {
+  --ground:     #12161B;
+  --surface:    #1A1F26;
+  --ink:        #ECE7DC;
+  --quiet:      #868F99;
+  --line:       #262D35;
+  --floorlight: #FEB262;
+  --buzzer:     #D8402A;
+  --dead:       #6E757D;
+  --floor:      #1C1A17;
+  --floor-lit:  #26231D;
+  --lift: 0 1px 0 rgba(0,0,0,.4);
 }
-body { background: var(--ground); color: var(--ink); font-family: var(--f-body); }
-.wrap { max-width: 1100px; margin: 0 auto; padding: 16px; padding-block: 24px; }
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: Newsreader, Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: 17px;
+  line-height: 1.5;
+  transition: background var(--pace) var(--ease), color var(--pace) var(--ease);
+}
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 16px; padding-block: 28px 72px; }
+
+/* Archivo carries structure and every number. Its width axis does the work a second
+   display face would otherwise do. */
+.chrome, .tabs, .tail-n, .tail-flag, .stageline, .code, th, .counter, .switcher button {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Chrome: a scoreboard strip, not a nav bar ---- */
 .chrome {
-  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
-  font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--ink-3);
-  border-bottom: 1px solid var(--rule); padding-bottom: 10px;
+  display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  font-size: 13px; font-weight: 500; font-stretch: 112%; color: var(--quiet);
 }
-.chrome .live { color: var(--live); }
+.chrome .mark { color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+.chrome .live { color: var(--floorlight); font-weight: 600; }
+.chrome .preview { color: var(--buzzer); font-weight: 600; }
+
 .switcher { position: relative; margin-left: auto; }
 .switcher button {
-  font: inherit; text-transform: inherit; letter-spacing: inherit;
-  color: var(--ink); background: var(--paper); border: 1px solid var(--rule);
-  border-radius: 3px; padding: 6px 10px; cursor: pointer;
+  font: inherit; font-size: 13px; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 2px; padding: 7px 11px; cursor: pointer;
 }
+.switcher button:hover { border-color: var(--floorlight); }
 .switcher ul {
-  position: absolute; right: 0; top: 110%; z-index: 9; margin: 0; padding: 4px;
-  list-style: none; min-width: 260px; background: var(--paper);
-  border: 1px solid var(--rule); border-radius: 4px;
+  position: absolute; right: 0; top: 116%; z-index: 9; margin: 0; padding: 4px;
+  list-style: none; min-width: 300px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--lift);
 }
-.switcher li button { display: block; width: 100%; text-align: left; border: 0; }
-.tabs { display: flex; gap: 4px; margin: 18px 0; flex-wrap: wrap; }
+.switcher li button { display: block; width: 100%; text-align: left; border: 0; background: none; }
+
+.tabs { display: flex; gap: 22px; margin: 26px 0 34px; flex-wrap: wrap; }
 .tabs button {
-  font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em;
-  text-transform: uppercase; padding: 8px 12px; cursor: pointer;
-  background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink-3);
+  font-size: 14px; font-weight: 500; padding: 0 0 7px; cursor: pointer;
+  background: none; border: 0; border-bottom: 2px solid transparent; color: var(--quiet);
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
 }
-.tabs button[aria-current="true"] { color: var(--ink); border-bottom-color: var(--live); }
-h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.15; margin: 0; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--rule); }
-th { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em;
-     text-transform: uppercase; color: var(--ink-3); }
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-current="true"] { color: var(--ink); border-bottom-color: var(--floorlight); }
+
+h1, h2 {
+  font-family: Newsreader, Georgia, serif; font-weight: 400; font-optical-sizing: auto;
+  letter-spacing: -0.012em; line-height: 1.08; margin: 0;
+}
+h2 { font-size: clamp(30px, 4.2vw, 46px); }
+h3 { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 600; margin: 0; }
+.counter { font-size: 13px; color: var(--quiet); margin: 10px 0 30px; }
+.muted { color: var(--quiet); }
+
+/* ================= THE TAIL =================
+   A 24-second shot clock read down the middle. Two offenses run either side of it.
+   Ideas 1-16 compress to a rail, because the judged band is 17-24 — the late clock,
+   where an entrant either manufactures something or forces a bad shot.
+
+   One grid owns all three columns so every row shares a baseline. Two independent
+   columns drift apart the moment one side's text wraps further than the other. */
+
+.tail-head {
+  display: grid; grid-template-columns: 1fr 72px 1fr; align-items: end;
+  gap: 0 18px; margin: 34px 0 10px;
+}
+.tail-head h3 { font-size: 21px; font-weight: 600; letter-spacing: -0.012em; line-height: 1.15; }
+.tail-head .side-a { text-align: right; }
+.tail-head .who {
+  font-family: Archivo, sans-serif; font-size: 12px; font-stretch: 100%;
+  color: var(--quiet); margin-top: 5px;
+}
+
+/* Early clock: sixteen ticks. Present, deliberately not competing. */
+.tail-rail {
+  display: grid; padding-inline: 26px; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
+  align-items: center; padding-bottom: 12px;
+}
+.tail-ticks { display: flex; gap: 3px; align-items: center; }
+.tail-ticks.side-a { justify-content: flex-end; }
+.tail-ticks i { display: block; flex: 1; max-width: 13px; height: 14px; background: var(--floorlight); opacity: .55; }
+.tail-ticks i.stalled { background: var(--dead); opacity: .3; }
+.rail-label {
+  text-align: center; font-family: Archivo, sans-serif; font-size: 10px;
+  font-stretch: 88%; color: var(--quiet);
+}
+
+/* Centre court, lit from above. The judged band sits on its own plane so the page
+   reads as a lit rectangle inside a dark volume, not as a dark page with an accent. */
+.tail-body {
+  display: grid; grid-template-columns: 1fr 72px 1fr; gap: 0 18px;
+  background: radial-gradient(130% 95% at 50% -10%, var(--floor-lit), var(--floor));
+  box-shadow: inset 0 0 0 1px var(--line);
+  padding: 2px 26px 20px; border-radius: 2px;
+}
+
+/* The spine is a court line: the number column's own edges draw it. */
+.tail-n {
+  display: flex; align-items: flex-start; justify-content: center; padding: 14px 0 0;
+  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+  font-size: 13px; font-weight: 500; color: var(--quiet);
+}
+.tail-n.buzzer { color: var(--floorlight); font-weight: 700; }
+
+.tail-row {
+  position: relative; padding: 13px 0 15px; display: flex; align-items: flex-start;
+  gap: 9px; font-size: 15.5px; line-height: 1.45;
+  transition: color var(--pace) var(--ease);
+}
+.tail-row.side-a { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
+
+/* Past the onset the offense has stalled. The text recedes but stays legible — the
+   commissioner still has to read what the repetition actually looked like. */
+.tail-row { color: var(--ink); }
+.tail-row.dead { color: var(--dead); }
+
+/* The onset rule is the baseline. It moves when you change panels, because three
+   blind judges disagreed about where the repetition began. */
+.tail-row.onset { border-top: 2px solid var(--buzzer); }
+.onset-tag {
+  position: absolute; top: -8px; font-family: Archivo, sans-serif; font-size: 10px;
+  font-weight: 600; font-stretch: 112%; color: var(--buzzer);
+  background: var(--floor-lit); padding: 0 8px; white-space: nowrap;
+}
+.tail-row.side-a .onset-tag { right: 0; }
+.tail-row.side-b .onset-tag { left: 0; }
+
+.tail-strong { color: var(--floorlight); flex: none; font-size: 12px; line-height: 1.9; }
+
+.panel-toggle { display: flex; gap: 7px; justify-content: center; margin: 38px 0 6px; }
+.panel-toggle button {
+  font-family: Archivo, sans-serif; font-size: 12px; font-weight: 500;
+  padding: 8px 15px; cursor: pointer; color: var(--quiet);
+  background: none; border: 1px solid var(--line); border-radius: 2px;
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.panel-toggle button:hover { color: var(--ink); }
+.panel-toggle button[aria-pressed="true"] { color: var(--ink); border-color: var(--floorlight); }
+
+/* ---- Shared furniture, quieted to let the tail carry the boldness ---- */
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 11px; font-weight: 600; font-stretch: 112%; color: var(--quiet); }
 .scroll { overflow-x: auto; }
-.code { font-family: var(--f-mono); font-weight: 600; }
-.cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.card { background: var(--paper); border: 1px solid var(--rule); border-radius: 5px; padding: 14px; }
-.muted { color: var(--ink-3); }
-.stage-pending { color: var(--ink-3); }
-.stage-dispatched, .stage-recorded { color: var(--ink-2); }
-.stage-gated { color: var(--ok); font-weight: 600; }
-.stageline {
-  font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em;
-  text-transform: uppercase; margin-top: 3px; color: var(--ink-3);
+.code { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 16px; }
+.stageline { font-size: 11px; font-weight: 500; font-stretch: 112%; margin-top: 4px; color: var(--quiet); }
+.stage-gated { color: var(--floorlight); }
+
+:focus-visible { outline: 2px solid var(--floorlight); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+}
+
+@media (max-width: 760px) {
+  .tail-head, .tail-rail, .tail-body { grid-template-columns: 1fr 46px 1fr; gap: 8px; }
+  .tail-row { font-size: 13.5px; min-height: 56px; }
+  .tail-n { height: 56px; font-size: 12px; }
+  h2 { font-size: 28px; }
 }
