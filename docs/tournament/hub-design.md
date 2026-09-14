@@ -281,3 +281,10 @@ because same-origin module resolution inside an Artifact is unverified.
 - **`dispatch-log.json` holds `{"entries": []}`.** The Run Floor shows sixteen untouched rows
   on first build. That is correct.
 - **`s16-results.json` does not exist yet.** It appears after `tally.py --round s16` runs.
+
+---
+
+## 11. Shipped
+
+- **Plan 1 (run floor)** — `build_hub.py` at `--phase runfloor`, plus the Bracket, Run Floor
+  and Entrant Card views. See `hub-plan-1-runfloor.md`.
