@@ -33,15 +33,16 @@ def blob(root, commit, path):
                           check=True, capture_output=True, timeout=60).stdout
 
 
-def context(root, receipt):
-    if any(receipt.get(k) != v for k, v in {'tool': 'forage-gate', 'entrant': 'E2',
+def context(root, receipt, entrant='E2', tool='forage-gate',
+            kind='independent-forage-evaluation', input_names=INPUT_NAMES):
+    if any(receipt.get(k) != v for k, v in {'tool': tool, 'entrant': entrant,
         'status': 'ok', 'verification_class': 'hash-attested'}.items()):
         raise ValueError('invalid forage-gate receipt identity')
     att = receipt['external_attestation']
-    if set(att) != {'kind', 'seal_commit', 'paths'} or att['kind'] != 'independent-forage-evaluation':
+    if set(att) != {'kind', 'seal_commit', 'paths'} or att['kind'] != kind:
         raise ValueError('invalid evaluation attestation')
     paths = att['paths']
-    if set(paths) not in (set(INPUT_NAMES), set(INPUT_NAMES) | {'previous'}):
+    if set(paths) not in (set(input_names), set(input_names) | {'previous'}):
         raise ValueError('evaluation must pin all audit inputs')
     if len(set(paths.values())) != len(paths) or set(receipt['inputs']) != set(paths.values()):
         raise ValueError('evaluation inputs must be distinct and match attestation')
@@ -67,7 +68,7 @@ def check_argv(receipt, paths, seal):
     if not isinstance(argv, list) or len(argv) % 2 or not all(isinstance(v, str) for v in argv):
         raise ValueError('audit argv must be option-value pairs')
     options = dict(zip(argv[::2], argv[1::2]))
-    expected = {'--entrant': 'E2', '--seal-commit': seal,
+    expected = {'--entrant': receipt['entrant'], '--seal-commit': seal,
                 **{'--' + name.replace('_', '-'): path for name, path in paths.items()}}
     if len(options) != len(argv) // 2 or set(options) - set(expected) - {'--seed'}:
         raise ValueError('audit argv contains duplicate or unsupported options')
@@ -87,10 +88,11 @@ def parse_verdict(packet):
     return json.loads(match[1])
 
 
-def validate_invocation(documents, paths, hashes):
+def validate_invocation(documents, paths, hashes, kind='independent-forage-evaluation',
+                        request_brief=EVALUATOR_BRIEF):
     invocation = documents['invocation']
     if (type(invocation.get('schema_version')) is not int or invocation['schema_version'] != 1
-            or invocation.get('kind') != 'independent-forage-evaluation'
+            or invocation.get('kind') != kind
             or invocation.get('independent') is not True
             or invocation.get('mode') not in ('development', 'official')):
         raise ValueError('invalid independent evaluator invocation')
@@ -118,7 +120,7 @@ def validate_invocation(documents, paths, hashes):
             or request.get('constraints') != []):
         raise ValueError('evaluator request contains alternate or extra instructions')
     response = documents['response']['receipt']
-    if request['brief'] != EVALUATOR_BRIEF:
+    if request['brief'] != request_brief:
         raise ValueError('evaluator request used a different instruction')
     if response.get('model') != request.get('model') or response.get('finish_reason') != 'stop':
         raise ValueError('evaluator model changed or response incomplete')

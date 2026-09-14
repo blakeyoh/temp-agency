@@ -61,16 +61,15 @@ its own unscored scrimmage (`scrimmages/s16-e9.md`) and has an evidence contract
 suite passes. **Read Ruling 22 before dispatching Game 8** — the rest of the Sweet 16
 (Games 1–7) is unaffected.
 
-**Enactment harness · 2026-09-13 — Phases 0–4 verified; Phase 5 code built with contract gaps pending.**
+**Enactment harness · 2026-09-13 — Phases 0–4 verified; Phase 5 built at commissioner-approved scope.**
 E6 has its complete committed deck and replayable draw. E4 implements crossover only;
 E5 implements a frozen 1911 surface lexicon with retained regeneration; E3 implements
-full-roster routing but fails enactment until its deletion gate exists. The independent
+full-roster routing and the small approved independent frame gate. The independent
 E3/E4/E5 contract read confirmed those limits. See `contract-review/phase5-host-findings.md`
-for the three pending commissioner choices and the E3 label-binding fix.
+for the resolved commissioner choices and the E3 label-binding fix.
 
-The integrated suite passed 250 tests on Python 3.13.12 in 122.46 seconds, with one
-upstream Torch warning. Final route-label hardening additionally passes nine focused
-tests, including three new cases. Historical Phase 2/3/4 results remain in their reports.
+The integrated suite passed 256 tests on Python 3.13.12 in 139.05 seconds, with one
+upstream Torch warning. Three focused frame tests passed after plain-text normalization. Historical Phase 2/3/4 results remain in their reports.
 Read `enactment-harness-plan.md` §4 for the trust boundary. Development tests use
 throwaway repositories; the live `receipts/` directory remains reserved for dispatch.
 

@@ -1,4 +1,4 @@
-"""E3 routing validation fails closed until its substantive deletion test exists."""
+"""E3 routing plus independent final-item frame verification."""
 import json
 import re
 from lib.bindings import BindResult, Check
@@ -7,7 +7,7 @@ from lib.route import inputs, render
 from lib.paths import repo_root, sha256_file
 
 VERIFICATION_CLASS = 'replay-exact'
-BOUND_SPAN = 'full-corpus routing and explicit LEAD/LENS; deletion gate not yet implemented'
+BOUND_SPAN = 'full-corpus routing, explicit LEAD/LENS and independent final frame dependence'
 
 
 def check(record_text, receipt):
@@ -32,6 +32,10 @@ def check(record_text, receipt):
         checks.append(Check('routing', 'lowest eligible score and supplied domain lens', output['lead'], True))
     except Exception as exc:
         checks.append(Check('routing', BOUND_SPAN, str(exc), False))
-    checks.append(Check('deletion_gate', 'independent per-item frame dependence and regeneration',
-                        'not implemented; routing alone cannot enact E3', False))
-    return BindResult(False, BOUND_SPAN, checks)
+    try:
+        from lib.bindings.frame_gate import frame_chain
+        final, rounds = frame_chain(repo_root(), record_text, receipt['receipt_id'])
+        checks.append(Check('deletion_gate', 'accepted independent final-item evaluation', final, True))
+    except Exception as exc:
+        checks.append(Check('deletion_gate', 'accepted independent final-item evaluation', str(exc), False))
+    return BindResult(all(c.passed for c in checks), BOUND_SPAN, checks)

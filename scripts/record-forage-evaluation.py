@@ -17,7 +17,7 @@ from lib.forage_audit import CONTEXT_PURPOSES, EVALUATOR_BRIEF, parse_verdict
 from lib.paths import canonical_json, repo_root, sha256_file
 
 
-def main():
+def main(kind='independent-forage-evaluation', evaluator_brief=EVALUATOR_BRIEF):
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('manifest', 'response', 'brief', 'artifact', 'candidate', 'rubric', 'out', 'generator-actor'):
         parser.add_argument('--' + name, required=True)
@@ -41,7 +41,7 @@ def main():
     if (request.get('output_mode') != 'critique' or request.get('acceptance_criteria') != []
             or request.get('constraints') != []):
         raise ValueError('manifest contains alternate or extra evaluator instructions')
-    if manifest['delegation']['brief'] != EVALUATOR_BRIEF:
+    if manifest['delegation']['brief'] != evaluator_brief:
         raise ValueError('manifest does not use the frozen evaluator instruction')
     response = packet['receipt']
     if response['model'] != manifest['delegation']['model'] or response['finish_reason'] != 'stop' or response['truncated'] is not False:
@@ -50,7 +50,7 @@ def main():
     evaluator = 'openrouter:' + response['request_id']
     if not args.generator_actor.strip() or args.generator_actor == evaluator:
         raise ValueError('generator actor must be disclosed and distinct from evaluator')
-    value = {'schema_version': 1, 'kind': 'independent-forage-evaluation', 'mode': args.mode,
+    value = {'schema_version': 1, 'kind': kind, 'mode': args.mode,
              'independent': True, 'generator_actor': args.generator_actor, 'evaluator_actor': evaluator,
              'context_root': str(root), 'files_read': hashes,
              'disclosure': 'Host attests a separate stateless request with only the four manifested task inputs. This is not cryptographic proof of the model context or semantic correctness.'}

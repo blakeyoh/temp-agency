@@ -874,6 +874,243 @@
         "elapsed_ms": 58381
       },
       "review": "Host confirmed contract gaps and fixed E3 prefix-substring label binding with exact unique-line parsing. Intentional fail-closed behavior is not itself an implementation defect. Review is partial Phase7, not a readiness sign-off."
+    },
+    {
+      "scope": "E3 independent rubric smoke request 1",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:52:07+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E3 frame-deletion rubric to every supplied final candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/brief.txt",
+            "purpose": "Frozen task constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/artifact.json",
+            "purpose": "Verified source artifact",
+            "bytes": 10041,
+            "sha256": "3d1b2004a33a8c5552b2ba5f9100dd5f049f62fd66b72bffb8479993d0305a7e"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/candidate.json",
+            "purpose": "Frozen candidate to evaluate",
+            "bytes": 2336,
+            "sha256": "c5dd54d287a25060b4e97099be8e162486b6b770ac7af41e73c4d3326398020d"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/evaluator-rubric.md",
+            "purpose": "Binding independent rubric",
+            "bytes": 2093,
+            "sha256": "569c8a9a4828af291956f4d0fd4ad6beef9530bcdd6f165b158c3c7e34a9b6a7"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789329151-3NKdcCrZwC8ZplzQXRDh",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 43,
+        "cost_usd": 0.00784724,
+        "usage": {
+          "prompt_tokens": 3737,
+          "completion_tokens": 611,
+          "total_tokens": 4348,
+          "cost": 0.00784724,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 64,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00784724,
+            "upstream_inference_prompt_cost": 0.00515884,
+            "upstream_inference_completions_cost": 0.0026884
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 43,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 7527
+      },
+      "review": "Response rejected: quote omitted Markdown markers; no semantic result accepted."
+    },
+    {
+      "scope": "E3 independent rubric smoke request 2",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-13T19:53:57+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E3 frame-deletion rubric to every supplied final candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/brief.txt",
+            "purpose": "Frozen task constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/artifact.json",
+            "purpose": "Verified source artifact",
+            "bytes": 10041,
+            "sha256": "3d1b2004a33a8c5552b2ba5f9100dd5f049f62fd66b72bffb8479993d0305a7e"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/candidate.json",
+            "purpose": "Frozen candidate to evaluate",
+            "bytes": 2336,
+            "sha256": "c5dd54d287a25060b4e97099be8e162486b6b770ac7af41e73c4d3326398020d"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/evaluator-rubric.md",
+            "purpose": "Binding independent rubric",
+            "bytes": 2230,
+            "sha256": "e6aaf0e6314f8e8a3d42ec0daf4b72abebde60f12fb78da76e82d95d395d2441"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789329250-TVYPRgiipobTN3RphrlK",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 74,
+        "cost_usd": 0.00478068,
+        "usage": {
+          "prompt_tokens": 3761,
+          "completion_tokens": 835,
+          "total_tokens": 4596,
+          "cost": 0.00478068,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 3648,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00478068,
+            "upstream_inference_prompt_cost": 0.00110668,
+            "upstream_inference_completions_cost": 0.003674
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 74,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 9893
+      },
+      "review": "Response rejected: quote omitted Markdown markers; no semantic result accepted."
+    },
+    {
+      "scope": "E3 independent rubric smoke request 3",
+      "manifest": {
+        "version": 3,
+        "created_at": "2026-09-14T01:24:30+00:00",
+        "delegation": {
+          "model": "z-ai/glm-5.3",
+          "brief": "Apply the supplied independent E3 frame-deletion rubric to every supplied final candidate item. Use only the four supplied context files. Return only the rubric-specified fenced JSON verdict, without extra commentary, replacements, or an overall pass decision.",
+          "output_mode": "critique",
+          "reasoning_effort": "low",
+          "max_output_tokens": 20480,
+          "provider_only": [
+            "z-ai"
+          ],
+          "acceptance_criteria": [],
+          "constraints": []
+        },
+        "context": [
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/brief.txt",
+            "purpose": "Frozen task constraints",
+            "bytes": 2032,
+            "sha256": "6186519be7377e53dfa66cd09bdbb67b358c5f6306d9cff5b45b5c7d322fde45"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/artifact-plain.json",
+            "purpose": "Verified source artifact",
+            "bytes": 10072,
+            "sha256": "14a003a24e8173c51aa69552d5e25cc2f9a91d4b002692213e1efcb0a54088d2"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/calibration/candidate.json",
+            "purpose": "Frozen candidate to evaluate",
+            "bytes": 2336,
+            "sha256": "c5dd54d287a25060b4e97099be8e162486b6b770ac7af41e73c4d3326398020d"
+          },
+          {
+            "path": "/Users/laurenmutchler/claude-code/temp-agency/docs/tournament/route/evaluator-rubric.md",
+            "purpose": "Binding independent rubric",
+            "bytes": 2230,
+            "sha256": "e6aaf0e6314f8e8a3d42ec0daf4b72abebde60f12fb78da76e82d95d395d2441"
+          }
+        ]
+      },
+      "receipt": {
+        "model": "z-ai/glm-5.3",
+        "provider": "Z.AI",
+        "request_id": "gen-1789349096-RMonJhfpljka0TvoSV5G",
+        "finish_reason": "stop",
+        "truncated": false,
+        "reasoning_tokens": 57,
+        "cost_usd": 0.0087044,
+        "usage": {
+          "prompt_tokens": 3788,
+          "completion_tokens": 773,
+          "total_tokens": 4561,
+          "cost": 0.0087044,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0087044,
+            "upstream_inference_prompt_cost": 0.0053032,
+            "upstream_inference_completions_cost": 0.0034012
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 57,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "elapsed_ms": 12865
+      },
+      "review": "Exact validation passed: three dependent, one decorative; overall false as intended. Not an official dispatch."
     }
   ],
   "budget_note": "Kimi actual cost exceeded wrapper estimate. Estimates are not enforceable spending caps. Failed-call cost/request metadata was not persisted by wrapper."

@@ -277,6 +277,16 @@ model to legibly derive its answer from the string, and that derivation step —
 originates; it does not fix, and does not claim to fix, whether the model's stated derivation
 from that string is honest rather than invented after the fact — that remains open.
 
+**Phase 5 implementation clarification (commissioner-approved 2026-09-13).** E3 may add a
+small independent evaluator analogous to E2 for frame-dependence and regeneration; its
+implementation is verified at the declared bound span; full readiness review and
+dispatch authorization remain separate. E4's operative stage contract is crossover-only: two distinct parent profiles,
+a seed, and a literal child; point mutation, scoring, selection, and promotion/death history
+are not mandatory at this stage. E5 retains its existing instruction plus the frozen 1911
+wordlist and regeneration chain, with no independent concept-review step; the surface list's
+inability to catch hidden modern concepts remains disclosed. This clarification changes no
+entrant standing, dispatch authorization, or Ruling 24/25 disposition.
+
 ---
 
 ## 5. Cross-pollinated regions

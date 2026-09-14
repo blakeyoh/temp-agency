@@ -1,0 +1,46 @@
+{
+  "passed": false,
+  "minimum_survivors": 3,
+  "survivors": [
+    "i1",
+    "i2",
+    "i3"
+  ],
+  "rejected": [
+    "i4"
+  ],
+  "verdicts": [
+    {
+      "item_id": "i1",
+      "decision": "dependent",
+      "proposal_quote": "the association pays a facilitator to help its own board name one belief behind its preferred remedy, record what aggregate 311 evidence would contradict that belief, and test that evidence before approving the purchase",
+      "artifact_quote": "Identify the assumption or belief producing the pattern. Ask: \"What would have to be true for you to keep responding this way?\" or \"What's the belief underneath that reaction?\"",
+      "deletion_effect": "Without the belief-surfacing and counter-evidence mechanism, the item collapses into an ordinary purchase-approval checklist; the condition that the board examine its own operating belief before buying disappears entirely.",
+      "reason": "The Phase 2 method (surface the operating belief) and Phase 3 (test against counter-evidence) directly determine the approval condition, changing who acts and what practice must occur before spending."
+    },
+    {
+      "item_id": "i2",
+      "decision": "dependent",
+      "proposal_quote": "Funding can support only the owner's chosen feasible experiment, not a substitute solution selected by the facilitator. The owner retains the decision",
+      "artifact_quote": "The coachee drives: The coach expands the client's range; they don't substitute the coach's judgment for the client's. Ownership of outcomes stays with the coachee throughout.",
+      "deletion_effect": "Removing the coachee-drives principle removes the funding constraint that the owner, not the facilitator, selects the action; the consultation could fund any expert-chosen fix, a substantively different rule.",
+      "reason": "A specific profile principle (ownership stays with the coachee) is converted into a binding rule about who chooses the funded intervention, materially shaping the recommendation."
+    },
+    {
+      "item_id": "i3",
+      "decision": "dependent",
+      "proposal_quote": "no renewal until the operator states what was learned from the observed result",
+      "artifact_quote": "Not a resolution, an experiment \u2014 with an outcome to observe and a learning to extract. The debrief on the experiment is where the coaching happens.",
+      "deletion_effect": "Without the experiment-and-debrief methodology, the renewal condition tied to stating what was learned disappears; the item would be a plain time-limited quiet-departure trial with standard before/after metrics.",
+      "reason": "Phase 4's experiment-design structure (one behavior, one situation, predicted observable result, debrief before continuing) is the direct source of the renewal rule, changing the feedback mechanism."
+    },
+    {
+      "item_id": "i4",
+      "decision": "unchanged",
+      "proposal_quote": "Call the project Executive Coach Quiet Street and buy sound-absorbing barriers for consenting properties.",
+      "artifact_quote": "",
+      "deletion_effect": "Removing any executive-coach mechanism leaves the identical recommendation: buy barriers, compare aggregate 311 counts, keep hours and parking unchanged. Nothing in the profile shapes the action.",
+      "reason": "The only coach reference is the project's name and printed title \u2014 vocabulary decoration. No belief-surfacing, question-first, experiment, or ownership mechanism affects the rule; it is a conventional soundproofing purchase."
+    }
+  ]
+}

@@ -492,9 +492,10 @@ Phase 2 is a build result, not an official entrant dispatch or change of standin
 Rulings 24/25 remain deferred. Phase 3 and Phase 4 implementations are verified;
 E6's committed deck is also built. E4's crossover-only builder, E5's 1911 surface checker
 and E3's lexical router are now implemented, with their narrower bounds explicit.
-E3 still fails its required deletion check. A partial independent Phase 7 read of these
-three entrants found scope gaps against the frozen contracts; commissioner decisions
-are pending in `contract-review/phase5-host-findings.md`. Phase 5 is not declared complete
+E3 now includes the approved small independent frame gate. A partial independent Phase 7 read of these
+three entrants found scope gaps against the frozen contracts; the commissioner decisions
+are resolved in `contract-review/phase5-host-findings.md` (E4 crossover-only; E5 wordlist-only;
+E3 small independent evaluation). Phase 5 is not declared complete
 merely because its executables exist. Full contract review, packet integration and
 directives remain outstanding.
 

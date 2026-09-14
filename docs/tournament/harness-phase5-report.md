@@ -1,8 +1,8 @@
 # Phase 5 development report
 
 E6's committed deck and executable are implemented. E4, E5 and E3 executables are now
-implemented at the scopes documented below. Phase 5 remains incomplete: independent
-contract review, semantic-gap work, and packet/directive integration follow. No official
+implemented at the scopes documented below. The commissioner has settled E4/E5 scope and approved the small E3 evaluator.
+Full independent contract review and packet/directive integration remain. No official
 dispatch. The integrated suite passed 250 tests in 122.46 seconds with one upstream
 Torch warning; final E3 label hardening additionally passed nine focused tests.
 The partial independent E3/E4/E5 contract read is recorded in
@@ -36,7 +36,7 @@ methodology phases, pins both parent hashes, and replays exactly from the commit
 
 Five focused E4 tests pass. The implementation is deliberately crossover-only: point
 mutation, child scoring, promotion, and death history from the full original breeding
-contract are not implemented. This is a declared scope gap pending the user's decision.
+contract are not implemented. The commissioner explicitly confirmed this intended stage scope.
 
 ## E5 dated specialist checker
 
@@ -48,7 +48,7 @@ IDs, changed leaking items, a single non-forked chain, and an exact final propos
 
 Nine focused E5 tests pass. The checker measures the frozen surface list and its normalized
 variants. It cannot detect hidden modern concepts or every conceptual anachronism. This is
-the confirmed E5 scope gap pending the user's decision.
+a limitation the commissioner accepted without adding another review step.
 
 ## E3 opposite-specialist routing
 
@@ -59,6 +59,9 @@ domain specialist recorded as LENS, with slug-ascending tie-breaking. The receip
 brief, index, and every profile hash.
 
 Nine focused E3 tests pass, including three adversarial label-hardening cases.
-The binding verifies the recorded lexical routing but still fails its deletion gate
-unconditionally: E3 has no independent semantic frame-dependence and regeneration gate yet.
-That gap is confirmed and remains open pending the user's decision.
+The route binding now requires the small independent frame gate. `bin/frame-gate` reuses
+E2's sealed verdict and regeneration enforcement, validates the exact routed profile and
+brief, and matches the final candidate after LENS input. Three focused integration tests
+cover an accepted complete chain, rejection/regeneration, altered final prose, missing
+prior rounds, substituted frames and self-review. The full suite passed 256 tests in
+139.05 seconds; the plain-text frame normalization was then checked with the focused suite.

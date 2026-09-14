@@ -243,12 +243,36 @@ specialist is recorded as the LENS and excluded from LEAD selection; that suppli
 not independently classified by the tool. The receipt is replay-exact and pins the brief,
 index, and all profile hashes.
 
-The binding verifies the recorded corpus, scores, and explicit LEAD/LENS, then fails its
-independent deletion-gate check unconditionally. E3 therefore cannot pass enactment until a
-separate semantic frame-dependence and regeneration gate is implemented; lexical routing
-alone is not that gate.
+The binding verifies the recorded corpus, scores and exact LEAD/LENS labels, then requires
+an accepted independent evaluation chain from `bin/frame-gate`. Routing alone cannot pass.
+The frame gate reuses E2's sealed evidence, per-item verdict and regeneration checks.
 
 Phase 5 focused verification for these three tools totals 20 tests: 5 for E4, 9 for E5,
 and 6 for E3. The integrated suite passed 250 tests; subsequent E3 label hardening passed nine focused
 route tests, including three new cases. See the Phase 5 contract-review note for pending
 mechanism choices.
+
+
+### E3 independent frame gate
+
+Export the actual route with `scripts/export-routed-frame.py --route-receipt <receipt>
+--out <artifact.json>`. It derives the routed LEAD from the receipt's git commit, checks
+the source hash and removes only double-asterisk Markdown markers for quote-friendly
+text. The original profile hash remains in the artifact. No source facts are rewritten.
+
+Evaluate the final candidate after LENS input using exactly four attachments: the exact
+routed brief, exported artifact, candidate JSON and `docs/tournament/route/evaluator-rubric.md`.
+Use `lib.frame_audit.EVALUATOR_BRIEF` and `lib.forage_audit.CONTEXT_PURPOSES` in the request.
+Use `scripts/record-frame-evaluation.py` with the same file options as the E2 helper to
+record the separate evaluator invocation. Commit those inputs, the response, manifest,
+invocation and actual route receipt, then make a later dispatch commit.
+
+Invoke `bin/frame-gate --entrant E3 --seal-commit <prior-full-commit>` with `--brief`,
+`--artifact`, `--candidate`, `--rubric`, `--response`, `--manifest`, `--invocation` and
+`--route-receipt`. Use `--previous` for regeneration rounds. Preserve every round in
+Execution trace and Receipts. The final numbered proposal must match the accepted
+candidate exactly, with stable item IDs. At least three items must survive and no
+unchanged/indeterminate item may remain. There is no larger creativity-scoring system.
+
+E4's crossover-only scope and E5's instruction-plus-1911-wordlist scope were confirmed
+by the commissioner. E5 gets no additional independent concept-review step.

@@ -38,6 +38,11 @@ experiment and triggers commissioner review when theory and output evidence dive
 - **Enactment state:** **MANUAL PROTOTYPE.** The routing is possible; no least-relevant
   selector, task-to-profile distance measure or pairing history exists.
 
+**Commissioner implementation decision (2026-09-13):** Add a small independent evaluator
+analogous to E2 for the frame-dependence check. The small gate is implemented; full readiness review and
+dispatch authorization remain separate. The tournament may reject a weak mechanism rather than
+adding a larger evaluator than this contract needs.
+
 ## M5 · The Binding Map
 
 - **Input:** task, candidate output and frozen historical-output corpus.
@@ -93,6 +98,12 @@ experiment and triggers commissioner review when theory and output evidence dive
   built without.
 - **Enactment state:** **PROMISE.** Profiles have no date metadata; era lexicons and the
   checker do not exist.
+
+**Commissioner implementation decision (2026-09-13):** Keep the existing instruction plus
+the frozen 1911 wordlist and regeneration chain; add no independent concept-review step.
+The surface list's inability to catch hidden modern concepts remains a disclosed limitation.
+This records the intended scope; it does not change the current enactment state or authorize
+dispatch.
 
 ## E1 · The Entropy Well
 
@@ -174,6 +185,12 @@ experiment and triggers commissioner review when theory and output evidence dive
   future breeding.
 - **Enactment state:** **MANUAL PROTOTYPE.** Markdown crossover is runnable; polarity reversal,
   selection and promotion remain judgment surfaces.
+
+**Commissioner implementation decision (2026-09-13):** The operative contract for this
+stage is crossover-only: two distinct parent profiles, a seed, and a literal child. Point
+mutation, scoring, selection, and promotion/death history are not mandatory at this stage.
+This records the intended scope; it does not change the current enactment state or authorize
+dispatch.
 
 ## M1 · The Blind Auditor
 

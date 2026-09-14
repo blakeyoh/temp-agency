@@ -28,18 +28,20 @@ def proposal_matches(text, candidate):
     return True
 
 
-def evaluation_chain(root, text, fetch_id):
+def evaluation_chain(root, text, fetch_id, entrant='E2', gate_tool='forage-gate',
+                     source_tool='forage', source_key='fetch_receipt', validator=verify_attestation):
+    source_id_key = source_key + '_id'
     cited = set(cited_receipt_ids(text))
-    files = {load(p)['receipt_id']: p for p in list_receipts(root, 'E2')}
+    files = {load(p)['receipt_id']: p for p in list_receipts(root, entrant)}
     gates = {}
     for rid in cited:
         if rid not in files:
             continue
         value = load(files[rid])
-        if value.get('tool') == 'forage-gate':
+        if value.get('tool') == gate_tool:
             output = json.loads(value['output'])
-            if output['fetch_receipt_id'] == fetch_id:
-                problems = verify_attestation(root, value)
+            if output[source_id_key] == fetch_id:
+                problems = validator(root, value)
                 if problems:
                     raise ValueError('; '.join(problems))
                 gates[rid] = (value, output)
@@ -77,10 +79,10 @@ def evaluation_chain(root, text, fetch_id):
         raise ValueError('unchanged/indeterminate items require regeneration, or fewer than three survive')
     if not proposal_matches(text, final['candidate']):
         raise ValueError('final proposal differs from independently evaluated candidate')
-    if fetch_id not in cited or fetch_id not in files or load(files[fetch_id]).get('tool') != 'forage':
+    if fetch_id not in cited or fetch_id not in files or load(files[fetch_id]).get('tool') != source_tool:
         raise ValueError('evaluated source fetch must be cited')
     for value, output in gates.values():
-        if sha256_file(files[fetch_id]) != value['inputs'][output['inputs']['fetch_receipt']]:
+        if sha256_file(files[fetch_id]) != value['inputs'][output['inputs'][source_key]]:
             raise ValueError('evaluation used a different fetch receipt')
     return current, gates
 

@@ -44,9 +44,33 @@ results. The host separately reviewed and executed those surfaces. GLM-5.3 via Z
 request `gen-1789328166-pmCC4BC1pvKWNhwhmGj6`, 58.381 seconds, 23,434 prompt tokens,
 4,519 completion tokens, actual cost $0.0526912.
 
-## Pending commissioner choices
+## Pending commissioner choices (historical snapshot)
 
 The user has been asked whether to extend independent evaluation to E3, complete E4's
 original breeding lifecycle rather than amend it down, and add E5 concept review for
 1911. Until decisions arrive, only the bounded implementations described above are
 verified. Rulings 24/25, packet integration and official authorization remain open.
+
+## Commissioner decisions (2026-09-13)
+
+The commissioner resolved the three scope questions without changing the historical
+review above:
+
+- **E3:** Add a small independent evaluator analogous to E2 for the frame-dependence
+  check. Implementation is underway; E3 is not ready for enactment or dispatch. The
+  tournament may reject a weak mechanism rather than expanding this gate beyond its
+  purpose.
+- **E4:** Adopt the explicitly intended crossover-only scope for this stage: two distinct
+  parents, a seed, and a literal child. Point mutation, scoring, selection, and
+  promotion/death history are not mandatory at this stage.
+- **E5:** Keep the existing instruction plus frozen 1911 wordlist. Add no independent
+  concept-review step. The limitation that hidden modern concepts can evade the surface
+  list remains disclosed.
+
+These decisions do not authorize dispatch and do not determine Rulings 24/25.
+
+Implementation follow-up: the approved E3 adapter is implemented and tested using the
+shared E2 evidence and regeneration checks. The full suite passed 256 tests; three focused
+frame tests passed after plain-text export normalization. Live rubric smoke results are in
+`../route/calibration/README.md`. E4/E5 scope decisions are implemented in the governing
+notes. These three commissioner choices are resolved; full Phase 7 and later work remain.

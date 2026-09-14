@@ -1,0 +1,37 @@
+{
+  "content": "```json\n{\n  \"schema_version\": 1,\n  \"verdicts\": [\n    {\n      \"item_id\": \"i1\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"the association pays a facilitator to help its own board name one belief behind its preferred remedy, record what aggregate 311 evidence would contradict that belief, and test that evidence before approving the purchase\",\n      \"artifact_quote\": \"Identify the assumption or belief producing the pattern. Ask: \\\"What would have to be true for you to keep responding this way?\\\" or \\\"What's the belief underneath that reaction?\\\"\",\n      \"deletion_effect\": \"Without the belief-surfacing and counter-evidence mechanism, the item collapses into an ordinary purchase-approval checklist; the condition that the board examine its own operating belief before buying disappears entirely.\",\n      \"reason\": \"The Phase 2 method (surface the operating belief) and Phase 3 (test against counter-evidence) directly determine the approval condition, changing who acts and what practice must occur before spending.\"\n    },\n    {\n      \"item_id\": \"i2\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"Funding can support only the owner's chosen feasible experiment, not a substitute solution selected by the facilitator. The owner retains the decision\",\n      \"artifact_quote\": \"The coachee drives: The coach expands the client's range; they don't substitute the coach's judgment for the client's. Ownership of outcomes stays with the coachee throughout.\",\n      \"deletion_effect\": \"Removing the coachee-drives principle removes the funding constraint that the owner, not the facilitator, selects the action; the consultation could fund any expert-chosen fix, a substantively different rule.\",\n      \"reason\": \"A specific profile principle (ownership stays with the coachee) is converted into a binding rule about who chooses the funded intervention, materially shaping the recommendation.\"\n    },\n    {\n      \"item_id\": \"i3\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"no renewal until the operator states what was learned from the observed result\",\n      \"artifact_quote\": \"Not a resolution, an experiment \\u2014 with an outcome to observe and a learning to extract. The debrief on the experiment is where the coaching happens.\",\n      \"deletion_effect\": \"Without the experiment-and-debrief methodology, the renewal condition tied to stating what was learned disappears; the item would be a plain time-limited quiet-departure trial with standard before/after metrics.\",\n      \"reason\": \"Phase 4's experiment-design structure (one behavior, one situation, predicted observable result, debrief before continuing) is the direct source of the renewal rule, changing the feedback mechanism.\"\n    },\n    {\n      \"item_id\": \"i4\",\n      \"decision\": \"unchanged\",\n      \"proposal_quote\": \"Call the project Executive Coach Quiet Street and buy sound-absorbing barriers for consenting properties.\",\n      \"artifact_quote\": \"\",\n      \"deletion_effect\": \"Removing any executive-coach mechanism leaves the identical recommendation: buy barriers, compare aggregate 311 counts, keep hours and parking unchanged. Nothing in the profile shapes the action.\",\n      \"reason\": \"The only coach reference is the project's name and printed title \u2014 vocabulary decoration. No belief-surfacing, question-first, experiment, or ownership mechanism affects the rule; it is a conventional soundproofing purchase.\"\n    }\n  ]\n}\n```",
+  "work_packet": null,
+  "receipt": {
+    "model": "z-ai/glm-5.3",
+    "provider": "Z.AI",
+    "request_id": "gen-1789349096-RMonJhfpljka0TvoSV5G",
+    "finish_reason": "stop",
+    "truncated": false,
+    "reasoning_tokens": 57,
+    "cost_usd": 0.0087044,
+    "usage": {
+      "prompt_tokens": 3788,
+      "completion_tokens": 773,
+      "total_tokens": 4561,
+      "cost": 0.0087044,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0087044,
+        "upstream_inference_prompt_cost": 0.0053032,
+        "upstream_inference_completions_cost": 0.0034012
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 57,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_ms": 12865
+  }
+}
