@@ -1,0 +1,37 @@
+{
+  "content": "```json\n{\n  \"schema_version\": 1,\n  \"verdicts\": [\n    {\n      \"item_id\": \"i1\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"the association pays a facilitator to help its own board name one belief behind its preferred remedy, record what aggregate 311 evidence would contradict that belief, and test that evidence before approving the purchase\",\n      \"artifact_quote\": \"Identify the assumption or belief producing the pattern. Ask: \\\"What would have to be true for you to keep responding this way?\\\"\",\n      \"deletion_effect\": \"Without the operating-belief and counter-evidence method, the rule collapses into a generic 'review evidence before spending' policy with no requirement to name and test the board's own assumption, which is the mechanism conditioning purchase approval.\",\n      \"reason\": \"The Phase 2 belief-surfacing and Phase 3 counter-evidence testing directly determine the approval condition and facilitator's task, materially shaping the rule's substance, not just its vocabulary.\"\n    },\n    {\n      \"item_id\": \"i2\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"Funding can support only the owner's chosen feasible experiment, not a substitute solution selected by the facilitator. The owner retains the decision\",\n      \"artifact_quote\": \"The coachee drives: The coach expands the client's range; they don't substitute the coach's judgment for the client's.\",\n      \"deletion_effect\": \"Removing the coachee-drives constraint eliminates the explicit funding restriction to the owner's own chosen experiment; the rule would otherwise allow an outside expert to pick the intervention, changing who decides and what gets funded.\",\n      \"reason\": \"The core principle that the coach must not substitute judgment for the client's is converted into a binding condition on fundable actions, materially altering the rule's tradeoff between expert choice and owner ownership.\"\n    },\n    {\n      \"item_id\": \"i3\",\n      \"decision\": \"dependent\",\n      \"proposal_quote\": \"selects one specific departure behavior to change in one specified situation for two weekends, writes its expected observable result beforehand, then debriefs it with the paid facilitator before renewing the trial\",\n      \"artifact_quote\": \"Name one specific behavioral change to try in one specific situation. Not a resolution, an experiment \\u2014 with an outcome to observe and a learning to extract. The debrief on the experiment is where the coaching happens.\",\n      \"deletion_effect\": \"Without the Phase 4 experiment design, the rule loses its structure: no pre-registered expected result, no small-scale two-weekend trial, and no learning-gated renewal condition, leaving only a vague 'try being quieter' resolution.\",\n      \"reason\": \"The artifact's experiment-and-debrief sequence is the mechanism generating both the trial's design and the renewal rule that renewal waits on stated learning, so the LEAD materially shapes the recommendation.\"\n    },\n    {\n      \"item_id\": \"i4\",\n      \"decision\": \"unchanged\",\n      \"proposal_quote\": \"Call the project Executive Coach Quiet Street and buy sound-absorbing barriers for consenting properties.\",\n      \"artifact_quote\": \"\",\n      \"deletion_effect\": \"Removing any executive-coach mechanism leaves the substantive recommendation identical: buy sound-absorbing barriers and compare aggregate 311 complaints before and after, a conventional noise-mitigation step.\",\n      \"reason\": \"The only LEAD content is the project's name and printed title, which is decoration; no belief-surfacing, question-first, coachee-driven, or experiment-debrief mechanism shapes the action, cost, or feedback design.\"\n    }\n  ]\n}\n```",
+  "work_packet": null,
+  "receipt": {
+    "model": "z-ai/glm-5.3",
+    "provider": "Z.AI",
+    "request_id": "gen-1789329250-TVYPRgiipobTN3RphrlK",
+    "finish_reason": "stop",
+    "truncated": false,
+    "reasoning_tokens": 74,
+    "cost_usd": 0.00478068,
+    "usage": {
+      "prompt_tokens": 3761,
+      "completion_tokens": 835,
+      "total_tokens": 4596,
+      "cost": 0.00478068,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 3648,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00478068,
+        "upstream_inference_prompt_cost": 0.00110668,
+        "upstream_inference_completions_cost": 0.003674
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 74,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "elapsed_ms": 9893
+  }
+}
