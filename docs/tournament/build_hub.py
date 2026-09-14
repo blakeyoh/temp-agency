@@ -80,11 +80,34 @@ def _blocks(pattern, text):
         yield mark, text[mark.end():end]
 
 
+_MD_EMPHASIS = re.compile(r"\*\*(.+?)\*\*|`([^`]+)`|\*(.+?)\*", re.S)
+
+
+def _plain(text):
+    """Flatten markdown emphasis so the hub renders prose, not syntax.
+
+    field-of-32.md is authored as markdown, and the page sets text with
+    textContent — never innerHTML, because entrant prose is user-authored.
+    Without this a card shows a literal `**ADVANCED**` and stray backticks.
+
+    Emphasis nests: E9's prose puts backticked code inside a bold run, and one
+    substitution pass leaves the inner marks behind. Re-run until the text
+    stops changing, bounded so malformed input can never spin.
+    """
+    for _ in range(4):
+        flattened = _MD_EMPHASIS.sub(
+            lambda m: m.group(1) or m.group(2) or m.group(3) or "", text)
+        if flattened == text:
+            return flattened
+        text = flattened
+    return text
+
+
 def _labelled(block, label):
     """Read a `**Label:** value` or `**Label** · value` run up to the blank line."""
     found = re.search(
         rf"\*\*{re.escape(label)}:?\*\*\s*·?\s*(.+?)(?=\n\n|\Z)", block, re.S)
-    return " ".join(found.group(1).split()) if found else ""
+    return _plain(" ".join(found.group(1).split())) if found else ""
 
 
 def _first_paragraph(block):
@@ -92,7 +115,7 @@ def _first_paragraph(block):
     for para in block.strip().split("\n\n"):
         para = para.strip()
         if para and not para.startswith(("*(", "**")):
-            return " ".join(para.split())
+            return _plain(" ".join(para.split()))
     return ""
 
 
