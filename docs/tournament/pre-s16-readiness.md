@@ -1,8 +1,9 @@
 # Pre-Sweet-16 Readiness Gate
 
-> **Status:** Commissioner docket complete; execution freeze remains. No scrimmage, A/B draw,
-> panel draw or Sweet 16 game may begin until the applicable execution items are checked and
-> the resulting commit is recorded here.
+> **Status (2026-09-14):** START AUTHORIZED. See "Start authorization" at the end of this
+> file for the readiness commit, draw-map commit and the one remaining day-of condition
+> (a passing Luna probe). The official runs have not begun; `receipts/` holds only
+> `.gitkeep` and `dispatch-log.json` is empty.
 
 ## Completed preparation
 
@@ -119,8 +120,17 @@ Rulings 11 and 12 in `commissioner-rulings.md` close this pre-scrimmage docket.
 
 ## Start authorization
 
-- **Readiness commit:** PENDING
+- **Readiness commit:** `12bd3d9` (`12bd3d991df9f4dc792399759d965e7293fa3f88`) — harness
+  Phases 0–8 complete, 14 implemented entrants, Rulings 24–25 recorded, empty
+  `dispatch-log.json` committed. Full suite 322 passed on the durable runtime.
 - **Frozen roster / knowledge commit:** `f4288ed`
-- **Final draw-map commit:** PENDING
-- **Commissioner authorization:** PENDING
+- **Final draw-map commit:** `43d1958` (`43d1958a723405cfd65954612d2c8682a61f58ce`,
+  2026-09-03) — the Ruling 22 substitution; unchanged since.
+- **Commissioner authorization:** GRANTED 2026-09-14T02:52:06Z by the commissioner, under
+  Ruling 24 item 4: the first official dispatch is conditional on a fresh probe of
+  `gpt-5.6-luna --effort xhigh` succeeding on the day of start. The probe on 2026-09-13
+  returned a usage-limit error; nothing else is outstanding.
+
+Under this authorization the operator may begin the sixteen official runs following
+`enactment-directives-s16.md`, in any order, one isolated spawn per entrant.
 - **Authorized at (UTC):** PENDING

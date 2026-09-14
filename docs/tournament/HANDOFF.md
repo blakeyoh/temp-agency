@@ -124,8 +124,36 @@ The runtime is now durable at `~/.cache/temp-agency/harness-py313` and the defau
 model cache `~/.cache/temp-agency/models` needs no env var. Full suite: 322 passed,
 0 skipped. The implemented count is 14.
 
-**Next, in order:** (c) re-confirm Luna reachability on the day of start;
-(d) then Phase 9 per the docket. Do not dispatch any game before (c).
+**Phase 9 closed 2026-09-14.** Readiness commit `12bd3d9`, draw-map commit `43d1958`,
+commissioner authorization recorded in `pre-s16-readiness.md` § Start authorization.
+The only day-of condition is a passing Luna probe.
+
+**Next session: run the Sweet 16. Exact order.**
+
+1. Probe the generator. From any directory:
+   `codex exec --skip-git-repo-check -m gpt-5.6-luna -c model_reasoning_effort='"xhigh"' 'Reply with exactly the word ok.'`
+   If it returns a usage-limit error, stop; nothing else may start.
+2. Use the durable runtime for every tool call and gate:
+   `~/.cache/temp-agency/harness-py313/bin/python`. No env var is needed.
+3. Run one game end to end before the rest. Game 1 is Lens Transformers (A) versus
+   Roster Mutation (B). For each entrant follow its section in
+   `enactment-directives-s16.md`: freeze inputs, append the `dispatch-log.json` entry
+   (entrant, seed, exact input hashes) and commit it, then run the tool, then generate
+   with Luna in an isolated `codex:codex-rescue` spawn, then write the source record from
+   `official-runs/official-run-template.md` as `official-runs/s16-<code>.md`, commit, and
+   run `bin/verify all --records 'docs/tournament/official-runs/s16-*.md' --dispatch-log docs/tournament/dispatch-log.json`.
+   Fix directive friction before continuing to the other fourteen.
+4. When all sixteen records are committed and the gate passes, render Pass 1 only:
+   `python docs/tournament/build_s16_packets.py --write --phase output`. Dispatch the
+   three panels (Builder anchor, Advocate, Architect; see `s16-draw-map.json`) for
+   Pass 1, seal their votes, and only then `--phase mechanism` for Pass 2.
+5. Tally with `python docs/tournament/tally.py --round s16`, take contested games to
+   the commissioner, then freeze
+   `s16-advancers.json` (eight codes) for the Elite 8 draw.
+
+Read Ruling 22 before Game 8 (String Seed of Thought was substituted in). The Voice
+Oracle and The Idea-Space Map produce receipt-free `PROMISE ONLY` baselines, not
+mechanism runs. Never write into `receipts/` by hand.
 
 **Before any scrimmage, read five more things after the governing four:**
 
