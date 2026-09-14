@@ -532,11 +532,15 @@ class AssembleTests(unittest.TestCase):
         self.assertEqual(payload["field"]["A5"]["flag"], "DEFECT UNRESOLVED")
         self.assertEqual(len(payload["games"]), 1)
         self.assertEqual(len(payload["floor"]), 2)
-        # The phase gate works by omission: judged evidence must be absent from the bytes.
-        blob = json.dumps(payload, ensure_ascii=False)
-        for leak in ("Distance", "Irreducibility", "Compounding", "Generative failure",
-                     "ABSORBED", "ORTHOGONAL", "STRONGEST"):
-            self.assertNotIn(leak, blob)
+        # The phase gate works by omission, and this check is STRUCTURAL on purpose.
+        # Scanning for axis vocabulary ("Distance", "ORTHOGONAL") looks stronger but is
+        # wrong: field-of-32.md's Status trailers quote Round-of-32 results verbatim, and
+        # the spec wants those shown on the entrant card. A string scan would fail against
+        # real data while proving nothing. The real property is that no judged-evidence
+        # SOURCE reaches the payload, and assemble() has no parameter through which one
+        # could arrive. Asserting the exact key set fails closed if a later phase adds one.
+        self.assertEqual(set(payload),
+                         {"phase", "generated", "field", "games", "panels", "floor"})
 
     def test_emit_writes_a_single_global_assignment(self):
         with tempfile.TemporaryDirectory() as temp:
