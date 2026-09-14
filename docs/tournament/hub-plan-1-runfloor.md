@@ -928,7 +928,10 @@ Create `docs/tournament/hub/chrome.js`:
   }
 
   function go(view, game) {
-    state = { view: views[view] ? view : state.view, game: game || state.game };
+    // Mutate rather than reassign: window.HUB.state exports this object by reference,
+    // and a reassignment here would leave that export pointing at a stale snapshot.
+    state.view = views[view] ? view : state.view;
+    state.game = game || state.game;
     render();
   }
 
@@ -1176,7 +1179,7 @@ Create `docs/tournament/hub/views/entrant.js`:
 (function () {
   var el = window.HUB.el;
 
-  function card(data, entry) {
+  function card(entry) {
     var box = el("div", { cls: "card" });
     var head = el("h3", {});
     head.appendChild(el("span", { cls: "code", text: entry.code + " " }));
@@ -1202,7 +1205,7 @@ Create `docs/tournament/hub/views/entrant.js`:
     var grid = el("div", { cls: "cards" });
     data.floor.forEach(function (row) {
       var entry = data.field[row.code];
-      if (entry) { grid.appendChild(card(data, entry)); }
+      if (entry) { grid.appendChild(card(entry)); }
     });
     container.appendChild(grid);
   });
