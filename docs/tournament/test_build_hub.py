@@ -57,5 +57,67 @@ class GuardTests(unittest.TestCase):
             self.assertEqual(hub.resolve_phase(phase), phase)
 
 
+FIELD_FIXTURE = """### E1 · The Entropy Well ◆
+*(owner idea 2, split: "scripts and shells")*
+
+Randomness in this repo is currently rhetorical. Make it literal and seeded.
+
+**Not native:** models simulate randomness by reaching for the most-likely option.
+
+**Status** · **ADVANCED → Sweet 16** — Dog G6, 18–13, panels 2–1.
+
+### A5 · The Hostile Environment
+
+Remove a capability the persona depends on.
+
+**Not native:** a model asked to work without a tool narrates the loss.
+
+**Status** · **ADVANCED → Sweet 16** — Moat G10, 21–9.
+"""
+
+CONTRACT_FIXTURE = """## E1 · The Entropy Well
+
+- **Enactment state:** **MANUAL PROTOTYPE.** The PRNG is cheap.
+
+## A5 · The Hostile Environment
+
+- **Enactment state:** **PROMISE, DEFECT UNRESOLVED.** No general mechanism yet.
+"""
+
+
+class FieldReaderTests(unittest.TestCase):
+    def test_reads_code_name_and_owner_mark(self):
+        field = hub.collect_field(FIELD_FIXTURE)
+        self.assertEqual(set(field), {"E1", "A5"})
+        self.assertEqual(field["E1"]["name"], "The Entropy Well")
+        self.assertTrue(field["E1"]["owner"])
+        self.assertFalse(field["A5"]["owner"])
+
+    def test_reads_summary_skipping_the_provenance_italics(self):
+        field = hub.collect_field(FIELD_FIXTURE)
+        self.assertTrue(field["E1"]["summary"].startswith("Randomness in this repo"))
+
+    def test_reads_labelled_sections_in_both_shapes(self):
+        field = hub.collect_field(FIELD_FIXTURE)
+        self.assertTrue(field["E1"]["not_native"].startswith("models simulate"))
+        self.assertIn("ADVANCED", field["E1"]["status"])
+
+
+class ContractReaderTests(unittest.TestCase):
+    def test_splits_state_from_its_qualifier(self):
+        states = hub.collect_states(CONTRACT_FIXTURE)
+        self.assertEqual(states["E1"], {"state": "MANUAL PROTOTYPE", "flag": ""})
+        self.assertEqual(states["A5"], {"state": "PROMISE", "flag": "DEFECT UNRESOLVED"})
+
+    def test_reads_every_entrant_in_the_real_contracts_file(self):
+        text = (hub.HERE / "evidence-contracts-s16.md").read_text(encoding="utf-8")
+        states = hub.collect_states(text)
+        # 17, not 16: M3 keeps its contract section after Ruling 22 moved it to the
+        # wildcard bench. Verify with: grep -c '^## [A-Z][0-9]* ·' evidence-contracts-s16.md
+        self.assertEqual(len(states), 17)
+        for value in states.values():
+            self.assertIn(value["state"], ("RUNNABLE", "MANUAL PROTOTYPE", "PROMISE"))
+
+
 if __name__ == "__main__":
     unittest.main()

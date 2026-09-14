@@ -5,6 +5,7 @@ the data file aggregates codes, names, A/B positions and results that the packet
 deliberately keeps apart, so it must not be readable by an agent working in the repo.
 """
 import os
+import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -56,3 +57,60 @@ def resolve_out_dir(raw):
     if _is_inside(out, ROOT):
         raise OutsideTreeError(f"refusing to write hub data inside the repository tree: {out}")
     return out
+
+
+ENTRANT_RE = re.compile(r"^### (?P<code>[A-Z]\d+) · (?P<name>.+?)(?P<owner> ◆)?$", re.M)
+CONTRACT_RE = re.compile(r"^## (?P<code>[A-Z]\d+) · ", re.M)
+STATE_RE = re.compile(r"\*\*Enactment state:\*\* \*\*(?P<body>[^*]+)\*\*")
+
+
+def _blocks(pattern, text):
+    """Yield (match, block) where block runs to the next match or end of text."""
+    marks = list(pattern.finditer(text))
+    for index, mark in enumerate(marks):
+        end = marks[index + 1].start() if index + 1 < len(marks) else len(text)
+        yield mark, text[mark.end():end]
+
+
+def _labelled(block, label):
+    """Read a `**Label:** value` or `**Label** · value` run up to the blank line."""
+    found = re.search(
+        rf"\*\*{re.escape(label)}:?\*\*\s*·?\s*(.+?)(?=\n\n|\Z)", block, re.S)
+    return " ".join(found.group(1).split()) if found else ""
+
+
+def _first_paragraph(block):
+    """First prose paragraph, skipping the italic provenance line and bold labels."""
+    for para in block.strip().split("\n\n"):
+        para = para.strip()
+        if para and not para.startswith(("*(", "**")):
+            return " ".join(para.split())
+    return ""
+
+
+def collect_field(text):
+    """Parse field-of-32.md into {code: {code, name, owner, summary, not_native, status}}."""
+    entries = {}
+    for mark, block in _blocks(ENTRANT_RE, text):
+        entries[mark.group("code")] = {
+            "code": mark.group("code"),
+            "name": mark.group("name").strip(),
+            "owner": bool(mark.group("owner")),
+            "summary": _first_paragraph(block),
+            "not_native": _labelled(block, "Not native"),
+            "status": _labelled(block, "Status"),
+        }
+    return entries
+
+
+def collect_states(text):
+    """Parse evidence-contracts-s16.md into {code: {state, flag}}."""
+    states = {}
+    for mark, block in _blocks(CONTRACT_RE, text):
+        found = STATE_RE.search(block)
+        if not found:
+            continue
+        body = found.group("body").strip().rstrip(".")
+        state, _, flag = body.partition(",")
+        states[mark.group("code")] = {"state": state.strip(), "flag": flag.strip()}
+    return states
