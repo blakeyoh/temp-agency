@@ -1,4 +1,5 @@
 """Tests for the commissioner hub generator."""
+import json
 import os
 import sys
 import tempfile
@@ -155,3 +156,37 @@ class RunFloorTests(unittest.TestCase):
         self.assertEqual(hub.dispatched_codes({"entries": []}), set())
         report = Report([Row("E1"), Row("A5", replay="FAIL"), Row("E1")])
         self.assertEqual(hub.gated_codes(report), {"E1"})
+
+
+DRAW_FIXTURE = {
+    "seed": 372500925,
+    "games": [{"g": 1, "pair": ["A1", "E4"], "A": "A1", "B": "E4", "region": "Sweet 16"}],
+    "panels": [{"name": "Builder", "file_tag": "builder", "lead": "nuclear-reactor-operator",
+                "lens": "magician-illusionist", "fresh": False}],
+}
+
+
+class AssembleTests(unittest.TestCase):
+    def test_runfloor_payload_carries_state_and_omits_judged_evidence(self):
+        payload = hub.assemble(
+            "runfloor", hub.collect_field(FIELD_FIXTURE),
+            hub.collect_states(CONTRACT_FIXTURE), DRAW_FIXTURE,
+            hub.run_floor(["E1", "A5"], {"E1"}, set(), set(), {}))
+        self.assertEqual(payload["phase"], "runfloor")
+        self.assertEqual(payload["field"]["A5"]["state"], "PROMISE")
+        self.assertEqual(payload["field"]["A5"]["flag"], "DEFECT UNRESOLVED")
+        self.assertEqual(len(payload["games"]), 1)
+        self.assertEqual(len(payload["floor"]), 2)
+        # The phase gate works by omission: judged evidence must be absent from the bytes.
+        blob = json.dumps(payload, ensure_ascii=False)
+        for leak in ("Distance", "Irreducibility", "Compounding", "Generative failure",
+                     "ABSORBED", "ORTHOGONAL", "STRONGEST"):
+            self.assertNotIn(leak, blob)
+
+    def test_emit_writes_a_single_global_assignment(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = hub.emit({"phase": "runfloor"}, hub.Path(temp) / "out")
+            text = path.read_text(encoding="utf-8")
+        self.assertEqual(path.name, "hub-data.js")
+        self.assertTrue(text.startswith("window.HUB_DATA = {"))
+        self.assertTrue(text.rstrip().endswith("};"))

@@ -4,8 +4,12 @@ Never writes inside the repository tree. See docs/tournament/hub-design.md § 3 
 the data file aggregates codes, names, A/B positions and results that the packet system
 deliberately keeps apart, so it must not be readable by an agent working in the repo.
 """
+import argparse
+import json
 import os
 import re
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -149,3 +153,94 @@ def run_floor(codes, dispatched, recorded, gated, receipts):
             stage = "pending"
         rows.append({"code": code, "stage": stage, "receipts": receipts.get(code, 0)})
     return rows
+
+
+FIELD_FILE = HERE / "field-of-32.md"
+CONTRACTS_FILE = HERE / "evidence-contracts-s16.md"
+DRAW_FILE = HERE / "s16-draw-map.json"
+DISPATCH_FILE = HERE / "dispatch-log.json"
+RUNS_DIR = HERE / "official-runs"
+RECEIPTS_DIR = HERE / "receipts"
+
+
+def assemble(phase, field, states, draw, floor):
+    """Build the payload for `phase`. Judged evidence is never read at runfloor."""
+    merged = {}
+    for code, entry in field.items():
+        state = states.get(code, {"state": "", "flag": ""})
+        merged[code] = dict(entry, state=state["state"], flag=state["flag"])
+    return {
+        "phase": phase,
+        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "field": merged,
+        "games": draw.get("games", []),
+        "panels": draw.get("panels", []),
+        "floor": floor,
+    }
+
+
+def emit(payload, out_dir):
+    """Write hub-data.js into `out_dir`, creating it if needed."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "hub-data.js"
+    blob = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    path.write_text(f"window.HUB_DATA = {blob};\n", encoding="utf-8")
+    return path
+
+
+RECEIPT_NAME = re.compile(r"^\d{3}-[0-9a-f]{12}\.json$")
+
+
+def _receipt_counts():
+    """Count issued receipts per entrant.
+
+    Matches lib/receipt.py:20's RECEIPT_NAME exactly. A plain `*.json` glob would also
+    match the `NNN-<hex>.bind.json` sidecars and double every count.
+    """
+    if not RECEIPTS_DIR.is_dir():
+        return {}
+    return {child.name.upper():
+            len([f for f in child.iterdir() if RECEIPT_NAME.match(f.name)])
+            for child in RECEIPTS_DIR.iterdir() if child.is_dir()}
+
+
+def _recorded_codes(codes):
+    return {code for code in codes if (RUNS_DIR / f"s16-{code.lower()}.md").is_file()}
+
+
+def _gated(run_gate_enabled):
+    if not run_gate_enabled:
+        return set()
+    sys.path.insert(0, str(ROOT))
+    from lib.verify.gate import run_gate
+    return gated_codes(run_gate(ROOT, dispatch_log="docs/tournament/dispatch-log.json"))
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Generate the commissioner hub data file.")
+    parser.add_argument("--phase", required=True, choices=PHASES)
+    parser.add_argument("--out", default=None,
+                        help="Directory outside the repo. Defaults to ~/.cache/temp-agency/hub.")
+    parser.add_argument("--gate", action="store_true",
+                        help="Run bin/verify's gate to fill the gated column. Slower.")
+    args = parser.parse_args(argv)
+
+    phase = resolve_phase(args.phase)
+    out_dir = resolve_out_dir(args.out)
+
+    field = collect_field(FIELD_FILE.read_text(encoding="utf-8"))
+    states = collect_states(CONTRACTS_FILE.read_text(encoding="utf-8"))
+    draw = json.loads(DRAW_FILE.read_text(encoding="utf-8"))
+    log = json.loads(DISPATCH_FILE.read_text(encoding="utf-8"))
+
+    codes = [code for game in draw["games"] for code in (game["A"], game["B"])]
+    floor = run_floor(codes, dispatched_codes(log), _recorded_codes(codes),
+                      _gated(args.gate), _receipt_counts())
+
+    path = emit(assemble(phase, field, states, draw, floor), out_dir)
+    print(f"hub-data.js: {phase} phase, {len(codes)} entrants -> {path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
